@@ -37,4 +37,10 @@ jobs:
         shell: pwsh
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create $env:GITHUB_REF_NAME release/LoL-7-a-0-windows-x64.zip release/LoL-7-a-0-windows-x64.zip.sha256 --title "LoL 7 a 0 $env:GITHUB_REF_NAME" --generate-notes
+        run: |
+          $existing = gh release view $env:GITHUB_REF_NAME --json tagName --jq .tagName 2>$null
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "A release $existing ja foi publicada; mantendo os arquivos existentes."
+            exit 0
+          }
+          gh release create $env:GITHUB_REF_NAME release/LoL-7-a-0-windows-x64.zip release/LoL-7-a-0-windows-x64.zip.sha256 --title "LoL 7 a 0 $env:GITHUB_REF_NAME" --generate-notes
