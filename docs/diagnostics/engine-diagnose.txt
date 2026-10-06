@@ -1,0 +1,257 @@
+
+==================================================================
+  A. SINTETICO EQUILIBRADO (75 vs 75)  (N=1500)
+==================================================================
+
+  MACRO
+    win-rate lado user ....... 53.7%
+    duracao .................. media 29:51 | dp 6:54 | p5 22:00 p25 24:15 p50 28:15 p75 34:00 p95 43:45 | IC95 [29:30, 30:12] | bc (limiar bimodal 0.5556) 0.583 (bimodal ou multimodal)
+    duracao min/max .......... 21:00 / 54:30
+    jogos < 20 min ........... 0.0%
+    jogos > 40 min ........... 9.6%
+    eventos por jogo ......... media 69.23 | dp 19.68 | p5 46.00 p25 55.00 p50 64.00 p75 79.00 p95 110.00 | IC95 [68.24, 70.23] | bc (limiar bimodal 0.5556) 0.545 (unimodal)
+    eventos/min (sobre media)  2.32
+
+  PLACAR
+    kills totais/jogo ........ media 39.33 | dp 18.51 | p5 17.00 p25 26.00 p50 34.00 p75 49.00 p95 77.00 | IC95 [38.39, 40.26] | bc (limiar bimodal 0.5556) 0.535 (unimodal)
+    kills vencedor ........... media 20.74 | dp 10.75 | p5 8.00 p25 13.00 p50 19.00 p75 26.00 p95 41.00 | IC95 [20.20, 21.29] | bc (limiar bimodal 0.5556) 0.496 (unimodal)
+    kills perdedor ........... media 18.58 | dp 11.16 | p5 5.00 p25 10.00 p50 16.00 p75 24.00 p95 41.00 | IC95 [18.02, 19.15] | bc (limiar bimodal 0.5556) 0.534 (unimodal)
+    kills por minuto ......... 1.32
+    distribuicao temporal .... <15min 41.2% | 15-25min 28.7% | >25min 30.1%
+
+  ESTRUTURAS E OBJETIVOS
+    torres vencedor ........... media 6.27 | dp 1.71 | p5 3.00 p25 5.00 p50 6.00 p75 8.00 p95 9.00 | IC95 [6.19, 6.36] | bc (limiar bimodal 0.5556) 0.451 (unimodal)
+    torres perdedor ........... media 2.56 | dp 2.12 | p5 0.00 p25 1.00 p50 2.00 p75 4.00 p95 7.00 | IC95 [2.45, 2.66] | bc (limiar bimodal 0.5556) 0.597 (bimodal ou multimodal)
+    inibidores do vencedor .... media 1.44 | dp 0.62 | p5 1.00 p25 1.00 p50 1.00 p75 2.00 p95 3.00 | IC95 [1.40, 1.47] | bc (limiar bimodal 0.5556) 0.572 (bimodal ou multimodal)
+    dragoes vencedor ........... media 2.43 | dp 1.16 | p5 0.00 p25 2.00 p50 2.00 p75 3.00 p95 4.00 | IC95 [2.37, 2.49] | bc (limiar bimodal 0.5556) 0.480 (unimodal)
+    dragoes perdedor ........... media 2.38 | dp 1.19 | p5 0.00 p25 2.00 p50 2.00 p75 3.00 p95 4.00 | IC95 [2.32, 2.44] | bc (limiar bimodal 0.5556) 0.493 (unimodal)
+    jogos com Alma ............ 42.7%
+    baroes por jogo ............ media 1.63 | dp 0.90 | p5 1.00 p25 1.00 p50 1.00 p75 2.00 p95 3.00 | IC95 [1.58, 1.67] | bc (limiar bimodal 0.5556) 0.585 (bimodal ou multimodal)
+    jogos com >=1 Baron ........ 98.0%
+    jogos com Elder ............ 19.3%
+    jogos com Arauto ........... 100.0%
+    ouro final vencedor ........ media 19959 | dp 5680 | p5 13400 p25 15826 p50 18340 p75 22598 p95 31316 | IC95 [19672, 20247] | bc (limiar bimodal 0.5556) 0.573 (bimodal ou multimodal)
+    ouro final perdedor ........ media 19076 | dp 5638 | p5 12362 p25 14816 p50 17612 p75 22210 p95 30538 | IC95 [18791, 19361] | bc (limiar bimodal 0.5556) 0.551 (unimodal)
+    diferenca de ouro .......... 883
+    ouro/min por time .......... 654
+
+  TIMINGS
+    first blood ................ media 2:37 | dp 2:15 | p5 0:15 p25 1:00 p50 2:00 p75 3:45 p95 6:30 | IC95 [2:30, 2:44] | bc (limiar bimodal 0.5556) 0.530 (unimodal)  [jogos com FB: 100.0%]
+    primeira torre .............. media 13:29 | dp 1:49 | p5 10:15 p25 12:15 p50 13:30 p75 14:45 p95 16:15 | IC95 [13:23, 13:34] | bc (limiar bimodal 0.5556) 0.405 (unimodal)
+
+  MICRO POR ROLE (soma dos 2 lados / jogo, agregado, sem serie por partida)
+    role        K      D      A     KDA    kill-share   KP-proxy
+    top         6.29   6.90  12.78   2.76     15.6%     0.97
+    jungle     11.40   7.40  11.71   3.12     31.4%     1.18
+    mid         9.47   7.68  11.16   2.69     23.4%     1.05
+    adc         9.79   8.07  10.91   2.56     23.7%     1.05
+    support     2.38   9.28  23.44   2.78      5.9%     1.31
+    (kill-share = fracao das kills do proprio time; soma dos 5 = 100%)
+    share global por role: top 16.0% | jungle 29.0% | mid 24.1% | adc 24.9% | support 6.0%
+
+  OUTLIERS INDIVIDUAIS
+    max kills de 1 jogador ..... media 8.57 | dp 3.14 | p5 4.00 p25 6.00 p50 8.00 p75 11.00 p95 14.00 | IC95 [8.41, 8.73] | bc (limiar bimodal 0.5556) 0.458 (unimodal)
+    jogos c/ alguem >=10 kills . 35.2%
+    jogos c/ alguem >=15 kills . 4.1%
+    jogos c/ alguem 0 mortes ... 27.0%
+    jogos c/ alguem 0 kills .... 64.0%
+
+  MULTIKILLS / RITMO DE LUTA (por jogo, agregado)
+    double 3.62 | triple 0.91 | quadra 0.12 | penta 0.01 | ace 1.95
+
+  DINAMICA
+    stomp / equilibrado / comeback: 25.2% / 39.1% / 35.7%
+
+  VIOLACOES DE PLAUSIBILIDADE (total absoluto em 1500 jogos)
+    Baron < 20min ............ 0
+    torre < 5min .............. 0
+    triple+ < 8min ............ 0
+    ace < 8min ................ 0
+
+==================================================================
+  METRICAS DERIVADAS OBSERVADAS (Cenario A, sem veredito)
+==================================================================
+
+  Estas metricas sao OBSERVADAS contra a banda de aceite final do
+  cenario equilibrado 75x75. Nenhuma linha abaixo e assercao: e
+  medicao anotada ao lado da banda, para leitura humana. As alavancas
+  legitimas desta milestone sao as taxas (torres/min, abates/min,
+  ouro/min), gateadas em calibrate:pace, nao os totais absolutos aqui.
+
+    duracao media da partida .............. 29.85 min   [banda: 29 a 36 minutos]   fonte: STACK.md secao 7
+    fracao no limite de 60 minutos ........ 0.00%   [banda: abaixo de 0,5 por cento]   fonte: STACK.md secao 7
+    fracao abaixo de 25 minutos ........... 29.3%   [banda: 1 a 12 por cento]   fonte: STACK.md secao 7
+    fracao acima de 45 minutos ............ 3.9%   [banda: abaixo de 8 por cento]   fonte: STACK.md secao 7
+    abates totais por partida ............. 39.33   [banda: 22 a 34]   fonte: STACK.md secao 7
+    torres totais por partida ............. 8.83   [banda: 10 a 14]   fonte: STACK.md secao 7
+    baroes por partida ..................... 1.63   [banda: 0,9 a 1,8]   fonte: STACK.md secao 7
+    fracao de partidas com >=1 Baron ...... 98.0%   [banda: 75 a 98 por cento]   fonte: STACK.md secao 7
+    dragoes por partida .................... 4.80   [banda: 3,8 a 5,2]   fonte: STACK.md secao 7
+    fracao de partidas com Alma ........... 42.7%   [banda: 30 a 55 por cento]   fonte: STACK.md secao 7
+    fracao de partidas com Elder .......... 19.3%   [banda: 4 a 18 por cento]   fonte: STACK.md secao 7
+    diferenca de ouro venc/perd no fim .... 883   [banda: 7 mil a 14 mil]   fonte: STACK.md secao 7
+
+==================================================================
+  B. ROSTERS REAIS SORTEADOS (players.json, 20 pros)  (N=1500)
+==================================================================
+
+  MACRO
+    win-rate lado user ....... 55.1%
+    duracao .................. media 28:47 | dp 6:28 | p5 21:45 p25 23:30 p50 27:15 p75 32:30 p95 41:15 | IC95 [28:27, 29:07] | bc (limiar bimodal 0.5556) 0.568 (bimodal ou multimodal)
+    duracao min/max .......... 20:45 / 56:00
+    jogos < 20 min ........... 0.0%
+    jogos > 40 min ........... 6.3%
+    eventos por jogo ......... media 67.77 | dp 19.22 | p5 44.00 p25 54.00 p50 63.00 p75 78.00 p95 105.00 | IC95 [66.80, 68.74] | bc (limiar bimodal 0.5556) 0.523 (unimodal)
+    eventos/min (sobre media)  2.35
+
+  PLACAR
+    kills totais/jogo ........ media 40.61 | dp 18.14 | p5 18.00 p25 28.00 p50 37.00 p75 49.00 p95 77.00 | IC95 [39.69, 41.53] | bc (limiar bimodal 0.5556) 0.522 (unimodal)
+    kills vencedor ........... media 20.42 | dp 11.20 | p5 7.00 p25 13.00 p50 18.00 p75 25.00 p95 41.00 | IC95 [19.86, 20.99] | bc (limiar bimodal 0.5556) 0.484 (unimodal)
+    kills perdedor ........... media 20.19 | dp 10.95 | p5 7.00 p25 12.00 p50 18.00 p75 26.00 p95 42.00 | IC95 [19.64, 20.74] | bc (limiar bimodal 0.5556) 0.492 (unimodal)
+    kills por minuto ......... 1.41
+    distribuicao temporal .... <15min 43.1% | 15-25min 32.6% | >25min 24.3%
+
+  ESTRUTURAS E OBJETIVOS
+    torres vencedor ........... media 5.57 | dp 1.70 | p5 3.00 p25 4.00 p50 6.00 p75 7.00 p95 9.00 | IC95 [5.49, 5.66] | bc (limiar bimodal 0.5556) 0.466 (unimodal)
+    torres perdedor ........... media 2.64 | dp 1.92 | p5 0.00 p25 1.00 p50 2.00 p75 4.00 p95 6.00 | IC95 [2.54, 2.74] | bc (limiar bimodal 0.5556) 0.530 (unimodal)
+    inibidores do vencedor .... media 1.61 | dp 0.66 | p5 1.00 p25 1.00 p50 2.00 p75 2.00 p95 3.00 | IC95 [1.57, 1.64] | bc (limiar bimodal 0.5556) 0.418 (unimodal)
+    dragoes vencedor ........... media 2.29 | dp 1.17 | p5 0.00 p25 1.00 p50 2.00 p75 3.00 p95 4.00 | IC95 [2.23, 2.35] | bc (limiar bimodal 0.5556) 0.472 (unimodal)
+    dragoes perdedor ........... media 2.42 | dp 1.16 | p5 0.00 p25 2.00 p50 2.00 p75 3.00 p95 4.00 | IC95 [2.36, 2.47] | bc (limiar bimodal 0.5556) 0.482 (unimodal)
+    jogos com Alma ............ 39.4%
+    baroes por jogo ............ media 1.59 | dp 0.84 | p5 1.00 p25 1.00 p50 1.00 p75 2.00 p95 3.00 | IC95 [1.55, 1.63] | bc (limiar bimodal 0.5556) 0.582 (bimodal ou multimodal)
+    jogos com >=1 Baron ........ 99.1%
+    jogos com Elder ............ 15.1%
+    jogos com Arauto ........... 100.0%
+    ouro final vencedor ........ media 20029 | dp 5705 | p5 13593 p25 15866 p50 18531 p75 22893 p95 31206 | IC95 [19740, 20318] | bc (limiar bimodal 0.5556) 0.549 (unimodal)
+    ouro final perdedor ........ media 19768 | dp 5500 | p5 13190 p25 15713 p50 18526 p75 22416 p95 30913 | IC95 [19490, 20046] | bc (limiar bimodal 0.5556) 0.514 (unimodal)
+    diferenca de ouro .......... 261
+    ouro/min por time .......... 691
+
+  TIMINGS
+    first blood ................ media 2:20 | dp 1:60 | p5 0:15 p25 0:45 p50 1:45 p75 3:15 p95 6:00 | IC95 [2:14, 2:26] | bc (limiar bimodal 0.5556) 0.542 (unimodal)  [jogos com FB: 100.0%]
+    primeira torre .............. media 10:47 | dp 1:43 | p5 8:15 p25 9:30 p50 10:30 p75 11:45 p95 13:45 | IC95 [10:42, 10:52] | bc (limiar bimodal 0.5556) 0.425 (unimodal)
+
+  MICRO POR ROLE (soma dos 2 lados / jogo, agregado, sem serie por partida)
+    role        K      D      A     KDA    kill-share   KP-proxy
+    top         6.15   7.07  13.25   2.74     14.8%     0.96
+    jungle     11.93   7.71  11.92   3.09     31.8%     1.17
+    mid        10.04   8.03  11.52   2.69     24.0%     1.06
+    adc        10.28   8.35  11.38   2.59     24.2%     1.07
+    support     2.22   9.46  24.32   2.81      5.2%     1.31
+    (kill-share = fracao das kills do proprio time; soma dos 5 = 100%)
+    share global por role: top 15.1% | jungle 29.4% | mid 24.7% | adc 25.3% | support 5.5%
+
+  OUTLIERS INDIVIDUAIS
+    max kills de 1 jogador ..... media 8.95 | dp 3.30 | p5 4.00 p25 7.00 p50 8.00 p75 11.00 p95 15.00 | IC95 [8.79, 9.12] | bc (limiar bimodal 0.5556) 0.397 (unimodal)
+    jogos c/ alguem >=10 kills . 37.1%
+    jogos c/ alguem >=15 kills . 5.5%
+    jogos c/ alguem 0 mortes ... 23.7%
+    jogos c/ alguem 0 kills .... 68.2%
+
+  MULTIKILLS / RITMO DE LUTA (por jogo, agregado)
+    double 3.71 | triple 1.01 | quadra 0.14 | penta 0.01 | ace 2.07
+
+  DINAMICA
+    stomp / equilibrado / comeback: 22.2% / 39.4% / 38.4%
+
+  VIOLACOES DE PLAUSIBILIDADE (total absoluto em 1500 jogos)
+    Baron < 20min ............ 0
+    torre < 5min .............. 0
+    triple+ < 8min ............ 0
+    ace < 8min ................ 0
+
+==================================================================
+  C. FAVORITO CLARO (85 vs 70)  (N=1500)
+==================================================================
+
+  MACRO
+    win-rate lado user ....... 98.0%
+    duracao .................. media 25:13 | dp 4:01 | p5 21:30 p25 22:30 p50 23:45 p75 26:45 p95 33:15 | IC95 [25:00, 25:25] | bc (limiar bimodal 0.5556) 0.609 (bimodal ou multimodal)
+    duracao min/max .......... 20:45 / 47:00
+    jogos < 20 min ........... 0.0%
+    jogos > 40 min ........... 1.0%
+    eventos por jogo ......... media 60.28 | dp 10.90 | p5 47.00 p25 53.00 p50 58.00 p75 65.00 p95 82.00 | IC95 [59.73, 60.83] | bc (limiar bimodal 0.5556) 0.474 (unimodal)
+    eventos/min (sobre media)  2.39
+
+  PLACAR
+    kills totais/jogo ........ media 30.56 | dp 11.25 | p5 16.00 p25 23.00 p50 29.00 p75 36.00 p95 52.00 | IC95 [29.99, 31.13] | bc (limiar bimodal 0.5556) 0.444 (unimodal)
+    kills vencedor ........... media 18.25 | dp 7.60 | p5 7.00 p25 13.00 p50 17.00 p75 23.00 p95 32.00 | IC95 [17.86, 18.63] | bc (limiar bimodal 0.5556) 0.395 (unimodal)
+    kills perdedor ........... media 12.32 | dp 7.03 | p5 4.00 p25 7.00 p50 11.00 p75 16.00 p95 26.00 | IC95 [11.96, 12.67] | bc (limiar bimodal 0.5556) 0.490 (unimodal)
+    kills por minuto ......... 1.21
+    distribuicao temporal .... <15min 49.7% | 15-25min 39.3% | >25min 11.0%
+
+  ESTRUTURAS E OBJETIVOS
+    torres vencedor ........... media 7.35 | dp 1.40 | p5 5.00 p25 6.00 p50 7.00 p75 9.00 p95 9.00 | IC95 [7.28, 7.42] | bc (limiar bimodal 0.5556) 0.491 (unimodal)
+    torres perdedor ........... media 0.90 | dp 1.07 | p5 0.00 p25 0.00 p50 1.00 p75 1.00 p95 3.00 | IC95 [0.85, 0.96] | bc (limiar bimodal 0.5556) 0.576 (bimodal ou multimodal)
+    inibidores do vencedor .... media 1.50 | dp 0.62 | p5 1.00 p25 1.00 p50 1.00 p75 2.00 p95 3.00 | IC95 [1.47, 1.53] | bc (limiar bimodal 0.5556) 0.518 (unimodal)
+    dragoes vencedor ........... media 2.42 | dp 1.04 | p5 1.00 p25 2.00 p50 2.00 p75 3.00 p95 4.00 | IC95 [2.37, 2.47] | bc (limiar bimodal 0.5556) 0.430 (unimodal)
+    dragoes perdedor ........... media 1.84 | dp 1.06 | p5 0.00 p25 1.00 p50 2.00 p75 3.00 p95 4.00 | IC95 [1.79, 1.89] | bc (limiar bimodal 0.5556) 0.415 (unimodal)
+    jogos com Alma ............ 22.7%
+    baroes por jogo ............ media 1.14 | dp 0.49 | p5 1.00 p25 1.00 p50 1.00 p75 1.00 p95 2.00 | IC95 [1.12, 1.17] | bc (limiar bimodal 0.5556) 0.485 (unimodal)
+    jogos com >=1 Baron ........ 97.2%
+    jogos com Elder ............ 4.1%
+    jogos com Arauto ........... 100.0%
+    ouro final vencedor ........ media 17712 | dp 3310 | p5 13588 p25 15544 p50 17117 p75 19165 p95 23941 | IC95 [17545, 17880] | bc (limiar bimodal 0.5556) 0.472 (unimodal)
+    ouro final perdedor ........ media 15307 | dp 3448 | p5 11403 p25 12880 p50 14446 p75 16696 p95 22070 | IC95 [15132, 15481] | bc (limiar bimodal 0.5556) 0.542 (unimodal)
+    diferenca de ouro .......... 2405
+    ouro/min por time .......... 655
+
+  TIMINGS
+    first blood ................ media 2:46 | dp 2:19 | p5 0:15 p25 1:00 p50 2:15 p75 4:15 p95 7:15 | IC95 [2:39, 2:53] | bc (limiar bimodal 0.5556) 0.541 (unimodal)  [jogos com FB: 100.0%]
+    primeira torre .............. media 11:43 | dp 1:42 | p5 9:15 p25 10:30 p50 11:30 p75 12:45 p95 14:45 | IC95 [11:38, 11:48] | bc (limiar bimodal 0.5556) 0.389 (unimodal)
+
+  MICRO POR ROLE (soma dos 2 lados / jogo, agregado, sem serie por partida)
+    role        K      D      A     KDA    kill-share   KP-proxy
+    top         4.69   5.25  10.12   2.82     15.1%     0.97
+    jungle      9.47   5.64   8.80   3.24     33.4%     1.20
+    mid         7.33   5.97   8.67   2.68     23.3%     1.05
+    adc         7.34   6.39   8.51   2.48     22.6%     1.04
+    support     1.74   7.32  18.39   2.75      5.5%     1.32
+    (kill-share = fracao das kills do proprio time; soma dos 5 = 100%)
+    share global por role: top 15.3% | jungle 31.0% | mid 24.0% | adc 24.0% | support 5.7%
+
+  OUTLIERS INDIVIDUAIS
+    max kills de 1 jogador ..... media 7.35 | dp 2.42 | p5 4.00 p25 6.00 p50 7.00 p75 9.00 p95 12.00 | IC95 [7.23, 7.47] | bc (limiar bimodal 0.5556) 0.424 (unimodal)
+    jogos c/ alguem >=10 kills . 18.9%
+    jogos c/ alguem >=15 kills . 0.3%
+    jogos c/ alguem 0 mortes ... 43.7%
+    jogos c/ alguem 0 kills .... 81.0%
+
+  MULTIKILLS / RITMO DE LUTA (por jogo, agregado)
+    double 2.76 | triple 0.70 | quadra 0.08 | penta 0.00 | ace 1.45
+
+  DINAMICA
+    stomp / equilibrado / comeback: 62.6% / 28.7% / 8.7%
+
+  VIOLACOES DE PLAUSIBILIDADE (total absoluto em 1500 jogos)
+    Baron < 20min ............ 0
+    torre < 5min .............. 0
+    triple+ < 8min ............ 0
+    ace < 8min ................ 0
+
+==================================================================
+  D. CURVA DE WIN-RATE POR DIFERENCA DE FORCA (N=600 por ponto)
+==================================================================
+
+    user  rival   gap    win-rate user   duracao media   kills tot
+      75     75     0       54.5%         30:13       40.01
+      77     73     4       80.0%         29:12       37.84
+      80     70    10       94.7%         26:58       33.78
+      82     68    14       98.8%         25:25       30.50
+      85     65    20       99.8%         23:47       28.16
+      88     62    26      100.0%         23:14       27.49
+      90     60    30      100.0%         22:56       27.82
+      95     55    40      100.0%         22:34       27.55
+      99     50    49      100.0%         22:22       27.98
+      99     40    59      100.0%         22:18       29.80
+
+==================================================================
+  E. IMPACTO DE UM UNICO JOGADOR FORTE (base 75; um role em 95)
+==================================================================
+
+    role sup.   win-rate   K/D/A do reforcado   kill-share dele
+    top           88.8%        3.15/3.60/5.55        17.0%
+    jungle        65.3%        6.60/3.35/6.02        33.5%
+    mid           93.3%        4.42/3.25/4.67        25.8%
+    adc           76.0%        5.48/3.73/5.47        26.4%
+    support       74.3%       1.22/4.41/11.09        6.5%

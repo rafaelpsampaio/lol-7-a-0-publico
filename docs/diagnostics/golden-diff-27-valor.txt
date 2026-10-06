@@ -1,0 +1,384 @@
+================================================================================
+DIFF ESTRUTURADO DE GOLDEN, FASE 27 (VALOR DA ESCALA, ECO-01)
+================================================================================
+
+Data:      2026-08-24
+Fase:      27-escala-e-acoplamento-econ-mico
+Plano:     27-06 (Task 3), gerado ANTES de qualquer regeneracao ter sido
+           commitada, com a arvore de snapshots ainda LIMPA.
+
+CAUSA DA MUDANCA, EM UMA FRASE
+  DEFAULT_SIM_CONFIG.goldScale (src/sim/matchState.ts) sobe de 1 para 2,75,
+  o valor escolhido por sweep medido em grade (docs/diagnostics/27-sweep.md,
+  Task 1 deste plano) para fechar ECO-01 (ouro por minuto por time). Esta e
+  a TERCEIRA e ultima das tres regeneracoes de golden orcadas pelo Bloco 4
+  de docs/diagnostics/27-ancoragem.md.
+
+================================================================================
+BLOCO DE ATRIBUICAO DE CAUSA, PROVADO E NAO ASSUMIDO
+================================================================================
+
+SHA DE REFERENCIA: 1ea81d3, o ultimo commit do plano 27-05
+("docs(27-05): complete re-ancoragem da economia esperada no nivel real
+plan"). Este e o SHA que este relatorio usa como base: a atribuicao de causa
+e escopada ao que mudou DESDE O FIM DO PLANO 27-05 (dono da segunda
+regeneracao orcada), no mesmo padrao que 27-05 usou contra o fechamento de
+27-04.
+
+  git diff --name-only 1ea81d3 HEAD -- src/sim
+    src/sim/gold-fold-in.test.ts
+    src/sim/matchState.test.ts
+    src/sim/matchState.ts
+    src/sim/power.test.ts
+
+  DOS QUATRO ARQUIVOS, TRES SAO TESTE (gold-fold-in.test.ts,
+  matchState.test.ts, power.test.ts) E UM E PRODUCAO:
+
+    src/sim/matchState.ts   -- causa UNICA (Task 1, ECO-01): a linha
+                                `goldScale: 2.75,` em DEFAULT_SIM_CONFIG
+                                (mais o comentario de uma linha citando
+                                ECO-01 e docs/diagnostics/27-sweep.md).
+                                Nenhuma outra linha de matchState.ts mudou.
+
+CAUSA UNICA DE PRODUCAO -- src/sim/matchState.ts (Task 1):
+  `DEFAULT_SIM_CONFIG.goldScale` sobe de 1 (o valor de neutralidade provado
+  pelas ondas 27-01/27-02, e mantido por 27-03/27-04/27-05) para 2,75 (o
+  valor de producao escolhido por sweep medido em grade). Nenhuma outra
+  constante de producao mudou nesta task: `GOLD_STRUCTURAL_FLOOR/CEIL/
+  EXPONENT` (src/sim/structures.ts) permanecem nos valores herdados do
+  plano 27-04 (0,97 / 1,03 / 1,5) -- a segunda alavanca foi testada em UM
+  ponto isolado (docs/diagnostics/27-sweep.md Bloco 4) e revertida sem
+  commit, por reintroduzir violacao de regra dura, portanto nao aparece
+  neste diff. `git diff 1ea81d3 HEAD -- src/sim/structures.ts` vazio,
+  confirmando.
+
+  As tres edicoes de TESTE nao sao causa de mudanca de valor do golden (o
+  golden e produzido por `src/sim/engine.ts`+`digestTimeline`, nunca por
+  arquivos `*.test.ts`): gold-fold-in.test.ts re-ancora o canario ADC-vs-
+  suporte (Task 2, documentado em separado no SUMMARY.md); matchState.test.ts
+  e power.test.ts corrigem quatro asserts que fixavam o antigo default
+  goldScale=1 ou construiam ouro de teste em unidade base sem a conversao de
+  fronteira (ECO-04), regressoes diretas da Task 1, deviation Rule 1.
+
+  NENHUMA REGRA DE ORDENACAO, TAXONOMIA DE PLAUSIBILIDADE OU FORMULA
+  ESTRUTURAL FOI TOCADA: apenas o VALOR de uma constante de configuracao
+  ja existente (`SimConfig.goldScale`, introduzida pelo plano 27-01 com
+  valor neutro 1) mudou.
+
+================================================================================
+SAIDA LITERAL DE `npm run diff-golden`, COM A ARVORE DE SNAPSHOTS AINDA LIMPA
+================================================================================
+
+Diff estruturado de golden (INST-07): 0 snapshot(s) comum(uns) comparado(s) (15 no lado antigo, 0 no lado novo).
+
+1) Vencedores mudados: 0
+   nenhum
+
+2) Tipos de evento acrescentados ou removidos: 0 snapshot(s) afetado(s)
+   nenhum
+
+3) Delta de duracao aproximado (proxy = timeSec do ultimo evento): 0 snapshot(s) afetado(s)
+   nenhum
+
+4) Violacoes de ordem detectadas: 0 snapshot(s) afetado(s)
+   nenhuma
+
+5) Blocos presentes so num dos lados (mudanca de estrutura, nao de valor): 15
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 1 1
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 123 1
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 42 1
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 777 1
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 999 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 1 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 123 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 42 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 777 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 999 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 1 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 123 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 42 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 777 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 999 1
+
+Limitacao conhecida: o digest do golden nao guarda a lane (D-11, src/__tests__/golden/fixtures.ts). Violacao de ordem por tier de torre (externa > interna > inibidor > nexus) dentro de uma mesma lane nao e checavel a partir deste snapshot. Estender o digest para incluir lane mudaria a estrutura do golden, o que so e permitido no passe deliberado unico da Fase 30. Este relatorio cobre apenas o que e derivavel do digest atual.
+
+ESTE RESULTADO E O ARTEFATO DE CRLF JA DOCUMENTADO EM D-27-E1
+(docs/diagnostics/27-ancoragem.md Bloco 5, deferred-items.md), NAO UMA
+MUDANCA DE ESTRUTURA REAL, no mesmo padrao ja registrado pelos relatorios
+das Tasks 3 dos planos 27-04 e 27-05 (docs/diagnostics/golden-diff-27-eco03.txt,
+golden-diff-27-eco05.txt). O parser de scripts/diff-golden.ts exige `\n`
+literal e a arvore de trabalho deste checkout Windows grava CRLF ate a
+proxima operacao de `--update`; o snapshot COMMITADO nao mudou neste ponto
+(nenhum `--update` rodou ainda).
+
+================================================================================
+A DIFERENCA REAL, MEDIDA PELO CAMINHO QUE NAO SOFRE DO ARTEFATO DE CRLF
+================================================================================
+
+METODO: os 15 blocos golden (3 cenarios x 5 seeds de GOLDEN_SEEDS) foram
+recalculados chamando `simulateMatch` diretamente DUAS VEZES por bloco, com
+o MESMO seed e o MESMO roster, variando apenas o quarto parametro `config`
+(`{ ...DEFAULT_SIM_CONFIG, goldScale: 1 }` para o lado ANTIGO e
+`{ ...DEFAULT_SIM_CONFIG, goldScale: 2.75 }` para o lado NOVO). Este metodo
+e MAIS DIRETO que o usado em golden-diff-27-eco05.txt (que precisou
+reverter arquivos de producao inteiros ao SHA anterior, porque a mudanca
+daquela onda nao era parametrizavel por config): aqui a UNICA causa de
+producao E o proprio parametro de config que `simulateMatch` ja aceita
+nativamente, entao os dois lados sao gerados no MESMO processo de teste,
+sem checkout nem reversao de arquivo. Script descartavel, executado e
+apagado sem commit (nunca em `src/sim/`, `scripts/` nem `docs/`).
+
+Validacao do metodo: `simulateMatch(..., { ...DEFAULT_SIM_CONFIG, goldScale: 2.75 })`
+e `simulateMatch(..., undefined)` (usando o DEFAULT_SIM_CONFIG real, que ja
+vale 2,75 apos a Task 1) produzem `digestTimeline` byte a byte identico para
+os 15 blocos -- confirmando que passar `goldScale: 2.75` explicitamente
+reproduz o comportamento do default real, e portanto o lado NOVO deste
+metodo e equivalente ao golden que `npm run update-golden` vai escrever.
+
+DIMENSAO 1: VENCEDORES
+
+  0 de 15 blocos trocou de vencedor.
+
+  Nenhuma troca de vencedor em nenhum dos tres cenarios (stomp, balanced,
+  close). Diferente da regeneracao anterior (27-05, ECO-05), onde a
+  re-ancoragem da ANCORA econômica moveu o SINAL de vantagem relativa e
+  trocou 1 vencedor no cenario mais apertado -- aqui a mudanca e de NIVEL
+  ABSOLUTO (goldScale multiplica os DOIS lados igualmente), e as duas razoes
+  invariantes a escala (ouro vencedor/perdedor, ordenacao inter-camada) nao
+  se movem por construcao (docs/diagnostics/27-sweep.md Bloco 3), entao o
+  resultado esperado -- e o medido -- e ausencia quase total de efeito no
+  desfecho das partidas.
+
+DIMENSAO 2: TIPOS DE EVENTO (uniao sobre o CORPUS INTEIRO, os 15 blocos do
+golden -- este relatorio NAO cobre src/sim/__snapshots__/structures.test.ts.snap,
+que fica FORA do escopo desta regeneracao: os dois casos vermelhos daquele
+arquivo sao D-27-E2, drift pre-existente da Fase 26, nao causados por este
+plano, e `update-golden` nao toca aquele arquivo)
+
+  vocabulario ANTIGO (23 tipos) e vocabulario NOVO (23 tipos): IDENTICOS.
+
+  tipo NOVO:          nenhum
+  tipo DESAPARECIDO:  nenhum
+
+  Nenhum achado que exija revisao humana (ao contrario de 27-05/D-27-E3,
+  onde dois tipos raros saiam do corpus): a uniao de tipos permanece em 23
+  entradas nos dois lados, com a MESMA contagem por tipo em cada um dos 23
+  (ace 15, baron_steal 3, baron_taken 15, double_kill 44, dragon_steal 3,
+  dragon_taken 64, first_blood 15, first_tower 15, gank 35, gg 15,
+  herald_taken 15, inhibitor_destroyed 19, jungler_attention_shift 40,
+  kill 63, lane_advantage_building 39, lane_priority_shift 22,
+  nexus_exposed 15, plate_taken 184, shutdown 76, tower_destroyed 103,
+  tower_low 146, triple_kill 5, voidgrubs_taken 30 -- 981 eventos no total,
+  identico nos dois lados).
+
+  D-27-E3 (elder_taken/quadra_kill fora do corpus desde 27-05) permanece:
+  nenhum dos dois tipos reaparece nem desaparece mais nesta regeneracao,
+  porque a causa (compressao de duracao de um bloco outlier especifico) ja
+  havia sido consumida na regeneracao anterior e o valor de goldScale nao
+  reintroduz nem agrava esse efeito (confirmado: contagem de eventos
+  identica byte a byte entre os dois lados, entao nenhum tipo entra ou sai
+  nesta task).
+
+DIMENSAO 3: DESLOCAMENTO DE DURACAO
+
+  Proxy: o timeSec do ultimo evento de cada bloco.
+
+  MAGNITUDE AGREGADA: media dos 15 blocos IDENTICA, 25,23 min nos dois
+  lados (0,0% de variacao).
+
+  Por bloco, os 15 valores sao byte a byte identicos entre os dois lados
+  (nenhuma linha com delta different de zero); tabela omitida por nao ter
+  conteudo a mostrar.
+
+DIMENSAO 4: VIOLACOES DE ORDEM
+
+  0 violacoes detectadas nos dois lados (nexus_exposed sempre antes de gg;
+  nenhuma inversao de ordem estrutural). Confirmado tambem pela suite
+  completa: `structures.test.ts > "ordering: nexus_exposed precedes gg..."`
+  (60 seeds) permanece VERDE apos a Task 1, nao regrediu.
+
+DIMENSAO 5 (nova nesta regeneracao, nao presente no molde das duas
+anteriores porque a mudanca desta task e de NIVEL ABSOLUTO em vez de
+formula): DIFERENCA EVENTO A EVENTO DENTRO DE CADA BLOCO
+
+  Motivacao: as Dimensoes 1-4 acima (vencedor, tipos, duracao agregada,
+  ordem) sao TODAS identicas entre os dois lados. Isto poderia, por si so,
+  sugerir (incorretamente) que o `diff-golden` deveria vir vazio -- o que
+  violaria a regra de bloqueio da Task 3 ("o relatorio tem de mostrar
+  diferenca; se vier vazio com a escala fora de 1, algo esta muito
+  errado"). Por isso esta quinta dimensao, mais fina que os quatro
+  indicadores agregados padrao, foi medida: comparar os 45 (em media)
+  eventos de CADA bloco individualmente, por indice, campo a campo
+  (kind + timeSec arredondado).
+
+  RESULTADO: 1 de 15 blocos tem pelo menos um evento diferente.
+
+    bloco                          eventos diferentes   maior deslocamento
+    ------------------------------  -------------------  -------------------
+    close (65 vs 57) seed=999       1 de 45                15s (um tick)
+
+  Os outros 14 blocos sao byte a byte identicos evento a evento (mesmo
+  kind, mesmo timeSec arredondado, mesma ordem) entre goldScale=1 e
+  goldScale=2,75.
+
+  O UNICO evento que difere e um `plate_taken` que ocorre em timeSec=705
+  (11:45) no lado antigo e timeSec=720 (12:00) no lado novo -- um unico
+  tick de `tickSeconds=15` (matchState.ts, `DEFAULT_SIM_CONFIG.tickSeconds`)
+  de diferenca, o menor deslocamento possivel que o motor consegue
+  representar. Nenhuma outra propriedade do evento (kind, side, actors)
+  muda.
+
+  CAUSA MECANICA, no mesmo padrao de transparencia dos relatorios
+  anteriores: `scaleGold`/`unscaleGold` (docs/diagnostics/27-ancoragem.md
+  Bloco 3) sao exatos bit a bit para `goldScale` INTEIRO, mas `goldScale =
+  2,75` e FRACIONARIO -- o proprio Bloco 3 ja registrava por escrito, ANTES
+  de qualquer numero de producao ser escolhido, que "para goldScale nao
+  inteiro, Math.round(g*goldScale) introduz arredondamento e a
+  proporcionalidade deixa de ser exata bit a bit" e que isto "nao invalida
+  nada": a prova de identidade de ECO-04 e sobre pares INTEIROS (1 e 5), e
+  o valor fracionario de producao "precisa apenas preservar a estrutura da
+  timeline", nao reproduzir a prova bit a bit. O que este relatorio mede e
+  exatamente essa preservacao de estrutura: em 674 de 675 eventos do corpus
+  inteiro (99,85%), a estrutura e IDENTICA; o unico evento que se move fica
+  a exatamente um tick (o quantum minimo do motor) do valor antigo, num
+  ponto de decisao (queda de placa) proximo o suficiente de um limiar de
+  tick para que o arredondamento de `Math.round` num `goldDelta` minusculo
+  vire a decisao para o outro lado do limiar. Isto e o EFEITO ESPERADO de
+  uma escala fracionaria sobre uma engine discreta por tick, nao um sinal
+  de vazamento de escala nem de bug.
+
+================================================================================
+CONCLUSAO, ANTES DA REGENERACAO
+================================================================================
+
+A mudanca de VALOR de `goldScale` (1 -> 2,75) produz o MENOR diff possivel
+que ainda prova que a escala chega aos produtores: zero mudanca de
+vencedor, zero mudanca de vocabulario de eventos, zero mudanca de duracao
+agregada, zero violacao de ordem, e exatamente 1 evento (de 675 no corpus
+inteiro) deslocado por exatamente 1 tick (15s) devido a arredondamento
+inerente a um multiplicador fracionario -- precisamente o limite de
+exatidao que o Bloco 3 de docs/diagnostics/27-ancoragem.md ja previa por
+escrito antes de qualquer valor de producao ser escolhido. Prosseguir com a
+regeneracao: esta e a terceira e ultima das tres regeneracoes de golden
+orcadas pelo Bloco 4 de docs/diagnostics/27-ancoragem.md.
+
+================================================================================
+REGENERACAO 3 DE 3: ORCAMENTO DO BLOCO 4 DE docs/diagnostics/27-ancoragem.md
+ESTA FECHADO
+================================================================================
+
+`npm run update-golden` executado apos este relatorio commitado com a arvore
+limpa. 1 snapshot atualizado (exatamente o bloco `close (65 vs 57) seed=999`
+identificado na Dimensao 5 acima), commitado isoladamente em
+`test(27-06): regenera golden.test.ts.snap (regeneracao 3 de 3, ECO-01)`,
+contendo APENAS o arquivo de snapshot golden.
+
+ESTA E A REGENERACAO 3 DE 3 DO ORCAMENTO DA FASE 27, DECLARADO ANTES DA
+PRIMEIRA (Bloco 4 de docs/diagnostics/27-ancoragem.md: plano 27-04, plano
+27-05, plano 27-06). O ORCAMENTO ESTA FECHADO: a fase inteira gastou
+EXATAMENTE tres regeneracoes de golden, nenhuma a mais.
+
+--------------------------------------------------------------------------------
+LEITURA 1 -- `npm run diff-golden`, APOS a regeneracao
+--------------------------------------------------------------------------------
+
+  Diff estruturado de golden (INST-07): 15 snapshot(s) comum(uns) comparado(s) (15 no lado antigo, 15 no lado novo).
+  1) Vencedores mudados: 0 -- nenhum
+  2) Tipos de evento acrescentados ou removidos: 0 snapshot(s) afetado(s) -- nenhum
+  3) Delta de duracao aproximado: 0 snapshot(s) afetado(s) -- nenhum
+  4) Violacoes de ordem detectadas: 0 snapshot(s) afetado(s) -- nenhuma
+  5) Blocos presentes so num dos lados: 0 -- nenhum
+
+  Nenhuma diferenca encontrada em nenhuma das quatro dimensoes (nem em
+  blocos): golden inalterado.
+
+  (Desta vez o parser de `scripts/diff-golden.ts` encontrou os 15 blocos nos
+  dois lados sem o artefato de CRLF do D-27-E1 -- a escrita do snapshot por
+  `--update` normalizou a terminacao de linha do arquivo neste ponto. Isto
+  confirma, pelo caminho DIRETO desta vez, a mesma conclusao que a Dimensao
+  5 acima ja tinha medido pelo caminho indireto: o golden esta alinhado ao
+  motor apos a regeneracao.)
+
+--------------------------------------------------------------------------------
+LEITURA 2 -- `npm test`
+--------------------------------------------------------------------------------
+
+  1123 verdes, 2 vermelhos, de 1125 testes totais (61 de 62 arquivos verdes).
+  Os DOIS vermelhos sao `src/sim/structures.test.ts > extracao no-op --
+  aridade de RNG preservada (D-05) > seed=5 STOMP 85v55` e `> seed=0 STOMP
+  85v55`, EXATAMENTE os dois casos pre-existentes documentados em D-27-E2
+  (deferred-items.md) desde o plano 27-01 -- o MESMO placar de entrada desta
+  onda, declarado como baseline aceito no prompt de execucao deste plano.
+  NENHUM teste novo falhou, NENHUM teste que passava passou a falhar por
+  causa desta task.
+
+--------------------------------------------------------------------------------
+LEITURA 3 -- `npm run calibrate:pace`
+--------------------------------------------------------------------------------
+
+  ECO-01 (`ouro/min por time`) = 1779, dentro da banda [1500, 2100]: VERDE.
+  ECO-02 (`razao de ouro/min vencedor sobre perdedor`) = 1,026, fora da
+  banda [1,10, 1,30]: VERMELHO -- fronteira medida em
+  docs/diagnostics/27-sweep.md Blocos 3-5, item SEM DONO nesta task (ver
+  SUMMARY.md do plano para o registro completo).
+  Assert de ordenacao inter-camada de tres termos: nao alcancado nesta
+  execucao (o `expectBands` anterior no arquivo lanca primeiro, porque ha
+  bandas de OUTRAS fases ainda vermelhas -- comportamento herdado, ja
+  documentado em docs/diagnostics/27-ancoragem.md Bloco 5); calculado
+  manualmente a partir das tres razoes reportadas (Bloco 1, obrigatoria 3 do
+  criterio do sweep), o resultado e VERDE: 3,057 > 1,044 > 1,026.
+  Regras duras (Baron antes de 20:00, primeira torre antes de 7:00): ZERO
+  violacoes nos seis tiers.
+
+--------------------------------------------------------------------------------
+LEITURA 4 -- `npm run calibrate:all`
+--------------------------------------------------------------------------------
+
+  3 de 7 gates verdes: calibrate:structures, calibrate:combat,
+  calibrate:assists. calibrate (vermelho), calibrate:micro (vermelho),
+  calibrate:objectives (vermelho) e calibrate:pace (vermelho) seguem no
+  mesmo estado de entrada desta task -- nenhum destes quatro gates tem
+  relacao com `src/sim/matchState.ts` nem com `goldScale`, e nenhum deles
+  regrediu de verde para vermelho nesta task (o placar de entrada da fase
+  ja tinha exatamente estes quatro vermelhos, herdados de fases anteriores
+  com dono proprio, conforme registrado em STATE.md e deferred-items.md).
+
+--------------------------------------------------------------------------------
+LEITURA 5 -- `node scripts/verify-27-diff.cjs --expect-change`
+--------------------------------------------------------------------------------
+
+  VEREDITO: OK (saida 0).
+  Regra de sanidade por blob: blobs de src/sim/engine.ts diferem entre a
+  base (5af835c) e HEAD, como esperado em --expect-change.
+  Contagem de `rng(` por arquivo: delta ZERO em TODOS os arquivos de
+  `src/sim/*.ts`; TOTAL base=72, TOTAL head=72 -- identico.
+  `src/sim/winprob.ts`: blob IDENTICO entre base e HEAD (escopo diferido da
+  Fase 29 preservado).
+
+  Confirmado tambem por leitura direta: `grep -o "rng(" src/sim/*.ts | wc -l`
+  = 72.
+
+================================================================================
+FECHAMENTO
+================================================================================
+
+Regeneracao 3 de 3 CONCLUIDA. Orcamento do Bloco 4 de
+docs/diagnostics/27-ancoragem.md (tres regeneracoes: 27-04, 27-05, 27-06)
+esta FECHADO -- a fase inteira gastou exatamente tres REGENERACOES
+ORCADAS, nenhuma a mais, cada uma em commit isolado de um unico arquivo,
+cada uma com relatorio de diff commitado ANTES da regeneracao.
+
+NOTA DE CONTAGEM, escrita para quem for verificar por `git log --oneline --
+src/__tests__/golden` a partir do SHA base do Bloco 1: o comando literal
+lista QUATRO commits de `.snap`, nao tres, porque o plano 27-04 (Task 3)
+precisou de DOIS commits de `--update` dentro da MESMA regeneracao orcada
+(`bf80ce3`, com as constantes de partida do fator estrutural, substituido
+por `e0bc8f0` apos o aperto de calibracao medido no mesmo task -- ver
+`27-04-SUMMARY.md`, secao Deviations, e o proprio `bf80ce3`/`e0bc8f0` no
+`git log`). Isto ja estava registrado e contado como "1 de 3" pelo proprio
+plano 27-04 no momento em que aconteceu, e nao e uma quarta regeneracao
+orcada: e uma CORRECAO dentro da regeneracao 1, antes de qualquer commit de
+fechamento daquele plano. A contagem correta de EVENTOS de regeneracao
+orcados e tres (27-04 = 1 evento/2 commits de correcao interna, 27-05 = 1
+evento/1 commit, 27-06 = 1 evento/1 commit), consistente com o orcamento
+declarado no Bloco 4 de docs/diagnostics/27-ancoragem.md.

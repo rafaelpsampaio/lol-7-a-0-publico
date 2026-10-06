@@ -1,0 +1,34 @@
+﻿GUIA DE PREENCHIMENTO — bases editaveis (Phase 3)
+=================================================
+
+Abra os .csv direto no Excel (ja vem com acentuacao correta).
+Ao salvar, mantenha o formato "CSV UTF-8 (delimitado por virgula)".
+
+------------------------------------------------------------
+players.csv  (10 jogadores hoje — pode adicionar linhas)
+------------------------------------------------------------
+- primaryRole: um de  top | jungle | mid | adc | support
+- roles(pipe-separated): roles jogaveis separadas por "|"  ex: mid|adc
+- rs_* (roleStrength): inteiro 0-100 por role. Role nao jogada = 0.
+- lanePhase / midGame / lateGame: 0-100
+- trait1 / trait2: ate 2 traits de JOGADOR. Valores validos:
+    tilts_on_death, plays_worse_when_behind, clutch_player,
+    objective_focused, baron_stealer, strong_laner, mental_fort,
+    lane_bully, trash_talker
+- championPool: MINIMO 8 campeoes por jogador (regra do draft fearless Bo5).
+    Cada par champN_id / champN_mastery:
+      champN_id     = id em kebab-case (ex: twisted-fate, lee-sin) — ver champions.csv
+      champN_mastery = 1 a 5
+    Deixe colunas extras em branco se usar menos que 8.
+
+------------------------------------------------------------
+champions.csv  (173 campeoes — corrija os traits gerados)
+------------------------------------------------------------
+- championId: NAO altere (e a chave que liga ao championPool dos jogadores)
+- trait1 / trait2: ate 2 traits de CAMPEAO. Valores validos:
+    high_first_blood, objective_control, late_scaling,
+    early_dominant, teamfight
+- Pode deixar 0, 1 ou 2 traits por campeao.
+
+Quando terminar, me avise que eu reimporto de volta para players.json /
+champions.json (com validacao Zod) e retomo a execucao da Phase 3.

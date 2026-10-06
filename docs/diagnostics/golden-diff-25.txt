@@ -1,0 +1,509 @@
+================================================================================
+DIFF ESTRUTURADO DE GOLDEN, FASE 25
+================================================================================
+
+Data:      2026-07-29
+Fase:      25-throughput-estrutural-o-canal-absoluto
+Plano:     25-07 (Task 1), gerado ANTES do checkpoint humano e ANTES de qualquer
+           regeneracao ter sido commitada.
+
+CAUSA DA MUDANCA, EM UMA FRASE
+  O canal absoluto de cerco (planos 25-04 a 25-06) acrescenta dano estrutural em
+  TODO tick, sem sorteio e em paridade entre os lados, entao a linha do tempo de
+  qualquer semente muda: aparecem placas onde nao havia, as torres caem mais
+  cedo, e as partidas encurtam.
+
+COMANDOS EXATOS USADOS
+  1) regeneracao transitoria do golden:
+       npm run update-golden
+     (que e `vitest run src/__tests__/golden/golden.test.ts --update`)
+  2) regeneracao transitoria da assinatura de linha do tempo, com o comando
+     RESTRITO ao proprio arquivo de teste, porque o comando acima NAO o cobre:
+       npx vitest run src/sim/structures.test.ts --update
+  3) diff estruturado, sem argumentos, comparando a versao COMMITADA com a da
+     arvore de trabalho:
+       npm run diff-golden
+  4) desfazer a regeneracao transitoria, deixando a arvore limpa:
+       git checkout -- src/__tests__/golden/__snapshots__/golden.test.ts.snap
+       git checkout -- src/sim/__snapshots__/structures.test.ts.snap
+
+ARMADILHA OPERACIONAL, REGISTRADA AQUI PORQUE E ONDE QUEM FECHAR A FASE VAI LER
+  `npm run update-golden` aponta somente para src/__tests__/golden/golden.test.ts
+  e NAO cobre src/sim/__snapshots__/structures.test.ts.snap. Regenerar so com ele
+  deixa `structures.test.ts` vermelho e da a falsa impressao de que sobrou uma
+  regressao. Sao DOIS snapshots de valor e os dois entram na mesma regeneracao
+  deliberada da fase, cada um em commit isolado.
+
+NOTA DE TRANSCRICAO
+  Os nomes de bloco do vitest contem o caractere travessao, herdado dos nomes de
+  `describe`/`it` de fases anteriores (`golden-seed <travessao> stomp`,
+  `digest matches snapshot <travessao> seed N`). Como este relatorio nao pode
+  conter travessao, os nomes foram normalizados para a forma
+  `cenario (placar) / seed N`. Nenhum numero foi alterado na normalizacao.
+
+ESTADO DE PARTIDA, CONFERIDO ANTES DE MEXER EM QUALQUER COISA
+  - arvore limpa: `git status --porcelain` vazio;
+  - suite completa: 884 verdes, 17 vermelhos, 2 arquivos vermelhos de 57, que e
+    EXATAMENTE a janela vermelha declarada pelos planos 25-04, 25-05 e 25-06:
+      src/__tests__/golden/golden.test.ts        15 de 25 vermelhos
+      src/sim/structures.test.ts                 2 de 52 vermelhos
+    Nenhum arquivo vermelho fora da triagem. Nenhum vermelho novo.
+  - nenhuma mudanca de motor pendente: o ultimo commit que alterou codigo de
+    producao de src/ e `4210538` (ponto de operacao do termo de vantagem), do
+    plano 25-06. O golden regenerado aqui e o DEFINITIVO da fase.
+  - contrato de sorteio intacto: 72 chamadas de `rng(` em src/sim/ (identico ao
+    pre-fase), 12 em structures.ts, e a linha do gate byte a byte:
+      if (force <= 0.18 || rng() > force) return null;
+  - constantes de calibracao nos valores do 25-06 e nao tocadas:
+    SIEGE_ACCRUAL_BASE = 2.2, SIEGE_ADV_FLOOR = 0.25,
+    SIEGE_ADV_EXPONENT = 3.5, SIEGE_ADV_CEIL = 4.0.
+
+================================================================================
+BLOCO DE LEITURA: O QUE E VALOR E O QUE SERIA ESTRUTURA
+================================================================================
+
+VEREDITO: a mudanca e de VALOR em todas as quatro dimensoes. Nenhuma das duas
+dimensoes que detectam ESTRUTURA acusou.
+
+  dimensao                   leitura crua               classificacao
+  -------------------------  -------------------------  ------------------------
+  1) vencedores              2 de 15 trocaram           VALOR
+  2) tipos de evento         13 blocos acusaram         VALOR: vocabulario
+                                                        global 22 -> 22,
+                                                        identico entrada por
+                                                        entrada
+  3) deslocamento de         15 de 15 encurtaram,       VALOR: e a assinatura
+     duracao                 media menos 34,4 por       do efeito da fase
+                             cento
+  4) violacoes de ordem      1 acusada, SO no lado      VALOR: nenhuma NOVA. A
+                             ANTIGO                     unica acusacao e o falso
+                                                        positivo herdado da
+                                                        Fase 24, e ele
+                                                        DESAPARECEU no lado novo
+  5) blocos so num dos       0                          nenhuma mudanca de
+     lados                                              estrutura
+
+O QUE SERIA ESTRUTURA E NAO ACONTECEU:
+  - tipo de evento NOVO no corpus: nenhum;
+  - tipo de evento DESAPARECIDO do corpus: nenhum;
+  - bloco de snapshot nascendo ou sumindo: nenhum, nos dois arquivos;
+  - violacao de ordem NOVA sob o invariante duro da engine: nenhuma;
+  - formato do digest estendido: nao, e nao pode ser nesta fase.
+
+================================================================================
+DIMENSAO 1: VENCEDORES
+================================================================================
+
+2 de 15 blocos trocaram de vencedor, e os DOIS no mesmo cenario:
+
+  balanced (70 vs 68) / seed 42    user -> rival
+  balanced (70 vs 68) / seed 123   user -> rival
+
+  cenario              gap de habilidade   trocas
+  -------------------  ------------------  ------
+  stomp (84 vs 58)     26 pontos           0 de 5
+  close (65 vs 57)      8 pontos           0 de 5
+  balanced (70 vs 68)   2 pontos           2 de 5
+
+A magnitude e coerente com a causa declarada: so o cenario mais proximo do
+empate troca. Se o canal absoluto tivesse invertido stomps, a magnitude seria
+incompativel com uma mudanca de throughput estrutural e isso exigiria
+investigacao.
+
+O MECANISMO DAS DUAS TROCAS ESTA VISIVEL NO PLACAR, e ele e o efeito declarado
+do termo de vantagem estrutural do plano 25-06 (a partida passa a se decidir por
+estrutura em vez de por abates):
+
+  balanced / seed 42
+    antes:  user 51 abates / 3 torres    rival 23 abates / 2 torres   vence user
+    depois: user 16 abates / 0 torres    rival 13 abates / 9 torres   vence rival
+  balanced / seed 123
+    antes:  user 26 abates / 3 torres    rival 47 abates / 1 torre    vence user
+    depois: user 10 abates / 1 torre     rival 27 abates / 9 torres   vence rival
+
+Nos dois casos o vencedor novo e o lado com 9 torres, ou seja o lado que limpou
+uma rota inteira mais as duas torres do Nexus. Em 13 dos 15 blocos o vencedor
+termina com exatamente 9 torres e o perdedor com 0 ou 1, que e a razao de torres
+de 3,393 do plano 25-06 aparecendo semente por semente.
+
+================================================================================
+DIMENSAO 2: TIPOS DE EVENTO
+================================================================================
+
+O relatorio da ferramenta acusa 13 blocos, mas a ferramenta compara o conjunto de
+tipos DENTRO DE CADA BLOCO. O teste que separa valor de estrutura e a UNIAO
+GLOBAL sobre todos os blocos, precedente medido e escrito no plano 24-04.
+
+UNIAO GLOBAL SOBRE OS 15 BLOCOS DO GOLDEN
+
+  vocabulario ANTIGO (22 tipos):
+    ace, baron_steal, baron_taken, double_kill, dragon_steal, dragon_taken,
+    elder_taken, first_blood, first_tower, gank, gg, herald_taken,
+    inhibitor_destroyed, kill, nexus_exposed, plate_taken, quadra_kill,
+    shutdown, tower_destroyed, tower_low, triple_kill, voidgrubs_taken
+
+  vocabulario NOVO (22 tipos):
+    ace, baron_steal, baron_taken, double_kill, dragon_steal, dragon_taken,
+    elder_taken, first_blood, first_tower, gank, gg, herald_taken,
+    inhibitor_destroyed, kill, nexus_exposed, plate_taken, quadra_kill,
+    shutdown, tower_destroyed, tower_low, triple_kill, voidgrubs_taken
+
+  tipo NOVO:          nenhum
+  tipo DESAPARECIDO:  nenhum
+  IDENTICO ENTRADA POR ENTRADA: sim, 22 = 22.
+
+Todos os tipos que a ferramenta reporta como "acrescentados" num bloco ja
+existiam no golden antigo em outros blocos, e todos os "removidos" seguem
+presentes no golden novo em outros blocos. E frequencia se redistribuindo, nao
+vocabulario mudando.
+
+FREQUENCIA GLOBAL POR TIPO, que e onde o efeito da fase aparece
+
+  tipo                  antigo    novo    variacao
+  --------------------  ------  ------  ----------
+  plate_taken               23     181     mais 687,0 por cento
+  tower_low                 72     178     mais 147,2 por cento
+  first_tower                6      11     mais  83,3 por cento
+  tower_destroyed          103     139     mais  35,0 por cento
+  baron_steal                3       4     mais  33,3 por cento
+  nexus_exposed             14      15     mais   7,1 por cento
+  first_blood               15      15     igual
+  gank                      32      32     igual
+  gg                        15      15     igual
+  herald_taken              15      15     igual
+  voidgrubs_taken           30      30     igual
+  dragon_taken              92      77     menos  16,3 por cento
+  inhibitor_destroyed       36      30     menos  16,7 por cento
+  dragon_steal               3       2     menos  33,3 por cento
+  kill                     125      75     menos  40,0 por cento
+  double_kill              111      46     menos  58,6 por cento
+  shutdown                 193      78     menos  59,6 por cento
+  baron_taken               48      18     menos  62,5 por cento
+  ace                       75      27     menos  64,0 por cento
+  triple_kill               30      10     menos  66,7 por cento
+  quadra_kill                6       1     menos  83,3 por cento
+  elder_taken               27       3     menos  88,9 por cento
+
+A leitura, e ela e exatamente o efeito esperado da fase:
+  - os quatro tipos de evento ESTRUTURAL sobem, e a placa sobe quase oito vezes.
+    Era o efeito declarado: as placas passam a existir onde nao havia;
+  - os tipos de COMBATE e de OBJETIVO caem em bloco, e o motivo e a duracao: com
+    a partida 34 por cento mais curta ha menos tempo para acumular abate, Baron,
+    Alma e Elder. Isso reproduz, no corpus do golden, as derivadas ja medidas no
+    plano 25-06 no gate de ritmo (fracao de partidas com Elder de 0,914 para
+    0,401, baroes por partida de 3,780 para 2,159);
+  - `first_blood`, `gank`, `gg`, `herald_taken` e `voidgrubs_taken` ficam
+    IDENTICOS em contagem global, porque sao eventos de instante fixo ou de
+    ocorrencia unica por partida. Isso e um sinal a favor: um deslocamento de
+    aridade de sorteio teria mexido tambem neles.
+
+OBSERVACAO HONESTA, PARA VIGIAR NA FASE 30 E NAO PARA PARAR ESTA FASE
+  A presenca de cada tipo por bloco ficou mais fina em dois casos:
+    quadra_kill    6 de 15 blocos  ->  1 de 15 blocos
+    elder_taken   10 de 15 blocos  ->  2 de 15 blocos
+  Os dois seguem no vocabulario e portanto isto e VALOR. Mas `quadra_kill` esta
+  a um bloco de sair do corpus, e se uma fase futura o levar a zero a uniao
+  global encolheria de 22 para 21, e ISSO seria mudanca de ESTRUTURA pelo
+  criterio deste relatorio. Fica registrado para que, se acontecer, a
+  classificacao seja feita sobre o corpus e nao sobre um bloco.
+
+================================================================================
+DIMENSAO 3: DESLOCAMENTO DE DURACAO
+================================================================================
+
+Proxy: o timeSec do ultimo evento de cada bloco (o digest nao guarda duracao
+explicita, por D-11).
+
+  15 de 15 blocos ENCURTARAM. Nenhum alongou. Nenhum ficou igual.
+
+  delta minimo (em modulo):  menos   135 s
+  delta mediano:             menos   915 s
+  delta maximo (em modulo):  menos  1695 s
+  delta medio:               menos   890 s
+
+  MAGNITUDE AGREGADA: media dos 15 blocos de 43,07 min para 28,23 min,
+  ou MENOS 34,4 POR CENTO.
+
+Por cenario:
+
+  cenario                media antes    media depois    variacao
+  ---------------------  ------------  --------------  ---------------------
+  stomp (84 vs 58)         34,10 min      24,70 min    menos 27,6 por cento
+  balanced (70 vs 68)      48,10 min      30,70 min    menos 36,2 por cento
+  close (65 vs 57)         47,00 min      29,30 min    menos 37,7 por cento
+
+Bloco a bloco:
+
+  balanced (70 vs 68) / seed 1      2580s ->  1485s   menos 1095s  (-42,4%)
+  balanced (70 vs 68) / seed 42     2340s ->  1740s   menos  600s  (-25,6%)
+  balanced (70 vs 68) / seed 123    2925s ->  1815s   menos 1110s  (-37,9%)
+  balanced (70 vs 68) / seed 777    2985s ->  2265s   menos  720s  (-24,1%)
+  balanced (70 vs 68) / seed 999    3600s ->  1905s   menos 1695s  (-47,1%)
+  close (65 vs 57) / seed 1         2250s ->  1455s   menos  795s  (-35,3%)
+  close (65 vs 57) / seed 42        2955s ->  2745s   menos  210s  ( -7,1%)
+  close (65 vs 57) / seed 123       3195s ->  1530s   menos 1665s  (-52,1%)
+  close (65 vs 57) / seed 777       3270s ->  1620s   menos 1650s  (-50,5%)
+  close (65 vs 57) / seed 999       2430s ->  1440s   menos  990s  (-40,7%)
+  stomp (84 vs 58) / seed 1         1665s ->  1455s   menos  210s  (-12,6%)
+  stomp (84 vs 58) / seed 42        1695s ->  1560s   menos  135s  ( -8,0%)
+  stomp (84 vs 58) / seed 123       1995s ->  1350s   menos  645s  (-32,3%)
+  stomp (84 vs 58) / seed 777       2640s ->  1725s   menos  915s  (-34,7%)
+  stomp (84 vs 58) / seed 999       2235s ->  1320s   menos  915s  (-40,9%)
+
+LEITURA, e ela precisa dizer as duas coisas juntas:
+
+  1) A DIRECAO E CONSISTENTE E COERENTE COM A CAUSA. 15 de 15 para o mesmo lado,
+     sem uma unica excecao, e o cenario com menos gap encurtando mais. Um canal
+     absoluto que roda em todo tick termina a partida mais cedo, e dar vantagem
+     estrutural a quem esta na frente e o que permite alguem ganhar a corrida.
+     A magnitude bate com a medicao independente do plano 25-06 no gate de
+     ritmo: duracao media do tier EQUILIBRADO de 47,72 para 35,58 min, menos
+     25,4 por cento em N=800. Aqui o corpus do golden mede menos 34,4 por cento
+     em 15 blocos, que e uma amostra pequena e com tres fixtures diferentes das
+     do gate, entao a diferenca entre 25 e 34 por cento e de amostra e de
+     fixture, nao de mecanismo.
+
+  2) ZERO BLOCOS BYTE A BYTE IDENTICOS, e isto E DIFERENTE DA FASE 24 e precisa
+     ser dito. No plano 24-04, 8 de 15 blocos ficaram identicos, e aquele 8 de
+     15 foi usado como evidencia de que o motor nao mudou de forma. Aqui sao
+     0 de 15. A explicacao NAO e mudanca de estrutura, e ela e mecanica: a
+     correcao de assistencia da Fase 24 so agia quando havia assistencia a
+     redistribuir, enquanto o canal absoluto de cerco acrescenta dano em TODO
+     tick de TODA partida, desde o primeiro. Nenhuma semente pode escapar. O
+     esperado, dada a causa, era exatamente 0 de 15, e o teste de estrutura
+     nesta fase nao e a contagem de blocos identicos: sao as dimensoes 2 e 4,
+     e as duas estao limpas.
+
+  Contagem de eventos por bloco, para dimensionar: 1074 -> 1002 no total, ou
+  menos 6,7 por cento. A partida encurtou 34 por cento mas perdeu apenas 7 por
+  cento dos eventos, porque a densidade de evento estrutural subiu.
+
+================================================================================
+DIMENSAO 4: VIOLACOES DE ORDEM
+================================================================================
+
+O detector reportou UMA violacao, e ela esta SO NO LADO ANTIGO:
+
+  close (65 vs 57) / seed 42 [lado antigo]:
+    Elder antes de qualquer dragao do mesmo lado: elder_taken@1995s side=rival
+
+NENHUMA VIOLACAO NOVA. Zero no lado novo.
+
+Esta e exatamente a ocorrencia investigada e classificada como FALSO POSITIVO DE
+HEURISTICA no plano 24-04, que entrou no golden commitado naquela fase. O
+detector de scripts/diff-golden.ts:96-102 marca violacao quando um `elder_taken`
+aparece para um lado que ainda nao teve `dragon_taken` proprio. A REGRA REAL DA
+ENGINE e GLOBAL e nao por lado, e esta declarada em quatro lugares:
+
+  src/sim/objectives.ts:163       "HARD: only after a soul exists"
+  src/sim/objectives.ts:329-335   elder desbloqueia quando ALGUM time chega a 4
+                                  dragoes, primeiro spawn em soul + 360s
+  src/sim/objectives.ts:236       isObjectiveAvailable("elder"), sem condicao
+                                  por lado
+  src/sim/plausibility.ts:35      a condicao ilegal declarada do projeto e
+                                  "nenhum time tem soul (elderUnlocked false)"
+
+MEDICAO DO INVARIANTE DURO NOS 15 BLOCOS, NOS DOIS LADOS
+(todo elder depois do soul, e nunca antes de soul + 360s; mais ordem cronologica
+nao decrescente; mais Baron nunca antes do spawn de 1200s)
+
+  lado    fora de ordem   Baron antes   elders   elder antes de   elder de lado
+          cronologica     do spawn               soul + 360s      sem dragao
+                                                 (DURO)           proprio
+                                                                  (HEURISTICA)
+  ------  --------------  ------------  -------  ---------------  -------------
+  antigo               0             0       27                0              1
+  novo                 0             0        3                0              0
+
+ZERO VIOLACOES DO INVARIANTE DURO NOS DOIS LADOS, nas tres regras checaveis.
+
+POR QUE O FALSO POSITIVO DESAPARECEU, medido no proprio caso:
+
+  close (65 vs 57) / seed 42
+    ANTIGO: dragoes  user@330 user@630 user@945 user@1245 user@1245
+            soul = 1245s (o user chega ao 4o dragao)
+            elders  user@1605  rival@1995  user@2355  user@2715
+            o rival nunca tomou UM dragao e ainda assim levou Elder em 1995s,
+            que e depois do soul (1245) e depois do primeiro spawn possivel
+            (1245 + 360 = 1605). Legal pela regra da engine, acusado pela
+            heuristica.
+    NOVO:   dragoes  user@330 user@630 user@945 rival@1245 user@1545 user@1545
+            soul = 1545s
+            elders  user@1905  user@2310
+            o rival PASSOU a tomar o dragao de 1245s, entao a condicao da
+            heuristica (lado sem nenhum dragao proprio) deixou de valer, e alem
+            disso a partida encurtou 210s e sobraram 2 Elders em vez de 4.
+
+Ou seja: a acusacao caiu por MUDANCA DE VALOR, e nao porque o detector foi
+tocado. `scripts/diff-golden.ts` NAO FOI ALTERADO neste plano. Afrouxar o
+detector para calar o alarme seria o movimento errado, e ele nem foi necessario:
+o alarme apontava para o lado antigo.
+
+CONSEQUENCIA OPERACIONAL, que muda um aviso escrito no plano 24-04
+  O plano 24-04 avisou que dali em diante `npm run diff-golden` imprimiria essa
+  violacao NOS DOIS LADOS, e que por isso a linha "Nenhuma diferenca encontrada"
+  deixaria de aparecer mesmo com os arquivos identicos. Depois desta regeneracao
+  o golden commitado NAO contera mais o caso, entao aquele aviso deixa de valer
+  e a ferramenta volta a poder imprimir "Nenhuma diferenca encontrada".
+  ATENCAO: isso NAO conserta o defeito de `formatDiffReport`, que continua
+  confundindo "violacao presente" com "houve diferenca". O defeito segue real e
+  segue pendente da Fase 30; o que desapareceu foi o caso que o expunha.
+
+================================================================================
+BLOCO PROPRIO: O SEGUNDO SNAPSHOT DE VALOR
+src/sim/__snapshots__/structures.test.ts.snap
+================================================================================
+
+Este e o snapshot de assinatura de linha do tempo criado na Fase 17 como canario
+de aridade de sorteio. Ele NAO e coberto por `npm run update-golden`, e o comando
+que o cobre e `npx vitest run src/sim/structures.test.ts --update`.
+
+Diferenca em relacao a Fase 24, registrada para quem comparar as duas: no plano
+24-04 este arquivo NAO precisou ser regenerado, porque a correcao de assistencia
+nao mexeu naquelas duas linhas do tempo. Aqui ele muda, porque throughput
+estrutural muda a linha do tempo inteira.
+
+NOMES DAS ENTRADAS DE SNAPSHOT, ANTES E DEPOIS
+
+  antes (2 entradas):
+    extracao no-op -- aridade de RNG preservada (D-05) > seed=0 STOMP 85v55:
+      assinatura de timeline estavel (no-op) 1
+    extracao no-op -- aridade de RNG preservada (D-05) > seed=5 STOMP 85v55:
+      assinatura de timeline estavel (no-op) 1
+  depois (2 entradas): AS MESMAS DUAS, nome por nome.
+  so no lado antigo: nenhuma.  so no lado novo: nenhuma.
+
+  Nenhuma entrada nasceu e nenhuma desapareceu. O arquivo passou de 80 para 121
+  linhas por crescimento das duas listas, nao por entrada nova.
+
+CONTAGEM DE LINHAS ALTERADAS
+
+  entrada    linhas antes  linhas depois  alteradas por posicao  prefixo identico
+  ---------  ------------  -------------  ---------------------  ----------------
+  seed=0               33             54                     52                 2
+  seed=5               36             56                     51                 5
+
+  Proxy de duracao (ultimo tempo da assinatura):
+    seed=0   1395s -> 1395s   (0s)
+    seed=5   1395s -> 1335s   (menos 60s)
+
+  Observacao: sao as duas sementes do tier STOMP 85 vs 55, o cenario mais
+  desigual do repositorio, e por isso a duracao quase nao se move (a partida ja
+  terminava cedo). O que muda e a DENSIDADE de evento estrutural dentro do
+  mesmo intervalo, que e a assinatura da fase.
+
+CONJUNTO DE TIPOS DE EVENTO EM CADA VERSAO
+
+  seed=0
+    antes (17): ace, baron_taken, double_kill, dragon_taken, first_blood,
+                first_tower, gg, herald_taken, inhibitor_destroyed, kill,
+                nexus_exposed, plate_taken, quadra_kill, shutdown,
+                tower_destroyed, tower_low, voidgrubs_taken
+    depois (18): os 17 acima MAIS triple_kill
+    desaparecido: nenhum.   acrescentado: triple_kill.
+  seed=5
+    antes (17) e depois (17): IDENTICOS, tipo por tipo.
+    desaparecido: nenhum.   acrescentado: nenhum.
+
+  Uniao global das DUAS entradas: 18 tipos antes, 19 depois, a diferenca sendo
+  `triple_kill`.
+
+O UNICO PONTO DESTE RELATORIO QUE EXIGE JULGAMENTO EXPLICITO, E ELE ESTA AQUI
+
+  Lido ao pe da letra sobre a uniao das duas entradas deste arquivo, o criterio
+  de parada do plano ("se um tipo novo apareceu, isso e mudanca de ESTRUTURA e o
+  plano para") DISPARARIA por causa de `triple_kill`. A classificacao correta e
+  VALOR, e a razao esta medida e nao suposta:
+
+  1) `triple_kill` NAO e tipo novo do motor. Ele esta em `EventKind`
+     (src/sim/simEvents.ts:25) desde a Fase 12, e `git log` de simEvents.ts
+     mostra que o arquivo nao foi tocado na Fase 25 (ultimo commit: 17-02).
+  2) `triple_kill` NAO e tipo novo do corpus de snapshots de valor. Ele aparece
+     30 vezes no golden COMMITADO (o lado antigo) e 10 vezes no golden novo.
+     Ou seja ele ja existia nos dois lados do corpus.
+  3) A uniao global sobre o CORPUS INTEIRO de snapshots de valor (os 15 blocos
+     do golden mais as 2 entradas deste arquivo) e 22 tipos antes e 22 tipos
+     depois, identica. Os 18 tipos deste arquivo sao subconjunto dos 22 do
+     golden nas duas versoes.
+  4) O que aconteceu na semente 0 e frequencia se redistribuindo dentro do
+     mesmo vocabulario: os abates subiram de 3 para 5 e uma janela de multi-abate
+     que antes fechava como dois eventos separados passou a fechar como um
+     triplo. `double_kill` continua em 1 nas duas versoes e `quadra_kill` em 1
+     nas duas.
+
+  A UNIDADE CORRETA DO CRITERIO DE PARADA E O CORPUS, E NAO O BLOCO. Este e
+  literalmente o precedente medido do plano 24-04, onde seis blocos acusaram
+  tipos "acrescentados" (entre eles `triple_kill` e `quadra_kill`) e a uniao
+  global de 22 tipos foi o que provou que a mudanca era de valor. Aplicar o
+  criterio a uma amostra de DOIS blocos o torna um detector de frequencia, nao
+  de estrutura: com duas sementes, qualquer evento raro entra ou sai por sorte.
+
+  Este item esta escrito em bloco proprio de proposito, para que a aprovacao do
+  checkpoint seja consciente dele e nao passe por cima.
+
+INVARIANTE DURO NESTE ARQUIVO
+  Ordem cronologica nao decrescente: 0 violacoes no lado antigo e 0 no lado novo,
+  nas duas entradas.
+
+OS TRES CANARIOS DE ARIDADE, QUE SAO O QUE DE FATO MEDE ARIDADE AQUI
+  A nota de fronteira do proprio arquivo de teste (src/sim/structures.test.ts:
+  62-84) diz como distinguir deslocamento de valor de regressao de aridade:
+  enquanto os canarios abaixo estiverem verdes, o vermelho destes dois snapshots
+  e deslocamento de VALOR.
+
+    canario                                              onde                     estado
+    ---------------------------------------------------  -----------------------  ------
+    auto-consistencia: duas rodadas da mesma semente,    src/sim/engine.test.ts   VERDE
+    mesma contagem de sorteios e mesma linha do tempo
+    exatamente um sorteio no caminho de torre do Nexus   src/sim/structures.      VERDE
+    do uso de Arauto                                     test.ts
+    aridade dois na assinatura do peso de assistencia    src/sim/selection.       VERDE
+                                                         test.ts
+
+  Confirmado pela suite de partida: os 2 unicos vermelhos de structures.test.ts
+  sao os dois snapshots de assinatura; os outros 50 testes do arquivo estao
+  verdes, incluindo o canario do Arauto. E `src/sim/engine.test.ts` e
+  `src/sim/selection.test.ts` estao inteiramente verdes.
+
+================================================================================
+LIMITACOES DA FERRAMENTA, E O ENCAMINHAMENTO
+================================================================================
+
+Duas limitacoes conhecidas e NAO contornadas neste plano, porque corrigir
+qualquer uma delas exige estender o formato do resumo do golden, e estender o
+formato e mudanca de ESTRUTURA, permitida somente no passe deliberado unico da
+Fase 30:
+
+  1) LANE. O resumo do golden nao guarda `lane` (D-11, exclusao deliberada em
+     src/__tests__/golden/fixtures.ts). Violacao de ordem por tier de torre
+     (externa, interna, inibidor, nexo) DENTRO de uma mesma rota nao e derivavel
+     deste snapshot.
+  2) ESTADO DE ALMA. O resumo nao guarda o estado de Alma, entao o detector de
+     Elder usa o proxy "o mesmo lado ja tem dragao" quando a regra real da engine
+     e "algum lado tem Alma". Foi isso que produziu o falso positivo da Fase 24.
+     Neste relatorio a regra real foi checada por reconstrucao do instante de
+     Alma a partir do quarto dragao de cada lado, que e derivavel, e deu ZERO
+     violacoes nos dois lados.
+
+Alem delas, segue pendente da Fase 30 o defeito de `formatDiffReport` que
+confunde "violacao presente" com "houve diferenca".
+
+Nada disso foi tocado aqui. `scripts/diff-golden.ts` nao recebeu uma linha.
+
+================================================================================
+ESTADO DA ARVORE NO MOMENTO DO CHECKPOINT
+================================================================================
+
+A regeneracao usada para produzir este relatorio foi TRANSITORIA e foi DESFEITA
+com `git checkout --` nos dois arquivos, seguindo o padrao estabelecido no plano
+24-04. No momento da aprovacao a arvore esta LIMPA: nenhum snapshot modificado,
+nenhum no indice e nenhum commitado. Este relatorio e commitado SOZINHO.
+
+ARQUIVOS QUE ESTE PLANO PROPOE REGENERAR, apos aprovacao, um por commit isolado:
+
+  1) src/__tests__/golden/__snapshots__/golden.test.ts.snap
+     comando: npm run update-golden
+  2) src/sim/__snapshots__/structures.test.ts.snap
+     comando: npx vitest run src/sim/structures.test.ts --update
+
+  OS DOIS ESTAO NA LISTA. Esta e a regeneracao unica a que a fase tem direito.

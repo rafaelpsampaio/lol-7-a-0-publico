@@ -1,0 +1,8830 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 1 1`] = `
+"{
+  "winner": "user",
+  "finalScore": {
+    "userKills": 18,
+    "userTowers": 5,
+    "userDragons": 3,
+    "rivalKills": 3,
+    "rivalTowers": 0,
+    "rivalDragons": 0
+  },
+  "events": [
+    {
+      "kind": "objective_setup",
+      "timeSec": 375,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_blood",
+      "timeSec": 405,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": [
+        "BalancedRival-support"
+      ]
+    },
+    {
+      "kind": "lane_advantage_building",
+      "timeSec": 420,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 420,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_priority_shift",
+      "timeSec": 435,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 465,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 495,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 675,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gank",
+      "timeSec": 675,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": [
+        "BalancedUser-top"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 690,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 705,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 705,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 780,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 780,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 810,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 810,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 825,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 840,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": [
+        "BalancedUser-jungle"
+      ]
+    },
+    {
+      "kind": "voidgrubs_taken",
+      "timeSec": 840,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 855,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 870,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 990,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": [
+        "BalancedRival-jungle"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1005,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1020,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1035,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1050,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": [
+        "BalancedUser-top"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1050,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1050,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1065,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1080,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1140,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1155,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1170,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1245,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1260,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1275,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1290,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": [
+        "BalancedRival-adc"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1305,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1320,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1395,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1455,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1530,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 1560,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1560,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1575,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1605,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 1620,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1620,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1620,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1635,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 1650,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 1665,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 42 1`] = `
+"{
+  "winner": "rival",
+  "finalScore": {
+    "userKills": 16,
+    "userTowers": 5,
+    "userDragons": 3,
+    "rivalKills": 19,
+    "rivalTowers": 6,
+    "rivalDragons": 1
+  },
+  "events": [
+    {
+      "kind": "objective_setup",
+      "timeSec": 360,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 465,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 570,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 630,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_blood",
+      "timeSec": 750,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": [
+        "BalancedRival-adc"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 750,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "voidgrubs_taken",
+      "timeSec": 750,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 765,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_advantage_building",
+      "timeSec": 765,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_priority_shift",
+      "timeSec": 765,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 765,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 780,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 780,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 810,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 810,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 900,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 960,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 960,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 975,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 990,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1005,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": [
+        "BalancedRival-support"
+      ]
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1020,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1035,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1095,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1305,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1335,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1350,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 1455,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1455,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1470,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1485,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1500,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1530,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": [
+        "BalancedUser-adc"
+      ]
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1530,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": [
+        "BalancedRival-adc"
+      ]
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 1530,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1530,
+      "side": "rival",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1530,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1545,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1560,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1575,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1590,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1605,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1650,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": [
+        "BalancedRival-top"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1665,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1680,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1695,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1740,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": [
+        "BalancedUser-mid"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1740,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1740,
+      "side": "rival",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1755,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1770,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1785,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1830,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1845,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1875,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": [
+        "BalancedRival-mid"
+      ]
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 1875,
+      "side": "user",
+      "actors": [
+        "BalancedUser-support"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1875,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1875,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1890,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1905,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1920,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1995,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 2040,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 2070,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": [
+        "BalancedUser-support"
+      ]
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 2070,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": [
+        "BalancedUser-mid"
+      ]
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 2070,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 2070,
+      "side": "rival",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 2070,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2085,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2100,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 2115,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 2130,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 123 1`] = `
+"{
+  "winner": "rival",
+  "finalScore": {
+    "userKills": 16,
+    "userTowers": 6,
+    "userDragons": 3,
+    "rivalKills": 17,
+    "rivalTowers": 7,
+    "rivalDragons": 3
+  },
+  "events": [
+    {
+      "kind": "objective_setup",
+      "timeSec": 345,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 390,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_blood",
+      "timeSec": 495,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": [
+        "BalancedRival-mid"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 495,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 495,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_advantage_building",
+      "timeSec": 510,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_priority_shift",
+      "timeSec": 510,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 510,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 525,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 525,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 525,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 570,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 675,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 690,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 825,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 945,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 960,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1035,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": [
+        "BalancedUser-jungle"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1035,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1035,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 1050,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1065,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1095,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1125,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1260,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1290,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": [
+        "BalancedRival-support"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1305,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1320,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1395,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1440,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1575,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": [
+        "BalancedRival-top"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1605,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1620,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1635,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1740,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1785,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1845,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1860,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1875,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1890,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1905,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": [
+        "BalancedUser-support"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1920,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1935,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1950,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1965,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 2025,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": [
+        "BalancedUser-adc"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 2040,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2055,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 2070,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 2085,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2160,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2205,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 2235,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": [
+        "BalancedUser-top"
+      ]
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 2235,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 2250,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2265,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 2280,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2295,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 2355,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 2370,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 2385,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": [
+        "BalancedUser-jungle"
+      ]
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2415,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2430,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2535,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2580,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2610,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 2610,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 2610,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2640,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 2670,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2700,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2715,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 2730,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": [
+        "BalancedRival-support"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 2745,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 2760,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2775,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2790,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 2820,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": [
+        "BalancedUser-mid"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 2820,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 2835,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2850,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2865,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 2880,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 2895,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 777 1`] = `
+"{
+  "winner": "user",
+  "finalScore": {
+    "userKills": 24,
+    "userTowers": 9,
+    "userDragons": 3,
+    "rivalKills": 7,
+    "rivalTowers": 1,
+    "rivalDragons": 2
+  },
+  "events": [
+    {
+      "kind": "objective_setup",
+      "timeSec": 345,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 390,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_blood",
+      "timeSec": 465,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": [
+        "BalancedUser-support"
+      ]
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 465,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 480,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 495,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 555,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 600,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 660,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "voidgrubs_taken",
+      "timeSec": 660,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 675,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 765,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 810,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 825,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 930,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1095,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": [
+        "BalancedUser-top"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1110,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 1125,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1260,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1365,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1365,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": [
+        "BalancedRival-adc"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1365,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1365,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1365,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1380,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1395,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1410,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1545,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1545,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1650,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": [
+        "BalancedUser-mid"
+      ]
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1650,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1725,
+      "side": "user",
+      "actors": [
+        "BalancedUser-support"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1740,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1785,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1785,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1875,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1875,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1890,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1920,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1935,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2070,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 2085,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": [
+        "BalancedRival-adc"
+      ]
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 2085,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 2085,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 2100,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2115,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2130,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2145,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2220,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2220,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 2235,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 2235,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2250,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2265,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2280,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2295,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2385,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 2445,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": [
+        "BalancedUser-support"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 2445,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 2445,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2460,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 2475,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 2490,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 999 1`] = `
+"{
+  "winner": "user",
+  "finalScore": {
+    "userKills": 27,
+    "userTowers": 8,
+    "userDragons": 3,
+    "rivalKills": 5,
+    "rivalTowers": 1,
+    "rivalDragons": 1
+  },
+  "events": [
+    {
+      "kind": "objective_setup",
+      "timeSec": 360,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 405,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_blood",
+      "timeSec": 405,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": [
+        "BalancedRival-support"
+      ]
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 405,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 420,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 435,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gank",
+      "timeSec": 450,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": [
+        "BalancedRival-mid"
+      ]
+    },
+    {
+      "kind": "lane_advantage_building",
+      "timeSec": 465,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 465,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 480,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 495,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_advantage_building",
+      "timeSec": 495,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 630,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 630,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 675,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 750,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 750,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 795,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 795,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 825,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 885,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 885,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 900,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 915,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1020,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1080,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1245,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1305,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1320,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1425,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1425,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1440,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1455,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1470,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1485,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": [
+        "BalancedUser-top"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1500,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1515,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1530,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": [
+        "BalancedRival-mid"
+      ]
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1605,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1620,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1635,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1680,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1680,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1755,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1770,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1785,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1800,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1830,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1890,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": [
+        "BalancedRival-adc"
+      ]
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1935,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1950,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 2040,
+      "side": "rival",
+      "actors": [
+        "BalancedRival-jungle"
+      ],
+      "victims": [
+        "BalancedUser-adc"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 2040,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 2040,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 2055,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 2070,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2085,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2100,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 2160,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 2205,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 2205,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2220,
+      "side": "user",
+      "actors": [
+        "BalancedUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 2235,
+      "side": "user",
+      "actors": [
+        "BalancedUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 2250,
+      "side": "user",
+      "actors": [
+        "BalancedUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 2265,
+      "side": "user",
+      "actors": [
+        "BalancedUser-adc"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — close (65 vs 57) > digest matches snapshot — seed 1 1`] = `
+"{
+  "winner": "user",
+  "finalScore": {
+    "userKills": 23,
+    "userTowers": 9,
+    "userDragons": 3,
+    "rivalKills": 4,
+    "rivalTowers": 1,
+    "rivalDragons": 0
+  },
+  "events": [
+    {
+      "kind": "objective_setup",
+      "timeSec": 435,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 450,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_blood",
+      "timeSec": 525,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": [
+        "CloseUser-support"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 525,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_steal",
+      "timeSec": 525,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_advantage_building",
+      "timeSec": 540,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_priority_shift",
+      "timeSec": 540,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 540,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 555,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 555,
+      "side": "rival",
+      "actors": [
+        "CloseRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 600,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 660,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 675,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 765,
+      "side": "rival",
+      "actors": [
+        "CloseRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "voidgrubs_taken",
+      "timeSec": 765,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 810,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 825,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 855,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 855,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 870,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 885,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 915,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 945,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1065,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1080,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": [
+        "CloseRival-jungle"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1080,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1095,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1095,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "herald_taken",
+      "timeSec": 1095,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1110,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1125,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1140,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1185,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": [
+        "CloseRival-adc"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1200,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1215,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1305,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1320,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1410,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1470,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 1500,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1500,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1515,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1530,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1545,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1560,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1575,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1605,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": [
+        "CloseRival-top"
+      ]
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1620,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1650,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1665,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 1680,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1680,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1695,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1710,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1725,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1755,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": [
+        "CloseUser-support"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1770,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1785,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1800,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 1890,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1890,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1905,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1920,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1935,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 1950,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 1965,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — close (65 vs 57) > digest matches snapshot — seed 42 1`] = `
+"{
+  "winner": "user",
+  "finalScore": {
+    "userKills": 18,
+    "userTowers": 6,
+    "userDragons": 4,
+    "rivalKills": 9,
+    "rivalTowers": 3,
+    "rivalDragons": 1
+  },
+  "events": [
+    {
+      "kind": "objective_setup",
+      "timeSec": 315,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 525,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_blood",
+      "timeSec": 525,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": [
+        "CloseUser-support"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 525,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 525,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_advantage_building",
+      "timeSec": 540,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_priority_shift",
+      "timeSec": 540,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 540,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 555,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 555,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 555,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 570,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 660,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 795,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "voidgrubs_taken",
+      "timeSec": 810,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 840,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 990,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1035,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "herald_taken",
+      "timeSec": 1035,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1050,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 1065,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1155,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1155,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1185,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1410,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1440,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1500,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": [
+        "CloseRival-adc"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1515,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1530,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1545,
+      "side": "rival",
+      "actors": [
+        "CloseRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1560,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1620,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1650,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1650,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1650,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1665,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1680,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1695,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1725,
+      "side": "user",
+      "actors": [
+        "CloseUser-support"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1740,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1770,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1800,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1800,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1815,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1830,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1845,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1890,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1920,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1920,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2040,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2055,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 2100,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 2145,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 2160,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 2160,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2175,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 2190,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 2205,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — close (65 vs 57) > digest matches snapshot — seed 123 1`] = `
+"{
+  "winner": "user",
+  "finalScore": {
+    "userKills": 16,
+    "userTowers": 5,
+    "userDragons": 4,
+    "rivalKills": 6,
+    "rivalTowers": 2,
+    "rivalDragons": 1
+  },
+  "events": [
+    {
+      "kind": "objective_setup",
+      "timeSec": 330,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 360,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 720,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 795,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 810,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 810,
+      "side": "rival",
+      "actors": [
+        "CloseRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 810,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 825,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_blood",
+      "timeSec": 1005,
+      "side": "rival",
+      "actors": [
+        "CloseRival-mid"
+      ],
+      "victims": [
+        "CloseUser-support"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1020,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 1035,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1110,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1140,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": [
+        "CloseRival-mid"
+      ]
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1140,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1155,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1170,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1245,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1470,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1500,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1500,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1500,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1515,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1530,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1545,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": [
+        "CloseRival-top"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1605,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1620,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1635,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1710,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": [
+        "CloseRival-jungle"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1725,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1740,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1755,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1815,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1890,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1890,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1935,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1950,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1965,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1980,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2040,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 2130,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": [
+        "CloseUser-mid"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 2145,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2160,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 2175,
+      "side": "rival",
+      "actors": [
+        "CloseRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 2190,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2325,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 2355,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 2355,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 2355,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2370,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2385,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 2400,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 2415,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — close (65 vs 57) > digest matches snapshot — seed 777 1`] = `
+"{
+  "winner": "user",
+  "finalScore": {
+    "userKills": 21,
+    "userTowers": 9,
+    "userDragons": 4,
+    "rivalKills": 4,
+    "rivalTowers": 1,
+    "rivalDragons": 0
+  },
+  "events": [
+    {
+      "kind": "objective_setup",
+      "timeSec": 360,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 390,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 495,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_blood",
+      "timeSec": 555,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": [
+        "CloseRival-adc"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 555,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "voidgrubs_taken",
+      "timeSec": 555,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 570,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_advantage_building",
+      "timeSec": 570,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_priority_shift",
+      "timeSec": 570,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 570,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 585,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 630,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 645,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 720,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 750,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 780,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 975,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1035,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1035,
+      "side": "rival",
+      "actors": [
+        "CloseRival-mid"
+      ],
+      "victims": [
+        "CloseUser-mid"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1050,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 1065,
+      "side": "rival",
+      "actors": [
+        "CloseRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "herald_taken",
+      "timeSec": 1170,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1245,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1245,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1260,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1275,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1290,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1455,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1500,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1500,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1545,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1560,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1560,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1560,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1575,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1605,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1620,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1635,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1665,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": [
+        "CloseRival-top"
+      ]
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1680,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1710,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1740,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1770,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": [
+        "CloseRival-support"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1785,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1800,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1815,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1830,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1830,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1845,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1860,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1875,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1890,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1935,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": [
+        "CloseRival-adc"
+      ]
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1980,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1995,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2025,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2055,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 2055,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 2055,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 2055,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2070,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 2085,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 2100,
+      "side": "user",
+      "actors": [
+        "CloseUser-support"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — close (65 vs 57) > digest matches snapshot — seed 999 1`] = `
+"{
+  "winner": "user",
+  "finalScore": {
+    "userKills": 17,
+    "userTowers": 9,
+    "userDragons": 4,
+    "rivalKills": 16,
+    "rivalTowers": 7,
+    "rivalDragons": 0
+  },
+  "events": [
+    {
+      "kind": "objective_setup",
+      "timeSec": 315,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 360,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 690,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 810,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 810,
+      "side": "rival",
+      "actors": [
+        "CloseRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 810,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 855,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_blood",
+      "timeSec": 975,
+      "side": "rival",
+      "actors": [
+        "CloseRival-mid"
+      ],
+      "victims": [
+        "CloseUser-mid"
+      ]
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 990,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1005,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1215,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": [
+        "CloseUser-adc"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1230,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1245,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1275,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1305,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1305,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1320,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1335,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1350,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1425,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": [
+        "CloseRival-support"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1440,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1455,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1470,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1515,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1515,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1530,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1545,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1560,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1620,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1665,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1710,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1710,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1725,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": [
+        "CloseUser-adc"
+      ]
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1725,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": [
+        "CloseUser-jungle"
+      ]
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 1725,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1725,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1740,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1755,
+      "side": "rival",
+      "actors": [
+        "CloseRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1770,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1800,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1800,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1815,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": [
+        "CloseRival-support"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1830,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1845,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1860,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1875,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1890,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1905,
+      "side": "rival",
+      "actors": [
+        "CloseRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1920,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1935,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1980,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": [
+        "CloseRival-jungle"
+      ]
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1995,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 2040,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 2070,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2085,
+      "side": "rival",
+      "actors": [
+        "CloseRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2100,
+      "side": "rival",
+      "actors": [
+        "CloseRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 2115,
+      "side": "rival",
+      "actors": [
+        "CloseRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2130,
+      "side": "rival",
+      "actors": [
+        "CloseRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2175,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "elder_taken",
+      "timeSec": 2190,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 2220,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 2235,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": [
+        "CloseRival-support"
+      ]
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 2235,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": [
+        "CloseRival-adc"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 2235,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 2250,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2265,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2280,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 2295,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 2355,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 2385,
+      "side": "user",
+      "actors": [
+        "CloseUser-jungle"
+      ],
+      "victims": [
+        "CloseRival-top"
+      ]
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 2400,
+      "side": "user",
+      "actors": [
+        "CloseUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 2430,
+      "side": "user",
+      "actors": [
+        "CloseUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 2445,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 2460,
+      "side": "user",
+      "actors": [
+        "CloseUser-adc"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 1 1`] = `
+"{
+  "winner": "user",
+  "finalScore": {
+    "userKills": 19,
+    "userTowers": 7,
+    "userDragons": 4,
+    "rivalKills": 1,
+    "rivalTowers": 0,
+    "rivalDragons": 0
+  },
+  "events": [
+    {
+      "kind": "objective_setup",
+      "timeSec": 405,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_blood",
+      "timeSec": 420,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": [
+        "StompRival-adc"
+      ]
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 420,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 435,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_advantage_building",
+      "timeSec": 450,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_priority_shift",
+      "timeSec": 450,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 450,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 510,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 510,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "voidgrubs_taken",
+      "timeSec": 525,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 555,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 585,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 705,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 720,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 750,
+      "side": "rival",
+      "actors": [
+        "StompRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 750,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 765,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 795,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 825,
+      "side": "rival",
+      "actors": [
+        "StompRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 825,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 885,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": [
+        "StompRival-jungle"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 900,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 915,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1020,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1050,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1095,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "herald_taken",
+      "timeSec": 1110,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1155,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1170,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1200,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1215,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1230,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1260,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1260,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1275,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1290,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1380,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": [
+        "StompRival-top"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1395,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1410,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1425,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1440,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1455,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1470,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1470,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1485,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1485,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1500,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1515,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "quadra_kill",
+      "timeSec": 1620,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1620,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1620,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1635,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 1650,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 1665,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 42 1`] = `
+"{
+  "winner": "user",
+  "finalScore": {
+    "userKills": 17,
+    "userTowers": 7,
+    "userDragons": 4,
+    "rivalKills": 1,
+    "rivalTowers": 1,
+    "rivalDragons": 0
+  },
+  "events": [
+    {
+      "kind": "first_blood",
+      "timeSec": 90,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": [
+        "StompRival-mid"
+      ]
+    },
+    {
+      "kind": "lane_advantage_building",
+      "timeSec": 105,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_priority_shift",
+      "timeSec": 105,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "solo_kill",
+      "timeSec": 120,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": [
+        "StompRival-mid"
+      ]
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 345,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 360,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 450,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 525,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "voidgrubs_taken",
+      "timeSec": 540,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 585,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 585,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 600,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 630,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 690,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 705,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 735,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 750,
+      "side": "rival",
+      "actors": [
+        "StompRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 750,
+      "side": "rival",
+      "actors": [
+        "StompRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 765,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 795,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 810,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 825,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 960,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 975,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "herald_taken",
+      "timeSec": 990,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1005,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1020,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1050,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1065,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "shutdown",
+      "timeSec": 1200,
+      "side": "rival",
+      "actors": [
+        "StompRival-jungle"
+      ],
+      "victims": [
+        "StompUser-mid"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1215,
+      "side": "rival",
+      "actors": [
+        "StompRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1230,
+      "side": "rival",
+      "actors": [
+        "StompRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1290,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1305,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1305,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1320,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1335,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1350,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1380,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1410,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": [
+        "StompRival-top"
+      ]
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1425,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1455,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1470,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1560,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1590,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "quadra_kill",
+      "timeSec": 1650,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1650,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1665,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1680,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1695,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1710,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1725,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": [
+        "StompRival-support"
+      ]
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1740,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1755,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1770,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 1785,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 1800,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 123 1`] = `
+"{
+  "winner": "user",
+  "finalScore": {
+    "userKills": 20,
+    "userTowers": 9,
+    "userDragons": 4,
+    "rivalKills": 1,
+    "rivalTowers": 1,
+    "rivalDragons": 0
+  },
+  "events": [
+    {
+      "kind": "objective_setup",
+      "timeSec": 390,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 405,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 420,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 450,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 495,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 555,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 645,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 705,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 720,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 750,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 795,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 795,
+      "side": "rival",
+      "actors": [
+        "StompRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 810,
+      "side": "rival",
+      "actors": [
+        "StompRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "voidgrubs_taken",
+      "timeSec": 825,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 840,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_blood",
+      "timeSec": 855,
+      "side": "user",
+      "actors": [
+        "StompUser-support"
+      ],
+      "victims": [
+        "StompRival-top"
+      ]
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 870,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 885,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 960,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1080,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1110,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "herald_taken",
+      "timeSec": 1110,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1125,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1140,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1170,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1200,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1230,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1245,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1275,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1290,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1305,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1320,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1350,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1380,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": [
+        "StompRival-top"
+      ]
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1395,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1410,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1425,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1440,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1455,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1500,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1515,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1530,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1545,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1545,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1620,
+      "side": "rival",
+      "actors": [
+        "StompRival-top"
+      ],
+      "victims": [
+        "StompUser-top"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1635,
+      "side": "rival",
+      "actors": [
+        "StompRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1650,
+      "side": "rival",
+      "actors": [
+        "StompRival-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1665,
+      "side": "rival",
+      "actors": [
+        "StompRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 1680,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1680,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1695,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1710,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1725,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1755,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1770,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1770,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1770,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 1785,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 1800,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 777 1`] = `
+"{
+  "winner": "user",
+  "finalScore": {
+    "userKills": 24,
+    "userTowers": 6,
+    "userDragons": 3,
+    "rivalKills": 0,
+    "rivalTowers": 0,
+    "rivalDragons": 0
+  },
+  "events": [
+    {
+      "kind": "objective_setup",
+      "timeSec": 330,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_blood",
+      "timeSec": 345,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": [
+        "StompRival-adc"
+      ]
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 345,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 360,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 375,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_advantage_building",
+      "timeSec": 375,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_priority_shift",
+      "timeSec": 375,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 375,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 390,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 450,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 525,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 540,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 630,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 660,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 660,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 675,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "jungler_attention_shift",
+      "timeSec": 690,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gank",
+      "timeSec": 690,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": [
+        "StompRival-jungle"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 705,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 720,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 735,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 750,
+      "side": "rival",
+      "actors": [
+        "StompRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 765,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 780,
+      "side": "rival",
+      "actors": [
+        "StompRival-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 825,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": [
+        "StompRival-adc"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 840,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 855,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 915,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1005,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "herald_taken",
+      "timeSec": 1035,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1050,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1065,
+      "side": "user",
+      "actors": [
+        "StompUser-support"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1065,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1080,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1125,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": [
+        "StompRival-mid"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1170,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1185,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": [
+        "StompRival-top"
+      ]
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1230,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1230,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1245,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1260,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1305,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1320,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": [
+        "StompRival-support"
+      ]
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1335,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1350,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1365,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "triple_kill",
+      "timeSec": 1395,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1395,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1410,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1425,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1440,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1500,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": [
+        "StompRival-adc"
+      ]
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1515,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 1530,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 1545,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;
+
+exports[`golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 999 1`] = `
+"{
+  "winner": "user",
+  "finalScore": {
+    "userKills": 13,
+    "userTowers": 4,
+    "userDragons": 3,
+    "rivalKills": 0,
+    "rivalTowers": 0,
+    "rivalDragons": 0
+  },
+  "events": [
+    {
+      "kind": "first_blood",
+      "timeSec": 165,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": [
+        "StompRival-mid"
+      ]
+    },
+    {
+      "kind": "lane_advantage_building",
+      "timeSec": 180,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "lane_priority_shift",
+      "timeSec": 180,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 330,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 360,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 450,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 465,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 495,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 540,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 555,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 570,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 585,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "voidgrubs_taken",
+      "timeSec": 615,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 690,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 720,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 765,
+      "side": "rival",
+      "actors": [
+        "StompRival-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 765,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 795,
+      "side": "rival",
+      "actors": [
+        "StompRival-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 840,
+      "side": "user",
+      "actors": [
+        "StompUser-support"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "first_tower",
+      "timeSec": 855,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 870,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 930,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "herald_taken",
+      "timeSec": 960,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1065,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1080,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "dragon_taken",
+      "timeSec": 1095,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1110,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "kill",
+      "timeSec": 1170,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": [
+        "StompRival-jungle"
+      ]
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1185,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1200,
+      "side": "user",
+      "actors": [
+        "StompUser-top"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1215,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1230,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "baron_taken",
+      "timeSec": 1245,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "plate_taken",
+      "timeSec": 1290,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "double_kill",
+      "timeSec": 1305,
+      "side": "user",
+      "actors": [
+        "StompUser-support"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "ace",
+      "timeSec": 1305,
+      "side": "user",
+      "actors": [],
+      "victims": []
+    },
+    {
+      "kind": "inhibitor_destroyed",
+      "timeSec": 1320,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_destroyed",
+      "timeSec": 1335,
+      "side": "user",
+      "actors": [
+        "StompUser-mid"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "objective_setup",
+      "timeSec": 1380,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "tower_low",
+      "timeSec": 1395,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "nexus_exposed",
+      "timeSec": 1440,
+      "side": "user",
+      "actors": [
+        "StompUser-adc"
+      ],
+      "victims": []
+    },
+    {
+      "kind": "gg",
+      "timeSec": 1455,
+      "side": "user",
+      "actors": [
+        "StompUser-jungle"
+      ],
+      "victims": []
+    }
+  ]
+}"
+`;

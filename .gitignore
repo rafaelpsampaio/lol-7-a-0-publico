@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+release/
+
+# Editor (user-specific only — .vscode/players.schema.json and settings.json are tracked)
+.vscode/*.code-snippets
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Office temp/lock files
+~$*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Temp / scratch
+tmp/
+
+# Isolated git worktrees (superpowers:using-git-worktrees)
+.worktrees/
+
+# Screenshot driver output
+chromium_cli/
+
+# GSD research web cache (regenerable)
+.planning/research/.cache/
+
+# Dados da sala multiplayer (nunca versionados)
+server/data/
+
+# Material interno de desenvolvimento (mantido localmente)
+/.planning/
+/.claude/
+/.superpowers/
+/docs/superpowers/plans/
+/docs/RETOMADA-*.md
+/macacos.xlsx

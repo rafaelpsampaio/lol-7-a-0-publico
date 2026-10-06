@@ -1,0 +1,162 @@
+PROVA POR DIFF DA FASE 28 (28-05 Task 1)
+===============================================================================
+
+SHA base (lido de docs/diagnostics/28-ancoragem.md, Bloco 1, nunca deduzido): 6a7caaa4916daac1adf55efedf9147dddc0a8a38
+Modo: --expect-change
+
+REGRA DE SANIDADE POR BLOB (src/sim/power.ts, base contra HEAD)
+-------------------------------------------------------------------------------
+  blob em 6a7caaa: 48ac4a23565accf4daaf62f496305e3e1c37fc75
+  blob em HEAD:    a417de60519d8cac012d85c0d7ca7189f46db347
+  OK: os blobs diferem, como esperado em modo --expect-change.
+
+1) RUIDO DE LUTA INTACTO, BYTE A BYTE (src/sim/engine.ts, resolveTeamfight)
+-------------------------------------------------------------------------------
+  linha do iniciador (base):   const pInit = fightPower(state, initiator) * (0.575 + rng() * 0.85) * behindBoost(state, initiator);
+  linha do iniciador (HEAD):   const pInit = fightPower(state, initiator) * (0.575 + rng() * 0.85) * behindBoost(state, initiator);
+  linha do defensor (base):    const pDef = fightPower(state, defender) * (0.575 + rng() * 0.85) * behindBoost(state, defender);
+  linha do defensor (HEAD):    const pDef = fightPower(state, defender) * (0.575 + rng() * 0.85) * behindBoost(state, defender);
+  ocorrencias de "(0.575 + rng() * 0.85)" em engine.ts: base=2 head=2
+  ATENDIDO: as duas linhas de resolucao de luta sao identicas byte a byte, e a contagem de ocorrencias da expressao de ruido e a mesma nos dois lados.
+
+2) CONSTANTES DE RUIDO INTACTAS (upsetNoise, comebackElasticity, behindBoost)
+-------------------------------------------------------------------------------
+  upsetNoise (base):            upsetNoise: 0.2,
+  upsetNoise (HEAD):            upsetNoise: 0.2,
+  comebackElasticity (base):    comebackElasticity: 0.25,
+  comebackElasticity (HEAD):    comebackElasticity: 0.25,
+  behindBoost() encontrada em base: true, em HEAD: true
+  behindBoost() identica byte a byte: true
+  ATENDIDO: upsetNoise, comebackElasticity e o corpo de behindBoost() estao identicos entre base e HEAD.
+
+3) CONTAGEM DE CHAMADAS AO GERADOR (rng( por arquivo de PRODUCAO de src/sim/*.ts)
+-------------------------------------------------------------------------------
+  Nota de metodo: a contagem ignora comentarios (stripComments), para nao contar o literal "rng()" mencionado em prosa de doc-comment (ex: src/sim/upset.ts descreve por escrito que buildUpsetEvent e rng-free, citando `rng()` como referencia, sem chama-lo de fato).
+  src/sim/championMeta.ts                    base=  0 head=  0 delta=+0
+  src/sim/combat.ts                          base=  0 head=  0 delta=+0
+  src/sim/deathQuality.ts                    base=  0 head=  0 delta=+0
+  src/sim/engine.ts                          base= 18 head= 18 delta=+0
+  src/sim/fearless.ts                        base=  0 head=  0 delta=+0
+  src/sim/laneSignals.ts                     base=  0 head=  0 delta=+0
+  src/sim/laneState.ts                       base=  0 head=  0 delta=+0
+  src/sim/matchState.ts                      base=  0 head=  0 delta=+0
+  src/sim/microMetrics.ts                    base=  0 head=  0 delta=+0
+  src/sim/objectives.ts                      base=  2 head=  2 delta=+0
+  src/sim/plausibility.ts                    base=  0 head=  0 delta=+0
+  src/sim/power.ts                           base=  0 head=  0 delta=+0
+  src/sim/rng.ts                             base=  0 head=  0 delta=+0
+  src/sim/runMatch.ts                        base= 11 head= 11 delta=+0
+  src/sim/runMatchEngine.ts                  base=  0 head=  0 delta=+0
+  src/sim/selection.ts                       base=  2 head=  2 delta=+0
+  src/sim/simEvents.ts                       base=  0 head=  0 delta=+0
+  src/sim/structures.ts                      base=  1 head=  1 delta=+0
+  src/sim/teamComp.ts                        base=  0 head=  0 delta=+0
+  src/sim/ticker.ts                          base=  0 head=  0 delta=+0
+  src/sim/traits.ts                          base=  0 head=  0 delta=+0
+  src/sim/types.ts                           base=  0 head=  0 delta=+0
+  src/sim/upset.ts                           base=  0 head=  0 delta=+0
+  src/sim/winprob.ts                         base=  0 head=  0 delta=+0
+
+  TOTAL base: 34
+  TOTAL head: 34
+  ATENDIDO: delta ZERO na contagem de chamadas ao gerador, somado e por arquivo.
+
+4) INVENTARIO DOS SIMBOLOS DA FASE (presentes em HEAD, ausentes na base)
+-------------------------------------------------------------------------------
+  RATING_CURVE_D           src/sim/power.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  RATING_D_BRACKET         src/sim/power.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  RATING_DELTA_CLAMP       src/sim/power.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  RATING_MULT_CLAMP        src/sim/power.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  targetWinProb            src/sim/power.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  rosterRating             src/sim/power.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  teamCardRating           src/sim/power.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  ratingFightMult          src/sim/power.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  UPSET_MIN_FAVORITE_P     src/sim/power.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  UPSET_MIN_GAP            src/sim/power.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  isUpset                  src/sim/power.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  ratingPowerD             src/sim/matchState.ts    presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  buildUpsetEvent          src/sim/upset.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  UPSET_TICKERS            src/sim/upset.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  upset_win                src/sim/simEvents.ts     presente_em_HEAD=true ausente_na_base=true ATENDIDO
+  upset_win                src/sim/types.ts         presente_em_HEAD=true ausente_na_base=true ATENDIDO
+
+  ATENDIDO: os 15 simbolos (com upset_win checado nos dois arquivos de taxonomia) estao presentes em HEAD e ausentes na base.
+
+5) ESCOPO DO DIFF (todos os arquivos com diferenca entre base e HEAD, classificados)
+-------------------------------------------------------------------------------
+  motor (10):
+    - src/sim/engine.test.ts
+    - src/sim/engine.ts
+    - src/sim/matchState.ts
+    - src/sim/power.ts
+    - src/sim/ratingCurve.test.ts
+    - src/sim/runMatchEngine.test.ts
+    - src/sim/simEvents.ts
+    - src/sim/types.ts
+    - src/sim/upset.test.ts
+    - src/sim/upset.ts
+  ui-adicao-de-escopo (5):
+    - src/playback/EventHighlight.tsx
+    - src/playback/EventTicker.tsx
+    - src/styles.css
+    - src/tournament/SeriesResultScreen.test.ts
+    - src/tournament/SeriesResultScreen.tsx
+  harness (4):
+    - scripts/calibrate-engine.ts
+    - scripts/calibrate-pace.ts
+    - scripts/verify-28-diff.cjs
+    - vitest.calibrate.config.ts
+  documentacao (13):
+    - .planning/REQUIREMENTS.md
+    - .planning/ROADMAP.md
+    - .planning/STATE.md
+    - .planning/phases/28-curva-de-for-a-por-diferen-a-de-rating/28-01-SUMMARY.md
+    - .planning/phases/28-curva-de-for-a-por-diferen-a-de-rating/28-02-SUMMARY.md
+    - .planning/phases/28-curva-de-for-a-por-diferen-a-de-rating/28-03-SUMMARY.md
+    - .planning/phases/28-curva-de-for-a-por-diferen-a-de-rating/28-04-SUMMARY.md
+    - .planning/phases/28-curva-de-for-a-por-diferen-a-de-rating/deferred-items.md
+    - docs/diagnostics/28-ancoragem.md
+    - docs/diagnostics/28-prova-por-diff.txt
+    - docs/diagnostics/28-relatorio-da-fase.md
+    - docs/diagnostics/28-sweep.md
+    - docs/diagnostics/golden-diff-28.txt
+  regeneracao-golden (1):
+    - src/__tests__/golden/__snapshots__/golden.test.ts.snap
+  fora-do-escopo-autorizado (0):
+
+  ATENDIDO: nenhum arquivo fora das cinco categorias autorizadas.
+
+6) REGENERACAO UNICA (commits tocando src/__tests__/golden/__snapshots__/ no intervalo)
+-------------------------------------------------------------------------------
+  commits encontrados: 1
+    - f5154ab test(28-05): regeneracao unica do golden apos ratingPowerD=525 e upset_win
+  arquivos tocados pelo commit f5154ab: 1
+    - src/__tests__/golden/__snapshots__/golden.test.ts.snap
+  ATENDIDO: exatamente 1 commit tocando exatamente 1 arquivo.
+
+7) AUSENCIA DE TRAVESSAO NAS LINHAS ACRESCENTADAS DE CODIGO (intervalo base..HEAD, src/ e scripts/)
+-------------------------------------------------------------------------------
+  Escopo: src/ e scripts/ (a superficie de codigo, precedente das Tasks de 28-02/28-04, que ja verificaram e corrigiram travessao nas linhas novas de codigo por commit isolado). Documentacao (docs/, .planning/) usa travessao como convencao de escrita ja estabelecida em toda a milestone (ver ROADMAP.md, STATE.md e todos os SUMMARY.md anteriores) e fica FORA do escopo desta verificacao, que e sobre codigo/comentario, nao sobre prosa de documentacao.
+  linhas acrescentadas contendo o caractere de travessao: 6
+  das quais excecao sancionada (toContain("—") testando ausencia): 6
+    [excecao] +const EM_DASH = "—";
+    [excecao] +  // .not.toContain("—")) precisam conter o caractere literal para testar por ele.
+    [excecao] +  const SANCTIONED_EXCEPTION = /toContain\(\s*["']—["']\s*\)|const EM_DASH = "—"|SANCTIONED_EXCEPTION = \/.*—.*\//;
+    [excecao] +  lines.push(`  das quais excecao sancionada (toContain("—") testando ausencia): ${sanctionedLines.length}`);
+    [excecao] +    expect(ev!.ticker).not.toContain("—");
+    [excecao] +      expect(variant("Time Teste", 15)).not.toContain("—");
+  violacoes reais (fora da excecao sancionada): 0
+  ATENDIDO: zero linhas acrescentadas de codigo com o caractere de travessao (fora da excecao sancionada).
+
+===============================================================================
+RESUMO DAS SETE VERIFICACOES
+-------------------------------------------------------------------------------
+  1) Ruido de luta byte a byte:               ATENDIDO
+  2) Constantes de ruido intactas:             ATENDIDO
+  3) Chamadas ao gerador, delta zero:          ATENDIDO
+  4) Inventario dos simbolos da fase:          ATENDIDO
+  5) Escopo do diff:                           ATENDIDO
+  6) Regeneracao unica do golden:               ATENDIDO
+  7) Ausencia de travessao nas linhas novas:    ATENDIDO
+
+VEREDITO: OK

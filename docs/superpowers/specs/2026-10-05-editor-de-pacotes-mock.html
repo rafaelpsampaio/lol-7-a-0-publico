@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Mock aprovado: editor de pacotes (2026-10-05)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#050608; --panel:rgba(255,255,255,.035); --panel2:rgba(255,255,255,.06); --row:rgba(255,255,255,.045);
+    --hair:rgba(255,255,255,.08); --hair2:rgba(255,255,255,.14);
+    --t:#f5f5f7; --t2:#a1a1a6; --t3:#6e6e73;
+    --gold:#c8aa6e; --gold2:#f0e6d2; --teal:#0ac8b9; --red:#ff453a; --green:#30d158; --orange:#ff9f0a;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:Inter,-apple-system,system-ui,sans-serif; font-size:14px; color:var(--t); letter-spacing:-.01em;
+    background: radial-gradient(900px 500px at 15% -10%, rgba(200,170,110,.10), transparent 60%),
+                radial-gradient(900px 600px at 100% 0%, rgba(10,200,185,.07), transparent 55%), var(--bg); min-height:100vh; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1260px; margin:0 auto; padding:36px 28px 90px; }
+  .step { font-size:12px; font-weight:600; color:var(--t3); letter-spacing:.02em; margin:64px 0 6px; }
+  .step:first-of-type { margin-top:0; }
+  .step b { color:var(--gold); }
+  .note { color:var(--t2); font-size:13px; margin:0 0 16px; }
+  .frame { border:1px solid var(--hair); border-radius:28px; background:rgba(18,19,22,.7); padding:36px; box-shadow:0 30px 80px rgba(0,0,0,.5); }
+  h1,h2,h3,h4 { margin:0; }
+  svg.i { width:20px; height:20px; flex:none; }
+  .btn { display:inline-flex; align-items:center; gap:7px; border:none; background:var(--panel2); color:var(--t); padding:9px 16px; border-radius:999px; font:600 13px Inter; letter-spacing:-.01em; }
+  .btn.pri { background:var(--gold2); color:#141414; }
+  .btn.txt { background:transparent; color:var(--t2); padding:9px 10px; }
+  .btn svg.i { width:16px; height:16px; }
+  .st { display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600; }
+  .st.ok { color:var(--green); } .st.warn { color:var(--orange); }
+  .st svg.i { width:15px; height:15px; }
+  .roles { display:flex; gap:14px; color:var(--t2); font-size:12.5px; }
+  .roles span { display:inline-flex; align-items:center; gap:5px; }
+  .roles svg.i { width:16px; height:16px; color:var(--t2); }
+  .roles b { color:var(--t); font-weight:600; }
+
+  /* ---------- 1. menu ---------- */
+  .hero { text-align:center; margin:10px 0 34px; }
+  .hero .kick { color:var(--gold); font-size:13px; font-weight:600; letter-spacing:.04em; }
+  .hero h1 { font-size:52px; font-weight:800; letter-spacing:-.035em; margin-top:6px; }
+  .hero p { color:var(--t2); margin:8px 0 0; font-size:15px; }
+  .tiles { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .tile { position:relative; overflow:hidden; border-radius:24px; background:var(--panel); border:1px solid var(--hair); height:300px; padding:26px; display:flex; flex-direction:column; justify-content:flex-end; transition:.2s; }
+  .tile:hover { background:var(--panel2); border-color:var(--hair2); transform:translateY(-2px); }
+  .tile h2 { font-size:26px; font-weight:700; letter-spacing:-.025em; position:relative; }
+  .tile p { color:var(--t2); margin:6px 0 0; position:relative; line-height:1.45; }
+  .tile .go { position:absolute; right:22px; bottom:26px; color:var(--t3); }
+  .hex { position:absolute; top:24px; left:24px; width:58px; height:64px; display:flex; align-items:center; justify-content:center; color:var(--gold); }
+  .hex svg.hexbg { position:absolute; inset:0; width:100%; height:100%; }
+  .hex svg.i { width:26px; height:26px; position:relative; }
+  .mosaic { position:absolute; inset:0; display:grid; grid-template-columns:repeat(3,1fr); grid-template-rows:1fr 1fr; }
+  .mosaic img { width:100%; height:100%; object-fit:cover; filter:grayscale(.35) contrast(1.05); }
+  .mosaic::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(18,19,22,.0) 0%,rgba(18,19,22,.55) 45%,rgba(18,19,22,.97) 78%); }
+  .online { position:absolute; top:26px; right:24px; display:inline-flex; align-items:center; gap:7px; font-size:12.5px; color:var(--t2); }
+  .online i { width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 10px var(--green); }
+  .faces-row { display:flex; position:relative; margin-bottom:14px; }
+  .faces-row img { width:30px; height:30px; border-radius:50%; object-fit:cover; border:2px solid #17181b; margin-right:-8px; }
+
+  /* ---------- 2. lista ---------- */
+  .tb { display:flex; align-items:center; gap:10px; margin-bottom:26px; }
+  .tb h2 { font-size:34px; font-weight:800; letter-spacing:-.03em; flex:1; }
+  .packs { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .pk { border-radius:24px; overflow:hidden; background:var(--panel); border:1px solid var(--hair); }
+  .pk .cover { height:150px; display:grid; grid-template-columns:repeat(5,1fr); position:relative; }
+  .pk .cover img { width:100%; height:100%; object-fit:cover; filter:grayscale(.2); }
+  .pk .cover .ph { background:linear-gradient(160deg,#1c1d21,#121316); display:flex; align-items:center; justify-content:center; color:var(--t3); font-weight:700; font-size:20px; letter-spacing:-.02em; border-right:1px solid var(--hair); }
+  .pk .cover::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 40%,rgba(18,19,22,.9)); }
+  .pk .bd { padding:20px 22px 22px; display:flex; flex-direction:column; gap:12px; }
+  .pk h3 { font-size:24px; font-weight:700; letter-spacing:-.025em; }
+  .pk .sub { color:var(--t2); }
+  .pk .ft { display:flex; align-items:center; gap:10px; margin-top:4px; }
+  .pk .ft .sp { flex:1; }
+  .more { width:36px; height:36px; border-radius:50%; background:var(--panel2); display:inline-flex; align-items:center; justify-content:center; color:var(--t2); }
+  .menu-pop { position:relative; }
+  .menu-pop .pop { position:absolute; right:0; bottom:44px; width:200px; background:rgba(40,41,46,.92); backdrop-filter:blur(20px); border:1px solid var(--hair2); border-radius:14px; padding:6px; box-shadow:0 20px 50px rgba(0,0,0,.5); }
+  .pop div { display:flex; align-items:center; gap:10px; padding:9px 10px; border-radius:9px; font-size:13.5px; }
+  .pop div:hover { background:rgba(255,255,255,.08); }
+  .pop .dl { color:var(--red); }
+  .pop svg.i { width:16px; height:16px; }
+
+  /* ---------- 3. editor ---------- */
+  .ebar { display:flex; align-items:center; gap:16px; padding:0 0 20px; margin-bottom:22px; border-bottom:1px solid var(--hair); }
+  .ebar .back { display:inline-flex; align-items:center; gap:4px; color:var(--gold); font-weight:500; }
+  .ebar .ttl { display:flex; align-items:center; gap:8px; }
+  .ebar .ttl h2 { font-size:28px; font-weight:800; letter-spacing:-.03em; }
+  .ebar .ttl svg.i { width:16px; height:16px; color:var(--t3); }
+  .ebar .sp { flex:1; }
+  .dirty { color:var(--t2); font-size:12.5px; display:inline-flex; align-items:center; gap:6px; }
+  .dirty i { width:7px; height:7px; border-radius:50%; background:var(--gold); }
+  .ed { display:grid; grid-template-columns:280px 1fr 260px; gap:28px; }
+  .search { display:flex; align-items:center; gap:8px; background:var(--row); border-radius:12px; padding:9px 12px; color:var(--t3); margin-bottom:12px; }
+  .search svg.i { width:16px; height:16px; }
+  .segc { display:flex; background:var(--row); border-radius:11px; padding:3px; margin-bottom:14px; }
+  .segc span { flex:1; display:flex; align-items:center; justify-content:center; padding:6px 0; border-radius:8px; color:var(--t2); font-size:12px; font-weight:600; }
+  .segc span.on { background:rgba(255,255,255,.12); color:var(--t); box-shadow:0 1px 3px rgba(0,0,0,.4); }
+  .segc svg.i { width:17px; height:17px; }
+  .plist { display:flex; flex-direction:column; gap:2px; }
+  .pr { display:flex; align-items:center; gap:12px; padding:8px 10px; border-radius:12px; }
+  .pr.sel { background:rgba(200,170,110,.13); }
+  .pr img, .pr .ini { width:40px; height:40px; border-radius:50%; object-fit:cover; flex:none; background:#232428; display:flex; align-items:center; justify-content:center; color:var(--t2); font-weight:700; font-size:14px; }
+  .pr .nm { font-weight:600; font-size:14.5px; }
+  .pr .rr { display:flex; gap:5px; margin-top:3px; color:var(--t3); align-items:center; }
+  .pr .rr svg.i { width:14px; height:14px; }
+  .pr .rr .bad { color:var(--red); }
+  .pr .badge { margin-left:auto; color:var(--red); }
+  .pr .badge svg.i { width:16px; height:16px; }
+  .addrow { display:flex; align-items:center; gap:12px; padding:10px; color:var(--gold); font-weight:500; }
+  .addrow .c { width:40px; height:40px; border-radius:50%; border:1.5px dashed rgba(200,170,110,.5); display:flex; align-items:center; justify-content:center; }
+
+  .who { display:flex; align-items:center; gap:20px; margin-bottom:22px; }
+  .avatar { position:relative; width:104px; height:104px; border-radius:50%; overflow:hidden; flex:none; box-shadow:0 0 0 1px var(--hair2), 0 0 0 5px rgba(200,170,110,.12); }
+  .avatar img { width:100%; height:100%; object-fit:cover; }
+  .avatar .ov { position:absolute; inset:auto 0 0 0; height:34px; background:rgba(0,0,0,.55); backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; color:#fff; }
+  .avatar .ov svg.i { width:16px; height:16px; }
+  .who h2 { font-size:34px; font-weight:800; letter-spacing:-.035em; }
+  .who p { color:var(--t2); margin:4px 0 0; }
+  .who p a { color:var(--t3); }
+  .ctabs { display:flex; gap:8px; margin-bottom:22px; flex-wrap:wrap; }
+  .ct { display:inline-flex; align-items:center; gap:7px; padding:8px 13px; border-radius:999px; background:var(--row); color:var(--t2); font-weight:600; font-size:13px; }
+  .ct svg.i { width:16px; height:16px; }
+  .ct.on { background:var(--gold2); color:#141414; }
+  .ct.add { background:transparent; color:var(--gold); border:1px dashed rgba(200,170,110,.45); }
+
+  .grp { margin-bottom:22px; }
+  .grp h4 { font-size:12px; font-weight:600; color:var(--t3); margin:0 0 8px 14px; letter-spacing:.01em; }
+  .card { background:var(--row); border-radius:16px; overflow:hidden; }
+  .rw { display:flex; align-items:center; gap:14px; padding:12px 16px; min-height:50px; }
+  .rw + .rw { border-top:1px solid var(--hair); }
+  .rw .lb { width:120px; color:var(--t); font-weight:500; }
+  .rw .vl { flex:1; color:var(--t2); }
+  .rw .vl.in { color:var(--t); }
+  .rolepick { display:flex; gap:6px; flex:1; }
+  .rolepick span { flex:1; display:flex; flex-direction:column; align-items:center; gap:4px; padding:8px 0 6px; border-radius:10px; color:var(--t3); font-size:11px; font-weight:600; }
+  .rolepick span svg.i { width:22px; height:22px; }
+  .rolepick span.on { background:rgba(200,170,110,.16); color:var(--gold2); box-shadow:inset 0 0 0 1px rgba(200,170,110,.5); }
+  .sl { flex:1; display:flex; align-items:center; gap:14px; }
+  .sl .tr { flex:1; height:4px; border-radius:4px; background:rgba(255,255,255,.12); position:relative; }
+  .sl .tr i { position:absolute; left:0; top:0; bottom:0; border-radius:4px; background:var(--gold); }
+  .sl .tr b { position:absolute; top:50%; width:22px; height:22px; margin:-11px 0 0 -11px; border-radius:50%; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.4); }
+  .sl .n { width:30px; text-align:right; font-weight:600; font-variant-numeric:tabular-nums; }
+  .ovr { display:flex; align-items:center; gap:14px; }
+  .ovr .big { font-size:30px; font-weight:800; letter-spacing:-.03em; color:var(--gold2); font-variant-numeric:tabular-nums; }
+  .ovr .ex { color:var(--t3); font-size:12.5px; line-height:1.4; }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; padding:14px 16px; }
+  .chip { padding:7px 13px; border-radius:999px; background:rgba(255,255,255,.06); color:var(--t2); font-size:13px; font-weight:500; }
+  .chip.on { background:rgba(200,170,110,.18); color:var(--gold2); box-shadow:inset 0 0 0 1px rgba(200,170,110,.55); }
+  .chip.off { opacity:.35; }
+  .hint { padding:0 16px 14px; color:var(--t3); font-size:12.5px; }
+  .champs { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; padding:14px 16px; }
+  .chp { display:flex; align-items:center; gap:10px; padding:7px; border-radius:12px; background:rgba(255,255,255,.04); }
+  .chp img { width:36px; height:36px; border-radius:10px; }
+  .chp .n { font-size:12.5px; font-weight:600; }
+  .pips { display:flex; gap:3px; margin-top:4px; }
+  .pips i { width:9px; height:4px; border-radius:2px; background:rgba(255,255,255,.14); }
+  .pips i.f { background:var(--gold); }
+  .chp.add { justify-content:center; color:var(--gold); background:transparent; border:1px dashed rgba(200,170,110,.4); font-weight:500; font-size:12.5px; }
+  .danger { color:var(--red); font-weight:500; padding:13px 16px; display:flex; align-items:center; gap:8px; }
+  .danger svg.i { width:16px; height:16px; }
+
+  .pv h4 { font-size:12px; font-weight:600; color:var(--t3); margin:0 0 10px; }
+  .pc { border-radius:20px; overflow:hidden; background:#16171a; border:1px solid var(--hair); box-shadow:0 20px 50px rgba(0,0,0,.45); }
+  .pc .im { position:relative; height:270px; }
+  .pc .im img { width:100%; height:100%; object-fit:cover; }
+  .pc .im .rl { position:absolute; left:12px; bottom:12px; display:inline-flex; align-items:center; gap:5px; background:rgba(0,0,0,.55); backdrop-filter:blur(10px); padding:5px 9px; border-radius:999px; font-size:11.5px; font-weight:700; color:var(--gold2); }
+  .pc .im .rl svg.i { width:14px; height:14px; }
+  .pc .bd { padding:14px 16px 16px; }
+  .pc h3 { font-size:21px; font-weight:700; letter-spacing:-.02em; }
+  .pc .y { color:var(--t3); margin:2px 0 10px; }
+  .pc .tg { display:flex; gap:6px; flex-wrap:wrap; }
+  .pc .tg span { font-size:12px; padding:4px 9px; border-radius:999px; background:rgba(255,255,255,.07); color:var(--t2); }
+  .pv .cap { color:var(--t3); font-size:12.5px; margin-top:12px; line-height:1.45; }
+  .legend { display:flex; gap:22px; flex-wrap:wrap; color:var(--t2); font-size:12.5px; margin-top:14px; }
+  .legend span { display:inline-flex; align-items:center; gap:7px; }
+  .legend svg.i { width:22px; height:22px; color:var(--gold2); }
+
+  .ct .ovr-n { margin-left:2px; padding:2px 7px; border-radius:999px; background:rgba(255,255,255,.08); color:var(--t); font-size:12px; font-weight:700; font-variant-numeric:tabular-nums; }
+  .ct.on .ovr-n { background:rgba(0,0,0,.12); color:#141414; }
+  .pc .im .ovb { position:absolute; left:12px; top:12px; display:flex; flex-direction:column; align-items:center; gap:2px; padding:8px 9px 7px; border-radius:14px; background:rgba(0,0,0,.5); backdrop-filter:blur(12px); box-shadow:inset 0 0 0 1px rgba(240,230,210,.25); color:var(--gold2); }
+  .pc .im .ovb b { font-size:26px; font-weight:800; letter-spacing:-.03em; line-height:1; font-variant-numeric:tabular-nums; }
+  .pc .im .ovb svg.i { width:16px; height:16px; }
+  .pr .nm { display:flex; align-items:center; gap:8px; }
+  .pr .best { font-size:11.5px; font-weight:700; color:var(--gold2); background:rgba(200,170,110,.14); padding:1px 7px; border-radius:999px; font-variant-numeric:tabular-nums; }
+</style>
+</head>
+<body>
+
+<!-- ======= icones (svg) ======= -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- rotas, no espirito dos icones de posicao do LoL -->
+    <symbol id="r-top" viewBox="0 0 24 24"><path fill="currentColor" d="M2.5 2.5h16l-4 4h-8v8l-4 4z"/><rect fill="currentColor" opacity=".5" x="10" y="10" width="4" height="4" rx=".5"/><path fill="none" stroke="currentColor" stroke-opacity=".28" stroke-width="1.4" d="M21.2 6.5v14.7H6.5"/></symbol>
+    <symbol id="r-bot" viewBox="0 0 24 24"><path fill="currentColor" d="M21.5 21.5h-16l4-4h8v-8l4-4z"/><rect fill="currentColor" opacity=".5" x="10" y="10" width="4" height="4" rx=".5"/><path fill="none" stroke="currentColor" stroke-opacity=".28" stroke-width="1.4" d="M2.8 17.5V2.8h14.7"/></symbol>
+    <symbol id="r-mid" viewBox="0 0 24 24"><path fill="currentColor" d="M16.5 2.5h5v5l-14 14h-5v-5z"/><path fill="none" stroke="currentColor" stroke-opacity=".28" stroke-width="1.4" d="M2.8 13V2.8H13M21.2 11v10.2H11"/></symbol>
+    <symbol id="r-jgl" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 1.8c1.9 4.6 2.1 11.2 0 20.4-2.1-9.2-1.9-15.8 0-20.4z"/><path d="M12 1.8c1.9 4.6 2.1 11.2 0 20.4-2.1-9.2-1.9-15.8 0-20.4z" transform="rotate(-32 12 22)" opacity=".7"/><path d="M12 1.8c1.9 4.6 2.1 11.2 0 20.4-2.1-9.2-1.9-15.8 0-20.4z" transform="rotate(32 12 22)" opacity=".7"/></g></symbol>
+    <symbol id="r-sup" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 2.5l3.6 4.4L12 10.6 8.4 6.9z"/><path d="M1 7h7.4l2.4 3.8-2.1 4.4z" opacity=".75"/><path d="M23 7h-7.4l-2.4 3.8 2.1 4.4z" opacity=".75"/><path d="M10.2 12h3.6l-.7 9.5h-2.2z"/></g></symbol>
+    <!-- interface -->
+    <symbol id="i-sword" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 3.5h-4L8 12l4 4 8.5-8.5z"/><path d="M5.5 13.5l5 5M8 16l-4.5 4.5"/></g></symbol>
+    <symbol id="i-swords" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 17.5L3 6V3h3l11.5 11.5M13 19l6-6M16 16l4 4M19 21l2-2"/><path d="M9.5 6.5L13 3h3v3l-3.5 3.5M5 14l4 4M7 17l-3 3M3 19l2 2"/></g></symbol>
+    <symbol id="i-cards" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="7.5" y="3.5" width="12" height="16" rx="2.5"/><path d="M4.5 7.5v11a2.5 2.5 0 0 0 2.5 2.5h9"/><path d="M13.5 8.2l1.6 2.3-1.6 2.3-1.6-2.3z" fill="currentColor"/></g></symbol>
+    <symbol id="i-hexframe" viewBox="0 0 58 64"><path d="M29 2l25 14.5v31L29 62 4 47.5v-31z" fill="rgba(200,170,110,.08)" stroke="rgba(200,170,110,.55)" stroke-width="1.2"/><path d="M29 8l20 11.6v24.8L29 56 9 44.4V19.6z" fill="none" stroke="rgba(200,170,110,.2)" stroke-width="1"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></g></symbol>
+    <symbol id="i-cam" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M3.5 8.5a2 2 0 0 1 2-2h2.2l1.5-2h5.6l1.5 2h2.2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/><circle cx="12" cy="12.8" r="3.6"/></g></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/><path fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M7.5 12.3l3 3 6-6.2"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><path fill="currentColor" d="M10.3 3.6a2 2 0 0 1 3.4 0l8 13.8A2 2 0 0 1 20 20.4H4a2 2 0 0 1-1.7-3z"/><path stroke="#000" stroke-width="2.2" stroke-linecap="round" d="M12 9v4.5M12 17h.01"/></symbol>
+    <symbol id="i-pencil" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 20h4L19 9l-4-4L4 16z"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></g></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M9 7V4.5h6V7M6.5 7l1 13h9l1-13"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-sheet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M4 9h16M4 14.5h16M10 9v11.5"/></g></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+
+  <!-- ================= 1 ================= -->
+  <div class="step"><b>1</b> · Menu do host</div>
+  <p class="note">Só quem abre pelo link de host vê este menu. Os amigos entram direto na sala.</p>
+  <div class="frame">
+    <div class="hero">
+      <div class="kick">VOCÊ É O HOST</div>
+      <h1>LoL 7 a 0</h1>
+      <p>Escolha o que fazer nesta instância</p>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <div class="hex"><svg class="hexbg" viewBox="0 0 58 64"><use href="#i-hexframe"/></svg><svg class="i"><use href="#i-sword"/></svg></div>
+        <h2>Jogo solo</h2>
+        <p>Torneio contra bots<br>Pacote: Amigos</p>
+        <svg class="i go"><use href="#i-chev"/></svg>
+      </div>
+      <div class="tile">
+        <div class="mosaic">
+          <img src="../../../public/players/rafa.jpg"><img src="../../../public/players/ber.jpg"><img src="../../../public/players/leite.jpg">
+          <img src="../../../public/players/iago.jpg"><img src="../../../public/players/baguio.jpg"><img src="../../../public/players/rafa.jpg">
+        </div>
+        <h2>Editar pacotes</h2>
+        <p>Cartas, fotos, fases, traits<br>e campeões</p>
+        <svg class="i go"><use href="#i-chev"/></svg>
+      </div>
+      <div class="tile">
+        <div class="hex"><svg class="hexbg" viewBox="0 0 58 64"><use href="#i-hexframe"/></svg><svg class="i"><use href="#i-swords"/></svg></div>
+        <span class="online"><i></i>2 na sala</span>
+        
+        <h2>Multiplayer</h2>
+        <p>Abrir o lobby para os amigos</p>
+        <svg class="i go"><use href="#i-chev"/></svg>
+      </div>
+    </div>
+    <div class="legend">
+      <span><svg class="i"><use href="#r-top"/></svg>Topo</span>
+      <span><svg class="i"><use href="#r-jgl"/></svg>Selva</span>
+      <span><svg class="i"><use href="#r-mid"/></svg>Meio</span>
+      <span><svg class="i"><use href="#r-bot"/></svg>Atirador</span>
+      <span><svg class="i"><use href="#r-sup"/></svg>Suporte</span>
+      <span style="color:var(--t3)">(ícones de rota usados no editor, desenhados no espírito dos do LoL)</span>
+    </div>
+  </div>
+
+  <!-- ================= 2 ================= -->
+  <div class="step"><b>2</b> · Pacotes</div>
+  <p class="note">Capa feita com as fotos das pessoas do pacote. Ações secundárias no menu "···".</p>
+  <div class="frame">
+    <div class="tb">
+      <span class="btn txt" style="color:var(--gold)"><svg class="i"><use href="#i-back"/></svg>Início</span>
+      <h2>Pacotes</h2>
+      <span class="btn"><svg class="i"><use href="#i-sheet"/></svg>Importar planilha</span>
+      <span class="btn pri"><svg class="i"><use href="#i-plus"/></svg>Novo pacote</span>
+    </div>
+    <div class="packs">
+      <div class="pk">
+        <div class="cover"><img src="../../../public/players/rafa.jpg"><img src="../../../public/players/ber.jpg"><img src="../../../public/players/leite.jpg"><img src="../../../public/players/iago.jpg"><img src="../../../public/players/baguio.jpg"></div>
+        <div class="bd">
+          <h3>Amigos</h3>
+          <div class="sub">71 cartas · 32 pessoas</div>
+          <div class="roles">
+            <span><svg class="i"><use href="#r-top"/></svg><b>13</b></span><span><svg class="i"><use href="#r-jgl"/></svg><b>14</b></span><span><svg class="i"><use href="#r-mid"/></svg><b>17</b></span><span><svg class="i"><use href="#r-bot"/></svg><b>14</b></span><span><svg class="i"><use href="#r-sup"/></svg><b>13</b></span>
+          </div>
+          <div class="ft">
+            <span class="st ok"><svg class="i"><use href="#i-check"/></svg>Pronto para torneio</span>
+            <span class="sp"></span>
+            <span class="menu-pop"><span class="more"><svg class="i"><use href="#i-more"/></svg></span>
+              <div class="pop"><div><svg class="i"><use href="#i-down"/></svg>Exportar planilha</div><div class="dl"><svg class="i"><use href="#i-trash"/></svg>Excluir pacote</div></div>
+            </span>
+            <span class="btn pri">Editar</span>
+          </div>
+        </div>
+      </div>
+      <div class="pk">
+        <div class="cover"><div class="ph">FA</div><div class="ph">CH</div><div class="ph">RU</div><div class="ph">KE</div><div class="ph">+36</div></div>
+        <div class="bd">
+          <h3>Pros / Mundial</h3>
+          <div class="sub">40 cartas · base padrão do jogo</div>
+          <div class="roles">
+            <span><svg class="i"><use href="#r-top"/></svg><b>8</b></span><span><svg class="i"><use href="#r-jgl"/></svg><b>8</b></span><span><svg class="i"><use href="#r-mid"/></svg><b>8</b></span><span><svg class="i"><use href="#r-bot"/></svg><b>8</b></span><span><svg class="i"><use href="#r-sup"/></svg><b>8</b></span>
+          </div>
+          <div class="ft">
+            <span class="st warn"><svg class="i"><use href="#i-warn"/></svg>Faltam cartas em Atirador e Suporte</span>
+            <span class="sp"></span>
+            <span class="more"><svg class="i"><use href="#i-more"/></svg></span>
+            <span class="btn pri">Editar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 3 ================= -->
+  <div class="step"><b>3</b> · Editor do pacote</div>
+  <p class="note">A nota geral aparece em cada carta: nas abas, na prévia (selo no canto da foto) e, na lista de pessoas, a maior nota de cada uma.</p>
+  <div class="frame">
+    <div class="ebar">
+      <span class="back"><svg class="i"><use href="#i-back"/></svg>Pacotes</span>
+      <span class="ttl"><h2>Amigos</h2><svg class="i"><use href="#i-pencil"/></svg></span>
+      <span class="st ok"><svg class="i"><use href="#i-check"/></svg>Pronto para torneio</span>
+      <div class="roles">
+        <span><svg class="i"><use href="#r-top"/></svg><b>13</b></span><span><svg class="i"><use href="#r-jgl"/></svg><b>14</b></span><span><svg class="i"><use href="#r-mid"/></svg><b>17</b></span><span><svg class="i"><use href="#r-bot"/></svg><b>14</b></span><span><svg class="i"><use href="#r-sup"/></svg><b>13</b></span>
+      </div>
+      <span class="sp"></span>
+      <span class="dirty"><i></i>3 alterações</span>
+      <span class="btn txt">Descartar</span>
+      <span class="btn pri">Salvar</span>
+    </div>
+
+    <div class="ed">
+      <!-- pessoas -->
+      <div>
+        <div class="search"><svg class="i"><use href="#i-search"/></svg>Buscar</div>
+        <div class="segc">
+          <span class="on">Todas</span>
+          <span><svg class="i"><use href="#r-top"/></svg></span><span><svg class="i"><use href="#r-jgl"/></svg></span><span><svg class="i"><use href="#r-mid"/></svg></span><span><svg class="i"><use href="#r-bot"/></svg></span><span><svg class="i"><use href="#r-sup"/></svg></span>
+        </div>
+        <div class="plist">
+          <div class="pr sel"><img src="../../../public/players/rafa.jpg"><div><div class="nm">Rafa<span class="best">82</span></div><div class="rr"><svg class="i"><use href="#r-top"/></svg><svg class="i"><use href="#r-top"/></svg><svg class="i"><use href="#r-sup"/></svg><svg class="i"><use href="#r-jgl"/></svg><svg class="i"><use href="#r-bot"/></svg><svg class="i"><use href="#r-mid"/></svg></div></div></div>
+          <div class="pr"><img src="../../../public/players/ber.jpg"><div><div class="nm">Ber<span class="best">82</span></div><div class="rr"><svg class="i"><use href="#r-jgl"/></svg><svg class="i"><use href="#r-jgl"/></svg><svg class="i"><use href="#r-top"/></svg></div></div></div>
+          <div class="pr"><img src="../../../public/players/leite.jpg"><div><div class="nm">Igor<span class="best">82</span></div><div class="rr"><svg class="i"><use href="#r-bot"/></svg><svg class="i"><use href="#r-bot"/></svg><svg class="i"><use href="#r-mid"/></svg><svg class="i"><use href="#r-sup"/></svg></div></div></div>
+          <div class="pr"><div class="ini">IG</div><div><div class="nm">Igão<span class="best">80</span></div><div class="rr"><svg class="i"><use href="#r-bot"/></svg><svg class="i"><use href="#r-bot"/></svg><svg class="i bad"><use href="#r-jgl"/></svg></div></div><span class="badge"><svg class="i"><use href="#i-warn"/></svg></span></div>
+          <div class="pr"><div class="ini">HA</div><div><div class="nm">Hayashi<span class="best">80</span></div><div class="rr"><svg class="i"><use href="#r-mid"/></svg><svg class="i"><use href="#r-mid"/></svg></div></div></div>
+          <div class="pr"><img src="../../../public/players/iago.jpg"><div><div class="nm">Iago<span class="best">67</span></div><div class="rr"><svg class="i"><use href="#r-mid"/></svg><svg class="i"><use href="#r-sup"/></svg><svg class="i"><use href="#r-top"/></svg></div></div></div>
+          <div class="pr"><img src="../../../public/players/baguio.jpg"><div><div class="nm">Baguio<span class="best">70</span></div><div class="rr"><svg class="i"><use href="#r-sup"/></svg><svg class="i"><use href="#r-bot"/></svg></div></div></div>
+          <div class="addrow"><span class="c"><svg class="i" style="width:16px;height:16px"><use href="#i-plus"/></svg></span>Nova pessoa</div>
+        </div>
+      </div>
+
+      <!-- pessoa + carta -->
+      <div>
+        <div class="who">
+          <div class="avatar"><img src="../../../public/players/rafa.jpg"><span class="ov"><svg class="i"><use href="#i-cam"/></svg></span></div>
+          <div>
+            <h2>Rafa</h2>
+            <p>6 cartas · a foto vale para todas · <a>Remover foto</a></p>
+          </div>
+        </div>
+
+        <div class="ctabs">
+          <span class="ct on"><svg class="i"><use href="#r-top"/></svg>2018<b class="ovr-n">82</b></span>
+          <span class="ct"><svg class="i"><use href="#r-top"/></svg>2026<b class="ovr-n">75</b></span>
+          <span class="ct"><svg class="i"><use href="#r-sup"/></svg>Suporte<b class="ovr-n">75</b></span>
+          <span class="ct"><svg class="i"><use href="#r-jgl"/></svg>Selva<b class="ovr-n">73</b></span>
+          <span class="ct"><svg class="i"><use href="#r-bot"/></svg>Atirador<b class="ovr-n">70</b></span>
+          <span class="ct"><svg class="i"><use href="#r-mid"/></svg>Meio<b class="ovr-n">68</b></span>
+          <span class="ct add"><svg class="i"><use href="#i-plus"/></svg>Nova carta</span>
+        </div>
+
+        <div class="grp">
+          <h4>Carta</h4>
+          <div class="card">
+            <div class="rw"><span class="lb">Nome</span><span class="vl in">Rafa Top 2018</span></div>
+            <div class="rw"><span class="lb">Ano</span><span class="vl in">2018</span><span class="vl" style="flex:none;color:var(--t3)">opcional</span></div>
+            <div class="rw"><span class="lb">Rota</span>
+              <div class="rolepick">
+                <span class="on"><svg class="i"><use href="#r-top"/></svg>Topo</span><span><svg class="i"><use href="#r-jgl"/></svg>Selva</span><span><svg class="i"><use href="#r-mid"/></svg>Meio</span><span><svg class="i"><use href="#r-bot"/></svg>Atirador</span><span><svg class="i"><use href="#r-sup"/></svg>Suporte</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grp">
+          <h4>Fases do jogo</h4>
+          <div class="card">
+            <div class="rw"><span class="lb">Rotas</span><div class="sl"><div class="tr"><i style="width:75%"></i><b style="left:75%"></b></div><span class="n">75</span></div></div>
+            <div class="rw"><span class="lb">Meio de jogo</span><div class="sl"><div class="tr"><i style="width:85%"></i><b style="left:85%"></b></div><span class="n">85</span></div></div>
+            <div class="rw"><span class="lb">Fim de jogo</span><div class="sl"><div class="tr"><i style="width:85%"></i><b style="left:85%"></b></div><span class="n">85</span></div></div>
+            <div class="rw"><span class="lb">Nota geral</span><div class="ovr"><span class="big">82</span><span class="ex">Média das três fases. É a força da carta na rota, calculada sozinha.</span></div></div>
+          </div>
+        </div>
+
+        <div class="grp">
+          <h4>Traits · 2 de 4</h4>
+          <div class="card">
+            <div class="chips">
+              <span class="chip on">Cabeça fria</span><span class="chip on">Bom de teamfight</span>
+              <span class="chip">Flipa a lane</span><span class="chip">Ama dragão</span><span class="chip">Roamer</span><span class="chip">Joga side</span><span class="chip">Quita</span>
+              <span class="chip">Tilta ao morrer</span><span class="chip">Piora atrás</span><span class="chip">Clutch</span><span class="chip">Foco em objetivos</span><span class="chip">Rouba barão</span><span class="chip">Forte na lane</span><span class="chip">Bully de lane</span><span class="chip">Provocador</span>
+            </div>
+            <div class="hint">Bom de teamfight: rende mais nas lutas em grupo.</div>
+          </div>
+        </div>
+
+        <div class="grp">
+          <h4>Campeões · 8 no pool, mínimo 8</h4>
+          <div class="card">
+            <div class="champs">
+              <div class="chp"><img src="../../../public/champions/Maokai.png"><div><div class="n">Maokai</div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div></div></div>
+              <div class="chp"><img src="../../../public/champions/Ornn.png"><div><div class="n">Ornn</div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div></div></div>
+              <div class="chp"><img src="../../../public/champions/Trundle.png"><div><div class="n">Trundle</div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div></div></div>
+              <div class="chp"><img src="../../../public/champions/Poppy.png"><div><div class="n">Poppy</div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div></div></div>
+              <div class="chp"><img src="../../../public/champions/DrMundo.png"><div><div class="n">Dr. Mundo</div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div></div></div>
+              <div class="chp"><img src="../../../public/champions/Jax.png"><div><div class="n">Jax</div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></div></div></div>
+              <div class="chp"><img src="../../../public/champions/Vladimir.png"><div><div class="n">Vladimir</div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></div></div></div>
+              <div class="chp"><img src="../../../public/champions/Shen.png"><div><div class="n">Shen</div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></div></div></div>
+              <div class="chp add"><svg class="i" style="width:16px;height:16px"><use href="#i-plus"/></svg>Adicionar</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card"><div class="danger"><svg class="i"><use href="#i-trash"/></svg>Remover esta carta</div></div>
+      </div>
+
+      <!-- previa -->
+      <div class="pv">
+        <h4>No draft</h4>
+        <div class="pc">
+          <div class="im"><img src="../../../public/players/rafa.jpg"><span class="ovb"><b>82</b><svg class="i"><use href="#r-top"/></svg></span><span class="rl"><svg class="i"><use href="#r-top"/></svg>TOPO</span></div>
+          <div class="bd">
+            <h3>Rafa</h3>
+            <div class="y">2018</div>
+            <div class="tg"><span>Cabeça fria</span><span>Bom de teamfight</span></div>
+          </div>
+        </div>
+        <div class="cap">Muda na hora em que você edita nome, ano, rota, traits ou foto.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

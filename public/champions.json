@@ -1,0 +1,1458 @@
+{
+  "champions": [
+    {
+      "id": "aatrox",
+      "name": "Aatrox",
+      "traits": [
+        "early_dominant"
+      ],
+      "image": "Aatrox.png"
+    },
+    {
+      "id": "ahri",
+      "name": "Ahri",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Ahri.png"
+    },
+    {
+      "id": "akali",
+      "name": "Akali",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Akali.png"
+    },
+    {
+      "id": "akshan",
+      "name": "Akshan",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Akshan.png"
+    },
+    {
+      "id": "alistar",
+      "name": "Alistar",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Alistar.png"
+    },
+    {
+      "id": "ambessa",
+      "name": "Ambessa",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Ambessa.png"
+    },
+    {
+      "id": "amumu",
+      "name": "Amumu",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Amumu.png"
+    },
+    {
+      "id": "anivia",
+      "name": "Anivia",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Anivia.png"
+    },
+    {
+      "id": "annie",
+      "name": "Annie",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Annie.png"
+    },
+    {
+      "id": "aphelios",
+      "name": "Aphelios",
+      "traits": [],
+      "image": "Aphelios.png"
+    },
+    {
+      "id": "ashe",
+      "name": "Ashe",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Ashe.png"
+    },
+    {
+      "id": "aurelion-sol",
+      "name": "Aurelion Sol",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "AurelionSol.png"
+    },
+    {
+      "id": "aurora",
+      "name": "Aurora",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Aurora.png"
+    },
+    {
+      "id": "azir",
+      "name": "Azir",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Azir.png"
+    },
+    {
+      "id": "bard",
+      "name": "Bard",
+      "traits": [],
+      "image": "Bard.png"
+    },
+    {
+      "id": "belveth",
+      "name": "Bel'Veth",
+      "traits": [],
+      "image": "Belveth.png"
+    },
+    {
+      "id": "blitzcrank",
+      "name": "Blitzcrank",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Blitzcrank.png"
+    },
+    {
+      "id": "brand",
+      "name": "Brand",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Brand.png"
+    },
+    {
+      "id": "braum",
+      "name": "Braum",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Braum.png"
+    },
+    {
+      "id": "briar",
+      "name": "Briar",
+      "traits": [
+        "high_first_blood",
+        "teamfight"
+      ],
+      "image": "Briar.png"
+    },
+    {
+      "id": "caitlyn",
+      "name": "Caitlyn",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Caitlyn.png"
+    },
+    {
+      "id": "camille",
+      "name": "Camille",
+      "traits": [
+        "high_first_blood",
+        "objective_control"
+      ],
+      "image": "Camille.png"
+    },
+    {
+      "id": "cassiopeia",
+      "name": "Cassiopeia",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Cassiopeia.png"
+    },
+    {
+      "id": "chogath",
+      "name": "Cho'Gath",
+      "traits": [
+        "objective_control",
+        "late_scaling"
+      ],
+      "image": "Chogath.png"
+    },
+    {
+      "id": "corki",
+      "name": "Corki",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Corki.png"
+    },
+    {
+      "id": "darius",
+      "name": "Darius",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "Darius.png"
+    },
+    {
+      "id": "diana",
+      "name": "Diana",
+      "traits": [
+        "high_first_blood",
+        "objective_control"
+      ],
+      "image": "Diana.png"
+    },
+    {
+      "id": "draven",
+      "name": "Draven",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Draven.png"
+    },
+    {
+      "id": "dr-mundo",
+      "name": "Dr. Mundo",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "DrMundo.png"
+    },
+    {
+      "id": "ekko",
+      "name": "Ekko",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Ekko.png"
+    },
+    {
+      "id": "elise",
+      "name": "Elise",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Elise.png"
+    },
+    {
+      "id": "evelynn",
+      "name": "Evelynn",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Evelynn.png"
+    },
+    {
+      "id": "ezreal",
+      "name": "Ezreal",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Ezreal.png"
+    },
+    {
+      "id": "fiddlesticks",
+      "name": "Fiddlesticks",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Fiddlesticks.png"
+    },
+    {
+      "id": "fiora",
+      "name": "Fiora",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Fiora.png"
+    },
+    {
+      "id": "fizz",
+      "name": "Fizz",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Fizz.png"
+    },
+    {
+      "id": "galio",
+      "name": "Galio",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Galio.png"
+    },
+    {
+      "id": "gangplank",
+      "name": "Gangplank",
+      "traits": [
+        "objective_control",
+        "teamfight"
+      ],
+      "image": "Gangplank.png"
+    },
+    {
+      "id": "garen",
+      "name": "Garen",
+      "traits": [
+        "objective_control",
+        "teamfight"
+      ],
+      "image": "Garen.png"
+    },
+    {
+      "id": "gnar",
+      "name": "Gnar",
+      "traits": [
+        "objective_control",
+        "teamfight"
+      ],
+      "image": "Gnar.png"
+    },
+    {
+      "id": "gragas",
+      "name": "Gragas",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Gragas.png"
+    },
+    {
+      "id": "graves",
+      "name": "Graves",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Graves.png"
+    },
+    {
+      "id": "gwen",
+      "name": "Gwen",
+      "traits": [],
+      "image": "Gwen.png"
+    },
+    {
+      "id": "hecarim",
+      "name": "Hecarim",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "Hecarim.png"
+    },
+    {
+      "id": "heimerdinger",
+      "name": "Heimerdinger",
+      "traits": [
+        "late_scaling",
+        "objective_control"
+      ],
+      "image": "Heimerdinger.png"
+    },
+    {
+      "id": "hwei",
+      "name": "Hwei",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Hwei.png"
+    },
+    {
+      "id": "illaoi",
+      "name": "Illaoi",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "Illaoi.png"
+    },
+    {
+      "id": "irelia",
+      "name": "Irelia",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Irelia.png"
+    },
+    {
+      "id": "ivern",
+      "name": "Ivern",
+      "traits": [
+        "late_scaling",
+        "objective_control"
+      ],
+      "image": "Ivern.png"
+    },
+    {
+      "id": "janna",
+      "name": "Janna",
+      "traits": [
+        "late_scaling",
+        "objective_control"
+      ],
+      "image": "Janna.png"
+    },
+    {
+      "id": "jarvan-iv",
+      "name": "Jarvan IV",
+      "traits": [
+        "objective_control",
+        "teamfight"
+      ],
+      "image": "JarvanIV.png"
+    },
+    {
+      "id": "jax",
+      "name": "Jax",
+      "traits": [
+        "teamfight"
+      ],
+      "image": "Jax.png"
+    },
+    {
+      "id": "jayce",
+      "name": "Jayce",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Jayce.png"
+    },
+    {
+      "id": "jhin",
+      "name": "Jhin",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Jhin.png"
+    },
+    {
+      "id": "jinx",
+      "name": "Jinx",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Jinx.png"
+    },
+    {
+      "id": "kaisa",
+      "name": "Kai'Sa",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Kaisa.png"
+    },
+    {
+      "id": "kalista",
+      "name": "Kalista",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Kalista.png"
+    },
+    {
+      "id": "karma",
+      "name": "Karma",
+      "traits": [
+        "late_scaling",
+        "objective_control"
+      ],
+      "image": "Karma.png"
+    },
+    {
+      "id": "karthus",
+      "name": "Karthus",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Karthus.png"
+    },
+    {
+      "id": "kassadin",
+      "name": "Kassadin",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Kassadin.png"
+    },
+    {
+      "id": "katarina",
+      "name": "Katarina",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Katarina.png"
+    },
+    {
+      "id": "kayle",
+      "name": "Kayle",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Kayle.png"
+    },
+    {
+      "id": "kayn",
+      "name": "Kayn",
+      "traits": [
+        "high_first_blood",
+        "objective_control"
+      ],
+      "image": "Kayn.png"
+    },
+    {
+      "id": "kennen",
+      "name": "Kennen",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Kennen.png"
+    },
+    {
+      "id": "khazix",
+      "name": "Kha'Zix",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Khazix.png"
+    },
+    {
+      "id": "kindred",
+      "name": "Kindred",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Kindred.png"
+    },
+    {
+      "id": "kled",
+      "name": "Kled",
+      "traits": [
+        "early_dominant"
+      ],
+      "image": "Kled.png"
+    },
+    {
+      "id": "kog-maw",
+      "name": "Kog'Maw",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "KogMaw.png"
+    },
+    {
+      "id": "k-sante",
+      "name": "K'Sante",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "KSante.png"
+    },
+    {
+      "id": "leblanc",
+      "name": "LeBlanc",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Leblanc.png"
+    },
+    {
+      "id": "lee-sin",
+      "name": "Lee Sin",
+      "traits": [
+        "high_first_blood",
+        "teamfight"
+      ],
+      "image": "LeeSin.png"
+    },
+    {
+      "id": "leona",
+      "name": "Leona",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Leona.png"
+    },
+    {
+      "id": "lillia",
+      "name": "Lillia",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Lillia.png"
+    },
+    {
+      "id": "lissandra",
+      "name": "Lissandra",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Lissandra.png"
+    },
+    {
+      "id": "locke",
+      "name": "Locke",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Locke.png"
+    },
+    {
+      "id": "lucian",
+      "name": "Lucian",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Lucian.png"
+    },
+    {
+      "id": "lulu",
+      "name": "Lulu",
+      "traits": [
+        "late_scaling",
+        "objective_control"
+      ],
+      "image": "Lulu.png"
+    },
+    {
+      "id": "lux",
+      "name": "Lux",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Lux.png"
+    },
+    {
+      "id": "malphite",
+      "name": "Malphite",
+      "traits": [
+        "objective_control",
+        "late_scaling"
+      ],
+      "image": "Malphite.png"
+    },
+    {
+      "id": "malzahar",
+      "name": "Malzahar",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Malzahar.png"
+    },
+    {
+      "id": "maokai",
+      "name": "Maokai",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Maokai.png"
+    },
+    {
+      "id": "master-yi",
+      "name": "Master Yi",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "MasterYi.png"
+    },
+    {
+      "id": "mel",
+      "name": "Mel",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Mel.png"
+    },
+    {
+      "id": "milio",
+      "name": "Milio",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Milio.png"
+    },
+    {
+      "id": "miss-fortune",
+      "name": "Miss Fortune",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "MissFortune.png"
+    },
+    {
+      "id": "monkey-king",
+      "name": "Wukong",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "MonkeyKing.png"
+    },
+    {
+      "id": "mordekaiser",
+      "name": "Mordekaiser",
+      "traits": [
+        "objective_control",
+        "late_scaling"
+      ],
+      "image": "Mordekaiser.png"
+    },
+    {
+      "id": "morgana",
+      "name": "Morgana",
+      "traits": [
+        "late_scaling",
+        "objective_control"
+      ],
+      "image": "Morgana.png"
+    },
+    {
+      "id": "naafiri",
+      "name": "Naafiri",
+      "traits": [
+        "high_first_blood",
+        "teamfight"
+      ],
+      "image": "Naafiri.png"
+    },
+    {
+      "id": "nami",
+      "name": "Nami",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Nami.png"
+    },
+    {
+      "id": "nasus",
+      "name": "Nasus",
+      "traits": [
+        "objective_control",
+        "teamfight"
+      ],
+      "image": "Nasus.png"
+    },
+    {
+      "id": "nautilus",
+      "name": "Nautilus",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Nautilus.png"
+    },
+    {
+      "id": "neeko",
+      "name": "Neeko",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Neeko.png"
+    },
+    {
+      "id": "nidalee",
+      "name": "Nidalee",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Nidalee.png"
+    },
+    {
+      "id": "nilah",
+      "name": "Nilah",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Nilah.png"
+    },
+    {
+      "id": "nocturne",
+      "name": "Nocturne",
+      "traits": [
+        "high_first_blood",
+        "teamfight"
+      ],
+      "image": "Nocturne.png"
+    },
+    {
+      "id": "nunu",
+      "name": "Nunu & Willump",
+      "traits": [
+        "objective_control",
+        "late_scaling"
+      ],
+      "image": "Nunu.png"
+    },
+    {
+      "id": "olaf",
+      "name": "Olaf",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "Olaf.png"
+    },
+    {
+      "id": "orianna",
+      "name": "Orianna",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Orianna.png"
+    },
+    {
+      "id": "ornn",
+      "name": "Ornn",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Ornn.png"
+    },
+    {
+      "id": "pantheon",
+      "name": "Pantheon",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Pantheon.png"
+    },
+    {
+      "id": "poppy",
+      "name": "Poppy",
+      "traits": [
+        "objective_control",
+        "teamfight"
+      ],
+      "image": "Poppy.png"
+    },
+    {
+      "id": "pyke",
+      "name": "Pyke",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Pyke.png"
+    },
+    {
+      "id": "qiyana",
+      "name": "Qiyana",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Qiyana.png"
+    },
+    {
+      "id": "quinn",
+      "name": "Quinn",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Quinn.png"
+    },
+    {
+      "id": "rakan",
+      "name": "Rakan",
+      "traits": [],
+      "image": "Rakan.png"
+    },
+    {
+      "id": "rammus",
+      "name": "Rammus",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Rammus.png"
+    },
+    {
+      "id": "rek-sai",
+      "name": "Rek'Sai",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "RekSai.png"
+    },
+    {
+      "id": "rell",
+      "name": "Rell",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Rell.png"
+    },
+    {
+      "id": "renata",
+      "name": "Renata Glasc",
+      "traits": [
+        "late_scaling",
+        "objective_control"
+      ],
+      "image": "Renata.png"
+    },
+    {
+      "id": "renekton",
+      "name": "Renekton",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "Renekton.png"
+    },
+    {
+      "id": "rengar",
+      "name": "Rengar",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Rengar.png"
+    },
+    {
+      "id": "riven",
+      "name": "Riven",
+      "traits": [
+        "high_first_blood",
+        "teamfight"
+      ],
+      "image": "Riven.png"
+    },
+    {
+      "id": "rumble",
+      "name": "Rumble",
+      "traits": [
+        "objective_control",
+        "late_scaling"
+      ],
+      "image": "Rumble.png"
+    },
+    {
+      "id": "ryze",
+      "name": "Ryze",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Ryze.png"
+    },
+    {
+      "id": "samira",
+      "name": "Samira",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Samira.png"
+    },
+    {
+      "id": "sejuani",
+      "name": "Sejuani",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Sejuani.png"
+    },
+    {
+      "id": "senna",
+      "name": "Senna",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Senna.png"
+    },
+    {
+      "id": "seraphine",
+      "name": "Seraphine",
+      "traits": [],
+      "image": "Seraphine.png"
+    },
+    {
+      "id": "sett",
+      "name": "Sett",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "Sett.png"
+    },
+    {
+      "id": "shaco",
+      "name": "Shaco",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Shaco.png"
+    },
+    {
+      "id": "shen",
+      "name": "Shen",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Shen.png"
+    },
+    {
+      "id": "shyvana",
+      "name": "Shyvana",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "Shyvana.png"
+    },
+    {
+      "id": "singed",
+      "name": "Singed",
+      "traits": [
+        "objective_control",
+        "late_scaling"
+      ],
+      "image": "Singed.png"
+    },
+    {
+      "id": "sion",
+      "name": "Sion",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Sion.png"
+    },
+    {
+      "id": "sivir",
+      "name": "Sivir",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Sivir.png"
+    },
+    {
+      "id": "skarner",
+      "name": "Skarner",
+      "traits": [
+        "objective_control",
+        "teamfight"
+      ],
+      "image": "Skarner.png"
+    },
+    {
+      "id": "smolder",
+      "name": "Smolder",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Smolder.png"
+    },
+    {
+      "id": "sona",
+      "name": "Sona",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Sona.png"
+    },
+    {
+      "id": "soraka",
+      "name": "Soraka",
+      "traits": [
+        "late_scaling",
+        "objective_control"
+      ],
+      "image": "Soraka.png"
+    },
+    {
+      "id": "swain",
+      "name": "Swain",
+      "traits": [
+        "late_scaling",
+        "objective_control"
+      ],
+      "image": "Swain.png"
+    },
+    {
+      "id": "sylas",
+      "name": "Sylas",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Sylas.png"
+    },
+    {
+      "id": "syndra",
+      "name": "Syndra",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Syndra.png"
+    },
+    {
+      "id": "tahm-kench",
+      "name": "Tahm Kench",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "TahmKench.png"
+    },
+    {
+      "id": "taliyah",
+      "name": "Taliyah",
+      "traits": [
+        "late_scaling",
+        "objective_control"
+      ],
+      "image": "Taliyah.png"
+    },
+    {
+      "id": "talon",
+      "name": "Talon",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Talon.png"
+    },
+    {
+      "id": "taric",
+      "name": "Taric",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Taric.png"
+    },
+    {
+      "id": "teemo",
+      "name": "Teemo",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Teemo.png"
+    },
+    {
+      "id": "thresh",
+      "name": "Thresh",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Thresh.png"
+    },
+    {
+      "id": "tristana",
+      "name": "Tristana",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Tristana.png"
+    },
+    {
+      "id": "trundle",
+      "name": "Trundle",
+      "traits": [
+        "objective_control",
+        "teamfight"
+      ],
+      "image": "Trundle.png"
+    },
+    {
+      "id": "tryndamere",
+      "name": "Tryndamere",
+      "traits": [
+        "high_first_blood",
+        "teamfight"
+      ],
+      "image": "Tryndamere.png"
+    },
+    {
+      "id": "twisted-fate",
+      "name": "Twisted Fate",
+      "traits": [],
+      "image": "TwistedFate.png"
+    },
+    {
+      "id": "twitch",
+      "name": "Twitch",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Twitch.png"
+    },
+    {
+      "id": "udyr",
+      "name": "Udyr",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "Udyr.png"
+    },
+    {
+      "id": "urgot",
+      "name": "Urgot",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "Urgot.png"
+    },
+    {
+      "id": "varus",
+      "name": "Varus",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Varus.png"
+    },
+    {
+      "id": "vayne",
+      "name": "Vayne",
+      "traits": [
+        "high_first_blood",
+        "late_scaling"
+      ],
+      "image": "Vayne.png"
+    },
+    {
+      "id": "veigar",
+      "name": "Veigar",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Veigar.png"
+    },
+    {
+      "id": "velkoz",
+      "name": "Vel'Koz",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Velkoz.png"
+    },
+    {
+      "id": "vex",
+      "name": "Vex",
+      "traits": [],
+      "image": "Vex.png"
+    },
+    {
+      "id": "vi",
+      "name": "Vi",
+      "traits": [
+        "high_first_blood",
+        "teamfight"
+      ],
+      "image": "Vi.png"
+    },
+    {
+      "id": "viego",
+      "name": "Viego",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Viego.png"
+    },
+    {
+      "id": "viktor",
+      "name": "Viktor",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Viktor.png"
+    },
+    {
+      "id": "vladimir",
+      "name": "Vladimir",
+      "traits": [
+        "objective_control",
+        "late_scaling"
+      ],
+      "image": "Vladimir.png"
+    },
+    {
+      "id": "volibear",
+      "name": "Volibear",
+      "traits": [
+        "objective_control",
+        "teamfight"
+      ],
+      "image": "Volibear.png"
+    },
+    {
+      "id": "warwick",
+      "name": "Warwick",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "Warwick.png"
+    },
+    {
+      "id": "xayah",
+      "name": "Xayah",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Xayah.png"
+    },
+    {
+      "id": "xerath",
+      "name": "Xerath",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Xerath.png"
+    },
+    {
+      "id": "xin-zhao",
+      "name": "Xin Zhao",
+      "traits": [
+        "objective_control",
+        "early_dominant"
+      ],
+      "image": "XinZhao.png"
+    },
+    {
+      "id": "yasuo",
+      "name": "Yasuo",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Yasuo.png"
+    },
+    {
+      "id": "yone",
+      "name": "Yone",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Yone.png"
+    },
+    {
+      "id": "yorick",
+      "name": "Yorick",
+      "traits": [
+        "objective_control",
+        "teamfight"
+      ],
+      "image": "Yorick.png"
+    },
+    {
+      "id": "yunara",
+      "name": "Yunara",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Yunara.png"
+    },
+    {
+      "id": "yuumi",
+      "name": "Yuumi",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Yuumi.png"
+    },
+    {
+      "id": "zaahen",
+      "name": "Zaahen",
+      "traits": [
+        "high_first_blood",
+        "objective_control"
+      ],
+      "image": "Zaahen.png"
+    },
+    {
+      "id": "zac",
+      "name": "Zac",
+      "traits": [
+        "objective_control"
+      ],
+      "image": "Zac.png"
+    },
+    {
+      "id": "zed",
+      "name": "Zed",
+      "traits": [
+        "high_first_blood"
+      ],
+      "image": "Zed.png"
+    },
+    {
+      "id": "zeri",
+      "name": "Zeri",
+      "traits": [
+        "late_scaling",
+        "early_dominant"
+      ],
+      "image": "Zeri.png"
+    },
+    {
+      "id": "ziggs",
+      "name": "Ziggs",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Ziggs.png"
+    },
+    {
+      "id": "zilean",
+      "name": "Zilean",
+      "traits": [
+        "late_scaling",
+        "objective_control"
+      ],
+      "image": "Zilean.png"
+    },
+    {
+      "id": "zoe",
+      "name": "Zoe",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Zoe.png"
+    },
+    {
+      "id": "zyra",
+      "name": "Zyra",
+      "traits": [
+        "late_scaling"
+      ],
+      "image": "Zyra.png"
+    }
+  ]
+}

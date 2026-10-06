@@ -1,0 +1,71 @@
+=== cenario app (N=1500) ===
+violacoes de regra dura: 0
+OK   [trava] duracao media (min): 29.211  banda [29.000; 36.000] alvo 32.300
+OK   [trava] fracao no teto de 60 min: 0.000  banda [0.000; 0.005] alvo 0.000
+OK   [trava] mediana da 1a torre (s): 645  banda [480; 1200] alvo 975
+FORA [aceite] lider de abates aos 20 vence: 0.516  banda [0.700; 0.820] alvo 0.764
+FORA [aceite] lider de ouro aos 15 vence: 0.635  banda [0.660; 0.780] alvo 0.716
+FORA [aceite] lider de ouro aos 20 vence: 0.529  banda [0.720; 0.840] alvo 0.782
+FORA [aceite] lider de ouro aos 25 vence: 0.419  banda [0.770; 0.890] alvo 0.830
+FORA [aceite] abates vencedor / perdedor: 0.939  banda [1.800; 2.600] alvo 2.150
+FORA [aceite] vencedor com mais abates: 0.435  banda [0.850; 1.000] alvo 0.900
+FORA [aceite] vencedor atras no ouro: 0.511  banda [0.000; 0.050] alvo 0.020
+FORA [aceite] ouro vencedor menos perdedor: -787  banda [7000; 13000] alvo 10000
+OK   [aceite] GPM por time: 2036  banda [1650; 2050] alvo 1833
+FORA [aceite] GPM vencedor / perdedor: 0.987  banda [1.120; 1.260] alvo 1.190
+FORA [aceite] time do 1o Barao vence: 0.625  banda [0.780; 0.900] alvo 0.854
+FORA [aceite] time da Alma vence: 0.481  banda [0.840; 0.950] alvo 0.908
+FORA [aceite] time da 1a torre vence: 0.823  banda [0.620; 0.750] alvo 0.682
+FORA [aceite] roubos / objetivos tomados: 0.093  banda [0.000; 0.030] alvo 0.020
+OK   [aceite] favorito com gap >= 5 vence: 0.764  banda [0.750; 0.850] alvo 0.800
+OK   [aceite] favorito com gap < 1 vence: 0.481  banda [0.450; 0.550] alvo 0.500
+--- acompanhadas sem gate ---
+     abates por partida: 50.229  (real 27)
+     abates por minuto: 1.720  (real 0,84)
+     mediana do first blood (s): 60.000  (real 300)
+     mediana do 1o dragao (s): 315  (real 550)
+     1o Barao no 1o minuto de spawn: 0.462  (real raro)
+     partidas com Elder: 0.159  (real 0,08)
+     torres por partida: 8.928  (real 11,9)
+     lider de torres aos 20 vence: 0.865  (real sem fonte)
+     ouro por time aos 10: 21768  (real 15900)
+     ouro por time aos 15: 29830  (real 24700)
+     ouro por time aos 20: 38544  (real 34200)
+     abates aos 10: 10.384  (real 3,2)
+     abates aos 20: 25.217  (real 10,7)
+
+=== cenario even75 (N=1500) ===
+violacoes de regra dura: 0
+OK   [trava] duracao media (min): 30.151  banda [29.000; 36.000] alvo 32.300
+OK   [trava] fracao no teto de 60 min: 0.000  banda [0.000; 0.005] alvo 0.000
+OK   [trava] mediana da 1a torre (s): 810  banda [480; 1200] alvo 975
+FORA [aceite] lider de abates aos 20 vence: 0.604  banda [0.700; 0.820] alvo 0.764
+OK   [aceite] lider de ouro aos 15 vence: 0.701  banda [0.660; 0.780] alvo 0.716
+FORA [aceite] lider de ouro aos 20 vence: 0.636  banda [0.720; 0.840] alvo 0.782
+FORA [aceite] lider de ouro aos 25 vence: 0.467  banda [0.770; 0.890] alvo 0.830
+FORA [aceite] abates vencedor / perdedor: 1.017  banda [1.800; 2.600] alvo 2.150
+FORA [aceite] vencedor com mais abates: 0.500  banda [0.850; 1.000] alvo 0.900
+FORA [aceite] vencedor atras no ouro: 0.451  banda [0.000; 0.050] alvo 0.020
+FORA [aceite] ouro vencedor menos perdedor: 924  banda [7000; 13000] alvo 10000
+OK   [aceite] GPM por time: 1782  banda [1650; 2050] alvo 1833
+FORA [aceite] GPM vencedor / perdedor: 1.020  banda [1.120; 1.260] alvo 1.190
+FORA [aceite] time do 1o Barao vence: 0.583  banda [0.780; 0.900] alvo 0.854
+FORA [aceite] time da Alma vence: 0.489  banda [0.840; 0.950] alvo 0.908
+FORA [aceite] time da 1a torre vence: 0.851  banda [0.620; 0.750] alvo 0.682
+FORA [aceite] roubos / objetivos tomados: 0.063  banda [0.000; 0.030] alvo 0.020
+FORA [aceite] favorito com gap >= 5 vence: n/a  banda [0.750; 0.850] alvo 0.800
+FORA [aceite] favorito com gap < 1 vence: n/a  banda [0.450; 0.550] alvo 0.500
+--- acompanhadas sem gate ---
+     abates por partida: 39.669  (real 27)
+     abates por minuto: 1.316  (real 0,84)
+     mediana do first blood (s): 120  (real 300)
+     mediana do 1o dragao (s): 315  (real 550)
+     1o Barao no 1o minuto de spawn: 0.346  (real raro)
+     partidas com Elder: 0.223  (real 0,08)
+     torres por partida: 9.065  (real 11,9)
+     lider de torres aos 20 vence: 0.898  (real sem fonte)
+     ouro por time aos 10: 19408  (real 15900)
+     ouro por time aos 15: 26391  (real 24700)
+     ouro por time aos 20: 33063  (real 34200)
+     abates aos 10: 6.443  (real 3,2)
+     abates aos 20: 15.343  (real 10,7)

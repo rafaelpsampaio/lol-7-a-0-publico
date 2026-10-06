@@ -1,0 +1,40 @@
+name: Pacote Windows
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.19.0'
+          cache: npm
+      - run: npm ci
+      - name: Conferir tag e versao
+        if: startsWith(github.ref, 'refs/tags/')
+        shell: pwsh
+        run: |
+          $version = (Get-Content package.json -Raw | ConvertFrom-Json).version
+          if ($env:GITHUB_REF_NAME -ne "v$version") { throw 'Tag diferente da versao do package.json' }
+      - run: npm run build
+      - run: npm run typecheck:server
+      - run: npx vitest run server/appPaths.test.ts server/cli.test.ts server/http.test.ts server/pacotes/handler.test.ts
+      - run: npm run package:windows
+      - name: Testar pacote e atualizador
+        shell: powershell
+        run: ./scripts/test-distribution.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: LoL-7-a-0-windows-x64
+          path: release/LoL-7-a-0-windows-x64.zip*
+      - name: Publicar release
+        if: startsWith(github.ref, 'refs/tags/')
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create $env:GITHUB_REF_NAME release/LoL-7-a-0-windows-x64.zip release/LoL-7-a-0-windows-x64.zip.sha256 --title "LoL 7 a 0 $env:GITHUB_REF_NAME" --generate-notes

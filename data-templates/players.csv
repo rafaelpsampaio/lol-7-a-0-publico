@@ -1,0 +1,20 @@
+﻿id;personId;displayName;year;primaryRole;lanePhase;midGame;lateGame;Overall;trait1;trait2;champ1_id;champ1_mastery;champ2_id;champ2_mastery;champ3_id;champ3_mastery;champ4_id;champ4_mastery;champ5_id;champ5_mastery;champ6_id;champ6_mastery;champ7_id;champ7_mastery;champ8_id;champ8_mastery
+raguto_mid;raguto;Raguto Mid;;mid;50;50;40;47;tilts_on_death;trash_talker;zed;5;vladimir;2;viktor;3;ekko;3;ryze;3;riven;3;yasuo;1;katarina;1
+raguto_top;raguto;Raguto Top;;top;45;45;40;43;tilts_on_death;trash_talker;riven;4;gankplank;1;gnar;1;yasuo;1;zed;1;darius;2;irelia;2;renekton;2
+raguto_adc;raguto;Raguto Adc;;adc;40;40;40;40;tilts_on_death;trash_talker;caitlyn;5;jinx;1;miss fortune;4;smolder;3;xayah;3;jhin;2;lucian;2;kalista;2
+jogi_top;jogi;Jogi Top;;top;65;70;60;65;flips;mental_fort;sett;5;yasuo;4;garen;4;camille;3;darius;2;yorick;2;fiora;2;jax;1
+jogi_mid;jogi;Jogi Mid;;Mid;55;60;55;57;flips;mental_fort;zed;4;yasuo;5;sett;4;yone;3;ahri;3;annie;2;orianna;1;syndra;1
+jose_jungle;jose;Jose Jg;;Jungle;40;40;40;40;mental_fort;;sejuani;5;talon;2;kayn;2;kha zix;2;master yi;2;dr mundo;2;xin zhao;1;warwick;1
+oadamo_jungle;oadamo;Adamo Jg;;Jungle;65;60;60;62;mental_fort;dragon_lover;amumu;5;master yi;3;warwick;3;vi;3;mordekaiser;2;trundle;3;nunu;2;diana;1
+iago_sup;iago;Iago Sup;;support;75;60;60;65;flips;lane_bully;milio;3;lulu;5;yummi;3;renata glasck;3;nami;2;sona;1;karma;1;pantheon;2
+iago_mid;iago;Iago mid;;mid;70;50;70;63;flips;mental_fort;Yone;3;pantheon;5;galio;3;annie;2;lissandra;2;diana;3;sett;2;karma;1
+baguio_sup;baguio;Baguio Sup;;support;75;65;56;65;flips;mental_fort;Nautilus;4;Alistar;5;braum;3;blitzcrank;2;thresh;2;leona;2;rakan;1;pantheon;1
+baguio_top;baguio;Baguio Top;;top;65;60;65;63;mental_fort;;Garen;5;mordekaiser;3;cho gath;2;malphite;2;urgot;2;singed;1;sett;2;ornn;2
+baguio_jungle;baguio;Baguio Jungle;;jungle;60;60;60;60;mental_fort;;sejuani;3;zac;3;warwick;2;volibear;2;belveth;1;trundle;1;nautilus;1;amumu;1
+baguio_adc;baguio;Baguio Adc;;adc;50;40;40;43;mental_fort;;ashe;3;sivir;3;tristana;2;ezreal;2;miss fortune;1;veigar;2;jhin;1;swain;1
+baguio_mid;baguio;Baguio Mid;;mid;50;50;50;50;mental_fort;flips;veigar;3;garen;3;lissandra;3;malzahar;2;fizz;2;zed;1;galio;1;talon;1
+luan50_adc;luan50;Luan Adc;;adc;60;60;60;60;tilts_on_death;;jhin;3;ashe;3;varus;2;senna;1;smolder;1;tristana;1;caitlyn;1;jinx;1
+luan50_jungle;luan50;Luan Jungle;;jungle;65;60;55;60;;;vi;4;sejuani;3;diana;2;ivern;1;maokai;2;dr mundo;1;jarvan;1;amumu;1
+iago_top;iago;Iago Top;;top;65;60;55;60;flips;;sett;4;mordekaiser;3;yone;3;lissandra;2;pantheon;3;shen;2;malphite;2;maokai;1
+valdir_top;valdir;Valdir Top;;top;55;50;50;52;tilts_on_death;;gragas;5;trundle;4;garen;3;malphite;2;gnar;1;volibear;2;yorick;1;sett;1
+junao_sup;junao;Junão Sup;;support;60;50;55;55;mental_fort;flips;;;;;;;;;;;;;;;;

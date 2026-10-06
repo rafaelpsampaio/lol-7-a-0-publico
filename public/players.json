@@ -1,0 +1,2313 @@
+{
+  "$schema": "../.vscode/players.schema.json",
+  "name": "Pros / Mundial",
+  "players": [
+    {
+      "id": "faker-2016",
+      "personId": "faker",
+      "displayName": "Faker 2016",
+      "year": 2016,
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 95,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 95,
+      "midGame": 97,
+      "lateGame": 94,
+      "traits": [
+        "clutch_player",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "leblanc",
+          "mastery": 5
+        },
+        {
+          "championId": "zed",
+          "mastery": 5
+        },
+        {
+          "championId": "ryze",
+          "mastery": 4
+        },
+        {
+          "championId": "orianna",
+          "mastery": 4
+        },
+        {
+          "championId": "twisted-fate",
+          "mastery": 3
+        },
+        {
+          "championId": "cassiopeia",
+          "mastery": 3
+        },
+        {
+          "championId": "galio",
+          "mastery": 2
+        },
+        {
+          "championId": "corki",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "caps-2019",
+      "personId": "caps",
+      "displayName": "Caps 2019",
+      "year": 2019,
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 89,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 90,
+      "midGame": 88,
+      "lateGame": 90,
+      "traits": [
+        "clutch_player",
+        "lane_bully"
+      ],
+      "championPool": [
+        {
+          "championId": "syndra",
+          "mastery": 5
+        },
+        {
+          "championId": "irelia",
+          "mastery": 5
+        },
+        {
+          "championId": "leblanc",
+          "mastery": 4
+        },
+        {
+          "championId": "akali",
+          "mastery": 4
+        },
+        {
+          "championId": "zoe",
+          "mastery": 3
+        },
+        {
+          "championId": "azir",
+          "mastery": 3
+        },
+        {
+          "championId": "viktor",
+          "mastery": 2
+        },
+        {
+          "championId": "ryze",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "showmaker-2020",
+      "personId": "showmaker",
+      "displayName": "ShowMaker 2020",
+      "year": 2020,
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 92,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 91,
+      "midGame": 94,
+      "lateGame": 91,
+      "traits": [
+        "strong_laner",
+        "clutch_player"
+      ],
+      "championPool": [
+        {
+          "championId": "twisted-fate",
+          "mastery": 5
+        },
+        {
+          "championId": "nidalee",
+          "mastery": 5
+        },
+        {
+          "championId": "lucian",
+          "mastery": 4
+        },
+        {
+          "championId": "zoe",
+          "mastery": 4
+        },
+        {
+          "championId": "syndra",
+          "mastery": 3
+        },
+        {
+          "championId": "galio",
+          "mastery": 3
+        },
+        {
+          "championId": "orianna",
+          "mastery": 2
+        },
+        {
+          "championId": "azir",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "knight-2021",
+      "personId": "knight",
+      "displayName": "Knight 2021",
+      "year": 2021,
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 88,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 88,
+      "midGame": 90,
+      "lateGame": 87,
+      "traits": [
+        "lane_bully",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "akali",
+          "mastery": 5
+        },
+        {
+          "championId": "zed",
+          "mastery": 5
+        },
+        {
+          "championId": "irelia",
+          "mastery": 4
+        },
+        {
+          "championId": "leblanc",
+          "mastery": 4
+        },
+        {
+          "championId": "twisted-fate",
+          "mastery": 3
+        },
+        {
+          "championId": "cassiopeia",
+          "mastery": 3
+        },
+        {
+          "championId": "viktor",
+          "mastery": 2
+        },
+        {
+          "championId": "corki",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "uzi-2018",
+      "personId": "uzi",
+      "displayName": "Uzi 2018",
+      "year": 2018,
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 95,
+        "support": 0
+      },
+      "lanePhase": 98,
+      "midGame": 89,
+      "lateGame": 97,
+      "traits": [
+        "strong_laner",
+        "lane_bully"
+      ],
+      "championPool": [
+        {
+          "championId": "vayne",
+          "mastery": 5
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 5
+        },
+        {
+          "championId": "kog-maw",
+          "mastery": 4
+        },
+        {
+          "championId": "caitlyn",
+          "mastery": 4
+        },
+        {
+          "championId": "jinx",
+          "mastery": 4
+        },
+        {
+          "championId": "xayah",
+          "mastery": 3
+        },
+        {
+          "championId": "draven",
+          "mastery": 2
+        },
+        {
+          "championId": "lucian",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "ruler-2022",
+      "personId": "ruler",
+      "displayName": "Ruler 2022",
+      "year": 2022,
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 88,
+        "support": 0
+      },
+      "lanePhase": 88,
+      "midGame": 85,
+      "lateGame": 92,
+      "traits": [
+        "strong_laner",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "jhin",
+          "mastery": 5
+        },
+        {
+          "championId": "aphelios",
+          "mastery": 5
+        },
+        {
+          "championId": "jinx",
+          "mastery": 4
+        },
+        {
+          "championId": "caitlyn",
+          "mastery": 4
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 3
+        },
+        {
+          "championId": "kaisa",
+          "mastery": 3
+        },
+        {
+          "championId": "sivir",
+          "mastery": 2
+        },
+        {
+          "championId": "xayah",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "rekkles-2020",
+      "personId": "rekkles",
+      "displayName": "Rekkles 2020",
+      "year": 2020,
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 89,
+        "support": 0
+      },
+      "lanePhase": 90,
+      "midGame": 84,
+      "lateGame": 93,
+      "traits": [
+        "mental_fort",
+        "objective_focused"
+      ],
+      "championPool": [
+        {
+          "championId": "jhin",
+          "mastery": 5
+        },
+        {
+          "championId": "vayne",
+          "mastery": 5
+        },
+        {
+          "championId": "sivir",
+          "mastery": 4
+        },
+        {
+          "championId": "twitch",
+          "mastery": 4
+        },
+        {
+          "championId": "lucian",
+          "mastery": 3
+        },
+        {
+          "championId": "tristana",
+          "mastery": 3
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 2
+        },
+        {
+          "championId": "ashe",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "gumayusi-2022",
+      "personId": "gumayusi",
+      "displayName": "Gumayusi 2022",
+      "year": 2022,
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 87,
+        "support": 0
+      },
+      "lanePhase": 89,
+      "midGame": 83,
+      "lateGame": 89,
+      "traits": [
+        "lane_bully",
+        "clutch_player"
+      ],
+      "championPool": [
+        {
+          "championId": "aphelios",
+          "mastery": 5
+        },
+        {
+          "championId": "tristana",
+          "mastery": 5
+        },
+        {
+          "championId": "kaisa",
+          "mastery": 4
+        },
+        {
+          "championId": "jhin",
+          "mastery": 4
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 3
+        },
+        {
+          "championId": "lucian",
+          "mastery": 3
+        },
+        {
+          "championId": "caitlyn",
+          "mastery": 2
+        },
+        {
+          "championId": "jinx",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "player-friend-2023",
+      "personId": "player-friend",
+      "displayName": "Friend (Top 2023)",
+      "year": 2023,
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 63,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 70,
+      "midGame": 62,
+      "lateGame": 58,
+      "traits": [
+        "objective_focused"
+      ],
+      "championPool": [
+        {
+          "championId": "darius",
+          "mastery": 5
+        },
+        {
+          "championId": "garen",
+          "mastery": 4
+        },
+        {
+          "championId": "malphite",
+          "mastery": 4
+        },
+        {
+          "championId": "vi",
+          "mastery": 3
+        },
+        {
+          "championId": "hecarim",
+          "mastery": 3
+        },
+        {
+          "championId": "warwick",
+          "mastery": 2
+        },
+        {
+          "championId": "camille",
+          "mastery": 2
+        },
+        {
+          "championId": "sion",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "zeus-2022",
+      "personId": "zeus",
+      "displayName": "Zeus 2022",
+      "year": 2022,
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 87,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 90,
+      "midGame": 82,
+      "lateGame": 88,
+      "traits": [
+        "strong_laner",
+        "clutch_player"
+      ],
+      "championPool": [
+        {
+          "championId": "jayce",
+          "mastery": 5
+        },
+        {
+          "championId": "gnar",
+          "mastery": 5
+        },
+        {
+          "championId": "fiora",
+          "mastery": 4
+        },
+        {
+          "championId": "camille",
+          "mastery": 4
+        },
+        {
+          "championId": "kennen",
+          "mastery": 3
+        },
+        {
+          "championId": "renekton",
+          "mastery": 3
+        },
+        {
+          "championId": "gangplank",
+          "mastery": 2
+        },
+        {
+          "championId": "ornn",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "flandre-2021",
+      "personId": "flandre",
+      "displayName": "Flandre 2021",
+      "year": 2021,
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 80,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 82,
+      "midGame": 78,
+      "lateGame": 80,
+      "traits": [
+        "mental_fort",
+        "objective_focused"
+      ],
+      "championPool": [
+        {
+          "championId": "renekton",
+          "mastery": 5
+        },
+        {
+          "championId": "camille",
+          "mastery": 5
+        },
+        {
+          "championId": "gnar",
+          "mastery": 4
+        },
+        {
+          "championId": "fiora",
+          "mastery": 4
+        },
+        {
+          "championId": "darius",
+          "mastery": 3
+        },
+        {
+          "championId": "ornn",
+          "mastery": 3
+        },
+        {
+          "championId": "gangplank",
+          "mastery": 2
+        },
+        {
+          "championId": "malphite",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "bin-2021",
+      "personId": "bin",
+      "displayName": "Bin 2021",
+      "year": 2021,
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 83,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 86,
+      "midGame": 80,
+      "lateGame": 83,
+      "traits": [
+        "lane_bully",
+        "clutch_player"
+      ],
+      "championPool": [
+        {
+          "championId": "jayce",
+          "mastery": 5
+        },
+        {
+          "championId": "gnar",
+          "mastery": 5
+        },
+        {
+          "championId": "renekton",
+          "mastery": 4
+        },
+        {
+          "championId": "irelia",
+          "mastery": 4
+        },
+        {
+          "championId": "camille",
+          "mastery": 3
+        },
+        {
+          "championId": "gangplank",
+          "mastery": 3
+        },
+        {
+          "championId": "kennen",
+          "mastery": 2
+        },
+        {
+          "championId": "darius",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "bengi-2015",
+      "personId": "bengi",
+      "displayName": "Bengi 2015",
+      "year": 2015,
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 80,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 72,
+      "midGame": 88,
+      "lateGame": 80,
+      "traits": [
+        "objective_focused",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "jarvan-iv",
+          "mastery": 5
+        },
+        {
+          "championId": "nunu",
+          "mastery": 5
+        },
+        {
+          "championId": "lee-sin",
+          "mastery": 4
+        },
+        {
+          "championId": "rengar",
+          "mastery": 4
+        },
+        {
+          "championId": "elise",
+          "mastery": 3
+        },
+        {
+          "championId": "vi",
+          "mastery": 3
+        },
+        {
+          "championId": "rek-sai",
+          "mastery": 2
+        },
+        {
+          "championId": "gragas",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "canyon-2021",
+      "personId": "canyon",
+      "displayName": "Canyon 2021",
+      "year": 2021,
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 87,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 80,
+      "midGame": 93,
+      "lateGame": 88,
+      "traits": [
+        "objective_focused",
+        "clutch_player"
+      ],
+      "championPool": [
+        {
+          "championId": "nidalee",
+          "mastery": 5
+        },
+        {
+          "championId": "graves",
+          "mastery": 5
+        },
+        {
+          "championId": "lee-sin",
+          "mastery": 4
+        },
+        {
+          "championId": "kindred",
+          "mastery": 4
+        },
+        {
+          "championId": "lillia",
+          "mastery": 3
+        },
+        {
+          "championId": "volibear",
+          "mastery": 3
+        },
+        {
+          "championId": "viego",
+          "mastery": 2
+        },
+        {
+          "championId": "hecarim",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "inspired-2021",
+      "personId": "inspired",
+      "displayName": "Inspired 2021",
+      "year": 2021,
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 81,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 75,
+      "midGame": 87,
+      "lateGame": 82,
+      "traits": [
+        "clutch_player",
+        "baron_stealer"
+      ],
+      "championPool": [
+        {
+          "championId": "lee-sin",
+          "mastery": 5
+        },
+        {
+          "championId": "graves",
+          "mastery": 5
+        },
+        {
+          "championId": "ekko",
+          "mastery": 4
+        },
+        {
+          "championId": "lillia",
+          "mastery": 4
+        },
+        {
+          "championId": "viego",
+          "mastery": 3
+        },
+        {
+          "championId": "rek-sai",
+          "mastery": 3
+        },
+        {
+          "championId": "nidalee",
+          "mastery": 2
+        },
+        {
+          "championId": "hecarim",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "oner-2022",
+      "personId": "oner",
+      "displayName": "Oner 2022",
+      "year": 2022,
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 84,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 77,
+      "midGame": 89,
+      "lateGame": 85,
+      "traits": [
+        "objective_focused",
+        "strong_laner"
+      ],
+      "championPool": [
+        {
+          "championId": "viego",
+          "mastery": 5
+        },
+        {
+          "championId": "hecarim",
+          "mastery": 5
+        },
+        {
+          "championId": "kindred",
+          "mastery": 4
+        },
+        {
+          "championId": "lee-sin",
+          "mastery": 4
+        },
+        {
+          "championId": "graves",
+          "mastery": 3
+        },
+        {
+          "championId": "vi",
+          "mastery": 3
+        },
+        {
+          "championId": "jarvan-iv",
+          "mastery": 2
+        },
+        {
+          "championId": "volibear",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "wolf-2016",
+      "personId": "wolf",
+      "displayName": "Wolf 2016",
+      "year": 2016,
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 80
+      },
+      "lanePhase": 84,
+      "midGame": 79,
+      "lateGame": 76,
+      "traits": [
+        "strong_laner"
+      ],
+      "championPool": [
+        {
+          "championId": "alistar",
+          "mastery": 5
+        },
+        {
+          "championId": "thresh",
+          "mastery": 5
+        },
+        {
+          "championId": "braum",
+          "mastery": 4
+        },
+        {
+          "championId": "annie",
+          "mastery": 4
+        },
+        {
+          "championId": "morgana",
+          "mastery": 3
+        },
+        {
+          "championId": "janna",
+          "mastery": 3
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 2
+        },
+        {
+          "championId": "lulu",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "beryl-2021",
+      "personId": "beryl",
+      "displayName": "Beryl 2021",
+      "year": 2021,
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 85
+      },
+      "lanePhase": 88,
+      "midGame": 85,
+      "lateGame": 82,
+      "traits": [
+        "objective_focused",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "leona",
+          "mastery": 5
+        },
+        {
+          "championId": "thresh",
+          "mastery": 5
+        },
+        {
+          "championId": "rell",
+          "mastery": 4
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 4
+        },
+        {
+          "championId": "rakan",
+          "mastery": 3
+        },
+        {
+          "championId": "blitzcrank",
+          "mastery": 3
+        },
+        {
+          "championId": "lux",
+          "mastery": 2
+        },
+        {
+          "championId": "seraphine",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "keria-2021",
+      "personId": "keria",
+      "displayName": "Keria 2021",
+      "year": 2021,
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 88
+      },
+      "lanePhase": 91,
+      "midGame": 87,
+      "lateGame": 85,
+      "traits": [
+        "clutch_player",
+        "strong_laner"
+      ],
+      "championPool": [
+        {
+          "championId": "thresh",
+          "mastery": 5
+        },
+        {
+          "championId": "blitzcrank",
+          "mastery": 5
+        },
+        {
+          "championId": "leona",
+          "mastery": 4
+        },
+        {
+          "championId": "rakan",
+          "mastery": 4
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 3
+        },
+        {
+          "championId": "rell",
+          "mastery": 3
+        },
+        {
+          "championId": "alistar",
+          "mastery": 2
+        },
+        {
+          "championId": "lux",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "mikyx-2019",
+      "personId": "mikyx",
+      "displayName": "Mikyx 2019",
+      "year": 2019,
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 82
+      },
+      "lanePhase": 85,
+      "midGame": 82,
+      "lateGame": 80,
+      "traits": [
+        "lane_bully",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "thresh",
+          "mastery": 5
+        },
+        {
+          "championId": "pyke",
+          "mastery": 5
+        },
+        {
+          "championId": "alistar",
+          "mastery": 4
+        },
+        {
+          "championId": "leona",
+          "mastery": 4
+        },
+        {
+          "championId": "rakan",
+          "mastery": 3
+        },
+        {
+          "championId": "braum",
+          "mastery": 3
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 2
+        },
+        {
+          "championId": "blitzcrank",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "theshy-2018",
+      "personId": "theshy",
+      "displayName": "TheShy 2018",
+      "year": 2018,
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 90,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 95,
+      "midGame": 90,
+      "lateGame": 85,
+      "traits": [
+        "lane_bully",
+        "plays_worse_when_behind"
+      ],
+      "championPool": [
+        {
+          "championId": "jayce",
+          "mastery": 5
+        },
+        {
+          "championId": "aatrox",
+          "mastery": 5
+        },
+        {
+          "championId": "camille",
+          "mastery": 4
+        },
+        {
+          "championId": "fiora",
+          "mastery": 4
+        },
+        {
+          "championId": "irelia",
+          "mastery": 3
+        },
+        {
+          "championId": "gnar",
+          "mastery": 3
+        },
+        {
+          "championId": "ornn",
+          "mastery": 2
+        },
+        {
+          "championId": "sion",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "nuguri-2020",
+      "personId": "nuguri",
+      "displayName": "Nuguri 2020",
+      "year": 2020,
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 90,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 90,
+      "midGame": 91,
+      "lateGame": 88,
+      "traits": [
+        "strong_laner"
+      ],
+      "championPool": [
+        {
+          "championId": "kennen",
+          "mastery": 5
+        },
+        {
+          "championId": "jayce",
+          "mastery": 4
+        },
+        {
+          "championId": "gnar",
+          "mastery": 4
+        },
+        {
+          "championId": "camille",
+          "mastery": 3
+        },
+        {
+          "championId": "renekton",
+          "mastery": 3
+        },
+        {
+          "championId": "ornn",
+          "mastery": 3
+        },
+        {
+          "championId": "sett",
+          "mastery": 2
+        },
+        {
+          "championId": "malphite",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "khan-2017",
+      "personId": "khan",
+      "displayName": "Khan 2017",
+      "year": 2017,
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 87,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 92,
+      "midGame": 88,
+      "lateGame": 82,
+      "traits": [
+        "lane_bully",
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "jayce",
+          "mastery": 5
+        },
+        {
+          "championId": "renekton",
+          "mastery": 5
+        },
+        {
+          "championId": "gnar",
+          "mastery": 4
+        },
+        {
+          "championId": "camille",
+          "mastery": 4
+        },
+        {
+          "championId": "aatrox",
+          "mastery": 3
+        },
+        {
+          "championId": "kled",
+          "mastery": 2
+        },
+        {
+          "championId": "maokai",
+          "mastery": 2
+        },
+        {
+          "championId": "shen",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "wunder-2019",
+      "personId": "wunder",
+      "displayName": "Wunder 2019",
+      "year": 2019,
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 87,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 84,
+      "midGame": 88,
+      "lateGame": 89,
+      "traits": [
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "ornn",
+          "mastery": 5
+        },
+        {
+          "championId": "aatrox",
+          "mastery": 4
+        },
+        {
+          "championId": "sion",
+          "mastery": 4
+        },
+        {
+          "championId": "gangplank",
+          "mastery": 3
+        },
+        {
+          "championId": "jayce",
+          "mastery": 3
+        },
+        {
+          "championId": "gnar",
+          "mastery": 3
+        },
+        {
+          "championId": "renekton",
+          "mastery": 2
+        },
+        {
+          "championId": "poppy",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "peanut-2017",
+      "personId": "peanut",
+      "displayName": "Peanut 2017",
+      "year": 2017,
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 88,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 91,
+      "midGame": 88,
+      "lateGame": 84,
+      "traits": [
+        "objective_focused"
+      ],
+      "championPool": [
+        {
+          "championId": "elise",
+          "mastery": 5
+        },
+        {
+          "championId": "graves",
+          "mastery": 4
+        },
+        {
+          "championId": "lee-sin",
+          "mastery": 4
+        },
+        {
+          "championId": "khazix",
+          "mastery": 3
+        },
+        {
+          "championId": "rek-sai",
+          "mastery": 3
+        },
+        {
+          "championId": "gragas",
+          "mastery": 3
+        },
+        {
+          "championId": "sejuani",
+          "mastery": 2
+        },
+        {
+          "championId": "nunu",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "jankos-2018",
+      "personId": "jankos",
+      "displayName": "Jankos 2018",
+      "year": 2018,
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 87,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 92,
+      "midGame": 87,
+      "lateGame": 82,
+      "traits": [
+        "strong_laner",
+        "objective_focused"
+      ],
+      "championPool": [
+        {
+          "championId": "jarvan-iv",
+          "mastery": 5
+        },
+        {
+          "championId": "sejuani",
+          "mastery": 4
+        },
+        {
+          "championId": "gragas",
+          "mastery": 4
+        },
+        {
+          "championId": "lee-sin",
+          "mastery": 3
+        },
+        {
+          "championId": "olaf",
+          "mastery": 3
+        },
+        {
+          "championId": "xin-zhao",
+          "mastery": 3
+        },
+        {
+          "championId": "skarner",
+          "mastery": 2
+        },
+        {
+          "championId": "trundle",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "tian-2019",
+      "personId": "tian",
+      "displayName": "Tian 2019",
+      "year": 2019,
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 90,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 88,
+      "midGame": 92,
+      "lateGame": 89,
+      "traits": [
+        "clutch_player"
+      ],
+      "championPool": [
+        {
+          "championId": "lee-sin",
+          "mastery": 5
+        },
+        {
+          "championId": "elise",
+          "mastery": 4
+        },
+        {
+          "championId": "rek-sai",
+          "mastery": 4
+        },
+        {
+          "championId": "jarvan-iv",
+          "mastery": 3
+        },
+        {
+          "championId": "gragas",
+          "mastery": 3
+        },
+        {
+          "championId": "olaf",
+          "mastery": 3
+        },
+        {
+          "championId": "sejuani",
+          "mastery": 2
+        },
+        {
+          "championId": "zac",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "blaber-2021",
+      "personId": "blaber",
+      "displayName": "Blaber 2021",
+      "year": 2021,
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 85,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 89,
+      "midGame": 86,
+      "lateGame": 81,
+      "traits": [
+        "baron_stealer"
+      ],
+      "championPool": [
+        {
+          "championId": "nidalee",
+          "mastery": 5
+        },
+        {
+          "championId": "lee-sin",
+          "mastery": 4
+        },
+        {
+          "championId": "khazix",
+          "mastery": 4
+        },
+        {
+          "championId": "hecarim",
+          "mastery": 3
+        },
+        {
+          "championId": "viego",
+          "mastery": 3
+        },
+        {
+          "championId": "olaf",
+          "mastery": 2
+        },
+        {
+          "championId": "udyr",
+          "mastery": 2
+        },
+        {
+          "championId": "volibear",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "chovy-2023",
+      "personId": "chovy",
+      "displayName": "Chovy 2023",
+      "year": 2023,
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 94,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 96,
+      "midGame": 94,
+      "lateGame": 92,
+      "traits": [
+        "strong_laner",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "azir",
+          "mastery": 5
+        },
+        {
+          "championId": "akali",
+          "mastery": 4
+        },
+        {
+          "championId": "sylas",
+          "mastery": 4
+        },
+        {
+          "championId": "orianna",
+          "mastery": 4
+        },
+        {
+          "championId": "ahri",
+          "mastery": 3
+        },
+        {
+          "championId": "viktor",
+          "mastery": 3
+        },
+        {
+          "championId": "taliyah",
+          "mastery": 2
+        },
+        {
+          "championId": "lissandra",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "rookie-2018",
+      "personId": "rookie",
+      "displayName": "Rookie 2018",
+      "year": 2018,
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 92,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 92,
+      "midGame": 94,
+      "lateGame": 91,
+      "traits": [
+        "clutch_player"
+      ],
+      "championPool": [
+        {
+          "championId": "leblanc",
+          "mastery": 5
+        },
+        {
+          "championId": "yasuo",
+          "mastery": 4
+        },
+        {
+          "championId": "irelia",
+          "mastery": 4
+        },
+        {
+          "championId": "orianna",
+          "mastery": 4
+        },
+        {
+          "championId": "syndra",
+          "mastery": 3
+        },
+        {
+          "championId": "galio",
+          "mastery": 3
+        },
+        {
+          "championId": "corki",
+          "mastery": 2
+        },
+        {
+          "championId": "azir",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "bjergsen-2016",
+      "personId": "bjergsen",
+      "displayName": "Bjergsen 2016",
+      "year": 2016,
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 88,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 89,
+      "midGame": 89,
+      "lateGame": 86,
+      "traits": [
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "syndra",
+          "mastery": 5
+        },
+        {
+          "championId": "zilean",
+          "mastery": 4
+        },
+        {
+          "championId": "corki",
+          "mastery": 4
+        },
+        {
+          "championId": "orianna",
+          "mastery": 3
+        },
+        {
+          "championId": "ryze",
+          "mastery": 3
+        },
+        {
+          "championId": "cassiopeia",
+          "mastery": 3
+        },
+        {
+          "championId": "viktor",
+          "mastery": 2
+        },
+        {
+          "championId": "twisted-fate",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "perkz-2019",
+      "personId": "perkz",
+      "displayName": "Perkz 2019",
+      "year": 2019,
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 88,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 88,
+      "midGame": 90,
+      "lateGame": 87,
+      "traits": [
+        "clutch_player",
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "leblanc",
+          "mastery": 5
+        },
+        {
+          "championId": "syndra",
+          "mastery": 4
+        },
+        {
+          "championId": "akali",
+          "mastery": 4
+        },
+        {
+          "championId": "ryze",
+          "mastery": 3
+        },
+        {
+          "championId": "sylas",
+          "mastery": 3
+        },
+        {
+          "championId": "irelia",
+          "mastery": 3
+        },
+        {
+          "championId": "orianna",
+          "mastery": 2
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "deft-2022",
+      "personId": "deft",
+      "displayName": "Deft 2022",
+      "year": 2022,
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 91,
+        "support": 0
+      },
+      "lanePhase": 88,
+      "midGame": 91,
+      "lateGame": 93,
+      "traits": [
+        "clutch_player",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "caitlyn",
+          "mastery": 5
+        },
+        {
+          "championId": "jinx",
+          "mastery": 4
+        },
+        {
+          "championId": "aphelios",
+          "mastery": 4
+        },
+        {
+          "championId": "varus",
+          "mastery": 3
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 3
+        },
+        {
+          "championId": "sivir",
+          "mastery": 3
+        },
+        {
+          "championId": "kaisa",
+          "mastery": 2
+        },
+        {
+          "championId": "ashe",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "jackeylove-2018",
+      "personId": "jackeylove",
+      "displayName": "JackeyLove 2018",
+      "year": 2018,
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 89,
+        "support": 0
+      },
+      "lanePhase": 91,
+      "midGame": 90,
+      "lateGame": 86,
+      "traits": [
+        "lane_bully"
+      ],
+      "championPool": [
+        {
+          "championId": "kaisa",
+          "mastery": 5
+        },
+        {
+          "championId": "xayah",
+          "mastery": 4
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 4
+        },
+        {
+          "championId": "vayne",
+          "mastery": 3
+        },
+        {
+          "championId": "lucian",
+          "mastery": 3
+        },
+        {
+          "championId": "draven",
+          "mastery": 3
+        },
+        {
+          "championId": "jinx",
+          "mastery": 2
+        },
+        {
+          "championId": "sivir",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "viper-2023",
+      "personId": "viper",
+      "displayName": "Viper 2023",
+      "year": 2023,
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 92,
+        "support": 0
+      },
+      "lanePhase": 90,
+      "midGame": 93,
+      "lateGame": 94,
+      "traits": [
+        "mental_fort",
+        "objective_focused"
+      ],
+      "championPool": [
+        {
+          "championId": "aphelios",
+          "mastery": 5
+        },
+        {
+          "championId": "zeri",
+          "mastery": 4
+        },
+        {
+          "championId": "kaisa",
+          "mastery": 4
+        },
+        {
+          "championId": "xayah",
+          "mastery": 3
+        },
+        {
+          "championId": "jinx",
+          "mastery": 3
+        },
+        {
+          "championId": "varus",
+          "mastery": 3
+        },
+        {
+          "championId": "senna",
+          "mastery": 2
+        },
+        {
+          "championId": "ashe",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "doublelift-2018",
+      "personId": "doublelift",
+      "displayName": "Doublelift 2018",
+      "year": 2018,
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 87,
+        "support": 0
+      },
+      "lanePhase": 88,
+      "midGame": 88,
+      "lateGame": 85,
+      "traits": [
+        "lane_bully",
+        "clutch_player"
+      ],
+      "championPool": [
+        {
+          "championId": "lucian",
+          "mastery": 5
+        },
+        {
+          "championId": "tristana",
+          "mastery": 4
+        },
+        {
+          "championId": "kaisa",
+          "mastery": 4
+        },
+        {
+          "championId": "sivir",
+          "mastery": 3
+        },
+        {
+          "championId": "xayah",
+          "mastery": 3
+        },
+        {
+          "championId": "caitlyn",
+          "mastery": 3
+        },
+        {
+          "championId": "ashe",
+          "mastery": 2
+        },
+        {
+          "championId": "twitch",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "mata-2014",
+      "personId": "mata",
+      "displayName": "Mata 2014",
+      "year": 2014,
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 90
+      },
+      "lanePhase": 90,
+      "midGame": 92,
+      "lateGame": 88,
+      "traits": [
+        "objective_focused",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "thresh",
+          "mastery": 5
+        },
+        {
+          "championId": "annie",
+          "mastery": 4
+        },
+        {
+          "championId": "morgana",
+          "mastery": 4
+        },
+        {
+          "championId": "karma",
+          "mastery": 3
+        },
+        {
+          "championId": "alistar",
+          "mastery": 3
+        },
+        {
+          "championId": "braum",
+          "mastery": 3
+        },
+        {
+          "championId": "leona",
+          "mastery": 2
+        },
+        {
+          "championId": "nami",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "madlife-2012",
+      "personId": "madlife",
+      "displayName": "MadLife 2012",
+      "year": 2012,
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 86
+      },
+      "lanePhase": 91,
+      "midGame": 86,
+      "lateGame": 80,
+      "traits": [
+        "clutch_player"
+      ],
+      "championPool": [
+        {
+          "championId": "blitzcrank",
+          "mastery": 5
+        },
+        {
+          "championId": "thresh",
+          "mastery": 4
+        },
+        {
+          "championId": "alistar",
+          "mastery": 4
+        },
+        {
+          "championId": "leona",
+          "mastery": 3
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 3
+        },
+        {
+          "championId": "morgana",
+          "mastery": 3
+        },
+        {
+          "championId": "sona",
+          "mastery": 2
+        },
+        {
+          "championId": "janna",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "crisp-2020",
+      "personId": "crisp",
+      "displayName": "Crisp 2020",
+      "year": 2020,
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 88
+      },
+      "lanePhase": 88,
+      "midGame": 90,
+      "lateGame": 87,
+      "traits": [
+        "objective_focused"
+      ],
+      "championPool": [
+        {
+          "championId": "nautilus",
+          "mastery": 5
+        },
+        {
+          "championId": "thresh",
+          "mastery": 4
+        },
+        {
+          "championId": "rakan",
+          "mastery": 4
+        },
+        {
+          "championId": "braum",
+          "mastery": 3
+        },
+        {
+          "championId": "leona",
+          "mastery": 3
+        },
+        {
+          "championId": "lulu",
+          "mastery": 3
+        },
+        {
+          "championId": "karma",
+          "mastery": 2
+        },
+        {
+          "championId": "tahm-kench",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "corejj-2019",
+      "personId": "corejj",
+      "displayName": "CoreJJ 2019",
+      "year": 2019,
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 88
+      },
+      "lanePhase": 86,
+      "midGame": 89,
+      "lateGame": 88,
+      "traits": [
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "senna",
+          "mastery": 5
+        },
+        {
+          "championId": "braum",
+          "mastery": 4
+        },
+        {
+          "championId": "thresh",
+          "mastery": 4
+        },
+        {
+          "championId": "rakan",
+          "mastery": 4
+        },
+        {
+          "championId": "tahm-kench",
+          "mastery": 3
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 3
+        },
+        {
+          "championId": "alistar",
+          "mastery": 2
+        },
+        {
+          "championId": "bard",
+          "mastery": 1
+        }
+      ]
+    }
+  ]
+}

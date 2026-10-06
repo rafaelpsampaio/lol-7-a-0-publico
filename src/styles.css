@@ -1,0 +1,3156 @@
+/*
+ * src/styles.css
+ *
+ * Global styles for LoL 7 a 0 — dark LoL theme.
+ *
+ * Design system tokens from 02-UI-SPEC.md:
+ *   Dominant   #0d1117 — page / screen background
+ *   Secondary  #161b22 — cards, panels, event ticker container
+ *   Accent     #c89b3c — timer text, pick button, user win-prob, "Seu time" attribution
+ *   Destructive #d73a49 — rival win-prob, error states, "Rival" attribution
+ *   Border     #30363d — card borders, dividers
+ *   Muted      #8b949e — secondary text, trait badges, stat labels
+ *   Hover      #1f2937 — card hover background
+ *
+ * Typography (4 sizes, 2 weights):
+ *   Body    14px / 400
+ *   Label   12px / 600  (role badges, section headings within cards)
+ *   Heading 20px / 600  (screen titles, player names)
+ *   Display 28px / 600  (game timer, match result)
+ *
+ * Animation budget (Phase 2):
+ *   - event-entry--new: slide-up + fade 200ms ease-out (D-13)
+ *   - game-timer--pulse: scale 1.0→1.05→1.0 over 300ms ease-in-out (D-12)
+ */
+
+/* ===========================================================================
+ * DESIGN TOKENS — single source of truth for the whole UI
+ * ---------------------------------------------------------------------------
+ * Modern broadcast-dark palette: deep blue-undertoned backgrounds, layered
+ * surface elevations, a vivid-but-classy gold accent, blue=user / red=rival.
+ * =========================================================================== */
+
+:root {
+  /* --- Backdrop + surface elevations (deeper, subtle blue undertone) --- */
+  --c-bg-0: #070b12;          /* deepest page base */
+  --c-bg-1: #0b111b;          /* app gradient mid */
+  --c-surface-1: #101722;     /* base panels / cards */
+  --c-surface-2: #161f2c;     /* raised panels */
+  --c-surface-3: #1d2837;     /* hover / active surface */
+  --c-inset: #0a0f17;         /* recessed wells (inputs, tracks) */
+
+  /* --- Borders + hairlines --- */
+  --c-border: #2a3545;
+  --c-border-soft: #1c2532;
+  --c-border-strong: #3a485c;
+
+  /* --- Text --- */
+  --c-text: #e8eef6;
+  --c-text-dim: #aab6c6;
+  --c-muted: #7e8da0;
+  --c-faint: #5a6678;
+
+  /* --- Brand / semantic --- */
+  --c-gold: #d4a843;          /* primary accent (a touch warmer/brighter) */
+  --c-gold-bright: #f0c860;
+  --c-gold-deep: #9a7424;
+  --c-blue: #4a9eff;          /* user team identity */
+  --c-blue-bright: #7bbcff;
+  --c-red: #e84057;           /* rival team identity */
+  --c-red-bright: #ff6178;
+
+  /* user-team accent can be overridden at runtime (--user-team-color) */
+  --c-user: var(--user-team-color, var(--c-blue));
+
+  /* --- Gradients --- */
+  --grad-app:
+    radial-gradient(1200px 700px at 50% -8%, rgba(74, 158, 255, 0.10), transparent 60%),
+    radial-gradient(900px 600px at 90% 110%, rgba(232, 64, 87, 0.07), transparent 55%),
+    linear-gradient(180deg, var(--c-bg-1) 0%, var(--c-bg-0) 100%);
+  --grad-gold: linear-gradient(180deg, var(--c-gold-bright), var(--c-gold));
+  --grad-surface: linear-gradient(180deg, var(--c-surface-2) 0%, var(--c-surface-1) 100%);
+
+  /* --- Radii --- */
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+  --r-pill: 999px;
+
+  /* --- Shadows + glow --- */
+  --sh-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --sh-md: 0 6px 18px rgba(0, 0, 0, 0.45);
+  --sh-lg: 0 18px 48px rgba(0, 0, 0, 0.55);
+  --glow-gold: 0 0 0 1px rgba(212, 168, 67, 0.35), 0 0 22px rgba(212, 168, 67, 0.22);
+  --glow-blue: 0 0 22px rgba(74, 158, 255, 0.28);
+  --glow-red: 0 0 22px rgba(232, 64, 87, 0.28);
+  --hairline-top: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  /* --- Spacing scale --- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+
+  /* --- Typography --- */
+  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Oswald", "Inter", system-ui, sans-serif;
+
+  --fs-xs: 11px;
+  --fs-sm: 12px;
+  --fs-base: 14px;
+  --fs-md: 16px;
+  --fs-lg: 20px;
+  --fs-xl: 26px;
+  --fs-2xl: 34px;
+  --fs-3xl: 48px;
+
+  /* --- Motion --- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 0.12s;
+  --t-base: 0.18s;
+}
+
+/* ---------------------------------------------------------------------------
+ * Reset + base
+ * --------------------------------------------------------------------------- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-ui);
+  font-size: var(--fs-base);
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  background-color: var(--c-bg-0);
+  background-image: var(--grad-app);
+  background-attachment: fixed;
+  color: var(--c-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--c-gold);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(212, 168, 67, 0.3);
+}
+
+/* Themed scrollbars for in-app scroll regions */
+.event-ticker::-webkit-scrollbar,
+.champion-editor::-webkit-scrollbar,
+.bracket-section__rounds::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.event-ticker::-webkit-scrollbar-thumb,
+.champion-editor::-webkit-scrollbar-thumb,
+.bracket-section__rounds::-webkit-scrollbar-thumb {
+  background: var(--c-border-strong);
+  border-radius: var(--r-pill);
+}
+.event-ticker::-webkit-scrollbar-track,
+.champion-editor::-webkit-scrollbar-track,
+.bracket-section__rounds::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------------------------------------------------------------------------
+ * App shell
+ * --------------------------------------------------------------------------- */
+
+.app {
+  min-height: 100vh;
+  padding: var(--sp-7) var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Celular: 48px/24px de margem comiam a tela (Rundown da Sala 2, U1/U12). */
+@media (max-width: 620px) {
+  .app {
+    padding: var(--sp-4) var(--sp-3);
+  }
+}
+
+/* Respect reduced-motion: kill non-essential animation but keep transitions subtle */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.05s !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Load error
+ * --------------------------------------------------------------------------- */
+
+.load-error {
+  color: #d73a49;
+  font-size: 14px;
+  padding: 16px;
+  border: 1px solid #d73a49;
+  border-radius: 8px;
+  max-width: 640px;
+  width: 100%;
+}
+
+/* Mesmo layout do .load-error, sem a cor de alarme -- achado do teste de
+   sala (2026-08-27): "Carregando pacotes..." usava .load-error e aparecia
+   com borda vermelha de erro antes mesmo de dar tempo de falhar. */
+.load-status {
+  color: inherit;
+  font-size: 14px;
+  padding: 16px;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  max-width: 640px;
+  width: 100%;
+}
+
+/* Aviso do replay solo (App.tsx): o botao de replay mora no meio do chaveamento, entao o
+   aviso fica colado ao topo da janela para aparecer mesmo com a pagina rolada. Precisa de
+   fundo proprio porque o conteudo passa por baixo dele. */
+.load-status--aviso {
+  position: sticky;
+  top: var(--sp-3);
+  z-index: 50;
+  background: var(--c-surface-2);
+  border-color: var(--c-gold);
+  margin-bottom: var(--sp-4);
+}
+.load-status--aviso button {
+  margin-left: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--c-text-dim);
+  background: transparent;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-sm);
+  padding: 2px var(--sp-3);
+}
+.load-status--aviso button:hover { color: var(--c-text); border-color: var(--c-border-strong); }
+
+/* ---------------------------------------------------------------------------
+ * Draft Screen
+ * --------------------------------------------------------------------------- */
+
+.draft-screen {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.options-toggle {
+  font-size: 12px;
+  color: #8b949e;
+  background: transparent;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 5px 12px;
+  transition: border-color 0.15s, color 0.15s;
+}
+.options-toggle:hover { color: #e6edf3; border-color: #8b949e; }
+
+.options-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #21262d;
+  border-radius: 10px;
+  background: #0d1117;
+  width: 100%;
+}
+
+.draft-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: var(--sp-6);
+}
+
+/* Speed preset selector */
+
+.speed-preset-section {
+  margin-bottom: 24px;  /* lg */
+}
+
+.speed-preset-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b949e;
+  margin-bottom: 8px;  /* sm */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.speed-preset-row {
+  display: flex;
+  gap: 8px;
+  max-width: 560px;
+}
+
+.speed-btn {
+  flex: 1;
+  padding: 8px;  /* sm */
+  font-size: 14px;
+  font-weight: 400;
+  background-color: #161b22;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  min-height: 44px;
+  transition: background-color 0.1s, border-color 0.1s;
+}
+
+.speed-btn:hover {
+  background-color: #1f2937;
+  border-color: #8b949e;
+}
+
+.speed-btn--selected {
+  border-color: #c89b3c;
+  background-color: rgba(200, 155, 60, 0.15);
+  font-weight: 600;
+}
+
+.start-draft-btn {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #c89b3c;
+  color: #0d1117;
+  border-radius: 6px;
+  min-height: 44px;
+  transition: opacity 0.1s;
+  margin-top: 8px;
+}
+
+.start-draft-btn:hover {
+  opacity: 0.9;
+}
+
+/* Round header */
+
+.round-header {
+  margin-bottom: 24px;  /* lg */
+}
+
+.round-title {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 16px;  /* md */
+}
+
+.round-role-highlight {
+  font-weight: 600;
+}
+
+/* Role slots panel */
+
+.role-slots {
+  display: flex;
+  gap: 16px;  /* md */
+  flex-wrap: wrap;
+}
+
+.role-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;  /* xs */
+  padding: 8px 12px;
+  border: 1px dashed #30363d;
+  border-radius: 6px;
+  min-width: 72px;
+}
+
+/* Avatar showing the picked card's face (or an empty placeholder). */
+.role-slot-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(48, 54, 61, 0.4);
+  border: 1px solid #30363d;
+}
+
+.role-slot--filled .role-slot-avatar {
+  border-color: #c89b3c;
+}
+
+.role-slot-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.role-slot-avatar-empty {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6e7681;
+  letter-spacing: 0.04em;
+}
+
+.role-slot-empty-text {
+  font-size: 11px;
+  color: #6e7681;
+  font-style: italic;
+}
+
+.role-slot--filled {
+  border-style: solid;
+  border-color: #c89b3c;
+  background-color: rgba(200, 155, 60, 0.08);
+}
+
+.role-slot-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b949e;
+  text-transform: uppercase;
+}
+
+.role-slot--filled .role-slot-label {
+  color: #c89b3c;
+}
+
+.role-slot-player {
+  font-size: 12px;
+  font-weight: 400;
+  color: #e6edf3;
+}
+
+/* Reveal-after-pick stats inside the filled roster slot (DRFT) */
+.role-slot-stats {
+  display: flex;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.role-slot-stat {
+  font-size: 11px;
+  font-weight: 600;
+  color: #c89b3c;
+  letter-spacing: 0.02em;
+}
+
+/* Candidate cards grid */
+
+.candidates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 480px) {
+  .candidates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Draft card */
+
+.draft-card {
+  position: relative;
+  background: var(--grad-surface);
+  border: 1px solid var(--c-border-soft);
+  border-radius: var(--r-lg);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  box-shadow: var(--sh-sm), var(--hairline-top);
+  transition: transform var(--t-base) var(--ease-out), box-shadow var(--t-base) var(--ease-out), border-color var(--t-base) var(--ease-out);
+  /* staggered entrance — set per-card delay below */
+  animation: card-in 0.4s var(--ease-out) backwards;
+  overflow: hidden;
+}
+
+/* Subtle top sheen so cards read as glass slabs, not flat rectangles */
+.draft-card::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
+  pointer-events: none;
+}
+
+/* Stagger the cards in the round */
+.candidates-grid > :nth-child(1) { animation-delay: 0.00s; }
+.candidates-grid > :nth-child(2) { animation-delay: 0.06s; }
+.candidates-grid > :nth-child(3) { animation-delay: 0.12s; }
+.candidates-grid > :nth-child(4) { animation-delay: 0.18s; }
+.candidates-grid > :nth-child(5) { animation-delay: 0.24s; }
+
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.draft-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  border-radius: var(--r-lg) 0 0 var(--r-lg);
+  background: linear-gradient(180deg, var(--c-gold-bright), var(--c-gold-deep));
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.draft-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 168, 67, 0.55);
+  box-shadow: var(--sh-lg), var(--glow-gold);
+}
+
+.draft-card--picked {
+  border-color: var(--c-gold);
+  border-width: 2px;
+  background: linear-gradient(180deg, rgba(212, 168, 67, 0.16), rgba(212, 168, 67, 0.06));
+  animation: card-pick 0.4s var(--ease-out);
+}
+
+@keyframes card-pick {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.05); box-shadow: 0 0 0 4px rgba(200, 155, 60, 0.4); }
+  100% { transform: scale(1); }
+}
+
+.draft-card--empty {
+  opacity: 0.6;
+}
+
+.card-role-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 40px;  /* avoid overlap with role badge */
+  position: relative;
+  z-index: 1;
+}
+
+.card-photo {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid var(--c-border, #30363d);
+  box-shadow: var(--sh-sm);
+  flex: 0 0 auto;
+}
+
+.card-player-name {
+  font-family: var(--font-display);
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  padding-right: 40px;  /* avoid overlap with role badge */
+  position: relative;
+  z-index: 1;
+}
+
+.card-head .card-player-name { padding-right: 0; }
+
+/* Pre-pick public hints block (DRFT) — no numbers shown here */
+.card-hints {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-meta {
+  font-size: 13px;
+  color: #8b949e;
+}
+
+.card-year {
+  font-weight: 600;
+  color: #e6edf3;
+}
+
+.card-phase {
+  color: #c89b3c;
+  font-weight: 600;
+}
+
+.card-style {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e6edf3;
+}
+
+.card-desc {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #8b949e;
+}
+
+.card-overalls {
+  display: flex;
+  gap: 12px;
+}
+
+.card-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b949e;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e6edf3;
+}
+
+.card-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;  /* xs */
+}
+
+.trait-badge {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--c-text-dim);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--c-border-soft);
+  border-radius: var(--r-pill);
+  padding: 3px 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.pick-btn {
+  font-size: var(--fs-base);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--grad-gold);
+  color: var(--c-bg-0);
+  border-radius: var(--r-md);
+  padding: 12px 16px;
+  min-height: 46px;
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--sh-sm);
+  transition: transform var(--t-fast) var(--ease-out), box-shadow var(--t-fast) var(--ease-out), filter var(--t-fast) var(--ease-out);
+}
+
+.pick-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow: var(--glow-gold);
+}
+.pick-btn:active { transform: translateY(0); }
+
+.picked-confirmation {
+  font-size: 14px;
+  font-weight: 600;
+  color: #c89b3c;
+  text-align: center;
+  padding: 8px;
+}
+
+.empty-state-heading {
+  font-size: 14px;
+  font-weight: 600;
+  color: #d73a49;
+}
+
+.empty-state-body {
+  font-size: 14px;
+  color: #8b949e;
+}
+
+/* Pre-draft section */
+
+.pre-draft {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Playback Screen
+ * --------------------------------------------------------------------------- */
+
+.playback-screen {
+  max-width: 1340px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+/* Broadcast stage — team panel | map+clock+feed | team panel.
+   Columns stretch so the side panels and the centre column share full height. */
+.bcast-stage {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr) minmax(220px, 300px);
+  gap: var(--sp-4);
+  align-items: start;
+}
+
+.bcast-stage > .bcast-feed { grid-column: 1 / -1; }
+@media (min-width: 1200px) {
+  .bcast-stage { grid-template-columns: minmax(170px, .8fr) minmax(260px, 1.2fr) minmax(170px, .8fr) minmax(280px, 1fr); }
+  .bcast-stage > .bcast-feed { grid-column: auto; margin: 0; }
+  .bcast-stage > .bcast-feed .event-ticker { height: clamp(280px, 45vh, 520px); max-height: none; }
+}
+
+.bcast-center-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+
+/* Cap the map so the live feed always sits above the fold on a ~900px viewport.
+   The map is sized off available height, not a fixed 460px. */
+.bcast-center-col .rift-stage {
+  width: 100%;
+  max-width: min(430px, 42vh);
+  margin: 0 auto;
+}
+
+/* The feed takes the remaining vertical room inside the centre column. */
+.bcast-center-col .bcast-feed {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+@media (max-width: 980px) {
+  .bcast-stage { grid-template-columns: 1fr 1fr; }
+  .bcast-stage .tpanel { order: 3; }
+  .bcast-stage > .bcast-feed { order: 2; }
+  .bcast-center-col { order: 1; grid-column: 1 / -1; }
+  .bcast-center-col .rift-stage { max-width: min(420px, 60vw); }
+}
+
+@media (max-width: 620px) {
+  .bcast-stage { grid-template-columns: 1fr; }
+  .bcast-stage .tpanel { order: 3; }
+}
+
+.playback-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.playback-header {
+  display: flex;
+  justify-content: center;
+}
+
+/* Game timer */
+
+.game-timer {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  color: var(--c-gold-bright);
+  padding: 4px 18px;
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(180deg, rgba(212, 168, 67, 0.12), rgba(212, 168, 67, 0.02));
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  border-radius: var(--r-pill);
+  box-shadow: 0 0 18px rgba(212, 168, 67, 0.12), var(--hairline-top);
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Pulse animation on event reached (D-12 / UI-SPEC Animation Budget) */
+@keyframes timer-pulse {
+  0%   { transform: scale(1.0); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(1.0); }
+}
+
+.game-timer--pulse {
+  animation: timer-pulse 0.3s ease-in-out;
+}
+
+/* ---------------------------------------------------------------------------
+ * Event Ticker (PLAY-02)
+ * --------------------------------------------------------------------------- */
+
+.event-ticker-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Win probability display (SIM-07, D-14) */
+
+.win-prob-display {
+  text-align: center;
+  font-size: 14px;  /* Body */
+  font-weight: 600;
+  min-height: 22px;
+}
+
+.win-prob-user {
+  color: #c89b3c;  /* Accent */
+}
+
+.win-prob-sep {
+  color: #8b949e;  /* Muted */
+}
+
+.win-prob-rival {
+  color: #d73a49;  /* Destructive */
+}
+
+.win-prob-placeholder {
+  color: #8b949e;
+  font-weight: 400;
+}
+
+/* Event ticker list */
+
+.event-ticker {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 16px;  /* md */
+  max-height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;  /* sm */
+}
+
+/* Event feed embedded inside the broadcast stage's centre column — compact and
+   always on screen (the standalone ticker used to sit below the fold). */
+.bcast-feed {
+  width: 100%;
+  margin-top: var(--sp-2);
+}
+
+.bcast-feed .event-ticker-container {
+  gap: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The win-prob line is redundant here — the WinProbBar already shows it up top. */
+.bcast-feed .win-prob-display {
+  display: none;
+}
+
+/* Feed grows to fill the column; min-height keeps it readable, max-height is a
+   safety cap so it never pushes content below the fold. Newest events on top. */
+.bcast-feed .event-ticker {
+  flex: 1 1 auto;
+  min-height: 160px;
+  max-height: 38vh;
+  padding: var(--sp-3) var(--sp-4);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 40%),
+    var(--c-inset);
+  border-color: var(--c-border-soft);
+  border-radius: var(--r-md);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* A "AO VIVO" header strip so the feed reads as a broadcast lower-third. */
+.bcast-feed .event-ticker::before {
+  content: "AO VIVO";
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--c-red-bright);
+  padding-bottom: var(--sp-1);
+}
+
+.bcast-feed .event-entry {
+  font-size: 13px;
+}
+
+/* Individual event entry */
+
+.event-entry {
+  display: flex;
+  gap: 4px;  /* xs */
+  font-size: 14px;  /* Body */
+  line-height: 1.5;
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 6px;
+}
+
+.event-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Slide-up + fade animation for new entries (D-13 / UI-SPEC Animation Budget) */
+@keyframes event-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.event-entry--new {
+  animation: event-slide-up 0.2s ease-out forwards;
+}
+
+.event-label {
+  font-weight: 600;  /* semibold */
+}
+
+.event-team {
+  font-weight: 400;  /* regular, muted */
+  color: #8b949e;
+}
+
+.event-team--user {
+  color: #c89b3c;  /* Accent — Seu time */
+}
+
+.event-team--rival {
+  color: #d73a49;  /* Destructive — Rival */
+}
+
+/* ---------------------------------------------------------------------------
+ * HUD bar (timer + scoreboard) and centred Rift stage
+ * --------------------------------------------------------------------------- */
+.hud-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.rift-stage {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--c-border);
+  box-shadow: var(--sh-md), inset 0 0 60px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------------------------------------------------------------------------
+ * SVG Summoner's Rift
+ * --------------------------------------------------------------------------- */
+.rift {
+  width: 100%;
+  height: 100%;
+}
+
+.rift-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.rift-bg { fill: #0a0f0a; stroke: #2b3a2b; stroke-width: 0.6; }
+.rift-base--blue { fill: rgba(60, 120, 200, 0.12); }
+.rift-base--red { fill: rgba(200, 60, 60, 0.12); }
+
+.rift-lane {
+  fill: none;
+  stroke: #3a4a3a;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.7;
+}
+
+.rift-river {
+  stroke: rgba(70, 130, 180, 0.35);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.rift-turret { stroke: #0a0f0a; stroke-width: 0.4; }
+.rift-turret--user { fill: #c89b3c; }
+.rift-turret--rival { fill: #d73a49; }
+
+.rift-nexus-core { stroke: #0a0f0a; stroke-width: 0.6; }
+.rift-nexus-core--user { fill: #c89b3c; }
+.rift-nexus-core--rival { fill: #d73a49; }
+.rift-nexus-core--exposed { animation: nexus-pulse 1s ease-in-out infinite; }
+
+@keyframes nexus-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* Objective pits */
+.rift-pit {
+  fill: #161b22;
+  stroke: #4a5568;
+  stroke-width: 0.6;
+}
+.rift-pit--alive {
+  fill: #2a2410;
+  stroke: #c89b3c;
+  stroke-width: 0.9;
+}
+.rift-pit-glyph { font-size: 4px; text-anchor: middle; }
+.rift-pit-label {
+  font-size: 2.7px;
+  text-anchor: middle;
+  fill: #c9d1d9;
+  font-weight: 600;
+}
+
+/* Champions */
+.rift-champ-ring--user { fill: none; stroke: #c89b3c; stroke-width: 0.8; }
+.rift-champ-ring--rival { fill: none; stroke: #d73a49; stroke-width: 0.8; }
+.rift-champ--dead { opacity: 0.5; }
+.rift-champ--dead image { filter: grayscale(1) brightness(0.5); }
+.rift-champ-fallback {
+  font-size: 3px;
+  text-anchor: middle;
+  fill: #e6edf3;
+  font-weight: 700;
+}
+.rift-champ-dead-x { font-size: 4px; text-anchor: middle; fill: #d73a49; font-weight: 700; }
+.rift-champ-respawn { font-size: 2.6px; text-anchor: middle; fill: #8b949e; font-weight: 600; }
+
+/* ---------------------------------------------------------------------------
+ * Event highlight banner (overlaid on the map)
+ * --------------------------------------------------------------------------- */
+.event-highlight {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  animation: highlight-pop 0.35s ease-out;
+}
+
+@keyframes highlight-pop {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.event-highlight-word {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--c-gold-bright);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 0 28px rgba(240, 200, 96, 0.6);
+}
+.event-highlight--rival .event-highlight-word {
+  color: var(--c-red-bright);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 0 28px rgba(232, 64, 87, 0.6);
+}
+.event-highlight--steal .event-highlight-word {
+  color: #f0c674;
+  animation: steal-shake 0.4s ease-in-out;
+}
+@keyframes steal-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+/* Phase 28 (plano 28-04, D-03): destaque de zebra, mesmas propriedades de
+ * .event-highlight--steal, so a cor de acento troca. */
+.event-highlight--upset .event-highlight-word {
+  color: #b98af0;
+  animation: steal-shake 0.4s ease-in-out;
+}
+
+.event-highlight-ticker {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e6edf3;
+  background: rgba(13, 17, 23, 0.82);
+  padding: 4px 10px;
+  border-radius: 6px;
+  display: inline-block;
+  max-width: 360px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Broadcast top bar (LoL-style) — blue (you) vs red (rival)
+ * --------------------------------------------------------------------------- */
+.bcast {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  background:
+    linear-gradient(90deg, rgba(74, 158, 255, 0.22), rgba(74, 158, 255, 0) 30%),
+    linear-gradient(270deg, rgba(232, 64, 87, 0.22), rgba(232, 64, 87, 0) 30%),
+    linear-gradient(180deg, var(--c-surface-2), var(--c-bg-0));
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: var(--sp-2) var(--sp-4);
+  box-shadow: var(--sh-md), var(--hairline-top);
+  position: relative;
+  overflow: hidden;
+}
+/* Edge accents: blue tab left, red tab right */
+.bcast::before, .bcast::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 3px;
+}
+.bcast::before { left: 0; background: linear-gradient(180deg, var(--c-blue), transparent); }
+.bcast::after { right: 0; background: linear-gradient(180deg, var(--c-red), transparent); }
+
+.bcast-team { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; justify-content: center; }
+.bcast-team--rival { align-items: flex-end; }
+
+.bcast-team-top { display: flex; align-items: center; gap: var(--sp-3); font-size: 15px; }
+.bcast-tag { font-family: var(--font-display); font-weight: 700; letter-spacing: 0.05em; font-size: 20px; }
+.bcast-team--user .bcast-tag { color: var(--c-blue-bright); text-shadow: var(--glow-blue); }
+.bcast-team--rival .bcast-tag { color: var(--c-red-bright); text-shadow: var(--glow-red); }
+.bcast-stat { color: var(--c-text-dim); font-weight: 600; font-size: 13px; font-variant-numeric: tabular-nums; }
+.bcast-gold { color: var(--c-gold-bright); }
+
+.bcast-buff { font-weight: 800; font-size: 11px; border-radius: 4px; padding: 1px 5px; }
+.bcast-buff--baron { color: #b18cff; border: 1px solid #b18cff; }
+.bcast-buff--elder { color: #6fe0c8; border: 1px solid #6fe0c8; }
+/* D-06: rotulo pt-BR de comp por time — discreto, aditivo, sem badge em comp neutra */
+.bcast-comp { font-size: 10px; font-weight: 600; letter-spacing: 0.04em; color: var(--c-text-dim); background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 3px; padding: 1px 5px; text-transform: uppercase; }
+
+.bcast-drakes { display: flex; gap: 3px; min-height: 18px; }
+.bcast-team--rival .bcast-drakes { flex-direction: row-reverse; }
+.bcast-drake { width: 18px; height: 18px; animation: drake-pop 0.4s ease-out; }
+@keyframes drake-pop {
+  0% { transform: scale(0) rotate(-30deg); opacity: 0; }
+  70% { transform: scale(1.25) rotate(6deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.bcast-center { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--sp-1); padding: 0 var(--sp-4); }
+.bcast-score { font-family: var(--font-display); display: flex; align-items: baseline; gap: var(--sp-3); font-size: 38px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.bcast-k--user { color: var(--c-blue-bright); }
+.bcast-k--rival { color: var(--c-red-bright); }
+.bcast-vs { color: var(--c-faint); font-size: 18px; }
+.bcast-objective { display: flex; align-items: center; gap: var(--sp-2); background: rgba(0,0,0,0.25); border: 1px solid var(--c-border-soft); border-radius: var(--r-pill); padding: 2px 10px; }
+.bcast-obj-img { width: 16px; height: 16px; }
+.bcast-obj-timer { font-size: var(--fs-sm); font-weight: 700; color: var(--c-text-dim); font-variant-numeric: tabular-nums; }
+
+.clock-row { display: flex; justify-content: center; }
+
+.bcast-name {
+  font-size: 12px;
+  color: #8b949e;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bcast-team--rival .bcast-team-top { flex-direction: row-reverse; }
+
+/* Selo do lado de quem assiste (rotulosDosLados): na sala o seu time pode estar
+   de qualquer lado, e a cor azul/vermelho sozinha nao diz isso. */
+.bcast-voce {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--c-bg-0);
+  background: var(--grad-gold);
+  border-radius: var(--r-pill);
+  padding: 1px 7px;
+  flex: 0 0 auto;
+}
+
+/* Placar de transmissao no celular (Rundown da Sala 2, U1): a 390 px a linha
+   do time (sigla, nome, comp, torres, ouro, buffs) estourava a tela em 184 px. */
+@media (max-width: 620px) {
+  .bcast { padding: var(--sp-2); gap: var(--sp-2); }
+  .bcast-team-top { flex-wrap: wrap; gap: 2px 8px; font-size: 13px; }
+  .bcast-team--rival .bcast-team-top { justify-content: flex-start; }
+  .bcast-name, .bcast-comp { display: none; }
+  .bcast-tag { font-size: 16px; }
+  .bcast-stat { font-size: 12px; }
+  .bcast-center { padding: 0 var(--sp-1); }
+  .bcast-score { font-size: 28px; gap: 6px; }
+  .bcast-objective { padding: 2px 6px; }
+  .event-highlight-ticker { max-width: 100%; }
+}
+
+/* ---------------------------------------------------------------------------
+ * Broadcast side team panels
+ * --------------------------------------------------------------------------- */
+.tpanel {
+  display: flex;
+  flex-direction: column;
+  background: var(--grad-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--sh-md), var(--hairline-top);
+}
+.tpanel--user { border-top: 3px solid var(--c-blue); }
+.tpanel--rival { border-top: 3px solid var(--c-red); }
+
+.tpanel-head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  border-bottom: 1px solid var(--c-border-soft);
+}
+.tpanel--user .tpanel-head { background: linear-gradient(90deg, rgba(74, 158, 255, 0.14), transparent); }
+.tpanel--rival .tpanel-head { flex-direction: row-reverse; text-align: right; background: linear-gradient(270deg, rgba(232, 64, 87, 0.14), transparent); }
+.tpanel-tag { font-family: var(--font-display); font-weight: 700; font-size: 16px; letter-spacing: 0.04em; }
+.tpanel-tag--user { color: var(--c-blue-bright); }
+.tpanel-tag--rival { color: var(--c-red-bright); }
+.tpanel-name { font-size: var(--fs-sm); color: var(--c-text-dim); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.tpanel-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 1px solid var(--c-border-soft);
+  transition: background-color 0.2s;
+}
+.tpanel-row:last-child { border-bottom: none; }
+.tpanel--rival .tpanel-row { flex-direction: row-reverse; text-align: right; }
+.tpanel-row--dead { opacity: 0.5; }
+
+.tpanel-portrait { width: 40px; height: 40px; border-radius: var(--r-sm); object-fit: cover; flex: 0 0 auto; border: 1px solid var(--c-border-soft); transition: filter 0.3s; }
+.tpanel-row--dead .tpanel-portrait { filter: grayscale(1) brightness(0.45); }
+.tpanel-portrait--fallback {
+  width: 40px; height: 40px; border-radius: var(--r-sm); background: var(--c-inset);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: var(--c-text); flex: 0 0 auto;
+}
+
+.tpanel-role { font-size: var(--fs-xs); font-weight: 800; color: var(--c-faint); width: 26px; flex: 0 0 auto; letter-spacing: 0.04em; }
+.tpanel-meta { display: flex; flex-direction: column; min-width: 0; flex: 1 1 auto; }
+.tpanel--rival .tpanel-meta { align-items: flex-end; }
+.tpanel-pname { font-size: 13px; font-weight: 600; color: var(--c-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.tpanel-kda { font-size: var(--fs-sm); color: var(--c-muted); font-variant-numeric: tabular-nums; }
+.tpanel-econ { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex: 0 0 auto; }
+.tpanel--rival .tpanel-econ { align-items: flex-start; }
+.tpanel-gold { font-size: var(--fs-sm); color: var(--c-gold-bright); font-weight: 600; font-variant-numeric: tabular-nums; }
+.tpanel-shutdown { font-size: var(--fs-xs); color: var(--c-red-bright); font-weight: 700; border: 1px solid var(--c-red); border-radius: var(--r-pill); padding: 0 6px; }
+
+/* ---------------------------------------------------------------------------
+ * Real Rift minimap overlay tweaks
+ * --------------------------------------------------------------------------- */
+.rift-obj-icon--waiting { opacity: 0.55; }
+.rift-obj-icon--alive { filter: drop-shadow(0 0 2px rgba(255, 220, 120, 0.9)); }
+.rift-obj-timer { font-size: 3px; text-anchor: middle; fill: #fff; font-weight: 700; paint-order: stroke; stroke: #000; stroke-width: 0.5; }
+.rift-champ-ring { filter: drop-shadow(0 0.3px 0.5px rgba(0, 0, 0, 0.9)); }
+.rift-champ-ring--user { fill: none; stroke: #4a9eff; stroke-width: 1; }
+.rift-champ-ring--rival { fill: none; stroke: #e84057; stroke-width: 1; }
+.rift-champ-bg { fill: #161b22; }
+.rift-champ image { transition: filter 0.4s; }
+.rift-champ--dead image { filter: grayscale(1) brightness(0.4); }
+.rift-champ-respawn { font-size: 3px; text-anchor: middle; fill: #fff; font-weight: 700; paint-order: stroke; stroke: #000; stroke-width: 0.5; }
+
+/* Action glow — champion involved in the latest event */
+.rift-champ-hot { fill: none; stroke-width: 0.7; animation: hot-pulse 0.85s ease-in-out infinite; }
+.rift-champ-hot--user { stroke: #9fd2ff; }
+.rift-champ-hot--rival { stroke: #ffaab2; }
+@keyframes hot-pulse {
+  0%, 100% { opacity: 0.25; stroke-width: 0.5; }
+  50% { opacity: 1; stroke-width: 1.1; }
+}
+
+.rift-nexus-warn { fill: none; stroke-width: 1.2; animation: nexus-pulse 1s ease-in-out infinite; }
+.rift-nexus-warn--user { stroke: #4a9eff; }
+.rift-nexus-warn--rival { stroke: #e84057; }
+
+/* ---------------------------------------------------------------------------
+ * Championship tab scoreboard
+ * --------------------------------------------------------------------------- */
+.tab-toggle {
+  align-self: center;
+  font-size: 12px;
+  color: #8b949e;
+  background: transparent;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+
+.tab-scoreboard {
+  display: flex;
+  flex-direction: column;
+  background: #0d1117;
+  border: 1px solid #21262d;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tab-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border-bottom: 1px solid #161b22;
+}
+.tab-row:last-child { border-bottom: none; }
+
+.tab-side { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.tab-side--rival { justify-content: flex-end; }
+
+.tab-portrait { width: 34px; height: 34px; border-radius: 6px; object-fit: cover; flex: 0 0 auto; }
+.tab-portrait--dead { filter: grayscale(1) brightness(0.45); }
+.tab-portrait--fallback {
+  width: 34px; height: 34px; border-radius: 6px; background: #161b22;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: #e6edf3;
+}
+
+.tab-meta { display: flex; flex-direction: column; min-width: 0; }
+.tab-meta--right { align-items: flex-end; }
+.tab-name { font-size: 12px; font-weight: 600; color: #e6edf3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tab-kda { font-size: 12px; color: #8b949e; font-variant-numeric: tabular-nums; }
+.tpanel-away,
+.tab-away {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--c-red-bright, #e5484d);
+}
+
+.tab-econ { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; font-variant-numeric: tabular-nums; }
+.tab-econ--right { align-items: flex-start; }
+.tab-gold { font-size: 11px; color: #d4af37; font-weight: 600; }
+.tab-shutdown { font-size: 10px; color: #e84057; font-weight: 700; border: 1px solid #e84057; border-radius: 10px; padding: 0 5px; }
+
+.tab-role { font-size: 10px; font-weight: 800; color: #6b7280; letter-spacing: 0.04em; }
+
+/* Live scoreboard HUD (Phase 9) */
+.scoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 8px 12px;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+}
+
+.sb-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.sb-icon {
+  font-size: 14px;
+}
+
+.sb-user {
+  color: #c89b3c;
+}
+
+.sb-rival {
+  color: #d73a49;
+}
+
+.sb-sep {
+  color: #8b949e;
+  font-weight: 400;
+}
+
+.sb-buff {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 1px solid currentColor;
+}
+
+.sb-buff--user {
+  color: #c89b3c;
+}
+
+.sb-buff--rival {
+  color: #d73a49;
+}
+
+.sb-buff--elder {
+  background-color: rgba(120, 80, 200, 0.12);
+}
+
+/* Rich ticker rows (Phase 6) — time chip + "who did what" line */
+.event-time {
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 12px;
+  color: #8b949e;
+  min-width: 42px;
+}
+
+.event-text {
+  flex: 1 1 auto;
+  font-weight: 400;
+}
+
+/* A subtle left accent bar in the acting team's colour */
+.event-entry--user {
+  border-left: 3px solid var(--c-user);
+  padding-left: var(--sp-2);
+}
+
+.event-entry--rival {
+  border-left: 3px solid var(--c-red);
+  padding-left: var(--sp-2);
+}
+
+/* Big moments pop (first blood, penta, ace, baron/elder, steals, nexus, gg) */
+.event-entry--highlight {
+  background: linear-gradient(90deg, rgba(212, 168, 67, 0.1), transparent);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+.event-entry--highlight .event-text {
+  font-weight: 700;
+  color: var(--c-gold-bright);
+}
+
+/* ---------------------------------------------------------------------------
+ * Match result overlay
+ * --------------------------------------------------------------------------- */
+
+.result-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(5, 8, 13, 0.78);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: overlay-in 0.25s var(--ease-out);
+}
+@keyframes overlay-in { from { opacity: 0; } to { opacity: 1; } }
+
+.result-card {
+  background:
+    radial-gradient(500px 240px at 50% -10%, rgba(212, 168, 67, 0.1), transparent 70%),
+    var(--grad-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-xl);
+  padding: var(--sp-7) var(--sp-6);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+  max-width: 440px;
+  width: 100%;
+  box-shadow: var(--sh-lg), var(--hairline-top);
+  animation: card-in 0.35s var(--ease-out) backwards 0.05s;
+}
+
+/* Fase 2 item 3: vitoria e derrota precisam de uma entrada diferente, nao so
+ * cor/texto — sensacao de impacto (overshoot) numa, contida (dessaturada)
+ * na outra. Espectador puro (nenhuma das duas classes) mantem `card-in`. */
+.result-card--vitoria {
+  animation: card-in-vitoria 0.45s var(--ease-out) backwards 0.05s;
+}
+
+.result-card--derrota {
+  animation: card-in-derrota 0.4s var(--ease-out) backwards 0.05s;
+  filter: saturate(0.85);
+}
+
+@keyframes card-in-vitoria {
+  from { opacity: 0; transform: translateY(14px) scale(0.9); }
+  60% { transform: translateY(-4px) scale(1.03); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes card-in-derrota {
+  from { opacity: 0; transform: translateY(-10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.result-winner {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+.result-winner--user {
+  color: var(--c-gold-bright);
+  text-shadow: 0 0 28px rgba(240, 200, 96, 0.35);
+}
+
+.result-winner--rival {
+  color: var(--c-red-bright);
+}
+
+/* Espectador puro (nenhum time meu nesta serie) — veredito em 3a pessoa,
+ * sem o viés dourado/vermelho de "meu time" (Fase 2 item 2). */
+.result-winner--neutral {
+  color: var(--c-text-dim);
+}
+
+.result-next-step {
+  font-size: 14px;
+  font-weight: 400;
+  color: #8b949e;  /* Muted */
+}
+
+.play-again-btn {
+  font-size: var(--fs-base);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--grad-gold);
+  color: var(--c-bg-0);
+  border-radius: var(--r-md);
+  padding: 13px 36px;
+  min-height: 46px;
+  box-shadow: var(--sh-sm);
+  transition: filter var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast);
+  margin-top: var(--sp-2);
+}
+
+.play-again-btn:hover {
+  filter: brightness(1.06);
+  box-shadow: var(--glow-gold);
+  transform: translateY(-1px);
+}
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-2) var(--sp-3);
+}
+
+.play-again-btn--secondary {
+  background: var(--c-surface-2);
+  color: var(--c-text);
+  border: 1px solid var(--c-border-strong);
+  box-shadow: none;
+}
+
+.play-again-btn--secondary:hover {
+  filter: none;
+  background: var(--c-surface-3);
+  box-shadow: none;
+}
+
+/* ---------------------------------------------------------------------------
+ * Pre-match controls — chaos slider + champion editor (Phase 3, D-10/D-03)
+ *
+ * Minimal scoped styling for the two new Phase-3 surfaces only. The FULL LoL
+ * visual theme is deferred to a dedicated UI phase — these blocks just give the
+ * slider and editor enough spacing/contrast to not read as raw, reusing the
+ * existing design tokens (Secondary #161b22, Accent #c89b3c, Border #30363d,
+ * Muted #8b949e, Hover #1f2937).
+ * --------------------------------------------------------------------------- */
+
+.pre-match-controls {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;  /* md */
+  margin-bottom: 24px;  /* lg */
+}
+
+/* Chaos slider (D-10) */
+
+.chaos-slider {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 16px;  /* md */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Stats visibility toggle (championship-creation choice) */
+
+.stats-toggle {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stats-toggle__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.stats-toggle__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stats-toggle__value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #c89b3c;
+}
+
+.stats-toggle__switch {
+  position: relative;
+  width: 46px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1px solid #30363d;
+  background-color: #21262d;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  flex: 0 0 auto;
+  align-self: flex-start;
+}
+
+.stats-toggle__switch--on {
+  background-color: rgba(200, 155, 60, 0.35);
+  border-color: #c89b3c;
+}
+
+.stats-toggle__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #8b949e;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.stats-toggle__switch--on .stats-toggle__thumb {
+  transform: translateX(22px);
+  background-color: #c89b3c;
+}
+
+.stats-toggle__hint {
+  font-size: 12px;
+  color: #8b949e;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.chaos-slider__heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.chaos-slider__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chaos-slider__value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #c89b3c;  /* Accent */
+}
+
+.chaos-slider__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chaos-slider__end {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8b949e;
+  white-space: nowrap;
+}
+
+.chaos-slider__input {
+  flex: 1;
+  min-height: 24px;
+  accent-color: #c89b3c;  /* Accent — themes the range thumb/track */
+  cursor: pointer;
+}
+
+.chaos-slider__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chaos-slider__default-marker {
+  font-size: 12px;
+  font-weight: 400;
+  color: #8b949e;  /* Muted */
+}
+
+.chaos-slider__reset {
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #161b22;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 6px 12px;
+  min-height: 32px;
+  transition: background-color 0.1s, border-color 0.1s, opacity 0.1s;
+}
+
+.chaos-slider__reset:hover:not(:disabled) {
+  background-color: #1f2937;  /* Hover */
+  border-color: #8b949e;
+}
+
+.chaos-slider__reset:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* Champion editor toggle button */
+
+.champion-editor-toggle {
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #161b22;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 8px 16px;
+  min-height: 44px;
+  transition: background-color 0.1s, border-color 0.1s;
+}
+
+.champion-editor-toggle:hover {
+  background-color: #1f2937;  /* Hover */
+  border-color: #8b949e;
+}
+
+/* Champion-trait editor table (D-03) */
+
+.champion-editor {
+  width: 100%;
+  max-width: 800px;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 16px;  /* md */
+  margin-bottom: 24px;  /* lg */
+  overflow-x: auto;
+}
+
+.champion-editor__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.champion-editor__error {
+  color: #d73a49;  /* Destructive */
+  font-size: 14px;
+  padding: 12px;
+  border: 1px solid #d73a49;
+  border-radius: 6px;
+}
+
+.champion-editor__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.champion-editor__table th {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b949e;
+  text-align: center;
+  padding: 8px;
+  border-bottom: 1px solid #30363d;
+  white-space: nowrap;
+}
+
+.champion-editor__table th:first-child {
+  text-align: left;
+}
+
+.champion-editor__table td {
+  text-align: center;
+  padding: 8px;
+  border-bottom: 1px solid #30363d;
+}
+
+.champion-editor__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.champion-editor__table tbody tr:hover {
+  background-color: #1f2937;  /* Hover */
+}
+
+.champion-editor__name {
+  text-align: left !important;
+  font-weight: 600;
+  color: #e6edf3;
+  white-space: nowrap;
+}
+
+.champion-editor__table input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #c89b3c;  /* Accent */
+  cursor: pointer;
+}
+
+.champion-editor__table input[type="checkbox"]:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ---------------------------------------------------------------------------
+ * Riot fan-content attribution notice (Phase 4, PLAY-06)
+ *
+ * Reuses design tokens: Muted #8b949e, Label size 12px/600.
+ * Renders before any champion portrait is displayed.
+ * --------------------------------------------------------------------------- */
+
+.attribution-notice {
+  font-size: 9px;
+  font-weight: 400;
+  color: #4b5563;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  line-height: 1.2;
+  opacity: 0.6;
+}
+
+/* ---------------------------------------------------------------------------
+ * Champion portrait (Phase 4, PLAY-03)
+ *
+ * Reuses design tokens: Border #30363d, Muted #8b949e.
+ * Used in team strips during match playback.
+ * --------------------------------------------------------------------------- */
+
+.champion-portrait {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.champion-portrait__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #30363d;  /* Border */
+  display: block;
+}
+
+.champion-portrait__fallback {
+  font-size: 12px;            /* Label size */
+  font-weight: 600;
+  color: #8b949e;             /* Muted */
+  text-align: center;
+  line-height: 1.2;
+  overflow: hidden;
+  word-break: break-word;
+  padding: 2px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------------------------------------------------------------------------
+ * Roster portrait strips (Phase 4, PLAY-03)
+ *
+ * Horizontal flex row of up to 5 champion portraits per team.
+ * User strip: subtle Accent (#c89b3c) left-border tint.
+ * Rival strip: subtle Destructive (#d73a49) left-border tint.
+ * --------------------------------------------------------------------------- */
+
+.roster-portraits {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;         /* md */
+  flex-wrap: wrap;   /* wraps on narrow viewports */
+  padding: 8px 12px;
+  border-left: 3px solid transparent;
+  border-radius: 4px;
+  background-color: #161b22;  /* Secondary */
+}
+
+.roster-portraits--user {
+  border-left-color: #c89b3c;  /* Accent */
+}
+
+.roster-portraits--rival {
+  border-left-color: #d73a49;  /* Destructive */
+}
+
+/* Individual player slot inside the strip */
+
+.roster-portraits__player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;   /* xs */
+  min-width: 48px;
+}
+
+.roster-portraits__role {
+  font-size: 12px;   /* Label size */
+  font-weight: 600;
+  color: #8b949e;    /* Muted */
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.roster-portraits__name {
+  font-size: 12px;   /* Label size */
+  font-weight: 400;
+  color: #e6edf3;
+  text-align: center;
+  line-height: 1.2;
+  max-width: 64px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ---------------------------------------------------------------------------
+ * Win-probability bar (Phase 4, PLAY-04)
+ *
+ * Full-width animated two-sided bar driven by GameEvent.winProbAfter.
+ * User side: Accent #c89b3c; Rival side: Destructive #d73a49.
+ * Widths transition via CSS so the bar visibly shifts after each event.
+ * --------------------------------------------------------------------------- */
+
+.win-prob-bar {
+  display: flex;
+  width: 100%;
+  height: 22px;
+  border-radius: var(--r-pill);
+  overflow: hidden;
+  background-color: var(--c-inset);
+  border: 1px solid var(--c-border);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.win-prob-bar__user {
+  background: linear-gradient(180deg, var(--c-blue-bright), var(--c-user));
+  transition: width 450ms var(--ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.win-prob-bar__rival {
+  background: linear-gradient(180deg, var(--c-red-bright), var(--c-red));
+  transition: width 450ms var(--ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.win-prob-bar__label {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.win-prob-bar__label--user {
+  color: #fff;  /* white reads on any chosen team colour */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+
+.win-prob-bar__label--rival {
+  color: #fff;     /* White text on destructive background */
+}
+
+/* ---------------------------------------------------------------------------
+ * Speed controls row (Phase 4 Plan 03, PLAY-05)
+ *
+ * 1x / 2x toggle buttons + skip-to-end action.
+ * Mirrors DraftScreen speed-btn conventions; active state uses Accent #c89b3c.
+ * --------------------------------------------------------------------------- */
+
+.speed-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.speed-controls__btn {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  background-color: var(--c-surface-2);
+  color: var(--c-text);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-pill);
+  padding: 6px 16px;
+  min-height: 36px;
+  cursor: pointer;
+  transition: background-color var(--t-fast), border-color var(--t-fast), color var(--t-fast), opacity var(--t-fast);
+}
+
+.speed-controls__btn:hover:not(:disabled) {
+  background-color: var(--c-surface-3);
+  border-color: var(--c-border-strong);
+}
+
+.speed-controls__btn--active {
+  background: var(--grad-gold);
+  color: var(--c-bg-0);
+  border-color: var(--c-gold);
+}
+
+.speed-controls__btn--active:hover:not(:disabled) {
+  background-color: #c89b3c;
+  opacity: 0.9;
+}
+
+.speed-controls__btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ---------------------------------------------------------------------------
+ * Tournament Bracket (Phase 5)
+ *
+ * Tokens used (all from established design system):
+ *   Dominant   #0d1117   Secondary  #161b22   Accent     #c89b3c
+ *   Destructive #d73a49  Border     #30363d   Muted      #8b949e
+ *   Hover      #1f2937   Text       #e6edf3
+ * --------------------------------------------------------------------------- */
+
+/* ---- Launch Menu ---- */
+
+.launch-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-8) var(--sp-6) var(--sp-7);
+  max-width: 480px;
+  width: 100%;
+  margin-top: 6vh;
+  position: relative;
+  border-radius: var(--r-xl);
+  background:
+    radial-gradient(600px 300px at 50% -20%, rgba(212, 168, 67, 0.12), transparent 70%),
+    var(--grad-surface);
+  border: 1px solid var(--c-border-soft);
+  box-shadow: var(--sh-lg), var(--hairline-top);
+}
+
+/* Gold top hairline accent on the hero */
+.launch-menu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--c-gold), transparent);
+  opacity: 0.8;
+}
+
+.launch-menu__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+  background: linear-gradient(180deg, var(--c-gold-bright), var(--c-gold-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 30px rgba(212, 168, 67, 0.25);
+  margin-top: var(--sp-2);
+}
+
+.launch-menu__subtitle {
+  font-size: var(--fs-base);
+  color: var(--c-muted);
+  margin-bottom: var(--sp-4);
+  text-align: center;
+}
+
+/* Seletor de pacote do solo (label com um select) e aviso de pacote bloqueado. */
+.launch-menu__active-pack {
+  color: var(--c-muted, #8b949e);
+  font-size: 0.9rem;
+  margin-top: -0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+}
+.launch-menu__active-pack strong { color: var(--c-gold, #c89b3c); }
+.launch-menu__active-pack select {
+  min-height: 36px;
+  max-width: 100%;
+  padding: 0 var(--sp-2);
+  color: inherit;
+  font: inherit;
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border, #30363d);
+  border-radius: var(--r-md);
+}
+
+.launch-menu__btn {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--sp-3) var(--sp-5);
+  font-size: var(--fs-base);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: var(--r-md);
+  transition: transform var(--t-fast) var(--ease-out),
+    background-color var(--t-base) var(--ease-out),
+    border-color var(--t-base) var(--ease-out),
+    box-shadow var(--t-base) var(--ease-out), filter var(--t-base) var(--ease-out);
+}
+.launch-menu__btn:hover { transform: translateY(-1px); }
+.launch-menu__btn:active { transform: translateY(0); }
+
+.launch-menu__btn--primary {
+  background: var(--grad-gold);
+  color: var(--c-bg-0);
+  border: 1px solid var(--c-gold);
+  box-shadow: var(--sh-sm);
+}
+
+.launch-menu__btn--primary:hover {
+  filter: brightness(1.06);
+  box-shadow: var(--glow-gold);
+}
+
+.launch-menu__btn--secondary {
+  background-color: var(--c-surface-2);
+  color: var(--c-text);
+  border: 1px solid var(--c-border);
+}
+
+.launch-menu__btn--secondary:hover {
+  background-color: var(--c-surface-3);
+  border-color: var(--c-border-strong);
+}
+
+.launch-menu__btn--destructive {
+  background-color: rgba(232, 64, 87, 0.08);
+  color: var(--c-red-bright);
+  border: 1px solid rgba(232, 64, 87, 0.45);
+}
+
+.launch-menu__btn--destructive:hover {
+  background-color: rgba(232, 64, 87, 0.16);
+  border-color: var(--c-red);
+}
+
+.launch-menu__confirm-card {
+  background-color: var(--c-inset);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.launch-menu__confirm-heading {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--c-text);
+}
+
+.launch-menu__confirm-body {
+  font-size: var(--fs-base);
+  color: var(--c-muted);
+}
+
+.launch-menu__confirm-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* ---- Bracket View ---- */
+
+.bracket-view {
+  width: 100%;
+  max-width: 1280px;
+  padding: var(--sp-6) var(--sp-5) var(--sp-7);
+  border-radius: var(--r-xl);
+  background:
+    radial-gradient(1200px 480px at 20% -10%, rgba(212, 168, 67, 0.08), transparent 60%),
+    var(--grad-surface);
+  border: 1px solid var(--c-border-soft);
+  box-shadow: var(--sh-lg);
+}
+
+.bracket-view__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--c-text);
+  margin-bottom: var(--sp-6);
+}
+
+.bracket-section {
+  margin-bottom: 40px;
+}
+
+.bracket-section__heading {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--c-text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--sp-5);
+  padding-left: var(--sp-3);
+  border-left: 4px solid var(--c-gold);
+}
+
+/* Rounds flow left → right; each later round is vertically centred against its
+   feeders so the columns read as a tournament tree. */
+.bracket-section__rounds {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 44px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.bracket-round {
+  display: flex;
+  flex-direction: column;
+  min-width: 230px;
+}
+
+.bracket-round__label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #7d8590;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.bracket-round__slots {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 18px;
+  flex: 1;
+}
+
+/* ---- Bracket Node ---- */
+
+.bracket-node {
+  position: relative;
+  background: var(--grad-surface);
+  border: 1px solid var(--c-border-soft);
+  border-radius: var(--r-md);
+  padding: var(--sp-3);
+  min-width: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  box-shadow: var(--sh-sm);
+  transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), transform 0.2s var(--ease-out);
+}
+
+.bracket-node--active {
+  border-color: var(--c-gold);
+  box-shadow: var(--glow-gold), var(--sh-md);
+  cursor: pointer;
+}
+.bracket-node--active:hover { transform: translateY(-2px); }
+
+.bracket-node--pending {
+  opacity: 0.5;
+}
+
+/* Team bar — a dark slab with a red accent tab on the right edge (broadcast look). */
+.bracket-node__team {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #e6edf3;
+  background-color: #0e131a;
+  border: 1px solid #232a33;
+  border-radius: 4px;
+  padding: 9px 16px 9px 12px;
+  overflow: hidden;
+}
+
+/* The red right-edge tab. */
+.bracket-node__team::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #d73a49;
+}
+
+.bracket-node__team--user {
+  background-color: #121a26;
+  border-color: #2f4258;
+}
+
+/* The user's own team gets its chosen accent tab (broadcast: user = blue default). */
+.bracket-node__team--user::after {
+  background-color: var(--user-team-color, #3b82f6);
+}
+
+.bracket-node__team--eliminated {
+  opacity: 0.45;
+  transition: opacity 150ms ease-out;
+}
+
+.bracket-node__team--user .bracket-node__team-name {
+  font-weight: 700;
+}
+
+.bracket-node__team-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bracket-node__eliminated-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #7d8590;
+  flex-shrink: 0;
+}
+
+.bracket-node__score {
+  font-size: 15px;
+  font-weight: 700;
+  color: #7d8590;
+  flex-shrink: 0;
+  min-width: 14px;
+  text-align: center;
+}
+
+.bracket-node__score--winner {
+  color: #f0c75e;
+}
+
+/* The plain "vs" row is removed visually — bars stack directly. */
+.bracket-node__vs {
+  display: none;
+}
+
+.bracket-node__start-btn {
+  margin-top: var(--sp-2);
+  width: 100%;
+  min-height: 40px;
+  padding: var(--sp-2) var(--sp-4);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--grad-gold);
+  color: var(--c-bg-0);
+  border: 1px solid var(--c-gold);
+  border-radius: var(--r-sm);
+  box-shadow: var(--sh-sm);
+  transition: filter 0.15s var(--ease-out), box-shadow 0.15s var(--ease-out);
+}
+
+.bracket-node__start-btn:hover {
+  filter: brightness(1.06);
+  box-shadow: var(--glow-gold);
+}
+
+.bracket-node__replay-btn {
+  margin-top: 4px;
+  width: 100%;
+  min-height: 34px;
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background-color: transparent;
+  color: #7d8590;
+  border: 1px solid #2b313a;
+  border-radius: 5px;
+  transition: color 0.15s ease-out, border-color 0.15s ease-out;
+}
+
+.bracket-node__replay-btn:hover {
+  color: #e6edf3;
+  border-color: #3d444d;
+}
+
+.bracket-node__pending-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #7d8590;
+  text-align: center;
+  padding: 4px 0;
+}
+
+/* ---- Team edit screen (name / tag / colour before the draft) ---- */
+
+.team-edit {
+  width: 100%;
+  max-width: 480px;
+  margin: 4vh auto 0;
+  padding: var(--sp-7) var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  border-radius: var(--r-xl);
+  background: var(--grad-surface);
+  border: 1px solid var(--c-border-soft);
+  box-shadow: var(--sh-lg), var(--hairline-top);
+}
+
+.team-edit__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-text);
+}
+
+.team-edit__subtitle {
+  font-size: 14px;
+  color: #8b949e;
+  margin-top: -8px;
+}
+
+.team-edit__preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 2px solid #3b82f6;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #161b22 0%, #11161d 100%);
+}
+
+.team-edit__preview-tag {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #0d1117;
+  padding: 4px 8px;
+  border-radius: 4px;
+  min-width: 44px;
+  text-align: center;
+}
+
+.team-edit__preview-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #f0f6fc;
+}
+
+.team-edit__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.team-edit__label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8b949e;
+}
+
+.team-edit__input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  font-size: 15px;
+  color: #e6edf3;
+  background-color: #0e131a;
+  border: 1px solid #2b313a;
+  border-radius: 6px;
+}
+
+.team-edit__input:focus {
+  outline: none;
+  border-color: var(--user-team-color, #3b82f6);
+}
+
+.team-edit__input--tag {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  max-width: 140px;
+}
+
+.team-edit__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.team-edit__color {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease-out, border-color 0.12s ease-out;
+}
+
+.team-edit__color:hover {
+  transform: scale(1.08);
+}
+
+.team-edit__color--selected {
+  border-color: #f0f6fc;
+  box-shadow: 0 0 0 2px #0d1117, 0 0 0 4px currentColor;
+}
+
+.team-edit__confirm {
+  margin-top: 12px;
+  width: 100%;
+  min-height: 48px;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #0d1117;
+  background-color: var(--user-team-color, #3b82f6);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: filter 0.15s ease-out;
+}
+
+.team-edit__confirm:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.team-edit__confirm:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ---- Series Result Screen ---- */
+
+.series-result {
+  max-width: 1120px;
+  margin-inline: auto;
+  width: 100%;
+  background:
+    radial-gradient(500px 220px at 50% -10%, rgba(212, 168, 67, 0.08), transparent 70%),
+    var(--grad-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-xl);
+  padding: clamp(16px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  box-shadow: var(--sh-lg), var(--hairline-top);
+}
+
+.series-result__headline {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.series-result__headline--win {
+  color: var(--c-gold-bright);
+  text-shadow: 0 0 28px rgba(240, 200, 96, 0.3);
+}
+
+.series-result__headline--loss {
+  color: var(--c-red-bright);
+}
+
+.series-result__headline--neutral {
+  color: #8b949e;
+}
+
+.series-result__score-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #e6edf3;
+}
+
+.series-result__score-team {
+  font-size: 14px;
+  color: #8b949e;
+}
+
+.series-result__score-value {
+  color: #c89b3c;
+}
+
+/* Phase 28 (plano 28-04, D-03/D-04): destaque de zebra da serie, mesmas
+ * propriedades de .series-awards/.series-awards-title, so a cor de acento
+ * troca (mesmo tom de .event-highlight--upset, src/playback/EventHighlight). */
+.series-result__upset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.series-result__upset-title {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #b98af0;
+}
+
+.series-result__upset-text {
+  font-size: 13px;
+  color: #e6edf3;
+}
+
+.series-result__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.series-result__table caption {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b949e;
+  text-align: left;
+  margin-bottom: 8px;
+  caption-side: top;
+}
+
+.series-result__table th,
+.series-result__table td {
+  padding: 8px 12px;
+  text-align: center;
+  border-bottom: 1px solid #30363d;
+}
+
+.series-result__table th {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b949e;
+}
+
+.series-result__table-team {
+  text-align: left;
+  color: #e6edf3;
+  font-weight: 600;
+}
+
+.series-result__game-cell {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8b949e;
+}
+
+.series-result__game-cell--win {
+  color: #c89b3c;
+}
+
+.series-result__game-cell--loss {
+  color: #d73a49;
+}
+
+.series-result__game-cell--empty {
+  color: #30363d;
+}
+
+/* Phase 28 (plano 28-04, D-04, segunda metade): mesmas propriedades de
+ * .series-result__game-cell--win/--loss, so a cor de acento troca. Marca o
+ * jogo isolado vencido pelo azarao, independente do resultado da serie. */
+.series-result__game-cell--upset {
+  color: #b98af0;
+}
+
+.series-result__games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  gap: 16px;
+}
+
+.series-result__game-block {
+  border-top: 1px solid #30363d;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.series-result__game-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #e6edf3;
+}
+
+.series-result__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.series-result__details > summary { cursor: pointer; padding: 12px 0; color: var(--c-text-dim); }
+.event-feed-tabs { display: flex; gap: 6px; }
+.event-feed-tabs button { flex: 1; padding: 10px 8px; border: 1px solid var(--c-border); border-radius: 8px; color: var(--c-text-dim); background: var(--c-inset); cursor: pointer; font: inherit; font-size: 12px; }
+.event-feed-tabs button[aria-pressed="true"] { border-color: var(--c-gold); color: var(--c-gold-bright); background: rgba(212,168,67,.1); }
+.event-feed-tabs button span { margin-left: 5px; opacity: .7; font-variant-numeric: tabular-nums; }
+.event-feed-hint, .event-feed-empty { color: var(--c-text-dim); font-size: 12px; padding: 8px 0; margin: 0; }
+.bcast-feed .event-ticker { height: 220px; flex: none; }
+.bcast-feed .event-ticker::before { content: none; }
+@media (max-width: 620px) {
+  .series-result__table th, .series-result__table td { padding: 8px 4px; font-size: 11px; }
+  .series-result__score-summary { gap: 8px; }
+  .series-result__score-team { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+}
+
+.series-result__btn {
+  min-height: 44px;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background-color 0.15s ease-out;
+}
+
+.series-result__btn--primary {
+  background-color: #c89b3c;
+  color: #0d1117;
+  border: 1px solid #c89b3c;
+}
+
+.series-result__btn--primary:hover {
+  background-color: #d4a84a;
+}
+
+.series-result__btn--secondary {
+  background-color: #161b22;
+  color: #e6edf3;
+  border: 1px solid #30363d;
+}
+
+.series-result__btn--secondary:hover {
+  background-color: #1f2937;
+}
+
+/* ---------------------------------------------------------------------------
+ * Animated champion select (before each Bo5 game)
+ * --------------------------------------------------------------------------- */
+.champ-select {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+  animation: cs-fade 0.4s ease-out;
+}
+@keyframes cs-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.cs-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+}
+.cs-vs { font-size: 14px; font-weight: 800; letter-spacing: 0.18em; color: #8b949e; }
+.cs-tag { font-size: 28px; font-weight: 800; letter-spacing: 0.04em; }
+.cs-tag--user { color: #4a9eff; }
+.cs-tag--rival { color: #e84057; }
+
+.cs-board {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 18px;
+  width: 100%;
+  align-items: stretch;
+}
+.cs-col { display: flex; flex-direction: column; gap: 12px; }
+.cs-center { display: flex; align-items: center; justify-content: center; }
+/* D-06: rotulo pt-BR de comp por time no pos-draft — aditivo, sem emoji */
+.cs-comp-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #a0aec0; align-self: flex-start; }
+.cs-comp-label--rival { align-self: flex-end; }
+.cs-versus {
+  font-size: 22px; font-weight: 800; color: #6b7280;
+  border: 2px solid #2b3340; border-radius: 50%;
+  width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;
+}
+
+.cs-slot {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #11161d, #0a0e14);
+  border: 1px solid #21262d;
+  opacity: 0.5;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+.cs-col--rival .cs-slot { flex-direction: row-reverse; text-align: right; }
+.cs-slot--user.cs-slot--revealed { border-left: 3px solid #4a9eff; }
+.cs-slot--rival.cs-slot--revealed { border-right: 3px solid #e84057; }
+.cs-slot--revealed {
+  opacity: 1;
+  transform: translateY(0);
+  animation: cs-lock 0.45s ease-out;
+}
+@keyframes cs-lock {
+  0% { transform: translateY(10px) scale(0.96); box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+  55% { transform: translateY(0) scale(1.03); box-shadow: 0 0 0 3px rgba(255,255,255,0.18); }
+  100% { transform: translateY(0) scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+
+.cs-portrait {
+  width: 64px; height: 64px; border-radius: 10px; object-fit: cover; flex: 0 0 auto;
+  animation: cs-flip 0.45s ease-out;
+}
+@keyframes cs-flip {
+  0% { transform: rotateY(90deg) scale(0.8); filter: brightness(2); }
+  100% { transform: rotateY(0) scale(1); filter: brightness(1); }
+}
+.cs-portrait--empty {
+  width: 64px; height: 64px; border-radius: 10px; flex: 0 0 auto;
+  background: #161b22; border: 1px dashed #30363d;
+  display: flex; align-items: center; justify-content: center;
+}
+.cs-role-ghost { font-size: 20px; font-weight: 800; color: #2f3742; }
+
+.cs-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.cs-role { font-size: 10px; font-weight: 800; letter-spacing: 0.06em; color: #6b7280; }
+.cs-player { font-size: 15px; font-weight: 700; color: #e6edf3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cs-champ { font-size: 13px; color: #c89b3c; font-weight: 600; }
+
+.cs-skip {
+  font-size: 13px; color: #8b949e; background: transparent;
+  border: 1px solid #30363d; border-radius: 8px; padding: 8px 18px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.cs-skip:hover { color: #e6edf3; border-color: #8b949e; }
+
+/* Match result — summary + MVP / Bagre awards */
+.result-summary {
+  font-size: 14px;
+  color: #c9d1d9;
+  text-align: center;
+  max-width: 420px;
+  line-height: 1.5;
+  margin: 4px 0 8px;
+}
+.result-awards { display: flex; gap: 16px; justify-content: center; margin: 4px 0 12px; }
+.award {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 12px 18px; border-radius: 12px; min-width: 130px;
+  background: linear-gradient(180deg, #11161d, #0a0e14); border: 1px solid #21262d;
+}
+.award--mvp { border-color: #c89b3c; box-shadow: 0 0 0 1px rgba(200,155,60,0.3); }
+.award--bagre { border-color: #5b6470; }
+.award-label { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; }
+.award--mvp .award-label { color: #f0c674; }
+.award--bagre .award-label { color: #8b949e; }
+.award-portrait { width: 54px; height: 54px; border-radius: 10px; object-fit: cover; }
+.award--bagre .award-portrait { filter: grayscale(0.6) brightness(0.8); }
+.award-portrait--fallback {
+  width: 54px; height: 54px; border-radius: 10px; background: #161b22;
+  display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;
+}
+.award-player { font-size: 14px; font-weight: 700; color: #e6edf3; }
+.award-line { font-size: 12px; color: #8b949e; font-variant-numeric: tabular-nums; }
+.award-team { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: var(--c-text-dim); }
+
+/* Result overlay — Bo5 series score header */
+.result-series {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: center;
+  padding: 8px 16px; border-radius: 10px; background: #0a0e14; border: 1px solid #21262d;
+}
+.result-series-tag { font-size: 16px; font-weight: 800; }
+.result-series-tag--user { color: #4a9eff; }
+.result-series-tag--rival { color: #e84057; }
+.result-series-score { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; color: #e6edf3; }
+.result-series-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: #6b7280; width: 100%; text-align: center; }
+
+/* Serie decidida (algum lado bateu 3 vitorias) — mesma pill, borda dourada
+ * pra marcar visualmente que isso nao e "so mais uma partida" (Fase 2:
+ * distincao clara entre vitoria de partida e vitoria de serie). */
+.result-series--encerrada { border-color: #c89b3c; box-shadow: 0 0 0 1px rgba(200, 155, 60, 0.35); }
+.result-series--encerrada .result-series-label { color: #f0c674; }
+
+/* Series awards (MVP / Bagre of the Bo5) */
+.series-awards { display: flex; flex-direction: column; align-items: center; gap: 8px; margin: 8px 0; }
+.series-awards-title { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; color: #8b949e; text-transform: uppercase; }
+
+/* ===========================================================================
+ * Captain select panel (Feature 3b) — shown after the 5 draft picks
+ * =========================================================================== */
+
+.captain-panel {
+  margin-top: var(--sp-5);
+  padding: var(--sp-5);
+  background: var(--grad-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-md), var(--hairline-top);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.captain-panel-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--c-text);
+}
+
+.captain-panel-hint {
+  font-size: var(--fs-sm);
+  color: var(--c-muted);
+  max-width: 60ch;
+}
+
+.captain-roster {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--sp-3);
+  margin-top: var(--sp-2);
+}
+
+.captain-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-4) var(--sp-3);
+  background: var(--c-surface-1);
+  border: 1px solid var(--c-border-soft);
+  border-radius: var(--r-md);
+  transition: border-color var(--t-base) var(--ease-out),
+    box-shadow var(--t-base) var(--ease-out),
+    transform var(--t-base) var(--ease-out);
+}
+
+.captain-card--captain {
+  border-color: var(--c-gold);
+  box-shadow: var(--glow-gold);
+  background: linear-gradient(180deg, rgba(212, 168, 67, 0.12), var(--c-surface-1));
+}
+
+.captain-card-role {
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+.captain-card--captain .captain-card-role { color: var(--c-gold-bright); }
+
+.captain-card-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--c-text);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.captain-badge { color: var(--c-gold-bright); }
+
+.captain-toggle {
+  font-size: var(--fs-md);
+  line-height: 1;
+  background: var(--c-inset);
+  color: var(--c-faint);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-pill);
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--t-fast) var(--ease-out),
+    border-color var(--t-fast) var(--ease-out),
+    background var(--t-fast) var(--ease-out),
+    transform var(--t-fast) var(--ease-out);
+}
+.captain-toggle:hover { color: var(--c-gold); border-color: var(--c-gold-deep); transform: translateY(-1px); }
+.captain-toggle--on {
+  color: #1a1206;
+  background: var(--grad-gold);
+  border-color: var(--c-gold);
+  box-shadow: var(--glow-gold);
+}
+
+.confirm-draft-btn {
+  align-self: flex-start;
+  margin-top: var(--sp-2);
+  padding: var(--sp-3) var(--sp-6);
+  min-height: 44px;
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1a1206;
+  background: var(--grad-gold);
+  border-radius: var(--r-sm);
+  box-shadow: var(--sh-sm);
+  transition: filter var(--t-fast) var(--ease-out), transform var(--t-fast) var(--ease-out);
+}
+.confirm-draft-btn:hover:not(:disabled) { filter: brightness(1.08); transform: translateY(-1px); }
+.confirm-draft-btn:disabled { opacity: 0.45; cursor: default; }
+
+/* Champion selection must fit narrow screens without revealing content offscreen. */
+@media(max-width:600px){.cs-board{grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr);gap:8px}.cs-col,.cs-slot,.cs-info{min-width:0}.cs-slot{gap:6px;padding:8px 5px}.cs-portrait{width:36px;height:36px;flex-shrink:0}.cs-player,.cs-champ{overflow-wrap:anywhere}.cs-versus{font-size:.65rem}}

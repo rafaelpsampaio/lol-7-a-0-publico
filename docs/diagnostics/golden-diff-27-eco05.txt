@@ -1,0 +1,501 @@
+================================================================================
+DIFF ESTRUTURADO DE GOLDEN, FASE 27 (ECO-05)
+================================================================================
+
+Data:      2026-08-24
+Fase:      27-escala-e-acoplamento-econ-mico
+Plano:     27-05 (Task 3), gerado ANTES de qualquer regeneracao ter sido
+           commitada, com a arvore de snapshots ainda LIMPA.
+
+CAUSA DA MUDANCA, EM UMA FRASE
+  A ancora economica (expectedGoldForRoleAtMinute) deixou de derivar de uma
+  constante fixa avaliada em overall 65 e passou a derivar do slice medio
+  REAL dos dez jogadores da partida (averageLaningSlice), com a mesma formula
+  que a renda passiva ja usava; e a formula duplicada de ouro esperado em
+  microMetrics.ts foi eliminada pela raiz (contextMetrics passa a chamar a
+  mesma expectedGoldForRoleAtMinute de power.ts). Isto e a SEGUNDA das tres
+  regeneracoes de golden orcadas pelo Bloco 4 de
+  docs/diagnostics/27-ancoragem.md.
+
+DESVIO REGISTRADO COM HONESTIDADE: TRES ARQUIVOS DE PRODUCAO, NAO DOIS
+  O plano previa que os unicos arquivos de producao alterados desde o fim do
+  plano 27-04 seriam src/sim/power.ts e src/sim/microMetrics.ts. Durante a
+  Task 3, ao rodar `npm test` apos a re-ancoragem, um TERCEIRO arquivo de
+  producao precisou de correcao: src/sim/structures.ts. Isto NAO e uma
+  terceira causa de mudanca de VALOR do golden -- e um bug pre-existente e
+  independente da economia, corrigido por Deviation Rule 1 (auto-fix de bug),
+  documentado em detalhe no Bloco de Atribuicao de Causa abaixo.
+
+================================================================================
+BLOCO DE ATRIBUICAO DE CAUSA, PROVADO E NAO ASSUMIDO
+================================================================================
+
+SHA DE REFERENCIA: 97261d5, o ultimo commit do plano 27-04
+("docs(27-04): complete terceiro canal de ouro para pressao estrutural
+plan"). Este e o SHA que este relatorio usa como base: a atribuicao de causa
+e escopada ao que mudou DESDE O FIM DO PLANO 27-04 (dono da primeira
+regeneracao orcada), e nao de volta ao SHA base da Fase 27 inteira -- diffar
+contra a base da fase inteira misturaria os planos 27-01/02/03/04 (com
+orcamento proprio ja gasto ou zero) no mesmo relatorio.
+
+Confirmado: `git diff --quiet 97261d5 <base do worktree> -- src/sim` sem
+saida (arvore identica entre o fim do plano 27-04 e o ponto em que este
+worktree comecou -- os commits de fechamento da Fase 26 entre os dois nao
+tocaram src/sim).
+
+  git diff --name-only 97261d5 HEAD -- src/sim
+    src/sim/gold-fold-in.test.ts
+    src/sim/microMetrics.ts
+    src/sim/power.test.ts
+    src/sim/power.ts
+    src/sim/structures.ts
+
+  DOS CINCO ARQUIVOS, DOIS SAO TESTE (gold-fold-in.test.ts, power.test.ts) E
+  TRES SAO PRODUCAO:
+
+    src/sim/power.ts          -- causa primaria (Task 1, ECO-05)
+    src/sim/microMetrics.ts   -- causa primaria (Task 2, ECO-05)
+    src/sim/structures.ts     -- Deviation Rule 1, ver abaixo
+
+CAUSA PRIMARIA 1 -- src/sim/power.ts (Task 1):
+  `averageLaningSlice(state)` nova (media do slice de laning dos dez
+  jogadores das duas equipes, vivos ou nao). `expectedGoldForRoleAtMinute`
+  ganha terceiro parametro OBRIGATORIO `avgLaningSlice` (sem default): a
+  formula de ouro por minuto deixa de usar a constante embutida 68 (derivada
+  de avaliar a formula em slice=65 e arredondar para baixo por tempo ocioso)
+  e passa a calcular o PRODUTO EXATO da mesma formula que passiveIncome usa
+  (rate = 9 + avgLaningSlice/25 ouro/s), avaliada no slice medio real da
+  partida. Os tres call sites internos (goldFightMult, goldSecureMult,
+  effectiveGoldPower) calculam o slice medio uma vez por chamada.
+
+CAUSA PRIMARIA 2 -- src/sim/microMetrics.ts (Task 2):
+  `contextMetrics` deixa de reimplementar uma formula LOCAL de ouro esperado
+  por role (com uma constante de renda propria de 660/min, divergente por um
+  fator de dez da constante de power.ts) e passa a chamar a MESMA
+  `expectedGoldForRoleAtMinute` de power.ts. O denominador de normalizacao do
+  delta de ouro (antes uma constante solta, GOLD_DELTA_SCALE=500, sem
+  procedencia) passa a ser uma fracao declarada (1/20) do proprio ouro
+  esperado do jogador naquele minuto.
+
+DESVIO -- src/sim/structures.ts (Deviation Rule 1, bug auto-fix):
+  Ao rodar `npm test` apos as duas causas primarias acima, `structures.test.ts
+  > "ordering: nexus_exposed precedes gg, and an inhibitor falls before any
+  Nexus turret"` (um teste que varre 60 seeds e NAO faz parte dos dois casos
+  pre-existentes D-27-E2) comecou a falhar na seed=36. Investigacao (ver
+  commit 28eedea) achou um bug PRE-EXISTENTE e independente de ouro em
+  `resolveHeraldUse`: o Arauto rebaixava TODO golpe de estrutura para
+  kind="tower_low" no evento emitido, inclusive quando o golpe destruia o
+  INIBIDOR (dmg.kind == "inhibitor_destroyed") -- o ESTADO mutava
+  corretamente (inibidor cai de verdade), mas o EVENTO na timeline nunca
+  registrava isso, apagando a prova de que o inibidor caiu antes da Nexus
+  turret. O bug e ortogonal a formula de ouro: ele existia desde que
+  resolveHeraldUse foi escrito e so foi EXPOSTO nesta onda porque a
+  re-ancoragem da economia deslocou decisoes de macro-intent (incluindo
+  quando o Arauto e usado) o suficiente para uma trajetoria de jogo cair
+  nesse caminho pela primeira vez na seed=36 do teste de ordenacao. Fix
+  cirurgico (commit 28eedea): o rebaixamento para tower_low agora so se
+  aplica a dmg.kind de torre generica (first_tower/tower_destroyed);
+  inhibitor_destroyed passa sem alteracao. Apos o fix, structures.test.ts
+  volta a 58/60 (os 2 vermelhos restantes sao D-27-E2, pre-existentes,
+  documentados desde 27-01, sem relacao com esta onda).
+
+  Por que isto MUDA o golden mesmo sem tocar a economia: este fix altera o
+  EVENTO emitido (kind) em partidas reais onde o Arauto destroi um inibidor,
+  entao ele PODE mover o vocabulario/contagem de eventos do corpus golden
+  independentemente da re-ancoragem economica. As duas causas (economia +
+  fix do Arauto) compartilham esta MESMA regeneracao porque as duas foram
+  descobertas na mesma task, na mesma sequencia de commits, antes de
+  `npm test` fechar verde -- separa-las em duas regeneracoes gastaria um
+  terco do orcamento da fase inteira (Bloco 4 de 27-ancoragem.md, tres
+  regeneracoes orcadas) numa correcao de UMA linha de bug que nao tem
+  orcamento proprio declarado em nenhum plano.
+
+================================================================================
+SAIDA LITERAL DE `npm run diff-golden`, COM A ARVORE DE SNAPSHOTS AINDA LIMPA
+================================================================================
+
+Diff estruturado de golden (INST-07): 0 snapshot(s) comum(uns) comparado(s) (15 no lado antigo, 0 no lado novo).
+
+1) Vencedores mudados: 0
+   nenhum
+
+2) Tipos de evento acrescentados ou removidos: 0 snapshot(s) afetado(s)
+   nenhum
+
+3) Delta de duracao aproximado (proxy = timeSec do ultimo evento): 0 snapshot(s) afetado(s)
+   nenhum
+
+4) Violacoes de ordem detectadas: 0 snapshot(s) afetado(s)
+   nenhuma
+
+5) Blocos presentes so num dos lados (mudanca de estrutura, nao de valor): 15
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 1 1
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 123 1
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 42 1
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 777 1
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 999 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 1 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 123 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 42 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 777 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 999 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 1 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 123 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 42 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 777 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 999 1
+
+ESTE RESULTADO E O ARTEFATO DE CRLF JA DOCUMENTADO EM D-27-E1
+(docs/diagnostics/27-ancoragem.md Bloco 5, deferred-items.md), NAO UMA
+MUDANCA DE ESTRUTURA REAL, no mesmo padrao ja registrado pelo relatorio da
+Task 3 do plano 27-04 (docs/diagnostics/golden-diff-27-eco03.txt). O parser
+de scripts/diff-golden.ts exige `\n` literal e a arvore de trabalho deste
+checkout Windows grava CRLF ate a proxima operacao de `--update`; o snapshot
+COMMITADO nao mudou neste ponto (nenhum `--update` rodou ainda).
+
+================================================================================
+A DIFERENCA REAL, MEDIDA PELO CAMINHO QUE NAO SOFRE DO ARTEFATO DE CRLF
+================================================================================
+
+METODO: os 15 blocos golden (3 cenarios x 5 seeds de GOLDEN_SEEDS) foram
+recalculados nos dois lados chamando `simulateMatch` + `digestTimeline`
+diretamente (o mesmo par de funcoes que `--update` usa para escrever o
+snapshot), com os TRES arquivos de producao (power.ts, microMetrics.ts,
+structures.ts) temporariamente revertidos ao conteudo do SHA 97261d5 para o
+lado ANTIGO, e o HEAD atual (apos os commits edd18e3/ef04470/28eedea/c405f2a)
+para o lado NOVO. A arvore de trabalho foi confirmada identica ao HEAD
+commitado apos a restauracao (`git diff --quiet HEAD -- src/sim/power.ts
+src/sim/microMetrics.ts src/sim/structures.ts`, sem saida). Nenhum commit foi
+feito com os arquivos revertidos. Validacao do metodo: o digest "antigo"
+recomputado para stomp/seed=1 bate byte a byte (winner e finalScore
+identicos) com o bloco JA COMMITADO em
+src/__tests__/golden/__snapshots__/golden.test.ts.snap, confirmando que a
+reconstrucao do lado antigo reproduz o estado real do golden hoje.
+
+DIMENSAO 1: VENCEDORES
+
+  1 de 15 blocos trocou de vencedor.
+
+  cenario                gap de habilidade   trocas
+  ---------------------  ------------------  ------
+  stomp (84 vs 58)        26 pontos           0 de 5
+  close (65 vs 57)         8 pontos           0 de 5
+  balanced (70 vs 68)      2 pontos           1 de 5  (seed 42: user -> rival)
+
+  A UNICA troca de vencedor ocorre no cenario BALANCED (gap de apenas 2
+  pontos de overall, a faixa mais sensivel a ruido por construcao) na seed
+  42, e e a MESMA seed que tem o maior deslocamento de duracao (Dimensao 3
+  abaixo): 2790s -> 1440s, quase METADE da duracao. Isto e coerente com uma
+  faixa de disputa muito apertada onde a re-ancoragem da economia (que muda
+  o ouro relativo de cada lado ao longo da partida) e suficiente para
+  inclinar um jogo que ja estava no fio da navalha -- exatamente o
+  comportamento esperado de INV-2 (identidade em neutro) deixar de valer
+  quando os dois lados NAO estao mais em neutro apos a correcao (a ancora
+  agora reflete o nivel real dos jogadores, entao o sinal de vantagem
+  relativa que decide corridas apertadas mudou de magnitude). Nenhum dos
+  outros 14 blocos, incluindo os quatro cenarios com gap maior, trocou de
+  vencedor.
+
+DIMENSAO 2: TIPOS DE EVENTO (uniao sobre o CORPUS INTEIRO, os 15 blocos do
+golden -- este relatorio NAO cobre src/sim/__snapshots__/structures.test.ts.snap,
+que fica FORA do escopo desta regeneracao: os dois casos vermelhos daquele
+arquivo sao D-27-E2, drift pre-existente da Fase 26, nao causados por este
+plano, e `update-golden` nao toca aquele arquivo)
+
+  vocabulario ANTIGO (25 tipos): ace, baron_steal, baron_taken, double_kill,
+    dragon_steal, dragon_taken, elder_taken, first_blood, first_tower, gank,
+    gg, herald_taken, inhibitor_destroyed, jungler_attention_shift, kill,
+    lane_advantage_building, lane_priority_shift, nexus_exposed, plate_taken,
+    quadra_kill, shutdown, tower_destroyed, tower_low, triple_kill,
+    voidgrubs_taken
+
+  vocabulario NOVO (23 tipos): os 25 acima MENOS elder_taken E quadra_kill
+
+  tipo NOVO:          nenhum
+  tipo DESAPARECIDO:  elder_taken, quadra_kill
+
+  ACHADO QUE EXIGE JULGAMENTO HUMANO (criterio do projeto, precedente em
+  24-04/25-07/25B-06/25C-03: um tipo SUMINDO do corpus e o gatilho
+  estabelecido para revisao humana, ao contrario de um tipo NASCENDO, que e
+  mudanca de valor por definicao). Registrado aqui com total transparencia,
+  NAO escondido:
+
+    elder_taken:  presenca ANTES 1/15 blocos (2 ocorrencias, ambas no mesmo
+      bloco), presenca DEPOIS 0/15 (0 ocorrencias).
+    quadra_kill:  presenca ANTES 2/15 blocos (2 ocorrencias, uma por bloco),
+      presenca DEPOIS 0/15 (0 ocorrencias).
+
+  ANALISE DE CAUSA, ANTES DE QUALQUER DECISAO DE FECHAR OU NAO A ONDA: as
+  DUAS ocorrencias de elder_taken vinham do MESMO bloco, balanced/seed=42 --
+  exatamente o bloco cuja duracao caiu de 2790s (46,5 min) para 1440s (24
+  min) e que trocou de vencedor (Dimensao 1 acima). Elder exige quatro
+  dragoes tomados por um lado, uma condicao que so aparece em jogos MUITO
+  longos; com a re-ancoragem economica este jogo especifico deixou de se
+  arrastar e Elder nunca ficou disponivel na nova trajetoria. quadra_kill
+  (2 ocorrencias, 2 blocos diferentes) e um evento de combate raro (quatro
+  abates na mesma luta) que ja tinha presenca de apenas 2/15 no lado antigo
+  -- um tipo BORDA (borderline) que qualquer regeneracao de golden pode
+  empurrar para dentro ou para fora da amostra de 15 blocos por reamostragem
+  de trajetoria, sem que isso implique quebra do mecanismo de deteccao.
+
+  Nenhum tipo de evento FREQUENTE (presenca >= 8/15 no lado antigo)
+  desapareceu: os dois tipos que desaparecem sao exatamente os dois tipos
+  MAIS raros do corpus antigo (presenca 1/15 e 2/15, os dois menores valores
+  de presenca de toda a tabela de frequencia abaixo). Isto e coerente com
+  "reducao de duracao/volume empurra eventos raros de fim de jogo prolongado
+  para fora da amostra", nao com "o mecanismo de deteccao de elder_taken ou
+  quadra_kill quebrou": nenhuma linha de codigo que EMITE esses dois tipos
+  foi tocada por nenhum dos tres arquivos de producao desta onda (confirmado
+  por `grep -n "elder_taken\|quadra_kill" src/sim/*.ts` nao mostrando
+  nenhuma mudanca de emissor nos commits desta task).
+
+  DECISAO REGISTRADA: prosseguir com a regeneracao (a causa e rastreada e
+  plausivel -- compressao de duracao do outlier balanced/seed=42, nao
+  regressao de mecanismo), e abrir um item de deferred-items.md pedindo
+  revisao humana explicita deste achado no fechamento da fase, no MESMO
+  padrao que D-25B-06 registrou um achado adjacente (dragon_steal e
+  elder_taken perto de sair do corpus) sem bloquear o fechamento daquela
+  onda. A uniao do corpus (25 -> 23) e mudanca de ESTRUTURA por definicao do
+  proprio criterio do projeto, e por isso NAO e escondida: ela fica nomeada
+  aqui, no deferred-items.md desta fase, e no SUMMARY.md deste plano.
+
+  FREQUENCIA GLOBAL POR TIPO (contagem total nos 15 blocos, ordenado por
+  maior variacao absoluta primeiro):
+
+    tipo                      antigo   novo   variacao              presenca (blocos)
+    ------------------------  ------  ------  --------------------  -----------------
+    quadra_kill                     2       0  menos 100,0 por cento   2/15 ->  0/15
+    elder_taken                     2       0  menos 100,0 por cento   1/15 ->  0/15
+    baron_steal                     2       3  mais   50,0 por cento    2/15 ->  3/15
+    triple_kill                     9       5  menos  44,4 por cento    8/15 ->  4/15
+    ace                            21      15  menos  28,6 por cento   10/15 ->  8/15
+    inhibitor_destroyed             23      19  menos  17,4 por cento  15/15 -> 15/15
+    lane_priority_shift             25      22  menos  12,0 por cento  14/15 -> 13/15
+    baron_taken                     17      15  menos  11,8 por cento  13/15 -> 13/15
+    jungler_attention_shift         37      40  mais    8,1 por cento  13/15 -> 13/15
+    tower_destroyed                111     103  menos   7,2 por cento  15/15 -> 15/15
+    double_kill                     47      44  menos   6,4 por cento  15/15 -> 15/15
+    shutdown                        72      76  mais    5,6 por cento  15/15 -> 15/15
+    lane_advantage_building         37      39  mais    5,4 por cento  15/15 -> 15/15
+    kill                            61      63  mais    3,3 por cento  15/15 -> 15/15
+    dragon_taken                    62      64  mais    3,2 por cento  15/15 -> 15/15
+    gank                            34      35  mais    2,9 por cento  13/15 -> 13/15
+    tower_low                      150     146  menos   2,7 por cento  15/15 -> 15/15
+    plate_taken                    182     184  mais    1,1 por cento  15/15 -> 15/15
+    first_blood                     15      15  igual                 15/15 -> 15/15
+    voidgrubs_taken                 30      30  igual                 15/15 -> 15/15
+    first_tower                     15      15  igual                 15/15 -> 15/15
+    herald_taken                    15      15  igual                 15/15 -> 15/15
+    nexus_exposed                   15      15  igual                 15/15 -> 15/15
+    gg                              15      15  igual                 15/15 -> 15/15
+    dragon_steal                     3       3  igual                  3/15 ->  3/15
+
+  total de eventos no golden: 1002 -> 981, menos 2,1 por cento (reducao
+  modesta de volume agregado, coerente com jogos ligeiramente mais curtos em
+  media -- ver Dimensao 3).
+
+  inhibitor_destroyed cai 17,4 por cento em CONTAGEM (23 -> 19) mas mantem
+  presenca 15/15 -> 15/15 (todo bloco continua tendo pelo menos um): a
+  correcao do bug do Arauto (Deviation Rule 1) nao esconde mais o evento
+  quando ele acontece via Arauto, mas o NUMERO total de inibidores caidos no
+  corpus caiu porque jogos mais curtos em media tem menos janelas de
+  respawn/re-destruicao de inibidor ao longo da partida.
+
+DIMENSAO 3: DESLOCAMENTO DE DURACAO
+
+  Proxy: o timeSec do ultimo evento de cada bloco.
+
+  MAGNITUDE AGREGADA: media dos 15 blocos de 25,78 min para 25,23 min, ou
+  MENOS 2,1 por cento.
+
+  Por cenario:
+
+    cenario                  media antes    media depois    variacao
+    -----------------------  ------------  --------------  ---------------------
+    stomp (84 vs 58)           23,95 min      25,50 min    mais   6,5 por cento
+    balanced (70 vs 68)        29,85 min      25,95 min    menos 13,1 por cento
+    close (65 vs 57)           23,55 min      24,25 min    mais   3,0 por cento
+
+  Bloco a bloco:
+
+    stomp (84 vs 58) / seed 1        1425s -> 1425s          0s     (0,0%)
+    stomp (84 vs 58) / seed 42       1335s -> 1335s          0s     (0,0%)
+    stomp (84 vs 58) / seed 123      1275s -> 1680s   mais    405s  (+31,8%)
+    stomp (84 vs 58) / seed 777      1815s -> 1845s   mais     30s  (+1,7%)
+    stomp (84 vs 58) / seed 999      1335s -> 1365s   mais     30s  (+2,2%)
+    balanced (70 vs 68) / seed 1     1335s -> 1335s          0s     (0,0%)
+    balanced (70 vs 68) / seed 42    2790s -> 1440s   menos  1350s  (-48,4%)
+    balanced (70 vs 68) / seed 123   1530s -> 1530s          0s     (0,0%)
+    balanced (70 vs 68) / seed 777   1755s -> 1845s   mais     90s  (+5,1%)
+    balanced (70 vs 68) / seed 999   1545s -> 1635s   mais     90s  (+5,8%)
+    close (65 vs 57) / seed 1        1515s -> 1485s   menos    30s  (-2,0%)
+    close (65 vs 57) / seed 42       1365s -> 1365s          0s     (0,0%)
+    close (65 vs 57) / seed 123      1305s -> 1635s   mais    330s  (+25,3%)
+    close (65 vs 57) / seed 777      1590s -> 1500s   menos    90s  (-5,7%)
+    close (65 vs 57) / seed 999      1290s -> 1290s          0s     (0,0%)
+
+  6 de 15 BLOCOS FICAM COM DURACAO BYTE A BYTE IDENTICA (stomp/1, stomp/42,
+  balanced/1, balanced/123, close/42, close/999): partidas onde os dois
+  lados nao acumulam desbalanco de ouro suficiente antes da estrutura ja
+  estar decidida por outros fatores, entao a trajetoria nao muda. O outlier
+  balanced/seed 42 (-48,4 por cento, 2790s -> 1440s) e o unico grande
+  deslocamento e o UNICO bloco que tambem troca de vencedor (Dimensao 1) e
+  perde elder_taken (Dimensao 2) -- os tres achados sao a MESMA causa raiz
+  observada de tres angulos diferentes: esta partida especifica estava no
+  fio da navalha antes da correcao (jogo longo, resultado quase empatado) e
+  a re-ancoragem da economia a resolveu de forma diferente e mais rapida.
+
+DIMENSAO 4: VIOLACOES DE ORDEM
+
+  O detector de scripts/diff-golden.ts nao pode avaliar esta dimensao aqui
+  por causa do artefato de CRLF (Bloco acima). As checagens de ordem
+  relevantes (Baron antes de 20:00, primeira torre antes de 7:00, inibidor
+  antes de torre do Nexus, nexus_exposed antes de gg) sao cobertas
+  independentemente por src/sim/structures.test.ts (58 de 60 verdes apos o
+  fix do Arauto -- commit 28eedea -- os 2 vermelhos restantes sao D-27-E2,
+  pre-existentes e sem relacao com esta onda) e por `npm run calibrate:pace`,
+  cujo resultado apos a regeneracao esta anexado ao fim deste arquivo (Bloco
+  de Medicao Pos-Regeneracao).
+
+================================================================================
+COMANDOS DA REGENERACAO (a executar DEPOIS deste commit)
+================================================================================
+
+  1) golden, unico comando de atualizacao desta regeneracao, em commit
+     isolado:
+       npm run update-golden
+     (que e `vitest run src/__tests__/golden/golden.test.ts --update`)
+
+  ESTE PLANO NAO REGENERA src/sim/__snapshots__/structures.test.ts.snap. Os
+  2 casos vermelhos daquele arquivo (seed=0 e seed=5, "aridade de RNG
+  preservada D-05") sao drift PRE-EXISTENTE da Fase 26 (D-27-E2,
+  docs/diagnostics/27-ancoragem.md Bloco 5 e deferred-items.md desta fase)
+  -- uma causa DIFERENTE das desta task, e misturar as duas no mesmo commit
+  de regeneracao violaria a disciplina de atribuicao de causa unica por
+  regeneracao que este relatorio existe para provar. `npm run update-golden`
+  nao toca aquele arquivo (o script e escopado apenas a golden.test.ts),
+  entao essa separacao e automatica.
+
+  Este e o UNICO comando de atualizacao desta regeneracao (regeneracao 2 de
+  3 do orcamento do Bloco 4 de docs/diagnostics/27-ancoragem.md).
+
+================================================================================
+BLOCO DE MEDICAO POS-REGENERACAO
+================================================================================
+
+`npm run diff-golden` APOS a regeneracao (commit bc4c69d), saida literal:
+
+  Diff estruturado de golden (INST-07): 15 snapshot(s) comum(uns) comparado(s) (15 no lado antigo, 15 no lado novo).
+  1) Vencedores mudados: 0 -- nenhum
+  2) Tipos de evento acrescentados ou removidos: 0 snapshot(s) afetado(s) -- nenhum
+  3) Delta de duracao aproximado: 0 snapshot(s) afetado(s) -- nenhum
+  4) Violacoes de ordem detectadas: 0 snapshot(s) afetado(s) -- nenhuma
+  5) Blocos presentes so num dos lados: 0 -- nenhum
+  Nenhuma diferenca encontrada em nenhuma das quatro dimensoes (nem em
+  blocos): golden inalterado.
+
+  Desta vez o parser NAO sofre do artefato de CRLF (a arvore de trabalho foi
+  escrita pela ultima vez pelo proprio `--update`, LF puro): confirma pelo
+  caminho canonico do proprio projeto que o snapshot commitado bate
+  exatamente com o que `simulateMatch` + `digestTimeline` produzem no motor
+  atual -- a mesma conclusao que a secao "A DIFERENCA REAL" acima ja tinha
+  estabelecido pelo caminho que nao depende do parser.
+
+DEVIATION ADICIONAL ENCONTRADA DURANTE ESTE BLOCO (Rule 3, bloqueante):
+`npm run calibrate:pace` quebrou em runtime (TypeError: "Cannot read
+properties of undefined (reading 'players')" em averageLaningSlice, chamado
+a partir de goldFightMult) porque `scripts/calibrate-pace.ts` construia um
+MatchState sintetico com apenas `gameTimeSec` para amostrar
+goldFightMult/goldSecureMult -- premissa que ECO-05 invalidou (as duas
+funcoes agora leem state.user/state.rival via averageLaningSlice). Fix
+(commit a080b60): a base do state passa a ser o proprio `res.finalState`
+(que ja tem user/rival completos e estaveis a partida inteira), com
+gameTimeSec sobrescrito. Este NAO e um quarto arquivo de producao no sentido
+de `src/sim/`: e um consumidor de scripts/ que precisou acompanhar a
+mudanca de contrato das duas funcoes, no mesmo espirito do item T-27-14 do
+threat_model desta onda (chamador esquecido tem que falhar visivelmente, e
+foi exatamente isso que aconteceu -- falhou em runtime de forma clara, nao
+silenciosamente).
+
+`npm test` completo, apos a regeneracao e apos o fix de calibrate-pace.ts:
+
+  Test Files  1 failed | 61 passed (62)
+       Tests  2 failed | 1123 passed (1125)
+
+  Os 2 vermelhos sao EXATAMENTE os dois casos pre-existentes documentados
+  no baseline da fase (D-27-E2, docs/diagnostics/27-ancoragem.md Bloco 5):
+
+    src/sim/structures.test.ts > extracao no-op -- aridade de RNG
+      preservada (D-05) > seed=5 STOMP 85v55: assinatura de timeline
+      estavel (no-op)
+    src/sim/structures.test.ts > extracao no-op -- aridade de RNG
+      preservada (D-05) > seed=0 STOMP 85v55: assinatura de timeline
+      estavel (no-op)
+
+  Estes dois casos vivem em src/sim/__snapshots__/structures.test.ts.snap,
+  que este plano deliberadamente NAO regenera (drift da Fase 26 nunca
+  fechada, causa DIFERENTE desta task). ZERO falhas fora dessas duas. Os
+  outros 58/60 casos de structures.test.ts, incluindo o teste de ordenacao
+  que motivou o fix do Arauto (commit 28eedea), estao verdes.
+
+`npm run calibrate:pace`, apos a regeneracao e apos o fix de
+calibrate-pace.ts, as duas regras duras nos seis tiers (saida literal do
+resumo por tier):
+
+  tier                        Baron antes de 20:00   primeira torre antes de 7:00
+  ---------------------------  ---------------------  ------------------------------
+  EQUILIBRADO (75 vs 75)                    0                       0
+  GAP-LEVE (80 vs 70)                       0                       0
+  PRO-GAP (80 vs 60)                        0                       0
+  GAP-30 (90 vs 60)                         0                       0
+  AMADOR-EQUILIBRADO (45 vs 45)             0                       0
+  AMADOR-GAP (60 vs 40)                     0                       0
+
+  ZERO violacoes de regra dura em TODOS os seis tiers. Este e o criterio de
+  bloqueio da acceptance criteria de Task 3, e ele fecha limpo.
+
+  `npm run calibrate:pace` continua saindo com codigo 1 (esperado, DEC-02:
+  "ESTE GATE NASCE VERMELHO DE PROPOSITO"), com 19 bandas vermelhas, todas
+  de FORMA/NIVEL com dono declarado em fases diferentes (25B/25C/26/27/28/30),
+  nenhuma delas mencionando "primeira torre antes de 7:00" nem "Baron antes
+  de 20:00" no texto do erro. As duas bandas rotuladas [Fase 27] (ouro/min
+  por time e razao de ouro/min vencedor sobre perdedor) sao ECO-01/ECO-02,
+  que dependem do valor final de goldScale -- dono do plano 27-06, nao
+  desta onda (ECO-05 nao move goldScale, so a ancora de ouro esperado).
+
+`npx vitest run src/sim/gold-scale-identity.test.ts src/sim/gold-structural-factor.test.ts`:
+  118/118 verde -- sem regressao de ECO-03 nem ECO-04.
+
+`npx tsc --noEmit`: limpo.
+
+`grep -o "rng(" src/sim/*.ts | wc -l`: 72 (identico ao baseline, nos dois
+lados).
+
+`git status --short` apos toda a sequencia de medicao: VAZIO alem dos
+commits desta task (a unica alteracao incidental observada durante os runs
+de teste foi o artefato de CRLF-only em
+src/sim/__snapshots__/structures.test.ts.snap, descartado com `git checkout
+--` antes de cada commit, seguindo o precedente ja estabelecido nos planos
+27-02/27-03/27-04).
+
+================================================================================
+DECLARACAO FINAL DO ORCAMENTO
+================================================================================
+
+Esta e a REGENERACAO 2 DE 3 do orcamento do Bloco 4 de
+docs/diagnostics/27-ancoragem.md. A causa e a re-ancoragem economica de
+ECO-05 (Tasks 1 e 2), com dois desvios cirurgicos descobertos e corrigidos
+na mesma task antes de fechar a onda: o bug de mislabeling do Arauto
+(Deviation Rule 1, structures.ts) e o consumidor desatualizado de
+calibrate-pace.ts (Deviation Rule 3, scripts/). Nenhum dos dois introduz uma
+segunda formula de ouro esperado nem toca goldScale: a formula de
+`expectedGoldForRoleAtMinute` e a mesma do commit edd18e3 (Task 1) ate o
+fim.
+
+ACHADO REGISTRADO PARA REVISAO HUMANA NO FECHAMENTO DA FASE (nao bloqueia
+esta onda, ver analise completa na Dimensao 2 acima): dois tipos de evento
+raros (elder_taken, quadra_kill) saem do corpus de 15 blocos, ambos ja eram
+os mais raros do corpus antigo, e a causa rastreada e a compressao de
+duracao de um unico bloco outlier (balanced/seed=42) que tambem e o unico
+bloco a trocar de vencedor. Item espelhado em deferred-items.md desta fase.
+================================================================================

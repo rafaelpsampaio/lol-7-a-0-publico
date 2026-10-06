@@ -1,0 +1,122 @@
+PROVA POR DIFF DA FASE 27 (27-01 Task 2)
+===============================================================================
+
+SHA base (lido de docs/diagnostics/27-ancoragem.md, Bloco 1, nunca deduzido): 5af835c5c75b07a2d32614dd39ca705c870017de
+Modo: --expect-change
+
+1) REGRA DE SANIDADE POR BLOB (src/sim/engine.ts, base contra HEAD)
+-------------------------------------------------------------------------------
+  blob em 5af835c: 6f5d3f9e7a9b681a8b68afff575ba6eba5adecae
+  blob em HEAD:    b7aea8047b35b1e6e884ba7fbe597951f2be0c87
+  OK: os blobs diferem, como esperado em modo --expect-change.
+
+2) CONTAGEM DE CHAMADAS AO GERADOR (rng( por arquivo de src/sim/*.ts)
+-------------------------------------------------------------------------------
+  src/sim/buffs.test.ts                      base=  0 head=  0 delta=+0
+  src/sim/cascade.test.ts                    base=  0 head=  0 delta=+0
+  src/sim/championMeta.test.ts               base=  0 head=  0 delta=+0
+  src/sim/championMeta.ts                    base=  2 head=  2 delta=+0
+  src/sim/championTraits.test.ts             base=  0 head=  0 delta=+0
+  src/sim/combat.test.ts                     base=  0 head=  0 delta=+0
+  src/sim/combat.ts                          base=  3 head=  3 delta=+0
+  src/sim/comeback.test.ts                   base=  0 head=  0 delta=+0
+  src/sim/deathQuality.test.ts               base=  0 head=  0 delta=+0
+  src/sim/deathQuality.ts                    base=  2 head=  2 delta=+0
+  src/sim/diagnostics.test.ts                base=  0 head=  0 delta=+0
+  src/sim/engine.test.ts                     base=  0 head=  0 delta=+0
+  src/sim/engine.ts                          base= 25 head= 25 delta=+0
+  src/sim/engineWiring.test.ts               base=  0 head=  0 delta=+0
+  src/sim/fearless.test.ts                   base=  0 head=  0 delta=+0
+  src/sim/fearless.ts                        base=  0 head=  0 delta=+0
+  src/sim/gold-fold-in.test.ts               base=  0 head=  0 delta=+0
+  src/sim/gold-scale-identity.test.ts        base=  0 head=  0 delta=+0
+  src/sim/gold-structural-factor.test.ts     base=  0 head=  0 delta=+0
+  src/sim/laneSignals.test.ts                base=  0 head=  0 delta=+0
+  src/sim/laneSignals.ts                     base=  0 head=  0 delta=+0
+  src/sim/laneState.test.ts                  base=  1 head=  1 delta=+0
+  src/sim/laneState.ts                       base=  4 head=  4 delta=+0
+  src/sim/matchState.test.ts                 base=  0 head=  0 delta=+0
+  src/sim/matchState.ts                      base=  1 head=  1 delta=+0
+  src/sim/microMetrics.test.ts               base=  0 head=  0 delta=+0
+  src/sim/microMetrics.ts                    base=  1 head=  1 delta=+0
+  src/sim/objectives.test.ts                 base=  0 head=  0 delta=+0
+  src/sim/objectives.ts                      base=  2 head=  2 delta=+0
+  src/sim/plausibility.ts                    base=  0 head=  0 delta=+0
+  src/sim/power.test.ts                      base=  0 head=  0 delta=+0
+  src/sim/power.ts                           base=  0 head=  0 delta=+0
+  src/sim/rng.test.ts                        base=  1 head=  1 delta=+0
+  src/sim/rng.ts                             base=  1 head=  1 delta=+0
+  src/sim/runMatch.test.ts                   base=  0 head=  0 delta=+0
+  src/sim/runMatch.ts                        base= 11 head= 11 delta=+0
+  src/sim/runMatchEngine.test.ts             base=  0 head=  0 delta=+0
+  src/sim/runMatchEngine.ts                  base=  0 head=  0 delta=+0
+  src/sim/scenarios.test.ts                  base=  0 head=  0 delta=+0
+  src/sim/selection.test.ts                  base=  0 head=  0 delta=+0
+  src/sim/selection.ts                       base=  2 head=  2 delta=+0
+  src/sim/shutdown.test.ts                   base=  0 head=  0 delta=+0
+  src/sim/simEvents.ts                       base=  0 head=  0 delta=+0
+  src/sim/steals.test.ts                     base=  0 head=  0 delta=+0
+  src/sim/structureActor.test.ts             base=  0 head=  0 delta=+0
+  src/sim/structures.test.ts                 base=  0 head=  0 delta=+0
+  src/sim/structures.ts                      base= 12 head= 12 delta=+0
+  src/sim/teamComp.test.ts                   base=  0 head=  0 delta=+0
+  src/sim/teamComp.ts                        base=  4 head=  4 delta=+0
+  src/sim/ticker.ts                          base=  0 head=  0 delta=+0
+  src/sim/traitCalibration.test.ts           base=  0 head=  0 delta=+0
+  src/sim/traits.test.ts                     base=  0 head=  0 delta=+0
+  src/sim/traits.ts                          base=  0 head=  0 delta=+0
+  src/sim/types.ts                           base=  0 head=  0 delta=+0
+  src/sim/winprob.test.ts                    base=  0 head=  0 delta=+0
+  src/sim/winprob.ts                         base=  0 head=  0 delta=+0
+
+  TOTAL base: 72
+  TOTAL head: 72
+  OK: total identico nos dois lados.
+  OBSERVADO: o valor de referencia da milestone e 72 (ultima leitura confirmada na Fase 25C); medido aqui: base=72 head=72.
+
+3) CONTAGEM POR SIMBOLO DE OURO (informativo -- Bloco 2 da ancoragem, 13 simbolos)
+-------------------------------------------------------------------------------
+  BASE_KILL_GOLD                 base=  3 head=  3
+  ASSIST_GOLD                    base=  3 head=  3
+  FIRST_BLOOD_BONUS              base=  4 head=  4
+  FIRST_TURRET_BONUS             base=  3 head=  3
+  PLATE_GOLD_EST                 base=  6 head=  6
+  K_GOLD                         base=  6 head=  9
+  GOLD_DELTA_SCALE               base=  2 head=  2
+  expectedGoldForRoleAtMinute    base= 33 head= 51
+  bountyGreed                    base=  4 head=  7
+  isStomping                     base=  3 head=  7
+  recomputeBounty                base=  3 head=  4
+  scaleGold                      base=  0 head= 67
+  unscaleGold                    base=  0 head= 26
+
+  Este bloco nunca faz o script falhar: ele existe para a onda seguinte provar que nenhum ponto de acoplamento de ouro ficou de fora da varredura.
+
+4) ARQUIVOS COM DIFERENCA ENTRE BASE E HEAD (restrito a src/sim e scripts)
+-------------------------------------------------------------------------------
+  - scripts/calibrate-pace.ts
+  - scripts/verify-26-diff.cjs
+  - scripts/verify-27-diff.cjs
+  - src/sim/deathQuality.ts
+  - src/sim/engine.ts
+  - src/sim/engineWiring.test.ts
+  - src/sim/gold-fold-in.test.ts
+  - src/sim/gold-scale-identity.test.ts
+  - src/sim/gold-structural-factor.test.ts
+  - src/sim/matchState.test.ts
+  - src/sim/matchState.ts
+  - src/sim/microMetrics.ts
+  - src/sim/power.test.ts
+  - src/sim/power.ts
+  - src/sim/selection.ts
+  - src/sim/structures.test.ts
+  - src/sim/structures.ts
+
+5) GUARDA DE ESCOPO DIFERIDO (src/sim/winprob.ts -- escopo da Fase 29, WPB)
+-------------------------------------------------------------------------------
+  blob em 5af835c: 512104d5663edd77633d8de98ffe5725f9ab61aa
+  blob em HEAD:    512104d5663edd77633d8de98ffe5725f9ab61aa
+  OK: src/sim/winprob.ts inalterado. Escopo diferido preservado.
+
+===============================================================================
+VEREDITO: OK

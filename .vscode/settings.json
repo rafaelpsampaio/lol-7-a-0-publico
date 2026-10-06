@@ -1,0 +1,8 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["players.json"],
+      "url": "./.vscode/players.schema.json"
+    }
+  ]
+}

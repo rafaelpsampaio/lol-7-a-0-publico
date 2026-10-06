@@ -1,0 +1,440 @@
+================================================================================
+DIFF ESTRUTURADO DE GOLDEN, FASE 28 (CURVA DE FORCA POR DIFERENCA DE RATING)
+================================================================================
+
+Data:      2026-08-24
+Fase:      28-curva-de-for-a-por-diferen-a-de-rating
+Plano:     28-05 (Task 2), gerado ANTES do checkpoint humano da Task 3 e ANTES
+           de qualquer regeneracao ter sido commitada, com a arvore de
+           snapshots ainda LIMPA (git status --porcelain vazio no momento
+           deste commit).
+
+CAUSA DA MUDANCA, EM UMA FRASE
+  Esta e a UNICA regeneracao de golden orcada para a Fase 28, e ela cobre
+  DUAS mudancas de producao acumuladas: `DEFAULT_SIM_CONFIG.ratingPowerD`
+  sobe de `null` (canal neutro) para `525` (plano 28-03, sweep medido em
+  grade, docs/diagnostics/28-sweep.md) e a emissao unica de `upset_win` no
+  fim de `simulateMatch` (plano 28-04, D-03/D-04/D-05). Os dois planos
+  concordaram em gastar a mesma regeneracao (28-03-SUMMARY.md, secao "Next
+  Phase Readiness"), para a fase gastar UMA regeneracao e nao duas.
+
+================================================================================
+BLOCO DE ATRIBUICAO DE CAUSA, PROVADO E NAO ASSUMIDO
+================================================================================
+
+SHA DE REFERENCIA (fim do plano 28-02, canal neutro estabelecido): `8ba0088`
+("test(28-02): testes de identidade e invariancia de nivel, prova de
+neutralidade por golden vazio"). E o ultimo ponto em que `ratingPowerD` era
+`null` e nenhum evento de zebra existia.
+
+  git diff --name-only 8ba0088..HEAD -- src/sim
+    src/sim/engine.test.ts
+    src/sim/engine.ts
+    src/sim/matchState.ts
+    src/sim/power.ts
+    src/sim/ratingCurve.test.ts
+    src/sim/runMatchEngine.test.ts
+    src/sim/simEvents.ts
+    src/sim/types.ts
+    src/sim/upset.test.ts
+    src/sim/upset.ts
+
+  DOS DEZ ARQUIVOS, QUATRO SAO TESTE (engine.test.ts, ratingCurve.test.ts,
+  runMatchEngine.test.ts, upset.test.ts) E SEIS SAO PRODUCAO:
+
+    src/sim/matchState.ts  -- causa 1 (Task 1, plano 28-03): a linha
+                               `ratingPowerD: 525,` em DEFAULT_SIM_CONFIG.
+    src/sim/power.ts        -- canal de curva de rating (plano 28-02, ja
+                               neutro na referencia) mais o limiar derivado
+                               de zebra (`UPSET_MIN_FAVORITE_P`,
+                               `UPSET_MIN_GAP`, `isUpset`, plano 28-04).
+    src/sim/engine.ts       -- causa 2 (Task 1, plano 28-04): chamada unica
+                               a `buildUpsetEvent` no fim de `simulateMatch`,
+                               depois do laco de ticks. NENHUMA linha da
+                               regiao de `resolveTeamfight`/ruido de luta
+                               muda (prova por diff propria, verificacao 1
+                               de `docs/diagnostics/28-prova-por-diff.txt`).
+    src/sim/upset.ts        -- novo (plano 28-04): `buildUpsetEvent`,
+                               `UPSET_TICKERS`, rng-free.
+    src/sim/simEvents.ts    -- novo membro `upset_win` em `EventKind`.
+    src/sim/types.ts        -- novo membro `upset_win` em `EventTypeSchema`.
+
+CAUSA UNICA DE VALOR NUMERICO -- `ratingPowerD: 525` (plano 28-03): a razao
+efetiva de `fightPower` passa a depender da diferenca de rating de carta
+entre os dois times, `ratingFightMult = 10^(delta/525)`, achatando a curva
+de win-rate por diferenca de forca.
+
+CAUSA DE VOCABULARIO POTENCIAL -- `upset_win` (plano 28-04): so pode aparecer
+quando o time de MENOR rating de carta vence com gap >= `UPSET_MIN_GAP`
+(~9,544, derivado de `RATING_CURVE_D`). Verificado abaixo (item 1) que isto
+NAO aconteceu em nenhuma das 15 combinacoes fixas do golden.
+
+================================================================================
+SAIDA LITERAL DE `npm run diff-golden`, COM A ARVORE DE SNAPSHOTS AINDA LIMPA
+================================================================================
+
+Diff estruturado de golden (INST-07): 0 snapshot(s) comum(uns) comparado(s) (15 no lado antigo, 0 no lado novo).
+
+1) Vencedores mudados: 0
+   nenhum
+
+2) Tipos de evento acrescentados ou removidos: 0 snapshot(s) afetado(s)
+   nenhum
+
+3) Delta de duracao aproximado (proxy = timeSec do ultimo evento): 0 snapshot(s) afetado(s)
+   nenhum
+
+4) Violacoes de ordem detectadas: 0 snapshot(s) afetado(s)
+   nenhuma
+
+5) Blocos presentes so num dos lados (mudanca de estrutura, nao de valor): 15
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 1 1
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 123 1
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 42 1
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 777 1
+   - removido: golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 999 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 1 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 123 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 42 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 777 1
+   - removido: golden-seed — close (65 vs 57) > digest matches snapshot — seed 999 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 1 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 123 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 42 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 777 1
+   - removido: golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 999 1
+
+Limitacao conhecida: o digest do golden nao guarda a lane (D-11, src/__tests__/golden/fixtures.ts). Violacao de ordem por tier de torre (externa > interna > inibidor > nexus) dentro de uma mesma lane nao e checavel a partir deste snapshot. Estender o digest para incluir lane mudaria a estrutura do golden, o que so e permitido no passe deliberado unico da Fase 30. Este relatorio cobre apenas o que e derivavel do digest atual.
+
+ESTE RESULTADO E O ARTEFATO DE CRLF JA DOCUMENTADO EM D-27-E1
+(docs/diagnostics/27-ancoragem.md Bloco 5, deferred-items.md), NAO UMA
+MUDANCA DE ESTRUTURA REAL, no mesmo padrao ja registrado por
+docs/diagnostics/golden-diff-27-valor.txt. O parser de scripts/diff-golden.ts
+exige `\n` literal e a arvore de trabalho deste checkout Windows grava CRLF
+ate a proxima operacao de `--update`; o snapshot COMMITADO nao mudou neste
+ponto (nenhum `--update` rodou ainda, `git status --porcelain
+src/__tests__/golden/__snapshots__` vazio).
+
+================================================================================
+A DIFERENCA REAL, MEDIDA PELO CAMINHO QUE NAO SOFRE DO ARTEFATO DE CRLF
+================================================================================
+
+METODO: os 15 blocos golden (3 cenarios x 5 seeds de GOLDEN_SEEDS) foram
+recalculados chamando `simulateMatch` diretamente para o lado NOVO (motor de
+HEAD, `DEFAULT_SIM_CONFIG` real, sem overrides), e o lado ANTIGO foi lido do
+snapshot COMMITADO via `git show HEAD:<path>` (que nao sofre do artefato de
+CRLF, ao contrario de `readFileSync` na arvore de trabalho Windows). Os dois
+mapas foram passados para `formatDiffReport` (a mesma funcao de
+scripts/diff-golden.ts, sem nenhuma linha alterada nela). Harness descartavel
+em scripts/golden-diff-scratch.test.ts, executado via `npx vitest run`
+(necessario porque node ESM puro exige extensao explicita em toda a cadeia
+de imports relativos de src/sim/*, o que exigiria editar dezenas de arquivos
+de producao so para rodar um script descartavel), nunca commitado.
+
+Precedente: mesmo metodo de golden-diff-27-valor.txt (Fase 27, chamar
+`simulateMatch` diretamente) e de golden-diff-25B.txt (Fase 25B, harness de
+scratch chamando as mesmas funcoes do teste real, resultado nunca escrito no
+snapshot versionado antes da aprovacao).
+
+DIMENSAO 1: VENCEDORES
+
+  1 de 15 blocos trocou de vencedor:
+
+    close (65 vs 57) / seed 42    user -> rival
+
+  cenario              gap de rating (carta)   trocas
+  -------------------  ----------------------  ------
+  stomp (84 vs 58)     26 pontos                0 de 5
+  close (65 vs 57)      8 pontos                1 de 5
+  balanced (70 vs 68)   2 pontos                0 de 5
+
+DIMENSAO 2: TIPOS DE EVENTO (uniao sobre o CORPUS INTEIRO, os 15 blocos do
+golden -- este relatorio NAO cobre src/sim/__snapshots__/structures.test.ts.snap,
+que fica FORA do escopo desta regeneracao: os dois casos vermelhos daquele
+arquivo sao D-26-03, drift pre-existente e nao causado por esta fase,
+`update-golden` nao toca aquele arquivo)
+
+  vocabulario ANTIGO (23 tipos) e vocabulario NOVO (25 tipos): NAO IDENTICO.
+
+  UNIAO GLOBAL, contagem antigo -> novo, entrada por entrada:
+
+    tipo                        antigo   novo
+    ---------------------------  ------  ------
+    ace                              15      12
+    baron_steal                       3       3
+    baron_taken                      15      15
+    double_kill                      44      43
+    dragon_steal                      3       6
+    dragon_taken                     64      61
+    elder_taken                       0       1   <-- NOVO NO CORPUS
+    first_blood                      15      15
+    first_tower                      15      15
+    gank                             35      30
+    gg                               15      15
+    herald_taken                     15      15
+    inhibitor_destroyed              19      22
+    jungler_attention_shift          40      39
+    kill                             63      61
+    lane_advantage_building          39      41
+    lane_priority_shift              22      25
+    nexus_exposed                    15      15
+    plate_taken                     184     186
+    quadra_kill                       0       1   <-- NOVO NO CORPUS
+    shutdown                         76      67
+    tower_destroyed                 103     110
+    tower_low                       146     152
+    triple_kill                      5       8
+    voidgrubs_taken                  30      30
+    upset_win                         0       0   <-- AUSENTE NOS DOIS LADOS
+
+  tipo(s) NOVO(s) no corpus:          elder_taken, quadra_kill
+  tipo(s) que SUMIRAM do corpus:      nenhum
+  upset_win presente no corpus novo:  NAO (0 ocorrencias, ver item 1 abaixo)
+
+  ROTULO: MUDANCA DE ESTRUTURA, e ela NAO E `upset_win`. O vocabulario global
+  do corpus sobe de 23 para 25 tipos (`elder_taken` e `quadra_kill` entram),
+  pelo criterio ja estabelecido nesta milestone (D-25B-06/golden-diff-25B.txt:
+  "mudanca de ESTRUTURA quando o vocabulario global NAO e identico entrada
+  por entrada"). Isto MUDA O CUSTO de toda regeneracao futura, exatamente
+  como o precedente exige rotular. A causa NAO e o evento de zebra (`upset_win`
+  tem 0 ocorrencias nos dois lados, confirmado no item 1 abaixo): e o VALOR de
+  `ratingPowerD = 525` sozinho, que desloca decisoes profundas na arvore de
+  RNG (efeito borboleta determinista por seed) a ponto de partidas antes
+  curtas (sem chegar a Alma/quadra) passarem a chegar la, ou vice-versa.
+  `elder_taken` aparece so no bloco `close/seed 42` (o mesmo que troca de
+  vencedor, dimensao 1) e `quadra_kill` so em `balanced/seed 777` -- os dois
+  bem abaixo do limiar de zebra (gap 8 e gap 2), confirmando que nenhum dos
+  dois tem relacao com o evento de upset.
+
+DIMENSAO 3: DESLOCAMENTO DE DURACAO
+
+  Proxy: o timeSec do ultimo evento de cada bloco.
+
+  13 de 15 blocos tiveram o proxy de duracao deslocado. 2 ficaram no mesmo
+  valor (balanced/seed 42 e balanced/seed 123 -- ver Dimensao 5 abaixo: isso
+  NAO significa que os dois blocos sao identicos, so que o ULTIMO evento cai
+  no mesmo segundo).
+
+  bloco a bloco (segundos, arredondado):
+
+    balanced (70 vs 68) / seed 1     +15s
+    balanced (70 vs 68) / seed 777   -135s
+    balanced (70 vs 68) / seed 999   -90s
+    close (65 vs 57) / seed 1        -120s
+    close (65 vs 57) / seed 123      -330s
+    close (65 vs 57) / seed 42       +1275s   (maior deslocamento do corpus)
+    close (65 vs 57) / seed 777      +240s
+    close (65 vs 57) / seed 999      +60s
+    stomp (84 vs 58) / seed 1        -120s
+    stomp (84 vs 58) / seed 123      -360s
+    stomp (84 vs 58) / seed 42       +15s
+    stomp (84 vs 58) / seed 777      -465s
+    stomp (84 vs 58) / seed 999      +45s
+
+  O maior deslocamento (+1275s, +21,25 min) e exatamente o bloco que troca de
+  vencedor E ganha `elder_taken` (close/seed 42): consistente com uma partida
+  que deixa de fechar cedo e passa a se estender ate objetivos de fim de jogo.
+
+DIMENSAO 4: VIOLACOES DE ORDEM
+
+  0 violacoes detectadas nos dois lados, nos 15 blocos (nenhuma inversao de
+  ordem cronologica, nenhum Baron antes de 20:00, nenhum Elder antes de
+  qualquer dragao do mesmo lado sob a heuristica do comparador).
+
+DIMENSAO 5 (precedente golden-diff-27-valor.txt: as 4 dimensoes padrao podem
+estar TODAS identicas ainda que eventos individuais divirjam em timeSec,
+actors ou victims sem mudar conjunto de tipos, ultimo timeSec nem ordem):
+DIFERENCA EVENTO A EVENTO DENTRO DE CADA BLOCO
+
+  RESULTADO: 14 de 15 blocos tem pelo menos um evento diferente (ou contagem
+  de eventos diferente, ou placar final diferente). Tabela completa. Nota de
+  transcricao (mesmo padrao de docs/diagnostics/golden-diff-25B.txt): os
+  nomes de bloco do vitest contem o caractere travessao; como este relatorio
+  nao pode conter travessao, os nomes foram normalizados para a forma
+  `cenario (placar) / seed N`, sem alterar nenhum numero:
+
+    bloco                                eventos_antigo  eventos_novo  eventos_diferentes  BYTE_IDENTICO
+    -----------------------------------  --------------  ------------  -------------------  -------------
+    balanced (70 vs 68) / seed 1                     57            60                   12  NAO
+    balanced (70 vs 68) / seed 42                    64            63                   14  NAO
+    balanced (70 vs 68) / seed 123                   63            63                    0  SIM
+    balanced (70 vs 68) / seed 777                   81            68                   36  NAO
+    balanced (70 vs 68) / seed 999                   66            58                   54  NAO
+    close (65 vs 57) / seed 1                        65            69                   33  NAO
+    close (65 vs 57) / seed 42                       57           106                   76  NAO
+    close (65 vs 57) / seed 123                      67            47                   31  NAO
+    close (65 vs 57) / seed 777                      57            71                   34  NAO
+    close (65 vs 57) / seed 999                      45            48                   25  NAO
+    stomp (84 vs 58) / seed 1                        72            67                   30  NAO
+    stomp (84 vs 58) / seed 42                       62            69                   65  NAO
+    stomp (84 vs 58) / seed 123                      67            59                   41  NAO
+    stomp (84 vs 58) / seed 777                      90            67                   70  NAO
+    stomp (84 vs 58) / seed 999                      68            73                   68  NAO
+
+  TOTAL byte-identico (nao precisa regenerar): 1 de 15 (balanced/seed 123,
+  gap 2, a unica combinacao que nao cruza nenhuma decisao sensivel ao canal
+  de rating nesta seed especifica -- mesmo achado ja registrado em
+  28-03-SUMMARY.md e 28-04-SUMMARY.md).
+  TOTAL que fica VERMELHO ate a regeneracao: 14 de 15. Bate exatamente com
+  `docs/diagnostics/28-ancoragem.md` Bloco 9 item 6 ("14 NAO batem mais:
+  stomp 5 de 5, close 5 de 5, balanced 4 de 5") e com a lista de FAIL de
+  `npm test` medida nesta mesma task (14 entradas de golden.test.ts).
+
+================================================================================
+1. ATRIBUICAO DE CAUSA, POR DIMENSAO
+================================================================================
+
+Separando o que se moveu por causa de `ratingPowerD = 525` (plano 28-03) do
+que se moveu por causa do evento de zebra `upset_win` (plano 28-04):
+
+  upset_win e identificavel com precisao: e a presenca do tipo `upset_win` na
+  uniao de tipos do corpus (Dimensao 2 acima). MEDIDO: 0 ocorrencias em
+  QUALQUER um dos 15 blocos, nos dois lados. NENHUM bloco do golden (nem os 5
+  de `stomp`, que estao ACIMA do limiar de zebra, gap 26 >= 9,544) produziu
+  de fato um evento de zebra nestas 5 seeds fixas.
+
+  CONCLUSAO: 100% da diferenca medida nas cinco dimensoes acima (troca de
+  vencedor, ganho de `elder_taken`/`quadra_kill`, deslocamento de duracao,
+  diferenca evento a evento) e atribuivel a `ratingPowerD = 525` (plano
+  28-03). 0% e atribuivel ao evento de zebra (plano 28-04): a Task 1 de
+  28-04-SUMMARY.md ja tinha registrado isso ("grep -c 'upset_win' na saida
+  completa... devolve 0"), e esta medicao independente, pelo caminho que nao
+  sofre do artefato de CRLF, CONFIRMA o mesmo numero.
+
+  PREVISAO ESCRITA, VERIFICADA: nos cenarios `balanced` (gap 2) e `close`
+  (gap 8), ambos abaixo do limiar de 9,544, o evento de zebra NAO pode
+  aparecer em nenhuma seed -- MEDIDO: 0 ocorrencias nos dois cenarios, nas 10
+  combinacoes. A previsao se confirma. Se tivesse aparecido, seria defeito e
+  o plano pararia aqui; nao apareceu.
+
+================================================================================
+2. MUDANCA DE ESTRUTURA OU DE VALOR
+================================================================================
+
+Ver Dimensao 2 acima para a tabela completa entrada por entrada.
+
+  RESUMO: vocabulario global do corpus sobe de 23 para 25 tipos. GANHO:
+  `elder_taken` (0->1) e `quadra_kill` (0->1). NENHUM tipo SUMIU. `upset_win`
+  permanece em 0 nos dois lados (nao entrou no corpus nestas 15 combinacoes).
+
+  ROTULO EXPLICITO: esta e uma mudanca de ESTRUTURA pelo criterio ja
+  estabelecido nesta milestone (vocabulario global identico entrada por
+  entrada = VALOR; caso contrario = ESTRUTURA). O plano 28-05-PLAN.md previa
+  que a mudanca estrutural possivel seria o GANHO de `upset_win` -- isso NAO
+  aconteceu (item 1 acima). Em vez disso, a mudanca de ESTRUTURA observada e
+  um efeito colateral NAO previsto do proprio `ratingPowerD = 525`: ele
+  desloca decisoes profundas na arvore determinista de RNG (mesma seed,
+  mesmo roster, resultado divergente cedo o bastante para a partida de
+  `close/seed 42` se estender ate produzir um Elder, e `balanced/seed 777`
+  produzir uma quadra) sem que o achatamento da curva tenha, por si so,
+  qualquer relacao causal direta com esses dois tipos de evento especificos.
+  Isto NAO E um defeito: e o modo de falha que a suite ja antecipa e autoriza
+  por escrito para efeitos deste tipo (mesmo principio registrado em
+  `src/sim/gold-scale-identity.test.ts`, cujo cabecalho descreve exatamente
+  este mecanismo -- cruzamento de limiar de decisao por causa de uma
+  multiplicacao a mais na cadeia de `fightPower`, empurrando uma decisao ja
+  proxima do limite para o outro lado).
+
+  CUSTO PARA REGENERACOES FUTURAS: a uniao global sobe de 23 para 25, ou
+  seja o corpus fica MENOS proximo de perder tipos raros (o oposto do risco
+  que D-25B-06 vinha vigiando para `dragon_steal`/`elder_taken`, que estavam
+  "a um bloco de sair"). `elder_taken` volta a aparecer (estava em risco);
+  `dragon_steal` sobe de 3 para 6 ocorrencias (tambem se afasta do risco).
+  Efeito liquido: o corpus fica mais rico em tipos raros com esta mudanca,
+  nao mais pobre.
+
+================================================================================
+3. BLOCOS NASCENDO OU SUMINDO, E VIOLACOES DE ORDEM
+================================================================================
+
+  Blocos presentes so num dos lados (formatDiffReport, dimensao 5 da funcao):
+  0. Todos os 15 nomes de bloco sao comuns aos dois lados -- nenhum nasceu,
+  nenhum sumiu (o parser encontrou os mesmos 15 nomes no snapshot commitado e
+  o harness de scratch gerou os mesmos 15 nomes, por construcao).
+
+  Violacoes de ordem (formatDiffReport, dimensao 4): 0 nos dois lados, nos 15
+  blocos. Nenhuma inversao cronologica, nenhum Baron antes do spawn (1200s),
+  nenhum Elder antes de qualquer dragao do mesmo lado (heuristica do
+  comparador).
+
+  Mesmo formato de `docs/diagnostics/golden-diff-25B.txt`: nesta fase, ao
+  contrario da 25B, NAO ha bloco nascendo/sumindo nem violacao de ordem para
+  reportar -- as duas dimensoes ficam limpas, e a mudanca de estrutura desta
+  fase (item 2 acima) vem inteiramente do vocabulario de tipos, nao de blocos
+  ou de ordem.
+
+================================================================================
+4. ASSINATURA ESPERADA DO CONSERTO
+================================================================================
+
+  O cenario `stomp` (84 contra 58, gap 26) e o unico dos tres acima do limiar
+  de zebra (9,544) e, por hipotese de texto do plano, o mais afetado pelo
+  achatamento.
+
+  MEDIDO: 0 de 5 seeds do `stomp` trocaram de vencedor. Registrado sem
+  suavizar, porque diverge da hipotese textual do plano: nestas 5 seeds
+  fixas, o favorito (`stomp` user, overall 84) continua vencendo nos 5 casos
+  mesmo com a curva achatada. A UNICA troca de vencedor do corpus inteiro
+  esta no cenario `close` (gap 8, BAIXO do limiar de zebra), nao no `stomp`.
+
+  ISTO NAO CONTRADIZ o achatamento medido em `docs/diagnostics/28-ancoragem.md`
+  Bloco 9 (ANCORA-30/ANCORA-40 = 1,0000, regiao de fechamento VAZIA): aquela
+  medicao usa N=600/800 partidas por ponto, enquanto este corpus tem apenas 5
+  seeds fixas por cenario. Cinco amostras de uma distribuicao que ainda
+  favorece fortemente o lado forte (mesmo achatada) tem probabilidade real de
+  nao conter nenhuma troca -- nao e evidencia de que o achatamento nao
+  funcionou, e a propria FRC-02 (Bloco 9, item 2) ja documenta que gap 30/40
+  continuam saturados em ~100% mesmo apos a mudanca. O que O corpus do golden
+  MOSTRA e que a curva mudou o suficiente para deslocar quase TODO evento
+  individual de quase toda partida (Dimensao 5), inclusive trocando o
+  vencedor de uma partida de gap MEDIO (8 pontos, `close`), mesmo sem trocar
+  nenhuma de gap grande (`stomp`) nestas 5 sementes especificas.
+
+================================================================================
+5. PREVISAO ESCRITA DO PLACAR DA SUITE DEPOIS DA REGENERACAO
+================================================================================
+
+  PLACAR MEDIDO AGORA, ANTES DA REGENERACAO (`npm test`, rodada completa
+  desta task): 1152 verdes, 18 vermelhos, 1170 no total, 62 de 66 arquivos
+  verdes.
+
+  Os 18 vermelhos, por nome:
+    - 14 em src/__tests__/golden/golden.test.ts (os 14 listados na Dimensao 5
+      acima: stomp 5/5, close 5/5, balanced 4/5)
+    - 2 em src/sim/structures.test.ts (seed=0 e seed=5, STOMP 85v55,
+      D-26-03, drift pre-existente desde a Fase 26, NAO tocado por esta fase)
+    - 1 em src/sim/gold-scale-identity.test.ts (perfil GAP, seed 999,
+      efeito colateral de `ratingPowerD=525` ja documentado e autorizado por
+      escrito no proprio cabecalho do teste, plano 28-03, NUNCA relaxado)
+    - 1 em src/sim/buffs.test.ts (timeout de 60000ms, "Elder is decisive
+      end-to-end", o item flaky D-28-03-01 ja registrado em
+      `.planning/phases/28-curva-de-for-a-por-diferen-a-de-rating/deferred-items.md`
+      como alternando entre rodadas por dependencia de tempo/ordem do pool de
+      workers do vitest, sem relacao com conteudo de codigo)
+
+  PREVISAO PARA DEPOIS da UNICA regeneracao autorizada (que toca so
+  `src/__tests__/golden/__snapshots__/golden.test.ts.snap`, um arquivo,
+  cobrindo as duas mudancas de producao acumuladas -- Task 4 deste plano):
+
+    verdes:     1166 (1152 + 14, os 14 snapshots de golden regenerados)
+    vermelhos:  4 ou 3 (os 3 ja documentados como estaveis -- 2 de
+                structures.test.ts D-26-03 e 1 de gold-scale-identity.test.ts
+                -- mais o item flaky de buffs.test.ts, presente ou ausente
+                dependendo da rodada, sem relacao com esta task)
+    total:      1170 (inalterado -- a regeneracao muda VALOR esperado,
+                nunca CONTAGEM de testes)
+
+  Esta previsao sera conferida contra o placar real na Task 4 (Passo 2, apos
+  a regeneracao), com qualquer divergencia reportada como divergencia, nunca
+  apagada.
+
+================================================================================
+FECHAMENTO DESTE RELATORIO
+================================================================================
+
+Este relatorio e commitado SOZINHO (git show --name-only --pretty=format: do
+proprio commit lista uma unica linha, este arquivo), com a arvore de
+snapshots ainda LIMPA (`git status --porcelain
+src/__tests__/golden/__snapshots__` vazio no momento do commit). A
+regeneracao (Task 4, apos o checkpoint humano da Task 3) e o proximo passo,
+nunca antes da aprovacao.

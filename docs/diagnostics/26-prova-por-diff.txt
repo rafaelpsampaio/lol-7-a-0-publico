@@ -1,0 +1,112 @@
+PROVA POR DIFF DO FECHAMENTO DA FASE 26 (26-10 Task 1)
+===============================================================================
+
+SHA base (lido de docs/diagnostics/26-ancoragem.md, Bloco 1, nunca deduzido): d2bc5dc8908ca1029526e695004b98dce59c76b3
+SHA HEAD (hoje): 2ce1f85f505450538b80c2bcc9e63a220d70c17a
+
+ACHADO DE SEQUENCIAMENTO (nao e um dos seis itens do Task 1, mas condiciona a leitura deles)
+-------------------------------------------------------------------------------
+  A Fase 27 ja foi executada e mesclada em cima da Fase 26 ainda nao fechada. Primeiro commit de escopo Fase 27 encontrado entre a base e HEAD: "docs(phase-27): research escala e acoplamento economico".
+  Ultimo commit exclusivo da Fase 26 (imediatamente anterior a ele): f688abedd0ba7850c8dd8a5bdebfc84922df5a73
+  Por isso o ITEM 2 abaixo mede em DUAS leituras lado a lado: contra HEAD (hoje, contaminado pela Fase 27) e contra este commit (o fechamento real da Fase 26, isolado). As duas leituras nao se cancelam: a leitura isolada prova que a FASE 26 EM SI respeitou seu proprio escopo; a leitura contra HEAD mostra o estado real do repositorio hoje, que carrega trabalho legitimo de uma fase seguinte executada fora de ordem.
+
+0) REGRA DE SANIDADE POR BLOB (src/sim/combat.ts, base contra HEAD)
+-------------------------------------------------------------------------------
+  blob em d2bc5dc: 0a271ad9d00bad36c650a2c5fd85ca5a5f2bbaa9
+  blob em HEAD:    8b1121f789c47bf78114f143fd1263a7560fc4ad
+  OK: os blobs diferem. combat.ts mudou entre a base e HEAD, como esperado (alavanca primaria, plano 26-04).
+
+1) CONTAGEM DE CHAMADAS AO GERADOR (rng( por arquivo de src/sim/*.ts, base contra HEAD)
+-------------------------------------------------------------------------------
+  (arquivos sem delta omitidos da listagem; total de arquivos inventariados: 56)
+
+  TOTAL base: 72
+  TOTAL head: 72
+  OK: total identico nos dois lados e igual a 72, o valor canonico da milestone.
+
+2) ARQUIVOS DE src/sim/ FORA DA LISTA AUTORIZADA, identicos por hash de objeto
+-------------------------------------------------------------------------------
+  Lista autorizada (Task 1): combat.ts (combate), engine.ts (motor), selection.ts (selecao), laneState.ts (estado de lane), laneSignals.ts (sinais de lane), simEvents.ts (eventos de simulacao), deathQuality.ts (qualidade de morte). Testes correspondentes aos sete modulos tambem autorizados. types.ts entra como companheiro estrutural declarado (campos novos de LANE-01/lane signals, ja documentado no commit-base do plano 26-07).
+
+  2a) Leitura contra HEAD (hoje, 2ce1f85):
+    VIOLACAO: src/sim/gold-scale-identity.test.ts difere (base=(ausente) head=450ce463c0dde3cd2581903902537d578872cedf)
+    VIOLACAO: src/sim/gold-structural-factor.test.ts difere (base=(ausente) head=68f5e8943fda29bca82bbaa08798da91d52f177c)
+    VIOLACAO: src/sim/matchState.test.ts difere (base=3166cb270b55d34bc2de54fb2e0e6f0fe2aa0eb5 head=1028ba9e48e168be41f7f44f974242fcf6039be3)
+    VIOLACAO: src/sim/matchState.ts difere (base=479dc01cba988871f179bfee947b3708476f6f04 head=83b022a7ba0cb8fe823e47ff4423ee4f580f4c5d)
+    VIOLACAO: src/sim/microMetrics.ts difere (base=7331c3fc128f499b33c7e479d9b127c674c8246a head=a03352f52e5d87c0dec4b5635b2fbef3486b1f61)
+    VIOLACAO: src/sim/power.ts difere (base=5c3565fc642ebb0152121e2a133eb9fc869b71ef head=6c42acc2ce35f32477808dba4c6376226bdc4a6a)
+    VIOLACAO: src/sim/structures.test.ts difere (base=6ab24149ca214fb28ced085a725e503c3795a83d head=d72d6ee63b0b15e68240a2e07ba1d06efa34a302)
+    VIOLACAO: src/sim/structures.ts difere (base=8209a2d81abc06dd4dee17eb973cd1d8698f0aa2 head=422742be8ce04f5bdcb2bac3c1f1314264ecec39)
+  FALHA (leitura contra HEAD): existem arquivos fora da lista autorizada com diferenca de blob. Ver ACHADO DE SEQUENCIAMENTO acima e a leitura 2b abaixo para a atribuicao correta.
+
+  2b) Leitura isolada contra o fechamento da propria Fase 26 (f688abe, antes da Fase 27 comecar):
+    OK: a Fase 26, isolada de qualquer trabalho posterior, nao tocou nenhum arquivo de src/sim/ fora da lista autorizada.
+
+  VEREDITO DO ITEM 2: decidido pela leitura 2b (isolada). A leitura 2a (contra HEAD) e informativa: qualquer diferenca ali e atribuida a Fase 27 (ja executada e mesclada), nunca a Fase 26.
+  CONFIRMADO: as violacoes da leitura 2a nao aparecem na leitura 2b, portanto sao inteiramente atribuiveis a Fase 27, nao a Fase 26.
+
+3) CONSTANTES FORA DO ESCOPO DECLARADO (janela de ruido das lutas, impulso do time atrasado)
+-------------------------------------------------------------------------------
+  janela de ruido das lutas ("0.575 + rng() * 0.85"): presente na base = true, presente em HEAD = true
+  OK: a janela de ruido das lutas e byte a byte identica nos dois lados.
+  impulso do time atrasado (funcao behindBoost, corpo inteiro): identico = true
+  OK: behindBoost e byte a byte identica nos dois lados (corpo inteiro da funcao).
+
+4) NUMERO DE REGENERACOES DE GOLDEN DA FASE 26 ATE ESTE TASK
+-------------------------------------------------------------------------------
+  commits tocando pastas de snapshot entre base e HEAD (qualquer fase): 2
+    e0bc8f02e3d3320c62cdef15763ecfcc4536f4b9 test(27-04): regenera golden.test.ts.snap com as constantes finais (ECO-03)
+    bf80ce35437e43e7130fe6c4088b0eca47ebb355 test(27-04): regenera golden.test.ts.snap (regeneracao 1 de 3, ECO-03)
+  commits de escopo 26-10 (o unico orcamento que este plano pode gastar): 0
+  OK: zero regeneracoes de golden com escopo 26-10 ate este ponto. O orcamento inteiro (uma unica regeneracao) segue disponivel para o Task 3, apos a aprovacao humana do Task 2.
+
+5) package.json SEM DEPENDENCIA NOVA (base contra HEAD)
+-------------------------------------------------------------------------------
+  OK: dependencies/devDependencies/peerDependencies/optionalDependencies identicas entre base e HEAD. Nenhuma dependencia nova.
+
+6) OCORRENCIAS DO CARACTERE TRAVESSAO NAS LINHAS ACRESCENTADAS
+-------------------------------------------------------------------------------
+  Medido em DUAS leituras: repositorio inteiro e escopo restrito a src/sim + scripts,
+  ambas no intervalo isolado da propria Fase 26 (base ate o commit de fechamento isolado 2b).
+
+  repositorio inteiro: 26 linha(s) acrescentada(s) com o caractere
+    .planning/ROADMAP.md: - [x] 26-01-PLAN.md — Ancoragem da fase e instrumento de densidade de eventos por fase de jogo (NAR-01, onda 0)
+    .planning/ROADMAP.md: - [x] 26-02-PLAN.md — Razão agregada de assistências por abate vira banda asserida com dono Fase 26 (critério 6)
+    .planning/ROADMAP.md: - [x] 26-03-PLAN.md — Seis bandas de densidade por fase derivadas de STACK.md §5 (NAR-01)
+    .planning/ROADMAP.md: - [x] 26-04-PLAN.md — Alavanca primária `maxCasualties` escolhida por varredura contra o gate completo (CBT-01, CBT-03)
+    .planning/ROADMAP.md: - [x] 26-05-PLAN.md — Alavancas secundárias: espera entre lutas e pesos de luta forçada (CBT-02, CBT-04)
+    .planning/ROADMAP.md: - [x] 26-06-PLAN.md — Teto aritmético da razão de assistências elevado nos dois pontos que o impõem (AST-02)
+    .planning/ROADMAP.md: - [x] 26-07-PLAN.md — Recheio narrativo do early game por cruzamento de limiar e decisão de D-04 por medição
+    .planning/ROADMAP.md: - [x] 26-08-PLAN.md — Gates não-vácuos: re-ancoragem de limiares e teste de mutação (critério 5)
+    .planning/ROADMAP.md: - [x] 26-09-PLAN.md — Texto do ticker variando por peso do evento (D-02)
+    .planning/STATE.md: **Current focus:** Phase 26 — volume-de-combate-e-densidade-narrativa
+    .planning/STATE.md: Phase: 26 (volume-de-combate-e-densidade-narrativa) — EXECUTING
+    .planning/phases/23-instrumenta-o-e-gates-de-dois-lados/23-SECURITY.md: # Phase 23 — Security
+    .planning/phases/23-instrumenta-o-e-gates-de-dois-lados/23-SECURITY.md: | (nenhuma) — scripts/stats.ts, scripts/bands.ts | Modulos puros de dev tooling. Sem rede, sem auth, sem input de usuario final, sem persist
+    .planning/phases/23-instrumenta-o-e-gates-de-dois-lados/23-SECURITY.md: *Status: open · closed · open — below {block_on} threshold (non-blocking)*
+    .planning/phases/23-instrumenta-o-e-gates-de-dois-lados/23-SECURITY.md: *Severity: critical > high > medium > low — only open threats at or above workflow.security_block_on count toward threats_open*
+    .planning/phases/26-volume-de-combate-e-densidade-narrativa/26-02-SUMMARY.md: - Teto aritmético de construção calculado (não afirmado) por ponderação da participação real: 1,914, contra o piso 2,1 da banda — distância 
+    .planning/phases/26-volume-de-combate-e-densidade-narrativa/26-02-SUMMARY.md: - **O teto aritmético de construção é o valor ESPERADO de `min(sorteio, cap)` por tipo de evento, não o máximo bruto `min(3, cap)`.** A prim
+    .planning/phases/26-volume-de-combate-e-densidade-narrativa/26-02-SUMMARY.md: - **`assignAssists` confirmada pura e rng-free por leitura de assinatura** (`src/sim/selection.ts`, sem parâmetro `rng`), o que tornou segur
+    .planning/phases/26-volume-de-combate-e-densidade-narrativa/26-02-SUMMARY.md: - **Issue:** A primeira implementação de `tetoPorTipo` retornava `Math.min(3, cap)` (o máximo matematicamente possível por tipo), o que prod
+    .planning/phases/26-volume-de-combate-e-densidade-narrativa/26-02-SUMMARY.md: - **Committed in:** `8a65686` (Task 2 commit — a correção foi feita antes do commit final, não há commit separado do bug).
+    .planning/phases/26-volume-de-combate-e-densidade-narrativa/26-08-SUMMARY.md: - **Honestidade sobre o estado real da banda.** `abates/min` já nasce fora da banda (TETO estourado, 1,2761 contra teto 1,000) no ponto de o
+    docs/diagnostics/26-sweep.md: **Placar de `npm test`**: 945 testes, **928 verdes, 17 vermelhos**, 56 de 58 arquivos passando. Dos 17 vermelhos: **15 sao deslocamento de V
+    src/sim/deathQuality.test.ts: expect(ticker).not.toContain("—");
+    src/sim/engineWiring.test.ts: expect(ev.ticker).not.toContain("—");
+    src/sim/laneState.ts: * Estado persistente por lane (LANE-01 — 10 campos).
+    src/sim/laneState.ts: // freshLaneState — estado neutro com 10 campos (LANE-01)
+
+  restrito a src/sim + scripts: 4 linha(s) acrescentada(s) com o caractere
+    src/sim/deathQuality.test.ts: expect(ticker).not.toContain("—");
+    src/sim/engineWiring.test.ts: expect(ev.ticker).not.toContain("—");
+    src/sim/laneState.ts: * Estado persistente por lane (LANE-01 — 10 campos).
+    src/sim/laneState.ts: // freshLaneState — estado neutro com 10 campos (LANE-01)
+
+  Classificacao do escopo src/sim + scripts: 2 sao asserts de teste testando AUSENCIA do caractere (".not.toContain(\"\u2014\")", nao e uso do caractere como pontuacao); 2 sao uso genuino do caractere em comentario/prosa.
+  ACHADO NOMEADO, nao suavizado: o item 6 pede zero ocorrencias e a medicao encontrou 26 no repositorio inteiro (adicionadas por planos anteriores desta mesma fase, 26-01 a 26-09, ja commitados antes deste Task). Nao e um bug introduzido pelo Task 1 (que so cria tmp/verify-26-diff.cjs e tmp/diff-proof-26.txt) e corrigi-lo exigiria editar arquivos ja commitados de sete planos anteriores, fora do escopo declarado deste Task. Fica registrado aqui e no relatorio de fechamento (Task 3), sem suavizar.
+
+===============================================================================
+VEREDITO DOS SEIS ITENS: OK
+ACHADOS NOMEADOS (nao gatilham FALHA, mas nao sao suavizados):
+  - item 6: 26 ocorrencias no repositorio inteiro (4 em src/sim+scripts, das quais 2 sao uso genuino e 2 sao teste de ausencia), pre-existentes de planos 26-01 a 26-09

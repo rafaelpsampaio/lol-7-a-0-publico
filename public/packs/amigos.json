@@ -1,0 +1,4023 @@
+{
+  "$schema": "../../.vscode/players.schema.json",
+  "name": "Amigos",
+  "players": [
+    {
+      "id": "rafa-top-2018",
+      "personId": "rafa",
+      "displayName": "Rafa Top 2018",
+      "year": 2018,
+      "photo": "/players/rafa.jpg",
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 82,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 75,
+      "midGame": 85,
+      "lateGame": 85,
+      "traits": [
+        "mental_fort",
+        "teamfights"
+      ],
+      "championPool": [
+        {
+          "championId": "maokai",
+          "mastery": 5
+        },
+        {
+          "championId": "ornn",
+          "mastery": 4
+        },
+        {
+          "championId": "trundle",
+          "mastery": 4
+        },
+        {
+          "championId": "jax",
+          "mastery": 3
+        },
+        {
+          "championId": "vladimir",
+          "mastery": 3
+        },
+        {
+          "championId": "shen",
+          "mastery": 3
+        },
+        {
+          "championId": "poppy",
+          "mastery": 4
+        },
+        {
+          "championId": "dr-mundo",
+          "mastery": 4
+        }
+      ]
+    },
+    {
+      "id": "ber-jungle-2019",
+      "personId": "ber",
+      "displayName": "Ber Jungle 2019",
+      "year": 2019,
+      "photo": "/players/ber.jpg",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 82,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 90,
+      "midGame": 80,
+      "lateGame": 75,
+      "traits": [
+        "tilts_on_death",
+        "flips"
+      ],
+      "championPool": [
+        {
+          "championId": "lee-sin",
+          "mastery": 4
+        },
+        {
+          "championId": "taliyah",
+          "mastery": 5
+        },
+        {
+          "championId": "rek-sai",
+          "mastery": 4
+        },
+        {
+          "championId": "camille",
+          "mastery": 4
+        },
+        {
+          "championId": "lillia",
+          "mastery": 4
+        },
+        {
+          "championId": "xin-zhao",
+          "mastery": 3
+        },
+        {
+          "championId": "jax",
+          "mastery": 3
+        },
+        {
+          "championId": "trundle",
+          "mastery": 3
+        }
+      ]
+    },
+    {
+      "id": "igor-adc-2023",
+      "personId": "leite",
+      "displayName": "Igor Adc 2023",
+      "year": 2023,
+      "photo": "/players/leite.jpg",
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 80,
+        "support": 0
+      },
+      "lanePhase": 90,
+      "midGame": 70,
+      "lateGame": 80,
+      "traits": [
+        "flips",
+        "lane_bully"
+      ],
+      "championPool": [
+        {
+          "championId": "draven",
+          "mastery": 5
+        },
+        {
+          "championId": "samira",
+          "mastery": 4
+        },
+        {
+          "championId": "twitch",
+          "mastery": 4
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 3
+        },
+        {
+          "championId": "zeri",
+          "mastery": 3
+        },
+        {
+          "championId": "jinx",
+          "mastery": 2
+        },
+        {
+          "championId": "vayne",
+          "mastery": 2
+        },
+        {
+          "championId": "ashe",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "raidenchups-2017",
+      "personId": "raidenchups",
+      "displayName": "Igão Adc 2017",
+      "year": 2017,
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 80,
+        "support": 0
+      },
+      "lanePhase": 80,
+      "midGame": 80,
+      "lateGame": 80,
+      "traits": [
+        "mental_fort",
+        "teamfights"
+      ],
+      "championPool": [
+        {
+          "championId": "ezreal",
+          "mastery": 4
+        },
+        {
+          "championId": "jinx",
+          "mastery": 4
+        },
+        {
+          "championId": "vayne",
+          "mastery": 4
+        },
+        {
+          "championId": "lucian",
+          "mastery": 4
+        },
+        {
+          "championId": "tristana",
+          "mastery": 3
+        },
+        {
+          "championId": "caitlyn",
+          "mastery": 2
+        },
+        {
+          "championId": "draven",
+          "mastery": 3
+        },
+        {
+          "championId": "ashe",
+          "mastery": 3
+        }
+      ]
+    },
+    {
+      "id": "hayashi-2021",
+      "personId": "hayashi",
+      "displayName": "Hayashi Mid 2021",
+      "year": 2021,
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 80,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 85,
+      "midGame": 75,
+      "lateGame": 80,
+      "traits": [
+        "lane_bully"
+      ],
+      "championPool": [
+        {
+          "championId": "yone",
+          "mastery": 4
+        },
+        {
+          "championId": "ahri",
+          "mastery": 5
+        },
+        {
+          "championId": "xerath",
+          "mastery": 3
+        },
+        {
+          "championId": "ziggs",
+          "mastery": 3
+        },
+        {
+          "championId": "anivia",
+          "mastery": 3
+        },
+        {
+          "championId": "sylas",
+          "mastery": 3
+        },
+        {
+          "championId": "diana",
+          "mastery": 3
+        },
+        {
+          "championId": "fizz",
+          "mastery": 3
+        }
+      ]
+    },
+    {
+      "id": "rafa-top",
+      "personId": "rafa",
+      "displayName": "Rafa Top 2026",
+      "year": 2026,
+      "photo": "/players/rafa.jpg",
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 75,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 70,
+      "midGame": 75,
+      "lateGame": 80,
+      "traits": [
+        "mental_fort",
+        "teamfights"
+      ],
+      "championPool": [
+        {
+          "championId": "gnar",
+          "mastery": 4
+        },
+        {
+          "championId": "poppy",
+          "mastery": 4
+        },
+        {
+          "championId": "jax",
+          "mastery": 5
+        },
+        {
+          "championId": "gwen",
+          "mastery": 3
+        },
+        {
+          "championId": "tryndamere",
+          "mastery": 3
+        },
+        {
+          "championId": "ornn",
+          "mastery": 4
+        },
+        {
+          "championId": "teemo",
+          "mastery": 3
+        },
+        {
+          "championId": "jayce",
+          "mastery": 3
+        }
+      ]
+    },
+    {
+      "id": "rafa-sup",
+      "personId": "rafa",
+      "displayName": "Rafa Sup",
+      "photo": "/players/rafa.jpg",
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 75
+      },
+      "lanePhase": 75,
+      "midGame": 75,
+      "lateGame": 75,
+      "traits": [
+        "mental_fort",
+        "teamfights"
+      ],
+      "championPool": [
+        {
+          "championId": "poppy",
+          "mastery": 3
+        },
+        {
+          "championId": "thresh",
+          "mastery": 4
+        },
+        {
+          "championId": "alistar",
+          "mastery": 4
+        },
+        {
+          "championId": "rakan",
+          "mastery": 3
+        },
+        {
+          "championId": "leona",
+          "mastery": 4
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 4
+        },
+        {
+          "championId": "karma",
+          "mastery": 3
+        },
+        {
+          "championId": "lux",
+          "mastery": 3
+        }
+      ]
+    },
+    {
+      "id": "ber-jungle",
+      "personId": "ber",
+      "displayName": "Ber Jungle 2026",
+      "year": 2026,
+      "photo": "/players/ber.jpg",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 75,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 80,
+      "midGame": 75,
+      "lateGame": 70,
+      "traits": [
+        "tilts_on_death",
+        "flips"
+      ],
+      "championPool": [
+        {
+          "championId": "belveth",
+          "mastery": 4
+        },
+        {
+          "championId": "naafiri",
+          "mastery": 3
+        },
+        {
+          "championId": "graves",
+          "mastery": 3
+        },
+        {
+          "championId": "diana",
+          "mastery": 3
+        },
+        {
+          "championId": "briar",
+          "mastery": 5
+        },
+        {
+          "championId": "ambessa",
+          "mastery": 3
+        },
+        {
+          "championId": "elise",
+          "mastery": 4
+        },
+        {
+          "championId": "sylas",
+          "mastery": 3
+        }
+      ]
+    },
+    {
+      "id": "igor-adc-2026",
+      "personId": "leite",
+      "displayName": "Igor Adc 2026",
+      "year": 2026,
+      "photo": "/players/leite.jpg",
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 73,
+        "support": 0
+      },
+      "lanePhase": 80,
+      "midGame": 65,
+      "lateGame": 75,
+      "traits": [
+        "flips",
+        "lane_bully"
+      ],
+      "championPool": [
+        {
+          "championId": "twitch",
+          "mastery": 5
+        },
+        {
+          "championId": "senna",
+          "mastery": 3
+        },
+        {
+          "championId": "smolder",
+          "mastery": 4
+        },
+        {
+          "championId": "swain",
+          "mastery": 3
+        },
+        {
+          "championId": "tristana",
+          "mastery": 3
+        },
+        {
+          "championId": "jinx",
+          "mastery": 2
+        },
+        {
+          "championId": "ashe",
+          "mastery": 2
+        },
+        {
+          "championId": "kog-maw",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "rafa-jungle",
+      "personId": "rafa",
+      "displayName": "Rafa Jungle",
+      "photo": "/players/rafa.jpg",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 73,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 70,
+      "midGame": 75,
+      "lateGame": 75,
+      "traits": [
+        "mental_fort",
+        "teamfights"
+      ],
+      "championPool": [
+        {
+          "championId": "khazix",
+          "mastery": 4
+        },
+        {
+          "championId": "karthus",
+          "mastery": 4
+        },
+        {
+          "championId": "graves",
+          "mastery": 3
+        },
+        {
+          "championId": "diana",
+          "mastery": 3
+        },
+        {
+          "championId": "lee-sin",
+          "mastery": 3
+        },
+        {
+          "championId": "vi",
+          "mastery": 4
+        },
+        {
+          "championId": "poppy",
+          "mastery": 3
+        },
+        {
+          "championId": "ekko",
+          "mastery": 3
+        }
+      ]
+    },
+    {
+      "id": "hayashi-2026",
+      "personId": "hayashi",
+      "displayName": "Hayashi Mid 2026",
+      "year": 2026,
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 73,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 75,
+      "midGame": 70,
+      "lateGame": 75,
+      "traits": [
+        "flips"
+      ],
+      "championPool": [
+        {
+          "championId": "master-yi",
+          "mastery": 4
+        },
+        {
+          "championId": "yone",
+          "mastery": 4
+        },
+        {
+          "championId": "irelia",
+          "mastery": 3
+        },
+        {
+          "championId": "xerath",
+          "mastery": 3
+        },
+        {
+          "championId": "syndra",
+          "mastery": 3
+        },
+        {
+          "championId": "ahri",
+          "mastery": 3
+        },
+        {
+          "championId": "anivia",
+          "mastery": 3
+        },
+        {
+          "championId": "fizz",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "louis-sup-2017",
+      "personId": "louis",
+      "displayName": "Louis Sup 2017",
+      "year": 2017,
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 72
+      },
+      "lanePhase": 70,
+      "midGame": 65,
+      "lateGame": 80,
+      "traits": [
+        "teamfights"
+      ],
+      "championPool": [
+        {
+          "championId": "tahm-kench",
+          "mastery": 4
+        },
+        {
+          "championId": "nami",
+          "mastery": 3
+        },
+        {
+          "championId": "lulu",
+          "mastery": 2
+        },
+        {
+          "championId": "rakan",
+          "mastery": 3
+        },
+        {
+          "championId": "janna",
+          "mastery": 2
+        },
+        {
+          "championId": "thresh",
+          "mastery": 2
+        },
+        {
+          "championId": "alistar",
+          "mastery": 2
+        },
+        {
+          "championId": "braum",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "cap-support",
+      "personId": "cap",
+      "displayName": "Cap Sup",
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 72
+      },
+      "lanePhase": 75,
+      "midGame": 70,
+      "lateGame": 70,
+      "traits": [
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "thresh",
+          "mastery": 5
+        },
+        {
+          "championId": "rakan",
+          "mastery": 4
+        },
+        {
+          "championId": "leona",
+          "mastery": 3
+        },
+        {
+          "championId": "blitzcrank",
+          "mastery": 2
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 2
+        },
+        {
+          "championId": "morgana",
+          "mastery": 2
+        },
+        {
+          "championId": "lux",
+          "mastery": 1
+        },
+        {
+          "championId": "amumu",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "cap-jungle",
+      "personId": "cap",
+      "displayName": "Cap Jungle",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 70,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 70,
+      "midGame": 70,
+      "lateGame": 70,
+      "traits": [
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "lee-sin",
+          "mastery": 5
+        },
+        {
+          "championId": "vi",
+          "mastery": 4
+        },
+        {
+          "championId": "diana",
+          "mastery": 3
+        },
+        {
+          "championId": "elise",
+          "mastery": 3
+        },
+        {
+          "championId": "amumu",
+          "mastery": 3
+        },
+        {
+          "championId": "jarvan-iv",
+          "mastery": 3
+        },
+        {
+          "championId": "nocturne",
+          "mastery": 1
+        },
+        {
+          "championId": "viego",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "rafa-adc",
+      "personId": "rafa",
+      "displayName": "Rafa Adc",
+      "photo": "/players/rafa.jpg",
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 70,
+        "support": 0
+      },
+      "lanePhase": 70,
+      "midGame": 70,
+      "lateGame": 70,
+      "traits": [
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "ezreal",
+          "mastery": 5
+        },
+        {
+          "championId": "lucian",
+          "mastery": 3
+        },
+        {
+          "championId": "tristana",
+          "mastery": 3
+        },
+        {
+          "championId": "swain",
+          "mastery": 4
+        },
+        {
+          "championId": "jhin",
+          "mastery": 3
+        },
+        {
+          "championId": "kaisa",
+          "mastery": 3
+        },
+        {
+          "championId": "miss-fortune",
+          "mastery": 4
+        },
+        {
+          "championId": "ziggs",
+          "mastery": 4
+        }
+      ]
+    },
+    {
+      "id": "zbu-top",
+      "personId": "zbu",
+      "displayName": "Zbu Top",
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 70,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 70,
+      "midGame": 70,
+      "lateGame": 70,
+      "traits": [
+        "mental_fort",
+        "flips"
+      ],
+      "championPool": [
+        {
+          "championId": "volibear",
+          "mastery": 5
+        },
+        {
+          "championId": "tryndamere",
+          "mastery": 3
+        },
+        {
+          "championId": "sett",
+          "mastery": 3
+        },
+        {
+          "championId": "gwen",
+          "mastery": 2
+        },
+        {
+          "championId": "chogath",
+          "mastery": 2
+        },
+        {
+          "championId": "tahm-kench",
+          "mastery": 3
+        },
+        {
+          "championId": "garen",
+          "mastery": 2
+        },
+        {
+          "championId": "yorick",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "raidenchups-2025",
+      "personId": "raidenchups",
+      "displayName": "Igão Adc 2025",
+      "year": 2025,
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 70,
+        "support": 0
+      },
+      "lanePhase": 70,
+      "midGame": 70,
+      "lateGame": 70,
+      "traits": [
+        "teamfights",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "smolder",
+          "mastery": 4
+        },
+        {
+          "championId": "jinx",
+          "mastery": 4
+        },
+        {
+          "championId": "lucian",
+          "mastery": 3
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 3
+        },
+        {
+          "championId": "caitlyn",
+          "mastery": 2
+        },
+        {
+          "championId": "kaisa",
+          "mastery": 2
+        },
+        {
+          "championId": "vayne",
+          "mastery": 3
+        },
+        {
+          "championId": "tristana",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "igor-mid",
+      "personId": "leite",
+      "displayName": "Igor Mid",
+      "year": 2020,
+      "photo": "/players/leite.jpg",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 68,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 80,
+      "midGame": 65,
+      "lateGame": 60,
+      "traits": [
+        "flips",
+        "roamer"
+      ],
+      "championPool": [
+        {
+          "championId": "akshan",
+          "mastery": 5
+        },
+        {
+          "championId": "twisted-fate",
+          "mastery": 4
+        },
+        {
+          "championId": "galio",
+          "mastery": 3
+        },
+        {
+          "championId": "malzahar",
+          "mastery": 4
+        },
+        {
+          "championId": "sylas",
+          "mastery": 2
+        },
+        {
+          "championId": "ekko",
+          "mastery": 2
+        },
+        {
+          "championId": "lissandra",
+          "mastery": 2
+        },
+        {
+          "championId": "vex",
+          "mastery": 3
+        }
+      ]
+    },
+    {
+      "id": "gului-jungle",
+      "personId": "gului",
+      "displayName": "Iago Lui Jungle",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 68,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 80,
+      "midGame": 65,
+      "lateGame": 60,
+      "traits": [
+        "dragon_lover",
+        "teamfights"
+      ],
+      "championPool": [
+        {
+          "championId": "fiddlesticks",
+          "mastery": 5
+        },
+        {
+          "championId": "nunu",
+          "mastery": 4
+        },
+        {
+          "championId": "sejuani",
+          "mastery": 4
+        },
+        {
+          "championId": "warwick",
+          "mastery": 2
+        },
+        {
+          "championId": "volibear",
+          "mastery": 2
+        },
+        {
+          "championId": "kayn",
+          "mastery": 2
+        },
+        {
+          "championId": "trundle",
+          "mastery": 1
+        },
+        {
+          "championId": "amumu",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "rafa-mid",
+      "personId": "rafa",
+      "displayName": "Rafa Mid",
+      "photo": "/players/rafa.jpg",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 68,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 65,
+      "midGame": 70,
+      "lateGame": 70,
+      "traits": [
+        "mental_fort",
+        "teamfights"
+      ],
+      "championPool": [
+        {
+          "championId": "ahri",
+          "mastery": 4
+        },
+        {
+          "championId": "lux",
+          "mastery": 3
+        },
+        {
+          "championId": "swain",
+          "mastery": 3
+        },
+        {
+          "championId": "vladimir",
+          "mastery": 3
+        },
+        {
+          "championId": "yasuo",
+          "mastery": 3
+        },
+        {
+          "championId": "sylas",
+          "mastery": 2
+        },
+        {
+          "championId": "syndra",
+          "mastery": 2
+        },
+        {
+          "championId": "orianna",
+          "mastery": 3
+        }
+      ]
+    },
+    {
+      "id": "quibao-mid",
+      "personId": "quibao",
+      "displayName": "Quibao Mid",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 68,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 65,
+      "midGame": 70,
+      "lateGame": 70,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "mel",
+          "mastery": 4
+        },
+        {
+          "championId": "akshan",
+          "mastery": 3
+        },
+        {
+          "championId": "cassiopeia",
+          "mastery": 3
+        },
+        {
+          "championId": "ahri",
+          "mastery": 2
+        },
+        {
+          "championId": "viktor",
+          "mastery": 2
+        },
+        {
+          "championId": "malzahar",
+          "mastery": 2
+        },
+        {
+          "championId": "vex",
+          "mastery": 3
+        },
+        {
+          "championId": "vladimir",
+          "mastery": 3
+        }
+      ]
+    },
+    {
+      "id": "iago-mid",
+      "personId": "iago",
+      "displayName": "Iago Mid",
+      "photo": "/players/iago.jpg",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 67,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 75,
+      "midGame": 55,
+      "lateGame": 70,
+      "traits": [
+        "flips",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "yone",
+          "mastery": 3
+        },
+        {
+          "championId": "pantheon",
+          "mastery": 5
+        },
+        {
+          "championId": "galio",
+          "mastery": 3
+        },
+        {
+          "championId": "malphite",
+          "mastery": 1
+        },
+        {
+          "championId": "lissandra",
+          "mastery": 2
+        },
+        {
+          "championId": "diana",
+          "mastery": 3
+        },
+        {
+          "championId": "sett",
+          "mastery": 2
+        },
+        {
+          "championId": "karma",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "jogi-top",
+      "personId": "jogi",
+      "displayName": "Jogi Top",
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 67,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 70,
+      "midGame": 65,
+      "lateGame": 65,
+      "traits": [
+        "flips",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "sett",
+          "mastery": 5
+        },
+        {
+          "championId": "yasuo",
+          "mastery": 4
+        },
+        {
+          "championId": "garen",
+          "mastery": 4
+        },
+        {
+          "championId": "camille",
+          "mastery": 3
+        },
+        {
+          "championId": "darius",
+          "mastery": 2
+        },
+        {
+          "championId": "yorick",
+          "mastery": 2
+        },
+        {
+          "championId": "fiora",
+          "mastery": 2
+        },
+        {
+          "championId": "jax",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "ber-top",
+      "personId": "ber",
+      "displayName": "Ber Top",
+      "photo": "/players/ber.jpg",
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 67,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 70,
+      "midGame": 65,
+      "lateGame": 65,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "darius",
+          "mastery": 4
+        },
+        {
+          "championId": "camille",
+          "mastery": 3
+        },
+        {
+          "championId": "jax",
+          "mastery": 3
+        },
+        {
+          "championId": "trundle",
+          "mastery": 3
+        },
+        {
+          "championId": "aatrox",
+          "mastery": 2
+        },
+        {
+          "championId": "sylas",
+          "mastery": 2
+        },
+        {
+          "championId": "gwen",
+          "mastery": 1
+        },
+        {
+          "championId": "tryndamere",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "adabo-support",
+      "personId": "adabo",
+      "displayName": "Adabo Sup",
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 67
+      },
+      "lanePhase": 70,
+      "midGame": 65,
+      "lateGame": 65,
+      "traits": [],
+      "championPool": [
+        {
+          "championId": "blitzcrank",
+          "mastery": 4
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 3
+        },
+        {
+          "championId": "leona",
+          "mastery": 3
+        },
+        {
+          "championId": "thresh",
+          "mastery": 4
+        },
+        {
+          "championId": "alistar",
+          "mastery": 2
+        },
+        {
+          "championId": "lulu",
+          "mastery": 3
+        },
+        {
+          "championId": "braum",
+          "mastery": 2
+        },
+        {
+          "championId": "lux",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "quibao-adc",
+      "personId": "quibao",
+      "displayName": "Quibao Adc",
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 67,
+        "support": 0
+      },
+      "lanePhase": 65,
+      "midGame": 70,
+      "lateGame": 65,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "twitch",
+          "mastery": 3
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 2
+        },
+        {
+          "championId": "kaisa",
+          "mastery": 3
+        },
+        {
+          "championId": "smolder",
+          "mastery": 2
+        },
+        {
+          "championId": "miss-fortune",
+          "mastery": 2
+        },
+        {
+          "championId": "kog-maw",
+          "mastery": 2
+        },
+        {
+          "championId": "tristana",
+          "mastery": 2
+        },
+        {
+          "championId": "jinx",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "iago-sup",
+      "personId": "iago",
+      "displayName": "Iago Sup",
+      "photo": "/players/iago.jpg",
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 65
+      },
+      "lanePhase": 75,
+      "midGame": 60,
+      "lateGame": 60,
+      "traits": [
+        "flips",
+        "lane_bully"
+      ],
+      "championPool": [
+        {
+          "championId": "milio",
+          "mastery": 2
+        },
+        {
+          "championId": "lulu",
+          "mastery": 4
+        },
+        {
+          "championId": "yuumi",
+          "mastery": 5
+        },
+        {
+          "championId": "amumu",
+          "mastery": 1
+        },
+        {
+          "championId": "braum",
+          "mastery": 1
+        },
+        {
+          "championId": "chogath",
+          "mastery": 1
+        },
+        {
+          "championId": "karma",
+          "mastery": 1
+        },
+        {
+          "championId": "pantheon",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "snowphas-jungle",
+      "personId": "snow",
+      "displayName": "Snow Jungle",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 65,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 65,
+      "midGame": 65,
+      "lateGame": 65,
+      "traits": [],
+      "championPool": [
+        {
+          "championId": "zac",
+          "mastery": 4
+        },
+        {
+          "championId": "diana",
+          "mastery": 3
+        },
+        {
+          "championId": "rengar",
+          "mastery": 5
+        },
+        {
+          "championId": "viego",
+          "mastery": 2
+        },
+        {
+          "championId": "graves",
+          "mastery": 1
+        },
+        {
+          "championId": "master-yi",
+          "mastery": 1
+        },
+        {
+          "championId": "ivern",
+          "mastery": 2
+        },
+        {
+          "championId": "vi",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "baguio-sup",
+      "personId": "baguio",
+      "displayName": "Baguio Sup",
+      "photo": "/players/baguio.jpg",
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 65
+      },
+      "lanePhase": 75,
+      "midGame": 60,
+      "lateGame": 60,
+      "traits": [
+        "flips",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "nautilus",
+          "mastery": 4
+        },
+        {
+          "championId": "alistar",
+          "mastery": 5
+        },
+        {
+          "championId": "braum",
+          "mastery": 3
+        },
+        {
+          "championId": "blitzcrank",
+          "mastery": 2
+        },
+        {
+          "championId": "thresh",
+          "mastery": 2
+        },
+        {
+          "championId": "leona",
+          "mastery": 2
+        },
+        {
+          "championId": "rakan",
+          "mastery": 1
+        },
+        {
+          "championId": "pantheon",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "pipo-mid",
+      "personId": "pipo",
+      "displayName": "Pipo Mid",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 65,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 75,
+      "midGame": 60,
+      "lateGame": 60,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "ahri",
+          "mastery": 5
+        },
+        {
+          "championId": "lux",
+          "mastery": 4
+        },
+        {
+          "championId": "lissandra",
+          "mastery": 3
+        },
+        {
+          "championId": "mel",
+          "mastery": 2
+        },
+        {
+          "championId": "morgana",
+          "mastery": 2
+        },
+        {
+          "championId": "syndra",
+          "mastery": 2
+        },
+        {
+          "championId": "orianna",
+          "mastery": 1
+        },
+        {
+          "championId": "seraphine",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "zbu-adc",
+      "personId": "zbu",
+      "displayName": "Zbu Adc",
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 65,
+        "support": 0
+      },
+      "lanePhase": 65,
+      "midGame": 65,
+      "lateGame": 65,
+      "traits": [
+        "flips"
+      ],
+      "championPool": [
+        {
+          "championId": "corki",
+          "mastery": 3
+        },
+        {
+          "championId": "varus",
+          "mastery": 4
+        },
+        {
+          "championId": "caitlyn",
+          "mastery": 3
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 2
+        },
+        {
+          "championId": "vayne",
+          "mastery": 3
+        },
+        {
+          "championId": "jhin",
+          "mastery": 2
+        },
+        {
+          "championId": "kog-maw",
+          "mastery": 2
+        },
+        {
+          "championId": "smolder",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "adabo-top",
+      "personId": "adabo",
+      "displayName": "Adabo Top",
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 65,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 65,
+      "midGame": 65,
+      "lateGame": 65,
+      "traits": [
+        "flips"
+      ],
+      "championPool": [
+        {
+          "championId": "teemo",
+          "mastery": 5
+        },
+        {
+          "championId": "yasuo",
+          "mastery": 2
+        },
+        {
+          "championId": "garen",
+          "mastery": 3
+        },
+        {
+          "championId": "malphite",
+          "mastery": 2
+        },
+        {
+          "championId": "sett",
+          "mastery": 4
+        },
+        {
+          "championId": "yone",
+          "mastery": 2
+        },
+        {
+          "championId": "poppy",
+          "mastery": 2
+        },
+        {
+          "championId": "ornn",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "louis-sup-2026",
+      "personId": "louis",
+      "displayName": "Louis Sup 2026",
+      "year": 2026,
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 63
+      },
+      "lanePhase": 60,
+      "midGame": 65,
+      "lateGame": 65,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "tahm-kench",
+          "mastery": 4
+        },
+        {
+          "championId": "nami",
+          "mastery": 3
+        },
+        {
+          "championId": "lulu",
+          "mastery": 2
+        },
+        {
+          "championId": "rakan",
+          "mastery": 3
+        },
+        {
+          "championId": "janna",
+          "mastery": 2
+        },
+        {
+          "championId": "thresh",
+          "mastery": 2
+        },
+        {
+          "championId": "alistar",
+          "mastery": 2
+        },
+        {
+          "championId": "braum",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "pepe-top",
+      "personId": "pepe",
+      "displayName": "Pepe Top",
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 63,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 70,
+      "midGame": 55,
+      "lateGame": 65,
+      "traits": [
+        "mental_fort",
+        "side"
+      ],
+      "championPool": [
+        {
+          "championId": "garen",
+          "mastery": 5
+        },
+        {
+          "championId": "shen",
+          "mastery": 3
+        },
+        {
+          "championId": "poppy",
+          "mastery": 2
+        },
+        {
+          "championId": "fiora",
+          "mastery": 1
+        },
+        {
+          "championId": "sett",
+          "mastery": 2
+        },
+        {
+          "championId": "darius",
+          "mastery": 1
+        },
+        {
+          "championId": "jax",
+          "mastery": 1
+        },
+        {
+          "championId": "tryndamere",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "pipo-sup",
+      "personId": "pipo",
+      "displayName": "Pipo Sup",
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 63
+      },
+      "lanePhase": 70,
+      "midGame": 60,
+      "lateGame": 60,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "nami",
+          "mastery": 4
+        },
+        {
+          "championId": "milio",
+          "mastery": 3
+        },
+        {
+          "championId": "lux",
+          "mastery": 3
+        },
+        {
+          "championId": "seraphine",
+          "mastery": 2
+        },
+        {
+          "championId": "karma",
+          "mastery": 2
+        },
+        {
+          "championId": "sona",
+          "mastery": 2
+        },
+        {
+          "championId": "morgana",
+          "mastery": 1
+        },
+        {
+          "championId": "zyra",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "adabo-jungle",
+      "personId": "adabo",
+      "displayName": "Adabo Jungle",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 63,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 70,
+      "midGame": 60,
+      "lateGame": 60,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "shaco",
+          "mastery": 5
+        },
+        {
+          "championId": "graves",
+          "mastery": 2
+        },
+        {
+          "championId": "lee-sin",
+          "mastery": 2
+        },
+        {
+          "championId": "amumu",
+          "mastery": 3
+        },
+        {
+          "championId": "jarvan-iv",
+          "mastery": 1
+        },
+        {
+          "championId": "elise",
+          "mastery": 1
+        },
+        {
+          "championId": "sett",
+          "mastery": 3
+        },
+        {
+          "championId": "monkey-king",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "adabo-mid",
+      "personId": "adabo",
+      "displayName": "Adabo Mid",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 63,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 60,
+      "midGame": 65,
+      "lateGame": 65,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "syndra",
+          "mastery": 4
+        },
+        {
+          "championId": "yasuo",
+          "mastery": 3
+        },
+        {
+          "championId": "yone",
+          "mastery": 3
+        },
+        {
+          "championId": "leblanc",
+          "mastery": 3
+        },
+        {
+          "championId": "fizz",
+          "mastery": 2
+        },
+        {
+          "championId": "orianna",
+          "mastery": 3
+        },
+        {
+          "championId": "ahri",
+          "mastery": 3
+        },
+        {
+          "championId": "veigar",
+          "mastery": 3
+        }
+      ]
+    },
+    {
+      "id": "adabo-adc",
+      "personId": "adabo",
+      "displayName": "Adabo Adc",
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 63,
+        "support": 0
+      },
+      "lanePhase": 60,
+      "midGame": 65,
+      "lateGame": 65,
+      "traits": [],
+      "championPool": [
+        {
+          "championId": "ezreal",
+          "mastery": 3
+        },
+        {
+          "championId": "yasuo",
+          "mastery": 2
+        },
+        {
+          "championId": "caitlyn",
+          "mastery": 2
+        },
+        {
+          "championId": "ashe",
+          "mastery": 3
+        },
+        {
+          "championId": "jinx",
+          "mastery": 2
+        },
+        {
+          "championId": "miss-fortune",
+          "mastery": 3
+        },
+        {
+          "championId": "veigar",
+          "mastery": 2
+        },
+        {
+          "championId": "jhin",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "raidenchups-jg",
+      "personId": "raidenchups",
+      "displayName": "Igão Jungle",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 63,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 60,
+      "midGame": 65,
+      "lateGame": 65,
+      "traits": [
+        "teamfights"
+      ],
+      "championPool": [
+        {
+          "championId": "kindred",
+          "mastery": 4
+        },
+        {
+          "championId": "ekko",
+          "mastery": 3
+        },
+        {
+          "championId": "diana",
+          "mastery": 3
+        },
+        {
+          "championId": "monkey-king",
+          "mastery": 2
+        },
+        {
+          "championId": "graves",
+          "mastery": 2
+        },
+        {
+          "championId": "belveth",
+          "mastery": 2
+        },
+        {
+          "championId": "viego",
+          "mastery": 2
+        },
+        {
+          "championId": "naafiri",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "baguio-top",
+      "personId": "baguio",
+      "displayName": "Baguio Top",
+      "photo": "/players/baguio.jpg",
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 62,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 65,
+      "midGame": 55,
+      "lateGame": 65,
+      "traits": [
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "garen",
+          "mastery": 5
+        },
+        {
+          "championId": "mordekaiser",
+          "mastery": 3
+        },
+        {
+          "championId": "chogath",
+          "mastery": 2
+        },
+        {
+          "championId": "malphite",
+          "mastery": 2
+        },
+        {
+          "championId": "urgot",
+          "mastery": 2
+        },
+        {
+          "championId": "singed",
+          "mastery": 1
+        },
+        {
+          "championId": "sett",
+          "mastery": 2
+        },
+        {
+          "championId": "ornn",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "igor-sup-2018",
+      "personId": "leite",
+      "displayName": "Igor Sup",
+      "year": 2018,
+      "photo": "/players/leite.jpg",
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 62
+      },
+      "lanePhase": 65,
+      "midGame": 60,
+      "lateGame": 60,
+      "traits": [
+        "flips",
+        "lane_bully"
+      ],
+      "championPool": [
+        {
+          "championId": "rakan",
+          "mastery": 4
+        },
+        {
+          "championId": "alistar",
+          "mastery": 2
+        },
+        {
+          "championId": "blitzcrank",
+          "mastery": 1
+        },
+        {
+          "championId": "lux",
+          "mastery": 1
+        },
+        {
+          "championId": "swain",
+          "mastery": 2
+        },
+        {
+          "championId": "veigar",
+          "mastery": 1
+        },
+        {
+          "championId": "leona",
+          "mastery": 2
+        },
+        {
+          "championId": "karma",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "luan50-jungle",
+      "personId": "luan50",
+      "displayName": "Luan Jungle",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 62,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 65,
+      "midGame": 65,
+      "lateGame": 55,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "vi",
+          "mastery": 4
+        },
+        {
+          "championId": "sejuani",
+          "mastery": 3
+        },
+        {
+          "championId": "diana",
+          "mastery": 2
+        },
+        {
+          "championId": "ivern",
+          "mastery": 1
+        },
+        {
+          "championId": "maokai",
+          "mastery": 2
+        },
+        {
+          "championId": "dr-mundo",
+          "mastery": 1
+        },
+        {
+          "championId": "jarvan-iv",
+          "mastery": 1
+        },
+        {
+          "championId": "amumu",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "iago-top",
+      "personId": "iago",
+      "displayName": "Iago Top",
+      "photo": "/players/iago.jpg",
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 60,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 65,
+      "midGame": 60,
+      "lateGame": 55,
+      "traits": [
+        "flips"
+      ],
+      "championPool": [
+        {
+          "championId": "sett",
+          "mastery": 4
+        },
+        {
+          "championId": "mordekaiser",
+          "mastery": 3
+        },
+        {
+          "championId": "yone",
+          "mastery": 3
+        },
+        {
+          "championId": "lissandra",
+          "mastery": 2
+        },
+        {
+          "championId": "pantheon",
+          "mastery": 3
+        },
+        {
+          "championId": "shen",
+          "mastery": 2
+        },
+        {
+          "championId": "malphite",
+          "mastery": 2
+        },
+        {
+          "championId": "maokai",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "oadamo-jungle",
+      "personId": "oadamo",
+      "displayName": "Adamo Jungle",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 58,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 60,
+      "midGame": 55,
+      "lateGame": 60,
+      "traits": [
+        "mental_fort",
+        "dragon_lover"
+      ],
+      "championPool": [
+        {
+          "championId": "amumu",
+          "mastery": 5
+        },
+        {
+          "championId": "master-yi",
+          "mastery": 3
+        },
+        {
+          "championId": "warwick",
+          "mastery": 3
+        },
+        {
+          "championId": "vi",
+          "mastery": 3
+        },
+        {
+          "championId": "mordekaiser",
+          "mastery": 2
+        },
+        {
+          "championId": "trundle",
+          "mastery": 3
+        },
+        {
+          "championId": "nunu",
+          "mastery": 2
+        },
+        {
+          "championId": "diana",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "jogi-mid",
+      "personId": "jogi",
+      "displayName": "Jogi Mid",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 58,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 60,
+      "midGame": 60,
+      "lateGame": 55,
+      "traits": [
+        "flips",
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "zed",
+          "mastery": 4
+        },
+        {
+          "championId": "yasuo",
+          "mastery": 5
+        },
+        {
+          "championId": "sett",
+          "mastery": 4
+        },
+        {
+          "championId": "yone",
+          "mastery": 3
+        },
+        {
+          "championId": "ahri",
+          "mastery": 3
+        },
+        {
+          "championId": "annie",
+          "mastery": 2
+        },
+        {
+          "championId": "orianna",
+          "mastery": 1
+        },
+        {
+          "championId": "syndra",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "luan50-adc",
+      "personId": "luan50",
+      "displayName": "Luan Adc",
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 57,
+        "support": 0
+      },
+      "lanePhase": 50,
+      "midGame": 60,
+      "lateGame": 60,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "jhin",
+          "mastery": 3
+        },
+        {
+          "championId": "ashe",
+          "mastery": 3
+        },
+        {
+          "championId": "varus",
+          "mastery": 2
+        },
+        {
+          "championId": "senna",
+          "mastery": 1
+        },
+        {
+          "championId": "smolder",
+          "mastery": 1
+        },
+        {
+          "championId": "tristana",
+          "mastery": 1
+        },
+        {
+          "championId": "caitlyn",
+          "mastery": 1
+        },
+        {
+          "championId": "jinx",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "xina",
+      "personId": "xina",
+      "displayName": "Xina Adc",
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 57,
+        "support": 0
+      },
+      "lanePhase": 60,
+      "midGame": 55,
+      "lateGame": 55,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "jhin",
+          "mastery": 4
+        },
+        {
+          "championId": "ashe",
+          "mastery": 3
+        },
+        {
+          "championId": "smolder",
+          "mastery": 3
+        },
+        {
+          "championId": "caitlyn",
+          "mastery": 2
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 1
+        },
+        {
+          "championId": "kaisa",
+          "mastery": 1
+        },
+        {
+          "championId": "xayah",
+          "mastery": 1
+        },
+        {
+          "championId": "corki",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "luisinho",
+      "personId": "luisinho",
+      "displayName": "Luisinho Jungle",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 57,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 60,
+      "midGame": 55,
+      "lateGame": 55,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "jarvan-iv",
+          "mastery": 4
+        },
+        {
+          "championId": "elise",
+          "mastery": 3
+        },
+        {
+          "championId": "vi",
+          "mastery": 3
+        },
+        {
+          "championId": "amumu",
+          "mastery": 2
+        },
+        {
+          "championId": "lee-sin",
+          "mastery": 1
+        },
+        {
+          "championId": "sejuani",
+          "mastery": 2
+        },
+        {
+          "championId": "master-yi",
+          "mastery": 1
+        },
+        {
+          "championId": "xin-zhao",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "murilo-mid",
+      "personId": "titcher",
+      "displayName": "Titcher Mid",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 55,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 65,
+      "midGame": 50,
+      "lateGame": 50,
+      "traits": [],
+      "championPool": [
+        {
+          "championId": "malzahar",
+          "mastery": 5
+        },
+        {
+          "championId": "malphite",
+          "mastery": 1
+        },
+        {
+          "championId": "velkoz",
+          "mastery": 1
+        },
+        {
+          "championId": "lissandra",
+          "mastery": 1
+        },
+        {
+          "championId": "lux",
+          "mastery": 1
+        },
+        {
+          "championId": "morgana",
+          "mastery": 1
+        },
+        {
+          "championId": "garen",
+          "mastery": 1
+        },
+        {
+          "championId": "anivia",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "junao-sup",
+      "personId": "junao",
+      "displayName": "Junão Sup",
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 55
+      },
+      "lanePhase": 60,
+      "midGame": 50,
+      "lateGame": 55,
+      "traits": [
+        "mental_fort",
+        "flips"
+      ],
+      "championPool": [
+        {
+          "championId": "leona",
+          "mastery": 5
+        },
+        {
+          "championId": "braum",
+          "mastery": 1
+        },
+        {
+          "championId": "ashe",
+          "mastery": 1
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 1
+        },
+        {
+          "championId": "morgana",
+          "mastery": 3
+        },
+        {
+          "championId": "karma",
+          "mastery": 2
+        },
+        {
+          "championId": "yuumi",
+          "mastery": 2
+        },
+        {
+          "championId": "lulu",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "junao-mid",
+      "personId": "junao",
+      "displayName": "Junão Mid",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 53,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 55,
+      "midGame": 50,
+      "lateGame": 55,
+      "traits": [
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "lux",
+          "mastery": 3
+        },
+        {
+          "championId": "xerath",
+          "mastery": 3
+        },
+        {
+          "championId": "morgana",
+          "mastery": 2
+        },
+        {
+          "championId": "mel",
+          "mastery": 2
+        },
+        {
+          "championId": "veigar",
+          "mastery": 1
+        },
+        {
+          "championId": "karma",
+          "mastery": 1
+        },
+        {
+          "championId": "seraphine",
+          "mastery": 1
+        },
+        {
+          "championId": "annie",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "murilo-sup",
+      "personId": "titcher",
+      "displayName": "Titcher Sup",
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 53
+      },
+      "lanePhase": 60,
+      "midGame": 50,
+      "lateGame": 50,
+      "traits": [],
+      "championPool": [
+        {
+          "championId": "leona",
+          "mastery": 5
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 3
+        },
+        {
+          "championId": "lulu",
+          "mastery": 2
+        },
+        {
+          "championId": "braum",
+          "mastery": 1
+        },
+        {
+          "championId": "thresh",
+          "mastery": 1
+        },
+        {
+          "championId": "tahm-kench",
+          "mastery": 1
+        },
+        {
+          "championId": "shen",
+          "mastery": 2
+        },
+        {
+          "championId": "sona",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "baguio-jungle",
+      "personId": "baguio",
+      "displayName": "Baguio Jungle",
+      "photo": "/players/baguio.jpg",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 52,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 45,
+      "midGame": 55,
+      "lateGame": 55,
+      "traits": [
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "sejuani",
+          "mastery": 3
+        },
+        {
+          "championId": "zac",
+          "mastery": 3
+        },
+        {
+          "championId": "warwick",
+          "mastery": 2
+        },
+        {
+          "championId": "volibear",
+          "mastery": 2
+        },
+        {
+          "championId": "belveth",
+          "mastery": 1
+        },
+        {
+          "championId": "trundle",
+          "mastery": 1
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 1
+        },
+        {
+          "championId": "amumu",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "pepe-mid",
+      "personId": "pepe",
+      "displayName": "Pepe Mid",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 52,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 60,
+      "midGame": 40,
+      "lateGame": 55,
+      "traits": [],
+      "championPool": [
+        {
+          "championId": "diana",
+          "mastery": 5
+        },
+        {
+          "championId": "vex",
+          "mastery": 2
+        },
+        {
+          "championId": "ekko",
+          "mastery": 2
+        },
+        {
+          "championId": "syndra",
+          "mastery": 1
+        },
+        {
+          "championId": "vladimir",
+          "mastery": 1
+        },
+        {
+          "championId": "kassadin",
+          "mastery": 1
+        },
+        {
+          "championId": "garen",
+          "mastery": 2
+        },
+        {
+          "championId": "sett",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "guiba",
+      "personId": "guiba",
+      "displayName": "Guiba Jungle",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 52,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 55,
+      "midGame": 50,
+      "lateGame": 50,
+      "traits": [],
+      "championPool": [
+        {
+          "championId": "vi",
+          "mastery": 4
+        },
+        {
+          "championId": "elise",
+          "mastery": 2
+        },
+        {
+          "championId": "lee-sin",
+          "mastery": 2
+        },
+        {
+          "championId": "jarvan-iv",
+          "mastery": 2
+        },
+        {
+          "championId": "olaf",
+          "mastery": 1
+        },
+        {
+          "championId": "karthus",
+          "mastery": 1
+        },
+        {
+          "championId": "evelynn",
+          "mastery": 3
+        },
+        {
+          "championId": "sejuani",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "baguio-mid",
+      "personId": "baguio",
+      "displayName": "Baguio Mid",
+      "photo": "/players/baguio.jpg",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 50,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 50,
+      "midGame": 50,
+      "lateGame": 50,
+      "traits": [
+        "mental_fort",
+        "flips"
+      ],
+      "championPool": [
+        {
+          "championId": "veigar",
+          "mastery": 3
+        },
+        {
+          "championId": "garen",
+          "mastery": 3
+        },
+        {
+          "championId": "lissandra",
+          "mastery": 3
+        },
+        {
+          "championId": "malzahar",
+          "mastery": 2
+        },
+        {
+          "championId": "fizz",
+          "mastery": 2
+        },
+        {
+          "championId": "zed",
+          "mastery": 1
+        },
+        {
+          "championId": "galio",
+          "mastery": 1
+        },
+        {
+          "championId": "talon",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "guga-adc",
+      "personId": "guga",
+      "displayName": "Guga Adc",
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 50,
+        "support": 0
+      },
+      "lanePhase": 50,
+      "midGame": 50,
+      "lateGame": 50,
+      "traits": [],
+      "championPool": [
+        {
+          "championId": "caitlyn",
+          "mastery": 4
+        },
+        {
+          "championId": "jinx",
+          "mastery": 3
+        },
+        {
+          "championId": "ashe",
+          "mastery": 2
+        },
+        {
+          "championId": "senna",
+          "mastery": 2
+        },
+        {
+          "championId": "ziggs",
+          "mastery": 1
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 1
+        },
+        {
+          "championId": "corki",
+          "mastery": 1
+        },
+        {
+          "championId": "veigar",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "raguto-mid",
+      "personId": "raguto",
+      "displayName": "Raguto Mid",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 47,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 50,
+      "midGame": 50,
+      "lateGame": 40,
+      "traits": [
+        "tilts_on_death",
+        "trash_talker"
+      ],
+      "championPool": [
+        {
+          "championId": "zed",
+          "mastery": 5
+        },
+        {
+          "championId": "vladimir",
+          "mastery": 2
+        },
+        {
+          "championId": "viktor",
+          "mastery": 3
+        },
+        {
+          "championId": "ekko",
+          "mastery": 3
+        },
+        {
+          "championId": "ryze",
+          "mastery": 3
+        },
+        {
+          "championId": "riven",
+          "mastery": 3
+        },
+        {
+          "championId": "yasuo",
+          "mastery": 1
+        },
+        {
+          "championId": "katarina",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "valdir-top",
+      "personId": "valdir",
+      "displayName": "Valdir Top",
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 47,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 50,
+      "midGame": 45,
+      "lateGame": 45,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "gragas",
+          "mastery": 5
+        },
+        {
+          "championId": "trundle",
+          "mastery": 4
+        },
+        {
+          "championId": "garen",
+          "mastery": 3
+        },
+        {
+          "championId": "malphite",
+          "mastery": 2
+        },
+        {
+          "championId": "gnar",
+          "mastery": 1
+        },
+        {
+          "championId": "volibear",
+          "mastery": 2
+        },
+        {
+          "championId": "yorick",
+          "mastery": 1
+        },
+        {
+          "championId": "sett",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "oadamo-top",
+      "personId": "oadamo",
+      "displayName": "Adamo Top",
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 47,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 50,
+      "midGame": 45,
+      "lateGame": 45,
+      "traits": [
+        "flips"
+      ],
+      "championPool": [
+        {
+          "championId": "trundle",
+          "mastery": 4
+        },
+        {
+          "championId": "teemo",
+          "mastery": 3
+        },
+        {
+          "championId": "mordekaiser",
+          "mastery": 2
+        },
+        {
+          "championId": "volibear",
+          "mastery": 2
+        },
+        {
+          "championId": "jax",
+          "mastery": 1
+        },
+        {
+          "championId": "gragas",
+          "mastery": 1
+        },
+        {
+          "championId": "malphite",
+          "mastery": 1
+        },
+        {
+          "championId": "dr-mundo",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "guga-mid",
+      "personId": "guga",
+      "displayName": "Guga Mid",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 47,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 50,
+      "midGame": 45,
+      "lateGame": 45,
+      "traits": [],
+      "championPool": [
+        {
+          "championId": "zoe",
+          "mastery": 5
+        },
+        {
+          "championId": "lux",
+          "mastery": 2
+        },
+        {
+          "championId": "veigar",
+          "mastery": 3
+        },
+        {
+          "championId": "anivia",
+          "mastery": 2
+        },
+        {
+          "championId": "morgana",
+          "mastery": 1
+        },
+        {
+          "championId": "ziggs",
+          "mastery": 1
+        },
+        {
+          "championId": "ahri",
+          "mastery": 1
+        },
+        {
+          "championId": "ekko",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "raguto-top",
+      "personId": "raguto",
+      "displayName": "Raguto Top",
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 43,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 45,
+      "midGame": 45,
+      "lateGame": 40,
+      "traits": [
+        "tilts_on_death",
+        "trash_talker"
+      ],
+      "championPool": [
+        {
+          "championId": "riven",
+          "mastery": 4
+        },
+        {
+          "championId": "gangplank",
+          "mastery": 1
+        },
+        {
+          "championId": "gnar",
+          "mastery": 1
+        },
+        {
+          "championId": "yasuo",
+          "mastery": 1
+        },
+        {
+          "championId": "zed",
+          "mastery": 1
+        },
+        {
+          "championId": "darius",
+          "mastery": 2
+        },
+        {
+          "championId": "irelia",
+          "mastery": 2
+        },
+        {
+          "championId": "renekton",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "baguio-adc",
+      "personId": "baguio",
+      "displayName": "Baguio Adc",
+      "photo": "/players/baguio.jpg",
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 43,
+        "support": 0
+      },
+      "lanePhase": 50,
+      "midGame": 40,
+      "lateGame": 40,
+      "traits": [
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "ashe",
+          "mastery": 3
+        },
+        {
+          "championId": "sivir",
+          "mastery": 3
+        },
+        {
+          "championId": "tristana",
+          "mastery": 2
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 2
+        },
+        {
+          "championId": "miss-fortune",
+          "mastery": 1
+        },
+        {
+          "championId": "veigar",
+          "mastery": 2
+        },
+        {
+          "championId": "jhin",
+          "mastery": 1
+        },
+        {
+          "championId": "swain",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "raguto-adc",
+      "personId": "raguto",
+      "displayName": "Raguto Adc",
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 40,
+        "support": 0
+      },
+      "lanePhase": 40,
+      "midGame": 40,
+      "lateGame": 40,
+      "traits": [
+        "tilts_on_death",
+        "trash_talker"
+      ],
+      "championPool": [
+        {
+          "championId": "caitlyn",
+          "mastery": 5
+        },
+        {
+          "championId": "jinx",
+          "mastery": 1
+        },
+        {
+          "championId": "miss-fortune",
+          "mastery": 4
+        },
+        {
+          "championId": "smolder",
+          "mastery": 3
+        },
+        {
+          "championId": "xayah",
+          "mastery": 3
+        },
+        {
+          "championId": "jhin",
+          "mastery": 2
+        },
+        {
+          "championId": "lucian",
+          "mastery": 2
+        },
+        {
+          "championId": "kalista",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "jose-jungle",
+      "personId": "jose",
+      "displayName": "Jose Jungle",
+      "roles": [
+        "jungle"
+      ],
+      "primaryRole": "jungle",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 40,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 40,
+      "midGame": 40,
+      "lateGame": 40,
+      "traits": [
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "jax",
+          "mastery": 4
+        },
+        {
+          "championId": "sejuani",
+          "mastery": 2
+        },
+        {
+          "championId": "kayn",
+          "mastery": 2
+        },
+        {
+          "championId": "diana",
+          "mastery": 1
+        },
+        {
+          "championId": "master-yi",
+          "mastery": 2
+        },
+        {
+          "championId": "dr-mundo",
+          "mastery": 2
+        },
+        {
+          "championId": "amumu",
+          "mastery": 2
+        },
+        {
+          "championId": "warwick",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "rosinha-mid",
+      "personId": "rosinha",
+      "displayName": "Rosinha Mid",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 37,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 40,
+      "midGame": 35,
+      "lateGame": 35,
+      "traits": [],
+      "championPool": [
+        {
+          "championId": "fizz",
+          "mastery": 4
+        },
+        {
+          "championId": "veigar",
+          "mastery": 2
+        },
+        {
+          "championId": "yone",
+          "mastery": 1
+        },
+        {
+          "championId": "mordekaiser",
+          "mastery": 1
+        },
+        {
+          "championId": "teemo",
+          "mastery": 1
+        },
+        {
+          "championId": "annie",
+          "mastery": 1
+        },
+        {
+          "championId": "lux",
+          "mastery": 1
+        },
+        {
+          "championId": "darius",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "dias",
+      "personId": "dias",
+      "displayName": "Dias Sup",
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 30
+      },
+      "lanePhase": 30,
+      "midGame": 30,
+      "lateGame": 30,
+      "traits": [],
+      "championPool": [
+        {
+          "championId": "braum",
+          "mastery": 5
+        },
+        {
+          "championId": "blitzcrank",
+          "mastery": 2
+        },
+        {
+          "championId": "morgana",
+          "mastery": 1
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 1
+        },
+        {
+          "championId": "lux",
+          "mastery": 3
+        },
+        {
+          "championId": "taric",
+          "mastery": 1
+        },
+        {
+          "championId": "yuumi",
+          "mastery": 1
+        },
+        {
+          "championId": "velkoz",
+          "mastery": 3
+        }
+      ]
+    },
+    {
+      "id": "delqueen",
+      "personId": "delqueen",
+      "displayName": "Delqueen Mid",
+      "roles": [
+        "mid"
+      ],
+      "primaryRole": "mid",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 10,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 10,
+      "midGame": 10,
+      "lateGame": 10,
+      "traits": [
+        "tilts_on_death",
+        "quits"
+      ],
+      "championPool": [
+        {
+          "championId": "ahri",
+          "mastery": 3
+        },
+        {
+          "championId": "lux",
+          "mastery": 1
+        },
+        {
+          "championId": "syndra",
+          "mastery": 1
+        },
+        {
+          "championId": "morgana",
+          "mastery": 1
+        },
+        {
+          "championId": "leblanc",
+          "mastery": 1
+        },
+        {
+          "championId": "zoe",
+          "mastery": 1
+        },
+        {
+          "championId": "anivia",
+          "mastery": 1
+        },
+        {
+          "championId": "annie",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "jose-top",
+      "personId": "jose",
+      "displayName": "Jose Top",
+      "roles": [
+        "top"
+      ],
+      "primaryRole": "top",
+      "roleStrength": {
+        "top": 38,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 0
+      },
+      "lanePhase": 35,
+      "midGame": 40,
+      "lateGame": 40,
+      "traits": [
+        "mental_fort"
+      ],
+      "championPool": [
+        {
+          "championId": "jax",
+          "mastery": 4
+        },
+        {
+          "championId": "malphite",
+          "mastery": 2
+        },
+        {
+          "championId": "veigar",
+          "mastery": 2
+        },
+        {
+          "championId": "kennen",
+          "mastery": 2
+        },
+        {
+          "championId": "tryndamere",
+          "mastery": 1
+        },
+        {
+          "championId": "teemo",
+          "mastery": 1
+        },
+        {
+          "championId": "dr-mundo",
+          "mastery": 1
+        },
+        {
+          "championId": "ornn",
+          "mastery": 1
+        }
+      ]
+    },
+    {
+      "id": "paulino",
+      "personId": "paulino",
+      "displayName": "Paulino Sup",
+      "roles": [
+        "support"
+      ],
+      "primaryRole": "support",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 0,
+        "support": 68
+      },
+      "lanePhase": 70,
+      "midGame": 65,
+      "lateGame": 70,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "thresh",
+          "mastery": 4
+        },
+        {
+          "championId": "poppy",
+          "mastery": 3
+        },
+        {
+          "championId": "nautilus",
+          "mastery": 3
+        },
+        {
+          "championId": "alistar",
+          "mastery": 3
+        },
+        {
+          "championId": "lulu",
+          "mastery": 2
+        },
+        {
+          "championId": "braum",
+          "mastery": 2
+        },
+        {
+          "championId": "bard",
+          "mastery": 2
+        },
+        {
+          "championId": "rakan",
+          "mastery": 2
+        }
+      ]
+    },
+    {
+      "id": "valdir-adc",
+      "personId": "valdir",
+      "displayName": "Valdir Adc",
+      "roles": [
+        "adc"
+      ],
+      "primaryRole": "adc",
+      "roleStrength": {
+        "top": 0,
+        "jungle": 0,
+        "mid": 0,
+        "adc": 40,
+        "support": 0
+      },
+      "lanePhase": 40,
+      "midGame": 40,
+      "lateGame": 40,
+      "traits": [
+        "tilts_on_death"
+      ],
+      "championPool": [
+        {
+          "championId": "twitch",
+          "mastery": 3
+        },
+        {
+          "championId": "yunara",
+          "mastery": 1
+        },
+        {
+          "championId": "miss-fortune",
+          "mastery": 2
+        },
+        {
+          "championId": "ezreal",
+          "mastery": 1
+        },
+        {
+          "championId": "veigar",
+          "mastery": 1
+        },
+        {
+          "championId": "ashe",
+          "mastery": 1
+        },
+        {
+          "championId": "sivir",
+          "mastery": 1
+        },
+        {
+          "championId": "caitlyn",
+          "mastery": 1
+        }
+      ]
+    }
+  ]
+}

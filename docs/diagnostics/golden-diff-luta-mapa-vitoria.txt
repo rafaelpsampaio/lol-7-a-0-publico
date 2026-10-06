@@ -1,0 +1,74 @@
+Diff do golden: linha luta-mapa-vitoria (Task 9), motor final contra o merge base 1e55c7b
+Spec: docs/superpowers/specs/2026-10-02-luta-mapa-vitoria-design.md (secao "Testes": golden regenerado no fim, com o diff documentado).
+
+Comandos:
+  npm run update-golden
+  npx vitest run src/sim/structures.test.ts -u
+  npm run -s diff-golden > docs/diagnostics/golden-diff-luta-mapa-vitoria.txt
+O modo sem argumentos do diff-golden compara o snapshot commitado (git show HEAD) com a arvore
+de trabalho. O snapshot commitado antes desta regeneracao e o mesmo blob do merge base 1e55c7b
+(git diff 1e55c7b HEAD -- src/__tests__/golden/__snapshots__/golden.test.ts.snap vazio), entao o
+lado antigo abaixo e o golden de 1e55c7b. Os nomes de snapshot vem dos titulos dos testes.
+
+Diff estruturado de golden (INST-07): 15 snapshot(s) comum(uns) comparado(s) (15 no lado antigo, 15 no lado novo).
+
+1) Vencedores mudados: 4
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 1 1: user -> rival
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 123 1: rival -> user
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 42 1: rival -> user
+   - golden-seed — close (65 vs 57) > digest matches snapshot — seed 42 1: rival -> user
+
+2) Tipos de evento acrescentados ou removidos: 15 snapshot(s) afetado(s)
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 1 1: acrescentados [elder_taken]
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 1 1: removidos [dragon_steal]
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 123 1: acrescentados [triple_kill, elder_taken]
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 42 1: acrescentados [triple_kill, quadra_kill]
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 777 1: acrescentados [baron_taken]
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 777 1: removidos [quadra_kill, baron_steal]
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 999 1: acrescentados [baron_taken]
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 999 1: removidos [kill, triple_kill, baron_steal]
+   - golden-seed — close (65 vs 57) > digest matches snapshot — seed 1 1: acrescentados [triple_kill]
+   - golden-seed — close (65 vs 57) > digest matches snapshot — seed 123 1: acrescentados [jungler_attention_shift, triple_kill, ace, quadra_kill, elder_taken]
+   - golden-seed — close (65 vs 57) > digest matches snapshot — seed 42 1: removidos [dragon_steal, elder_taken]
+   - golden-seed — close (65 vs 57) > digest matches snapshot — seed 777 1: acrescentados [lane_priority_shift]
+   - golden-seed — close (65 vs 57) > digest matches snapshot — seed 999 1: acrescentados [triple_kill, ace]
+   - golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 1 1: acrescentados [triple_kill, ace]
+   - golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 123 1: acrescentados [gank, triple_kill, ace, quadra_kill]
+   - golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 42 1: acrescentados [triple_kill, ace]
+   - golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 42 1: removidos [shutdown]
+   - golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 777 1: acrescentados [ace]
+   - golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 777 1: removidos [dragon_steal]
+   - golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 999 1: acrescentados [quadra_kill, ace, baron_taken, triple_kill]
+   - golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 999 1: removidos [dragon_steal, baron_steal]
+
+3) Delta de duracao aproximado (proxy = timeSec do ultimo evento): 15 snapshot(s) afetado(s)
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 1 1: +675s
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 123 1: +225s
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 42 1: +450s
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 777 1: -90s
+   - golden-seed — balanced (70 vs 68) > digest matches snapshot — seed 999 1: +120s
+   - golden-seed — close (65 vs 57) > digest matches snapshot — seed 1 1: +330s
+   - golden-seed — close (65 vs 57) > digest matches snapshot — seed 123 1: +450s
+   - golden-seed — close (65 vs 57) > digest matches snapshot — seed 42 1: -1260s
+   - golden-seed — close (65 vs 57) > digest matches snapshot — seed 777 1: +15s
+   - golden-seed — close (65 vs 57) > digest matches snapshot — seed 999 1: +405s
+   - golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 1 1: +405s
+   - golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 123 1: +405s
+   - golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 42 1: +210s
+   - golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 777 1: +30s
+   - golden-seed — stomp (84 vs 58) > digest matches snapshot — seed 999 1: +15s
+
+4) Violacoes de ordem detectadas: 0 snapshot(s) afetado(s)
+   nenhuma
+
+5) Blocos presentes so num dos lados (mudanca de estrutura, nao de valor): 0
+   nenhum
+
+Limitacao conhecida: o digest do golden nao guarda a lane (D-11, src/__tests__/golden/fixtures.ts). Violacao de ordem por tier de torre (externa > interna > inibidor > nexus) dentro de uma mesma lane nao e checavel a partir deste snapshot. Estender o digest para incluir lane mudaria a estrutura do golden, o que so e permitido no passe deliberado unico da Fase 30. Este relatorio cobre apenas o que e derivavel do digest atual.
+
+Apendice: snapshot de assinatura de timeline (src/sim/__snapshots__/structures.test.ts.snap),
+que o diff-golden nao cobre (scripts/README.md secao 4.1). Lado antigo = blob de 1e55c7b, que ja
+estava vermelho no merge base (assinatura gravada numa fase anterior, ver structures.test.ts).
+Contagem de abates = eventos kill, shutdown, gank e first_blood (multikills e ACE contam a parte).
+   - STOMP 85v55 seed 0: eventos 61 -> 59; ultimo evento 1305s -> 1575s; abates 13 -> 3; torres destruidas (incluindo a 1a) 10 -> 9; prefixo identico de 9 eventos (primeiro divergente: s0:555:voidgrubs_taken:u-jungle -> s0:540:lane_advantage_building:u-mid)
+   - STOMP 85v55 seed 5: eventos 65 -> 69; ultimo evento 1305s -> 1455s; abates 14 -> 10; torres destruidas (incluindo a 1a) 9 -> 8; prefixo identico de 1 eventos (primeiro divergente: s5:180:kill:u-mid -> s5:180:lane_advantage_building:u-top)

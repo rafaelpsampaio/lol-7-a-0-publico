@@ -1,0 +1,134 @@
+=== cenario app (N=1500) ===
+violacoes de regra dura: 0
+OK   [trava] duracao media (min): 34.532  banda [29.000; 36.000] alvo 32.300
+OK   [trava] fracao no teto de 60 min: 0.000  banda [0.000; 0.005] alvo 0.000
+OK   [aceite] lider de abates aos 20 vence: 0.751  banda [0.700; 0.820] alvo 0.764
+OK   [aceite] lider de ouro aos 15 vence: 0.728  banda [0.660; 0.780] alvo 0.716
+OK   [aceite] lider de ouro aos 20 vence: 0.754  banda [0.720; 0.840] alvo 0.782
+OK   [aceite] lider de ouro aos 25 vence: 0.810  banda [0.770; 0.890] alvo 0.830
+OK   [aceite] abates vencedor / perdedor: 2.320  banda [1.800; 2.600] alvo 2.150
+OK   [aceite] vencedor com mais abates: 0.910  banda [0.850; 1.000] alvo 0.900
+OK   [aceite] vencedor atras no ouro: 0.041  banda [0.000; 0.050] alvo 0.020
+OK   [aceite] ouro vencedor menos perdedor: 9707  banda [7000; 13000] alvo 10000
+OK   [aceite] GPM por time: 1802  banda [1650; 2050] alvo 1833
+OK   [aceite] GPM vencedor / perdedor: 1.179  banda [1.120; 1.260] alvo 1.190
+OK   [aceite] time do 1o Barao vence: 0.827  banda [0.780; 0.900] alvo 0.854
+OK   [aceite] time da Alma vence: 0.857  banda [0.840; 0.950] alvo 0.908
+OK   [aceite] time da 1a torre vence: 0.716  banda [0.620; 0.750] alvo 0.682
+OK   [aceite] roubos / objetivos tomados: 0.026  banda [0.000; 0.030] alvo 0.020
+OK   [aceite] favorito com gap >= 5 vence: 0.831  banda [0.750; 0.850] alvo 0.800
+OK   [aceite] favorito com gap < 1 vence: 0.476  banda [0.450; 0.550] alvo 0.500
+OK   [aceite] mediana do first blood (s): 330  banda [240; 390] alvo 294
+OK   [aceite] p10 do first blood (s): 210  banda [150; 240] alvo 193
+OK   [aceite] first blood antes de 1:30: 0.000  banda [0.000; 0.020] alvo 0.000
+OK   [aceite] partidas sem abate ate 10:00: 0.081  banda [0.050; 0.180] alvo 0.110
+OK   [aceite] abates aos 10: 3.854  banda [2.200; 4.500] alvo 3.200
+OK   [aceite] abates aos 15: 7.454  banda [5.000; 8.500] alvo 6.500
+OK   [aceite] abates por partida: 30.661  banda [23.000; 32.000] alvo 27.000
+OK   [aceite] abates aos 20: 11.339  banda [8.500; 13.000] alvo 10.700
+OK   [aceite] abates por minuto entre 20 e 25: 1.145  banda [0.850; 1.450] alvo 1.130
+OK   [aceite] mediana do 1o dragao (s): 465  banda [465; 630] alvo 550
+OK   [aceite] 1o dragao antes de 6:00: 0.005  banda [0.000; 0.030] alvo 0.000
+OK   [aceite] dragoes por partida: 3.957  banda [3.800; 5.200] alvo 4.450
+OK   [aceite] partidas com Alma: 0.302  banda [0.300; 0.520] alvo 0.420
+OK   [aceite] partidas com Elder: 0.045  banda [0.040; 0.140] alvo 0.080
+OK   [aceite] baroes por partida: 1.372  banda [1.100; 1.700] alvo 1.450
+OK   [aceite] partidas com Barao: 0.967  banda [0.800; 0.980] alvo 0.960
+OK   [aceite] 1o Barao ate 21:00 (partidas com Barao): 0.022  banda [0.000; 0.150] alvo 0.050
+OK   [aceite] mediana da 1a torre (s): 870  banda [870; 1110] alvo 994
+OK   [aceite] p10 da 1a torre (s): 750  banda [720; 1200] alvo 795
+OK   [aceite] torres aos 15: 0.801  banda [0.400; 1.400] alvo 0.850
+OK   [aceite] torres aos 20: 2.742  banda [2.500; 5.000] alvo 3.720
+OK   [aceite] torres por partida: 11.665  banda [10.000; 14.000] alvo 11.900
+--- acompanhadas sem gate ---
+     abates por minuto: 0.888  (real 0,84)
+     lider de torres aos 20 vence: 0.772  (real sem fonte)
+     ouro por time aos 10: 15910  (real 15900)
+     ouro por time aos 15: 24170  (real 24700)
+     ouro por time aos 20: 32828  (real 34200)
+     eventos de placa por partida: 16.371  (real 8,2 na regra antiga)
+     partidas com larvas tomadas: 0.841  (real sem fonte)
+     partidas com Arauto tomado: 0.599  (real sem fonte)
+     mediana do 1o Barao (s): 1545  (real sem fonte firme)
+     abates por ADC por partida: 4.374  (real 4,6)
+     abates por mid por partida: 3.960  (real 3,5)
+     abates por jungler por partida: 3.424  (real 3,1)
+     eventos de shutdown por partida: 3.941  (real sem fonte)
+     p10 de abates por partida: 22.000  (real 16)
+     p90 de abates por partida: 40.000  (real 38)
+     p10 da duracao (min): 28.000  (real 26,5)
+     p90 da duracao (min): 41.750  (real 39,5)
+     partidas abaixo de 25 min: 0.018  (real 0,06)
+     tempo ate o 1o aviso de preparo do dragao (s): 75.000  (real sem fonte)
+     tempo ate o 1o aviso de preparo do Barao (s): 150  (real sem fonte)
+     mediana do 1o dragao, jogo parelho (s): 480  (real ~550 (spec: ~9:00))
+     mediana do 1o dragao, quem domina bot+mid (s): 435  (real ~420 (spec: ~7:00))
+
+=== cenario even75 (N=1500) ===
+violacoes de regra dura: 0
+OK   [trava] duracao media (min): 34.452  banda [29.000; 36.000] alvo 32.300
+OK   [trava] fracao no teto de 60 min: 0.000  banda [0.000; 0.005] alvo 0.000
+OK   [aceite] lider de abates aos 20 vence: 0.789  banda [0.700; 0.820] alvo 0.764
+OK   [aceite] lider de ouro aos 15 vence: 0.732  banda [0.660; 0.780] alvo 0.716
+OK   [aceite] lider de ouro aos 20 vence: 0.767  banda [0.720; 0.840] alvo 0.782
+OK   [aceite] lider de ouro aos 25 vence: 0.831  banda [0.770; 0.890] alvo 0.830
+FORA [aceite] abates vencedor / perdedor: 2.828  banda [1.800; 2.600] alvo 2.150
+OK   [aceite] vencedor com mais abates: 0.953  banda [0.850; 1.000] alvo 0.900
+OK   [aceite] vencedor atras no ouro: 0.027  banda [0.000; 0.050] alvo 0.020
+OK   [aceite] ouro vencedor menos perdedor: 10347  banda [7000; 13000] alvo 10000
+OK   [aceite] GPM por time: 1679  banda [1650; 2050] alvo 1833
+OK   [aceite] GPM vencedor / perdedor: 1.204  banda [1.120; 1.260] alvo 1.190
+OK   [aceite] time do 1o Barao vence: 0.854  banda [0.780; 0.900] alvo 0.854
+OK   [aceite] time da Alma vence: 0.941  banda [0.840; 0.950] alvo 0.908
+OK   [aceite] time da 1a torre vence: 0.739  banda [0.620; 0.750] alvo 0.682
+OK   [aceite] roubos / objetivos tomados: 0.017  banda [0.000; 0.030] alvo 0.020
+FORA [aceite] favorito com gap >= 5 vence: n/a  banda [0.750; 0.850] alvo 0.800
+FORA [aceite] favorito com gap < 1 vence: n/a  banda [0.450; 0.550] alvo 0.500
+FORA [aceite] mediana do first blood (s): 465  banda [240; 390] alvo 294
+FORA [aceite] p10 do first blood (s): 285  banda [150; 240] alvo 193
+OK   [aceite] first blood antes de 1:30: 0.000  banda [0.000; 0.020] alvo 0.000
+OK   [aceite] partidas sem abate ate 10:00: 0.134  banda [0.050; 0.180] alvo 0.110
+OK   [aceite] abates aos 10: 2.716  banda [2.200; 4.500] alvo 3.200
+OK   [aceite] abates aos 15: 5.795  banda [5.000; 8.500] alvo 6.500
+OK   [aceite] abates por partida: 27.423  banda [23.000; 32.000] alvo 27.000
+OK   [aceite] abates aos 20: 9.124  banda [8.500; 13.000] alvo 10.700
+OK   [aceite] abates por minuto entre 20 e 25: 1.037  banda [0.850; 1.450] alvo 1.130
+OK   [aceite] mediana do 1o dragao (s): 465  banda [465; 630] alvo 550
+OK   [aceite] 1o dragao antes de 6:00: 0.000  banda [0.000; 0.030] alvo 0.000
+OK   [aceite] dragoes por partida: 3.853  banda [3.800; 5.200] alvo 4.450
+FORA [aceite] partidas com Alma: 0.237  banda [0.300; 0.520] alvo 0.420
+FORA [aceite] partidas com Elder: 0.021  banda [0.040; 0.140] alvo 0.080
+OK   [aceite] baroes por partida: 1.461  banda [1.100; 1.700] alvo 1.450
+FORA [aceite] partidas com Barao: 0.989  banda [0.800; 0.980] alvo 0.960
+OK   [aceite] 1o Barao ate 21:00 (partidas com Barao): 0.005  banda [0.000; 0.150] alvo 0.050
+OK   [aceite] mediana da 1a torre (s): 915  banda [870; 1110] alvo 994
+OK   [aceite] p10 da 1a torre (s): 795  banda [720; 1200] alvo 795
+OK   [aceite] torres aos 15: 0.540  banda [0.400; 1.400] alvo 0.850
+FORA [aceite] torres aos 20: 2.109  banda [2.500; 5.000] alvo 3.720
+OK   [aceite] torres por partida: 10.569  banda [10.000; 14.000] alvo 11.900
+--- acompanhadas sem gate ---
+     abates por minuto: 0.796  (real 0,84)
+     lider de torres aos 20 vence: 0.783  (real sem fonte)
+     ouro por time aos 10: 14414  (real 15900)
+     ouro por time aos 15: 22348  (real 24700)
+     ouro por time aos 20: 30258  (real 34200)
+     eventos de placa por partida: 12.717  (real 8,2 na regra antiga)
+     partidas com larvas tomadas: 0.771  (real sem fonte)
+     partidas com Arauto tomado: 0.499  (real sem fonte)
+     mediana do 1o Barao (s): 1530  (real sem fonte firme)
+     abates por ADC por partida: 3.898  (real 4,6)
+     abates por mid por partida: 3.611  (real 3,5)
+     abates por jungler por partida: 2.878  (real 3,1)
+     eventos de shutdown por partida: 3.106  (real sem fonte)
+     p10 de abates por partida: 19.000  (real 16)
+     p90 de abates por partida: 36.000  (real 38)
+     p10 da duracao (min): 28.250  (real 26,5)
+     p90 da duracao (min): 41.000  (real 39,5)
+     partidas abaixo de 25 min: 0.007  (real 0,06)
+     tempo ate o 1o aviso de preparo do dragao (s): 75.000  (real sem fonte)
+     tempo ate o 1o aviso de preparo do Barao (s): 135  (real sem fonte)
+     mediana do 1o dragao, jogo parelho (s): 465  (real ~550 (spec: ~9:00))
+     mediana do 1o dragao, quem domina bot+mid (s): n/a  (real ~420 (spec: ~7:00))
+
+=== curva do Caos (cenario app, N=600 por ponto) ===
+abates por partida no slider 0 / 0.25 / 0.5 / 0.75 / 1: 25.92 / 30.57 / 36.28 / 38.90 / 42.97
